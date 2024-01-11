@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6241148257356088467}
   - component: {fileID: 4353667054801772733}
-  - component: {fileID: -6120966380258025187}
+  - component: {fileID: 4474258376640650290}
   - component: {fileID: 801919553292497242}
+  - component: {fileID: -2662844308579638568}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1327499133, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &-6120966380258025187
+--- !u!70 &4474258376640650290
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,5 +134,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e26edf71dca70641b789d0c4009c918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  atkSpeed: 0
+  skillId: 0
+  damage: 10
+  penetrate: 99
+  bulletSpeed: 0
+  target: {fileID: 0}
+--- !u!50 &-2662844308579638568
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340391740326912275}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

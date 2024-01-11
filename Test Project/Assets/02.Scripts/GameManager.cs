@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
 
     public Player player;
     public PoolManager pool;
+    public Scanner scanner;
     public float gameTime;
     public float waveChangeTime;
 

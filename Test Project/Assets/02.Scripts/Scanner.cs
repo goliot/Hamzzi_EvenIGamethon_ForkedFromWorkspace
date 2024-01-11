@@ -14,14 +14,15 @@ public class Scanner : MonoBehaviour
 
     public Transform GetNearest(Transform poolManager)
     {
+        Debug.Log(poolManager.childCount);
         if (poolManager == null || poolManager.childCount == 0) return null;
 
         Transform lowestChild = null;
         float lowestY = float.MaxValue;
 
-        foreach(Transform child in poolManager)
+        foreach (Transform child in poolManager)
         {
-            if (child.tag == "Enemy")
+            if (child.CompareTag("Enemy") && child.gameObject.activeSelf) // 활성화된 Enemy에 대해서만 고려
             {
                 float childY = child.position.y;
                 if (childY < lowestY)

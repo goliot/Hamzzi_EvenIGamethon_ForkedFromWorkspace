@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, spawnData.Length)]);
     }
-
+    
     IEnumerator SpawnWaveEnemies(int wave)
     {
         for(int i=0; i<wave; i++)
@@ -55,9 +55,10 @@ public class Spawner : MonoBehaviour
 }
 
 [System.Serializable]
-public class SpawnData
+public class SpawnData //몬스터 능력치 데이터
 {
     public int spriteType;
     public int health;
     public float speed;
+    public int exp;
 }

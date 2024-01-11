@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager instance;
+    /// <summary>
+    /// 제네릭 Signleton 구현으로 인해 스태틱 변수를 만들 필요가 없음
+    /// </summary>
+    //public static GameManager instance; 
+
     public Player player;
     public PoolManager pool;
     public float gameTime;
@@ -12,11 +16,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        base.Initialize();
+        //instance = this; // 제네릭 Singleton 스크립트 안에 Initialize()를 통해 자기 자신에 할당하는 함수를 미리 생성해놓음
     }
 
     private void Update()
     {
         gameTime += Time.deltaTime;
     }
+
 }

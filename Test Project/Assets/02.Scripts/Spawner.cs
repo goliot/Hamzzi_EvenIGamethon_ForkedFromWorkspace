@@ -17,12 +17,12 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.instance.waveChangeTime);
+        InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
     }
 
     private void Update()
     {
-        float gameTime = GameManager.instance.gameTime;
+        float gameTime = GameManager.Inst.gameTime;
         if (currentWave >= maxWave)
         {
             CancelInvoke("IncreaseWave");
@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        GameObject enemy = GameManager.instance.pool.Get(0);    
+        GameObject enemy = GameManager.Inst.pool.Get(0);    
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, spawnData.Length)]);
     }

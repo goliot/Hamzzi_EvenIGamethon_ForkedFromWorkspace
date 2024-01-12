@@ -41,7 +41,7 @@
 - XML 파싱 틀 제작
     - 현재는 메인 캐릭터의 데이터가 파싱되도록 처리됨
     - 추후 몬스터쪽에도 적용할 예정
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7fae7317-bc98-45bc-95ce-b5580492e40a" width = "420" height = "930">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7fae7317-bc98-45bc-95ce-b5580492e40a" width = "420" height = "930">  
 ---
 ## V.1.0.2 - JS 2024-01-11
 - 싱글톤 제네릭 업데이트
@@ -75,7 +75,7 @@
 - 적 움직임 작성
     - 적 움직임은 Y축으로 내려오는 움직임만 필요하므로 해당 부분 작성
 - 각 웨이브 시간마다 다음 웨이브가 몰려오도록 작성
-<img src = "https://github.com/Jinlee0206/Jinlee0206.github.io/assets/105345909/ae6f4c1b-b2de-4e65-a4fb-89fe67223a1a" width = "420" height = "930">
+<img src = "https://github.com/Jinlee0206/Jinlee0206.github.io/assets/105345909/ae6f4c1b-b2de-4e65-a4fb-89fe67223a1a" width = "420" height = "930">  
 ---
 ## V.1.0.0 - JS 2024-01-10
 - 전투 기획 초안

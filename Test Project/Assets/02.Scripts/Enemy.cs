@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Bullet")) return;
+        if (!collision.CompareTag("Bullet") || !isLive) return; // 사망 로직 연달아 발생하는 것을 방지
 
         health -= collision.GetComponent<Bullet>().damage;
         Debug.Log("피격");
@@ -99,6 +99,9 @@ public class Enemy : MonoBehaviour
         else //죽었을 때
         {
             Dead();
+            // 플레이어의 경험치 상승
+            GameManager.Inst.kill++;
+            GameManager.Inst.GetExp();
         }
     }
 

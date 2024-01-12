@@ -15,15 +15,52 @@ public class GameManager : Singleton<GameManager>
     public float gameTime;
     public float waveChangeTime;
 
+    /// <summary>
+    /// 몬스터를 처치하고 레벨업을 하게 구현
+    /// </summary>
+    [Header("Player Info")]
+    public int level; // 플레이어의 현재 레벨
+    public int kill; // 플레이어의 현재 킬수(UI 상 표기하진 않지만 우선 기록)
+    public int exp; // 현재까지 쌓은 경험치 0~100% 까지 표기
+    public int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 600 }; // 다음 레벨에 필요한 경험치량 임의로 설정 Test용
+
+    #region
+    /// <summary>
+    /// Player 현재 체력, 최대 체력에 관련된 Data 인데 이거 구조체로 만들어 두신 곳으로 빼내야 할지 논의 필요
+    /// 임시 UI Test용 임시 작성이라 생각하시면 됩니다.
+    /// </summary>
+    /// 
+    public int health;              // 플레이어의 현재체력
+    public int maxHealth = 100;     // 플레이어의 최대체력
+
+    #endregion
+
     private void Awake()
     {
         base.Initialize();
         //instance = this; // 제네릭 Singleton 스크립트 안에 Initialize()를 통해 자기 자신에 할당하는 함수를 미리 생성해놓음
     }
 
+    private void Start()
+    {
+        health = maxHealth; // 현재 체력을 최대 체력으로 초기화
+    }
+
     private void Update()
     {
         gameTime += Time.deltaTime;
+    }
+
+    // 경험치 증가 함수
+    public void GetExp()
+    {
+        exp++;
+        // 필요 경험치에 도달하면 레벨업
+        if(exp == nextExp[level])
+        {
+            level++;
+            exp = 0; // 경험치 초기화
+        }
     }
 
 }

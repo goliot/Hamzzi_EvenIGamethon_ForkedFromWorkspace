@@ -41,21 +41,22 @@ public class UIManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("UI_Proto");
+        SceneManager.LoadScene("Battle_Proto");
     }
 
     public void ToggleGameSpeed()
     {
-        if(isGameSpeedIncreased)
+        isGameSpeedIncreased = !isGameSpeedIncreased; // 상태 토글
+
+        if (isGameSpeedIncreased)
+        {
+            Debug.Log("게임 속도 : 1.5배속");
+            Time.timeScale = 1.5f; // 게임 속도 2배로
+        }
+        else
         {
             Debug.Log("게임 속도 : 1배속");
             Time.timeScale = 1.0f; // 원래 속도로
         }
-        else
-        {
-            Debug.Log("게임 속도 : 1.5배속");
-            Time.timeScale = 1.5f; // 게임 속도 1.5배로
-        }
-        isGameSpeedIncreased = !isGameSpeedIncreased; // 상태 토글
     }
 }

@@ -30,13 +30,12 @@ public class Singleton<T> : MonoBehaviour where T : Component
         if(_inst == null)
         {
             _inst = this as T;
-            DontDestroyOnLoad(gameObject); // 씬이 전환되어도 게임오브젝트를 파괴하지 않는다
+            //DontDestroyOnLoad(gameObject); // 씬이 전환되어도 게임오브젝트를 파괴하지 않는다 
+                                             // 당장 필요없기 때문에 비활성화
         }
         else
         {
             Destroy(this);
         }
     }
-
-
 }

@@ -1,23 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
+using System.IO;
+using System;
+using System.Xml.Serialization;
 
-public class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
     public Transform[] spawnPoint;
-    public SpawnData[] spawnData;
+    public List<SpawnData> spawnData = new List<SpawnData>();
+    string xmlFileName = "MobData";
 
     public int currentWave;
     public int maxWave = 20;
 
+    void Start()
+    {
+        LoadXML(xmlFileName);
+        InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
+    }
+
+    private void LoadXML(string _fileName)
+    {
+        TextAsset txtAsset = (TextAsset)Resources.Load(_fileName);
+        if (txtAsset == null)
+        {
+            Debug.LogError("Failed to load XML file: " + _fileName);
+            return;
+        }
+
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(txtAsset.text);
+
+        // 전체 아이템 가져오기 예제.
+        XmlNodeList all_nodes = xmlDoc.SelectNodes("root/Sheet1");
+        foreach (XmlNode node in all_nodes)
+        {
+            SpawnData newData = new SpawnData();
+
+            newData.spriteType = int.Parse(node.SelectSingleNode("spriteType").InnerText);
+            newData.health = float.Parse(node.SelectSingleNode("health").InnerText);
+            newData.damage = float.Parse(node.SelectSingleNode("damage").InnerText);
+            newData.atkSpeed = float.Parse(node.SelectSingleNode("atkSpeed").InnerText);
+            newData.speed = float.Parse(node.SelectSingleNode("speed").InnerText);
+
+            spawnData.Add(newData);
+        }
+    }
+
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
-    }
-
-    private void Start()
-    {
-        InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
     }
 
     private void Update()
@@ -40,12 +74,13 @@ public class Spawner : MonoBehaviour
     void Spawn()
     {
         GameObject enemy = GameManager.Inst.pool.Get(0);    
-        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, spawnData.Length)]);
+        enemy.transform.position = spawnPoint[UnityEngine.Random.Range(1, spawnPoint.Length)].position;
+        enemy.GetComponent<Enemy>().Init(spawnData[UnityEngine.Random.Range(0, spawnData.Count)]);
     }
     
     IEnumerator SpawnWaveEnemies(int wave)
     {
+        //여기에 for문에 웨이브별 몬스터 수 정보를 넣으면 된다
         for(int i=0; i<wave; i++)
         {
             Spawn();
@@ -58,7 +93,8 @@ public class Spawner : MonoBehaviour
 public class SpawnData //몬스터 능력치 데이터
 {
     public int spriteType;
-    public int health;
+    public float health;
+    public float damage;
+    public float atkSpeed;
     public float speed;
-    public int exp;
 }

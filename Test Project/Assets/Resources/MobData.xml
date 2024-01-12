@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Sheet1>
+		<spriteType>0</spriteType>
+		<health>10</health>
+		<damage>93</damage>
+		<atkSpeed>3.5</atkSpeed>
+		<speed>2.7</speed>
+	</Sheet1>
+	<Sheet1>
+		<spriteType>1</spriteType>
+		<health>5</health>
+		<damage>51</damage>
+		<atkSpeed>2.7</atkSpeed>
+		<speed>1.2</speed>
+	</Sheet1>
+</root>

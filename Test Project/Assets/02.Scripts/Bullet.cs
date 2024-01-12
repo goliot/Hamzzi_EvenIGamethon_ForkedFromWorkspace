@@ -8,9 +8,12 @@ public class Bullet : MonoBehaviour
     public float damage;
     public int penetrate; //관통 횟수 -> 0이라면 한번 부딪히면 끝, -1이면 무한
     public float bulletSpeed; //투사체 속도
+    public float atkRange;
     public Transform target;
 
     Rigidbody2D rb;
+    private Vector3 initialDirection;
+    private Transform initialLocation;
 
     private void Awake()
     {
@@ -23,19 +26,29 @@ public class Bullet : MonoBehaviour
         damage = playerData.damage;
         penetrate = playerData.penetrate;
         bulletSpeed = playerData.bulletSpeed;
+        atkRange = playerData.atkRange;
+    }
+
+    private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음
+    {
+        initialLocation = GameManager.Inst.player.fireArea;
+        target = GameManager.Inst.player.target;
+        initialDirection = target.position - initialLocation.position;
     }
 
     private void Update()
     {
-        if(target == null || !target.gameObject.activeSelf)
+        /*if(target == null || !target.gameObject.activeSelf)
         {
             gameObject.SetActive(false);
             return;
-        }
+        }*/
 
-        Vector2 direction = target.position - transform.position;
-        rb.velocity = direction * bulletSpeed;
-        gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        if (gameObject.activeSelf)
+        {
+            rb.velocity = initialDirection.normalized * bulletSpeed;
+            gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

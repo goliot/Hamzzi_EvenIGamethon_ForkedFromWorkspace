@@ -7,11 +7,13 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
-    public float exp;
+    public float damage;
+    public float atkSpeed;
     public RuntimeAnimatorController[] animCon;
 
     bool isWallHit = false;
     bool isLive = false;
+    bool isWallAttackInProgress = false;
 
     Rigidbody2D rb;
     Animator anim;
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         isLive = true;
+        isWallHit = false;
         health = maxHealth;
     }
 
@@ -35,10 +38,11 @@ public class Enemy : MonoBehaviour
     public void Init(SpawnData data)
     {
         anim.runtimeAnimatorController = animCon[data.spriteType];
-        speed = data.speed;
-        maxHealth = data.health;
         health = data.health;
-        exp = data.exp;
+        maxHealth = data.health;
+        damage = data.damage;
+        atkSpeed = data.atkSpeed;
+        speed = data.speed;
     }
 
     private void Update()
@@ -49,15 +53,29 @@ public class Enemy : MonoBehaviour
             Vector2 movement = Vector2.down * speed * Time.deltaTime;
             rb.MovePosition(rb.position + movement);
         }
+
+        if(speed == 0f && !isWallAttackInProgress) //벽에 도달
+        {
+            GameObject wall = GameObject.Find("Wall");
+            StartCoroutine(WallAttack(wall));
+        }
+    }
+
+    IEnumerator WallAttack(GameObject wall)
+    {
+        isWallAttackInProgress = true; // 공격이 시작됨을 표시
+
+        yield return new WaitForSeconds(atkSpeed);
+        wall.GetComponent<Wall>().getDamage(damage);
+
+        isWallAttackInProgress = false; // 공격이 끝남을 표시
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //벽과 충돌 로직
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("벽에 도달");
             speed = 0f;  // 벽에 도달하면 속도를 0으로 설정
-            Destroy(rb);
             isWallHit = true;
         }
         else if (collision.gameObject.CompareTag("Enemy"))
@@ -73,7 +91,8 @@ public class Enemy : MonoBehaviour
 
         health -= collision.GetComponent<Bullet>().damage;
         Debug.Log("피격");
-        if(health > 0) //피격 후 생존
+
+        if (health > 0) //피격 후 생존
         {
 
         }

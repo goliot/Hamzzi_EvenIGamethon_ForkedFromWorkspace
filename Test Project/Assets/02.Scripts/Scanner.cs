@@ -14,7 +14,6 @@ public class Scanner : MonoBehaviour
 
     public Transform GetNearest(Transform poolManager)
     {
-        Debug.Log(poolManager.childCount);
         if (poolManager == null || poolManager.childCount == 0) return null;
 
         Transform lowestChild = null;

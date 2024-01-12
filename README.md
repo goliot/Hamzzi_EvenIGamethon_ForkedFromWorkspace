@@ -20,7 +20,13 @@
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
 ---
-
+## V.1.0.4 - SM 2024-01-12
+- 자동공격 로직 작성
+- 스킬에 따른 다른 쿨타임 독자적으로 돌아가도록 작성
+- 몬스터 Xml 데이터 파싱 적용
+- 벽 체력 설정
+	- 벽 피격 로직
+---
 ## V.1.0.3 - SM 2024-01-11
 #### Battle_Proto 씬 작업
 - 총알 오브젝트 풀링
@@ -35,7 +41,7 @@
 - XML 파싱 틀 제작
     - 현재는 메인 캐릭터의 데이터가 파싱되도록 처리됨
     - 추후 몬스터쪽에도 적용할 예정
-> 여기도 사진 넣을게요
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7fae7317-bc98-45bc-95ce-b5580492e40a" width = "420" height = "930">
 ---
 ## V.1.0.2 - JS 2024-01-11
 - 싱글톤 제네릭 업데이트
@@ -69,14 +75,13 @@
 - 적 움직임 작성
     - 적 움직임은 Y축으로 내려오는 움직임만 필요하므로 해당 부분 작성
 - 각 웨이브 시간마다 다음 웨이브가 몰려오도록 작성
-> 여기에 사진 넣을건데 어떻게 넣는건지 모르겠어요
+<img src = "https://github.com/Jinlee0206/Jinlee0206.github.io/assets/105345909/ae6f4c1b-b2de-4e65-a4fb-89fe67223a1a" width = "420" height = "930">
 ---
 ## V.1.0.0 - JS 2024-01-10
 - 전투 기획 초안
   <details>
   <summary> 접기/펼치기 </summary>  
-    
-  <img src = "https://github.com/Jinlee0206/Jinlee0206.github.io/assets/105345909/ae6f4c1b-b2de-4e65-a4fb-89fe67223a1a" width = "420" height = "930">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/f2f72556-ab26-4a0d-860c-51dd179601a8" width = "420" height = "930">
  </details>
 
 - 해상도 조절  

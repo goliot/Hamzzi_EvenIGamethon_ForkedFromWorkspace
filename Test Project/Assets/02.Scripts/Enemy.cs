@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour
             if (gameObject.activeSelf)
             {
                 isWallAttackInProgress = true; // 공격이 시작됨을 표시
+                anim.SetTrigger("Attack");
                 wall.GetComponent<Wall>().getDamage(damage);
                 //공격모션이 있다면 SetTrigger로 해보자
                 isWallAttackInProgress = false; // 공격이 끝남을 표시
@@ -105,7 +106,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(KnockBack());
         if (health > 0) //피격 후 생존
         {
-            anim.SetTrigger("Hit");
+            //anim.SetTrigger("Hit");
         }
         else //죽었을 때
         {

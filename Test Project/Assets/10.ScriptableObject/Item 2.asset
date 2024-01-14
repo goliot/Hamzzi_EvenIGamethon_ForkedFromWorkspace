@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa84b0d4e302294098909fd7ba2dc74, type: 3}
+  m_Name: Item 2
+  m_EditorClassIdentifier: 
+  cardType: 1
+  cardId: 0
+  cardName: "\uBD90\uBC14\uB974\uB2E4"
+  cardDesc: 
+  cardIcon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  baseDamage: 5
+  baseCount: 6
+  damages:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  counts: 0100000002000000030000000400000005000000
+  projectiles: {fileID: 2340391740326912275, guid: 2929c736218f3bc44b8c852f26102d14, type: 3}

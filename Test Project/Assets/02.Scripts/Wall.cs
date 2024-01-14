@@ -5,6 +5,13 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     public float health;
+    public float maxHealth;
+
+    private void Start()
+    {
+        maxHealth = 3500f;
+        health = maxHealth;
+    }
 
     public void getDamage(float damage)
     {

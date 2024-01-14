@@ -3,7 +3,7 @@
 	<Sheet1>
 		<skillId>1</skillId>
 		<penetrate>0</penetrate>
-		<damage>0</damage>
+		<damage>1</damage>
 		<atkSpeed>1</atkSpeed>
 		<bulletSpeed>15</bulletSpeed>
 		<atkRange>7</atkRange>
@@ -11,7 +11,7 @@
 	<Sheet1>
 		<skillId>2</skillId>
 		<penetrate>1</penetrate>
-		<damage>0</damage>
+		<damage>1</damage>
 		<atkSpeed>2</atkSpeed>
 		<bulletSpeed>10</bulletSpeed>
 		<atkRange>5</atkRange>

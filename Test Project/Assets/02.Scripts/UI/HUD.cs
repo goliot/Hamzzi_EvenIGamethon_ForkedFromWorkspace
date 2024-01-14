@@ -6,18 +6,29 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Time, Health}
+    public enum InfoType { Exp, Level, Time, Health, Wave}
     public InfoType type;
 
-    TextMeshProUGUI lvText;
-    TextMeshProUGUI timeText;
+    Text lvText;
+    Text timeText;
+    Text waveText;
     Slider expSlider;
+    Slider hpSlider;
+
+    public Spawner spawner;
 
     private void Awake()
     {
-        lvText = GetComponent<TextMeshProUGUI>();
-        timeText = GetComponent<TextMeshProUGUI>();
+        lvText = GetComponent<Text>();
+        timeText = GetComponent<Text>();
+        waveText = GetComponent<Text>();
         expSlider = GetComponent<Slider>();
+        hpSlider = GetComponent<Slider>();
+    }
+
+    private void Start()
+    {
+        spawner = FindObjectOfType<Spawner>();
     }
 
     private void LateUpdate()
@@ -39,6 +50,12 @@ public class HUD : MonoBehaviour
                 timeText.text = string.Format("{0:D2}:{1:D2}", min, sec);
                 break;
             case InfoType.Health:
+                float curHealth = GameManager.Inst.wall.health;
+                float maxHealth = GameManager.Inst.wall.maxHealth;
+                hpSlider.value = curHealth / maxHealth;
+                break;
+            case InfoType.Wave:
+                waveText.text = "Wave: " + spawner.currentWave + " / " + spawner.maxWave;
                 break;
 
         }

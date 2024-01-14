@@ -30,9 +30,8 @@ public class GameManager : Singleton<GameManager>
     /// 임시 UI Test용 임시 작성이라 생각하시면 됩니다.
     /// </summary>
     /// 
-    public int health;              // 플레이어의 현재체력
-    public int maxHealth = 100;     // 플레이어의 최대체력
-
+    [HideInInspector]
+    public Wall wall; // 벽 참조, HP 데이터를 벽이 가지고 있음
     #endregion
 
     private void Awake()
@@ -41,10 +40,6 @@ public class GameManager : Singleton<GameManager>
         //instance = this; // 제네릭 Singleton 스크립트 안에 Initialize()를 통해 자기 자신에 할당하는 함수를 미리 생성해놓음
     }
 
-    private void Start()
-    {
-        health = maxHealth; // 현재 체력을 최대 체력으로 초기화
-    }
 
     private void Update()
     {
@@ -62,5 +57,4 @@ public class GameManager : Singleton<GameManager>
             exp = 0; // 경험치 초기화
         }
     }
-
 }

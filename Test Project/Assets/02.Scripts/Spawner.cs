@@ -5,6 +5,7 @@ using System.Xml;
 using System.IO;
 using System;
 using System.Xml.Serialization;
+using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
@@ -12,32 +13,10 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public List<SpawnData> spawnData = new List<SpawnData>();
     string xmlFileName = "MobData";
 
+    public event UnityAction<int> OnWaveChanged; // 웨이브 바뀔 때 알려주는 UnityAction
+
     public int currentWave;
     public int maxWave = 20;
-
-    public int[,] waveInfo = new int[,]
-    {
-        {2, 0},
-        {3, 0},
-        {4, 0},
-        {5, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-        {6, 0},
-    };
 
     void Start()
     {
@@ -91,7 +70,14 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     private void IncreaseWaveAndWaveStart()
     {
         currentWave++;
-        //Debug.Log("Wave " + currentWave + " 시작");
+        Debug.Log("Wave " + currentWave + " 시작");
+
+
+        // 추가 작성 부분
+        if (OnWaveChanged != null) 
+            OnWaveChanged.Invoke(currentWave);          // 웨이브 바뀔 때, 
+
+
         StartCoroutine(SpawnWaveEnemies(currentWave));
     }
 
@@ -104,14 +90,13 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     
     IEnumerator SpawnWaveEnemies(int wave)
     {
-        int mobsThisWave = waveInfo[wave-1, 0]; //현재 웨이브에 나와야 할 몹 수
-        //Debug.Log(mobsThisWave);
-        for(int i=0; i<mobsThisWave; i++)
+        //여기에 for문에 웨이브별 몬스터 수 정보를 넣으면 된다
+        for(int i=0; i<wave; i++)
         {
             Spawn();
             yield return new WaitForSeconds(0.5f);
         }
-    } //여기는 나중에 스테이지-챕터까지 다 구현이 된다면 xml로 받아오게 수정
+    }
 }
 
 [System.Serializable]

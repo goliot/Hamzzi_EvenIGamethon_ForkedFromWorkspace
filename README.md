@@ -29,6 +29,7 @@
 - 확정된 에셋 애니메이션 상속구조 생성, 몬스터에 적용
     - 내일 할 일 -> Idle 모션 만들기, 상속구조 수정
 <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/dc71ef49-5f08-4f8e-b83e-3ae3d69e813f" width = "200" height = "320">
+
 ---
 ## V.1.1.0 - JS 2024-01-12
 - 해상도 변경

@@ -17,11 +17,13 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
     Animator anim;
+    WaitForFixedUpdate wait;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();    
+        wait = new WaitForFixedUpdate();
     }
 
     private void OnEnable()
@@ -54,21 +56,26 @@ public class Enemy : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
 
-        if(speed == 0f && !isWallAttackInProgress) //벽에 도달
+        /*if(speed == 0f && !isWallAttackInProgress) //벽에 도달
         {
             GameObject wall = GameObject.Find("Wall");
             StartCoroutine(WallAttack(wall));
-        }
+        }*/
     }
 
     IEnumerator WallAttack(GameObject wall)
     {
-        isWallAttackInProgress = true; // 공격이 시작됨을 표시
-
-        yield return new WaitForSeconds(atkSpeed);
-        wall.GetComponent<Wall>().getDamage(damage);
-
-        isWallAttackInProgress = false; // 공격이 끝남을 표시
+        while (true)
+        {
+            if (gameObject.activeSelf)
+            {
+                isWallAttackInProgress = true; // 공격이 시작됨을 표시
+                wall.GetComponent<Wall>().getDamage(damage);
+                //공격모션이 있다면 SetTrigger로 해보자
+                isWallAttackInProgress = false; // 공격이 끝남을 표시
+                yield return new WaitForSeconds(atkSpeed);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //벽과 충돌 로직
@@ -77,8 +84,10 @@ public class Enemy : MonoBehaviour
         {
             speed = 0f;  // 벽에 도달하면 속도를 0으로 설정
             isWallHit = true;
+            GameObject wall = GameObject.Find("Wall");
+            StartCoroutine(WallAttack(wall));
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             // "Enemy"와 충돌했을 때는 무시하고 그냥 겹치게 둠
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
@@ -92,9 +101,11 @@ public class Enemy : MonoBehaviour
         health -= collision.GetComponent<Bullet>().damage;
         Debug.Log("피격");
 
+        //넉백 구현
+        StartCoroutine(KnockBack());
         if (health > 0) //피격 후 생존
         {
-
+            anim.SetTrigger("Hit");
         }
         else //죽었을 때
         {
@@ -104,6 +115,13 @@ public class Enemy : MonoBehaviour
             GameManager.Inst.GetExp();
         }
     }
+
+    IEnumerator KnockBack()
+    {
+        yield return wait;
+        float knockBackDistance = 0.5f; // Adjust as needed
+    }
+
 
     void Dead()
     {

@@ -9,7 +9,7 @@ public class Wall : MonoBehaviour
     public void getDamage(float damage)
     {
         health -= damage;
-        Debug.Log("벽 피격 : " + damage);
+        Debug.Log("벽 피격 : " + damage + " 현재 체력: " + health);
 
         if(health <= 0)
         {

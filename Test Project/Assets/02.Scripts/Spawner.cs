@@ -15,6 +15,30 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public int currentWave;
     public int maxWave = 20;
 
+    public int[,] waveInfo = new int[,]
+    {
+        {2, 0},
+        {3, 0},
+        {4, 0},
+        {5, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+        {6, 0},
+    };
+
     void Start()
     {
         LoadXML(xmlFileName);
@@ -67,7 +91,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     private void IncreaseWaveAndWaveStart()
     {
         currentWave++;
-        Debug.Log("Wave " + currentWave + " 시작");
+        //Debug.Log("Wave " + currentWave + " 시작");
         StartCoroutine(SpawnWaveEnemies(currentWave));
     }
 
@@ -80,13 +104,14 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     
     IEnumerator SpawnWaveEnemies(int wave)
     {
-        //여기에 for문에 웨이브별 몬스터 수 정보를 넣으면 된다
-        for(int i=0; i<wave; i++)
+        int mobsThisWave = waveInfo[wave-1, 0]; //현재 웨이브에 나와야 할 몹 수
+        //Debug.Log(mobsThisWave);
+        for(int i=0; i<mobsThisWave; i++)
         {
             Spawn();
             yield return new WaitForSeconds(0.5f);
         }
-    }
+    } //여기는 나중에 스테이지-챕터까지 다 구현이 된다면 xml로 받아오게 수정
 }
 
 [System.Serializable]

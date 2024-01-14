@@ -120,6 +120,7 @@ public class PlayerData //메인캐릭터 능력치(스킬) 데이터
         if (cooldownTimer > 0f)
         {
             cooldownTimer -= Time.deltaTime;
+            //Debug.Log(skillId + "번 스킬 쿨타임 : " + cooldownTimer);
         }
     }
 }

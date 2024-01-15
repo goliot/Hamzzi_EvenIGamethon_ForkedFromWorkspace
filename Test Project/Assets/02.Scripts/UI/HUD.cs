@@ -55,7 +55,7 @@ public class HUD : MonoBehaviour
                 hpSlider.value = curHealth / maxHealth;
                 break;
             case InfoType.Wave:
-                waveText.text = "Wave: " + spawner.currentWave + " / " + spawner.maxWave;
+                waveText.text = string.Format("Wave : {0:D2} / {1:D2}", spawner.currentWave ,spawner.maxWave);
                 break;
 
         }

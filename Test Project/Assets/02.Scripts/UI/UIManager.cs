@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void GoToHome()
     {
-        Time.timeScale = 1f;
+        GameManager.Inst.Resume();
         SceneManager.LoadScene("Home_Proto");
     }
 

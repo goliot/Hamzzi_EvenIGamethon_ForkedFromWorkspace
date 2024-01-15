@@ -14,42 +14,8 @@ public class Card : MonoBehaviour
 
     Image icon;
     Text textLevel;
-
-    /*public List<CardData2> cardData2 = new List<CardData2>();
-    string xmlFileName = "CardData";
-
-    private void Start()
-    {
-        LoadXML(xmlFileName);
-    }
-
-    private void LoadXML(string _fileName)
-    {
-        TextAsset txtAsset = (TextAsset)Resources.Load(_fileName);
-        if (txtAsset == null)
-        {
-            Debug.LogError("Failed to load XML file: " + _fileName);
-            return;
-        }
-
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.LoadXml(txtAsset.text);
-
-        // 전체 아이템 가져오기 예제.
-        XmlNodeList all_nodes = xmlDoc.SelectNodes("root/Sheet1");
-        foreach (XmlNode node in all_nodes)
-        {
-            CardData2 newData = new CardData2();
-
-            newData.cardId = int.Parse(node.SelectSingleNode("cardId").InnerText);
-            newData.skillId = int.Parse(node.SelectSingleNode("skillId").InnerText);
-            newData.damageUp = float.Parse(node.SelectSingleNode("damageUp").InnerText);
-            newData.penetrateUp = int.Parse(node.SelectSingleNode("penetrateUp").InnerText);
-            newData.desc = node.SelectSingleNode("Desc").InnerText;
-
-            cardData2.Add(newData);
-        }
-    }*/
+    Text textName;
+    Text textDesc;
 
     private void Awake()
     {
@@ -58,6 +24,9 @@ public class Card : MonoBehaviour
 
         Text[] texts = GetComponentsInChildren<Text>();
         textLevel = texts[0];
+        textName = texts[1];
+        textDesc = texts[2];
+        textName.text = cardData.cardName;
     }
 
     private void Update()
@@ -69,9 +38,12 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    // 레벨 텍스트 로직
+    private void OnEnable()
     {
         textLevel.text = "Lv." + (level + 1);
+
+        textDesc.text = string.Format(cardData.cardDesc);
     }
 
     public void OnClick()
@@ -80,15 +52,35 @@ public class Card : MonoBehaviour
         {
             case CardData.CardType.MagicBolt:
                 // 마력구 스킬 1번 카드 증폭(피해)  : 피해량 +60%
+                if(cardData.cardId == 1)
+                {
+                    player.playerData[0].damage *= 1.6f;
+                    Debug.Log("damage : " + player.playerData[0].damage);
+                }
                 // 마력구 스킬 2번 카드 증폭(폭발)  : 폭발 피해 +30%    
+                
                 // 마력구 스킬 3번 카드 관통        : 관통+2 / 피해 +10% 
+                else if (cardData.cardId == 3)
+                {
+                    player.playerData[0].penetrate += 2;
+                    player.playerData[0].damage *= 1.1f;
+                    Debug.Log("damage : " + player.playerData[0].damage + " penetrate : + " + player.playerData[0].penetrate);
+                }
+
                 // 마력구 스킬 4번 카드 쿨타임 감소 : -20%
+                else if (cardData.cardId == 4)
+                {
+                    player.playerData[0].atkSpeed *= 1.2f;
+                }
                 // 마력구 스킬 5번 카드 더블 증폭   : 액서니아와 피해량 +40%
                 // 마력구 스킬 6번 카드 추가        : 폭발 / 관통 (이 선택지가 해금 되어야지 2번과 3번 선택지가 나온다
-                player.playerData[0].damage *= 1.6f;
-                //각 케이스 안에 1~6번 카드 중 어떤 카드인지 검사
+
+                // 각 케이스 안에 1~6번 카드 중 어떤 카드인지 검사
                 break;
             case CardData.CardType.Boom:
+                // 해금을 하는 시스템
+                // 레벨로 제어하는게 편할 것 같다. level0 일때는 playerdata 안에서 비활성화 상태이다가 여기서 클릭되서 레벨 1이 되면 아래 로직 활성화
+
                 break;
             case CardData.CardType.Aqua:
                 break;
@@ -104,6 +96,7 @@ public class Card : MonoBehaviour
 
         level++;
 
+        // 각 카드별 제한 개수를 두지 않을 것인가? 무한으로 선택지가 나오게 할 것인가?
         if(level == cardData.damages.Length)
         {
             GetComponent<Button>().interactable = false;

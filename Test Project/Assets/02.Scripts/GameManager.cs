@@ -9,11 +9,16 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     //public static GameManager instance; 
 
+    [Header("Game Control")]
+    public bool isLive;
+    public float gameTime;
+    public float waveChangeTime;
+
+    [Header("Game Object")]
     public Player player;
     public PoolManager pool;
     public Scanner scanner;
-    public float gameTime;
-    public float waveChangeTime;
+    public LevelUp uiLevelUp;
 
     /// <summary>
     /// 몬스터를 처치하고 레벨업을 하게 구현
@@ -54,7 +59,21 @@ public class GameManager : Singleton<GameManager>
         if(exp == nextExp[level])
         {
             level++;
-            exp = 0; // 경험치 초기화
+            exp = 0;          // 경험치 초기화
+            uiLevelUp.Show(); // 레벨업 UI 켜기
         }
     }
+
+    // 게임 시간 정지
+    public void Stop()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    // 게임 시간 재개
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+    }
+
 }

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Item 0
   m_EditorClassIdentifier: 
   cardType: 0
-  cardId: 0
-  cardName: "\uB9C8\uB825\uAD6C"
-  cardDesc: 
+  cardId: 1
+  cardName: Damage
+  cardDesc: Damage +60%
   cardIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  baseDamage: 4.5
+  baseDamage: 25
   baseCount: 5
   damages:
   - 0.5
@@ -25,5 +25,4 @@ MonoBehaviour:
   - 1.5
   - 2
   - 3
-  counts: 
-  projectiles: {fileID: 2340391740326912275, guid: 2929c736218f3bc44b8c852f26102d14, type: 3}
+  counts: 0100000001000000010000000100000001000000

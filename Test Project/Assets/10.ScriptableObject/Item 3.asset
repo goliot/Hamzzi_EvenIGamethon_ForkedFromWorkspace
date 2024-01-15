@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efa84b0d4e302294098909fd7ba2dc74, type: 3}
-  m_Name: Item 1
+  m_Name: Item 3
   m_EditorClassIdentifier: 
-  cardType: 0
-  cardId: 3
-  cardName: Penetrate
-  cardDesc: 'Penetrate +2
-
-    Damage +10%'
-  cardIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  baseDamage: 4.5
-  baseCount: 5
+  cardType: 1
+  cardId: 2
+  cardName: Boom
+  cardDesc: Boom
+  cardIcon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  baseDamage: 5
+  baseCount: 6
   damages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
   counts: 0100000002000000030000000400000005000000

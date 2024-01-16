@@ -22,7 +22,7 @@
 ## V.1.1.4 - SM 2024-01-16
 - 레벨 디자인 기획서대로 전부 Xml화
 - 스테이지, 챕터 선택창 테스트용 제작
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/073021c1-fcc7-4eca-baf5-547a27572e1a" width = "200" height = "320">
+<p align="center"> <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/073021c1-fcc7-4eca-baf5-547a27572e1a" width = "200" height = "320">
 
 - xml 불러와서 각 웨이브별 소환될 몬스터들을 저장
     - 저장 후 셔플, 섞인대로 소환
@@ -30,7 +30,7 @@
 - 몹, 플레이어, 웨이브 데이터 모두 삽입
     - 정상 작동
 - 몬스터 피격시 데미지 팝업이 뜨도록 설정
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/88022886-73a0-4b7e-b4ff-23f68bd6c2a3" width = "200" height = "320">
+<p align="center"> <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/88022886-73a0-4b7e-b4ff-23f68bd6c2a3" width = "200" height = "320">
 
 ---
 ## V.1.1.3 - JS 2024-01-15
@@ -89,7 +89,7 @@
 - 확정된 에셋 애니메이션 제작
 - 확정된 에셋 애니메이션 상속구조 생성, 몬스터에 적용
     - 내일 할 일 -> Idle 모션 만들기, 상속구조 수정
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/dc71ef49-5f08-4f8e-b83e-3ae3d69e813f" width = "200" height = "320">
+<p align="center"> <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/dc71ef49-5f08-4f8e-b83e-3ae3d69e813f" width = "200" height = "320">
 
 ---
 ## V.1.1.0 - JS 2024-01-12
@@ -127,7 +127,7 @@
 - XML 파싱 틀 제작
     - 현재는 메인 캐릭터의 데이터가 파싱되도록 처리됨
     - 추후 몬스터쪽에도 적용할 예정
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7fae7317-bc98-45bc-95ce-b5580492e40a" width = "180" height = "320">
+<p align="center"> <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7fae7317-bc98-45bc-95ce-b5580492e40a" width = "180" height = "320">
   
 ---
 ## V.1.0.2 - JS 2024-01-11
@@ -162,7 +162,7 @@
 - 적 움직임 작성
     - 적 움직임은 Y축으로 내려오는 움직임만 필요하므로 해당 부분 작성
 - 각 웨이브 시간마다 다음 웨이브가 몰려오도록 작성
-<img src = "https://github.com/Jinlee0206/Jinlee0206.github.io/assets/105345909/ae6f4c1b-b2de-4e65-a4fb-89fe67223a1a" width = "180" height = "320">
+<p align="center"> <img src = "https://github.com/Jinlee0206/Jinlee0206.github.io/assets/105345909/ae6f4c1b-b2de-4e65-a4fb-89fe67223a1a" width = "180" height = "320">
   
 ---
 ## V.1.0.0 - JS 2024-01-10

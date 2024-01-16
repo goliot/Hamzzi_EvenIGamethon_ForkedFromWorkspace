@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [Header ("#Info")]
     public float speed;
     public float health;
     public float maxHealth;
     public float damage;
     public float atkSpeed;
     public RuntimeAnimatorController[] animCon;
+
+    [Header("#Damage Pop Up")]
+    public GameObject dmgText;
+    public Text popupText;
+    public GameObject dmgCanvas;
 
     bool isWallHit = false;
     bool isLive = false;
@@ -31,6 +38,7 @@ public class Enemy : MonoBehaviour
         isLive = true;
         isWallHit = false;
         health = maxHealth;
+        dmgCanvas = GameObject.Find("DmgPopUpCanvas");
     }
 
     /// <summary>
@@ -103,7 +111,16 @@ public class Enemy : MonoBehaviour
         Debug.Log("피격");
 
         //넉백 구현
-        StartCoroutine(KnockBack());
+        //StartCoroutine(KnockBack());
+
+        //받은 데미지 팝업으로 보여주기
+        /*popupText.text = collision.GetComponent<Bullet>().damage.ToString();
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2, 0);
+        Instantiate(dmgText, pos, Quaternion.identity);
+        dmgText.transform.SetParent(dmgCanvas.transform, false);*/
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
+        GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
+        popupText.text = collision.GetComponent<Bullet>().damage.ToString();
         if (health > 0) //피격 후 생존
         {
             //anim.SetTrigger("Hit");

@@ -6,22 +6,36 @@ using System.IO;
 using System;
 using System.Xml.Serialization;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
     public Transform[] spawnPoint;
     public List<SpawnData> spawnData = new List<SpawnData>();
     string xmlFileName = "MobData";
+    string stageXmlFileName;
+
+    [Header("#StageInfo")]
+    public int chapter;
+    public int stage;
+    public List<StageWaveData> stageWaveData = new List<StageWaveData>();
 
     public event UnityAction<int> OnWaveChanged; // 웨이브 바뀔 때 알려주는 UnityAction
 
     public int currentWave;
     public int maxWave = 20;
+    public int stageMobCount = 0; //현재 스테이지에서 나오는 총 몹의 수 -> 승리 로직에 사용
 
     void Start()
     {
         LoadXML(xmlFileName);
         InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
+
+        //웨이브 정보 관련 함수
+        chapter = StageSelect.instance.chapter;
+        stage = StageSelect.instance.stage;
+        stageXmlFileName = "Chapter" + chapter;
+        LoadStageXml(stageXmlFileName);
     }
 
     private void LoadXML(string _fileName)
@@ -52,6 +66,35 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         }
     }
 
+    private void LoadStageXml(string _fileName)
+    {
+        TextAsset txtAsset = (TextAsset)Resources.Load(_fileName);
+        if (txtAsset == null)
+        {
+            Debug.LogError("Failed to load XML file: " + _fileName);
+            return;
+        }
+
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(txtAsset.text);
+
+        // 전체 아이템 가져오기 예제.
+        XmlNodeList all_nodes = xmlDoc.SelectNodes("root/Sheet1");
+        foreach (XmlNode node in all_nodes)
+        {
+            StageWaveData newData = new StageWaveData();
+
+            newData.wave = int.Parse(node.SelectSingleNode("wave").InnerText);
+            newData.mob1 = int.Parse(node.SelectSingleNode("mob1").InnerText);
+            newData.mob2 = int.Parse(node.SelectSingleNode("mob2").InnerText);
+            newData.mob3 = int.Parse(node.SelectSingleNode("mob3").InnerText);
+            newData.semiBoss = int.Parse(node.SelectSingleNode("semiBoss").InnerText);
+            newData.boss = int.Parse(node.SelectSingleNode("boss").InnerText);
+
+            stageWaveData.Add(newData);
+        }
+    }
+
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
@@ -67,6 +110,11 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         }
     }
 
+    void Victory()
+    {
+        //승리 로직
+    }
+
     private void IncreaseWaveAndWaveStart()
     {
         currentWave++;
@@ -74,27 +122,120 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
 
         // 추가 작성 부분
-        if (OnWaveChanged != null) 
+        if (OnWaveChanged != null)
             OnWaveChanged.Invoke(currentWave);          // 웨이브 바뀔 때, 
 
 
         StartCoroutine(SpawnWaveEnemies(currentWave));
     }
 
-    void Spawn()
+    void Spawn(int index)
     {
-        GameObject enemy = GameManager.Inst.pool.Get(0);    
+        GameObject enemy = GameManager.Inst.pool.Get(0);
         enemy.transform.position = spawnPoint[UnityEngine.Random.Range(1, spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(spawnData[UnityEngine.Random.Range(0, spawnData.Count)]);
+        //enemy.GetComponent<Enemy>().Init(spawnData[UnityEngine.Random.Range(0, spawnData.Count)]);
+        enemy.GetComponent<Enemy>().Init(spawnData[index]);
+
+        SpriteRenderer spriteRenderer = enemy.GetComponent<SpriteRenderer>();
+        spriteRenderer.transform.localScale = new Vector3(4, 4, 1); //scale 초기화값
+
+        if (index % 5 == 0) // 보스 몹일 경우
+        {
+            if (spriteRenderer != null)
+            {
+                // 현재 scale 값을 가져옴
+                Vector3 currentScale = spriteRenderer.transform.localScale;
+
+                // scale 값을 현재 값에 2를 곱함
+                spriteRenderer.transform.localScale = new Vector3(currentScale.x * 2, currentScale.y * 2, currentScale.z);
+            }
+        }
     }
-    
+
     IEnumerator SpawnWaveEnemies(int wave)
     {
-        //여기에 for문에 웨이브별 몬스터 수 정보를 넣으면 된다
-        for(int i=0; i<wave; i++)
+        int[] eachMobThisWave = new int[5];
+        eachMobThisWave[0] = stageWaveData[wave - 1].mob1;
+        eachMobThisWave[1] = stageWaveData[wave - 1].mob2;
+        eachMobThisWave[2] = stageWaveData[wave - 1].mob3;
+        eachMobThisWave[3] = stageWaveData[wave - 1].semiBoss;
+        eachMobThisWave[4] = stageWaveData[wave - 1].boss;
+
+        //각 챕터별로 mob1, 2, 3, semi, boss가 프리팹에서 몇번째꺼를 불러오는지 알아야 함
+        //그 데이터를 받아서 리스트에 숫자별로 저장한 다음, 섞어서 소환
+        //각 몹별로 spawnData에서 몇번째 원소인지 알아보자
+        int[] eachIndex = new int[5]; //mob1, mob2, mob3, semiBoss, boss
+        switch(chapter)
         {
-            Spawn();
+            case 1:
+                for(int i=0; i<5; i++)
+                {
+                    eachIndex[i] = i;
+                }
+                break;
+            case 2: 
+                for(int i=0; i<5; i++)
+                {
+                    eachIndex[i] = i + 5;
+                }
+                break;
+            case 3:
+                for(int i=0; i<5; i++)
+                {
+                    eachIndex[i] = i + 10;
+                }
+                break;
+            case 4: 
+                for(int i=0; i<5; i++)
+                {
+                    eachIndex[i] = i + 15;
+                }
+                break;
+            default:
+                for (int i = 0; i < 5; i++)
+                {
+                    eachIndex[i] = i;
+                }
+                break;
+        }
+
+        List<int> spawnList = new List<int>();
+        for(int i=0; i<4; i++)
+        {
+            for(int j=0; j < eachMobThisWave[i]; j++)
+            {
+                spawnList.Add(eachIndex[i]);
+            }
+        }
+        ShuffleList(spawnList);
+
+        foreach(var index in spawnList)
+        {
+            Spawn(index);
             yield return new WaitForSeconds(0.5f);
+        }
+
+        /*//여기에 for문에 웨이브별 몬스터 수 정보를 넣으면 된다
+        for (int i = 0; i < mobThisWave; i++)
+        {
+            Spawn(i);
+            yield return new WaitForSeconds(0.5f);
+        }*/
+    }
+
+    // 리스트를 섞는 Fisher-Yates 알고리즘
+    void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        System.Random rng = new System.Random();
+
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
         }
     }
 }
@@ -107,4 +248,15 @@ public class SpawnData //몬스터 능력치 데이터
     public float damage;
     public float atkSpeed;
     public float speed;
+}
+
+[System.Serializable]
+public class StageWaveData
+{ //스테이지, 웨이브별 각 몬스터의 소환 수
+    public int wave;
+    public int mob1;
+    public int mob2;
+    public int mob3;
+    public int semiBoss;
+    public int boss;
 }

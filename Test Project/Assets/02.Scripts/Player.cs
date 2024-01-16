@@ -85,7 +85,6 @@ public class Player : MonoBehaviour
 
     void BulletSpawn(Transform target, PlayerData data)
     {
-        Debug.Log(fireArea.position.x + fireArea.position.y);
         GameObject bullet = GameManager.Inst.pool.Get(1);
         bullet.transform.position = fireArea.position;
         bullet.GetComponent<Bullet>().Init(data);

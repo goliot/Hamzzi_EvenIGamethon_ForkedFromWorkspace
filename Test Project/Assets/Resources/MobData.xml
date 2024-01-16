@@ -1,17 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-	<Sheet1>
-		<spriteType>0</spriteType>
-		<health>10</health>
-		<damage>93</damage>
-		<atkSpeed>3.5</atkSpeed>
-		<speed>2.7</speed>
-	</Sheet1>
-	<Sheet1>
-		<spriteType>1</spriteType>
-		<health>5</health>
-		<damage>51</damage>
-		<atkSpeed>2.7</atkSpeed>
-		<speed>1.2</speed>
-	</Sheet1>
-</root>
+﻿<?xml version="1.0" encoding="utf-8"?><root><Sheet1><spriteType>1</spriteType><health>50</health><damage>20</damage><atkSpeed>3.5</atkSpeed><speed>2.3</speed></Sheet1><Sheet1><spriteType>2</spriteType><health>90</health><damage>15</damage><atkSpeed>2.7</atkSpeed><speed>1.8</speed></Sheet1><Sheet1><spriteType>3</spriteType><health>30</health><damage>40</damage><atkSpeed>3.7</atkSpeed><speed>4</speed></Sheet1><Sheet1><spriteType>4</spriteType><health>150</health><damage>70</damage><atkSpeed>5.2</atkSpeed><speed>2.7</speed></Sheet1><Sheet1><spriteType>5</spriteType><health>500</health><damage>150</damage><atkSpeed>5</atkSpeed><speed>0.5</speed></Sheet1><Sheet1><spriteType>6</spriteType><health>50</health><damage>20</damage><atkSpeed>3.5</atkSpeed><speed>2.3</speed></Sheet1><Sheet1><spriteType>7</spriteType><health>90</health><damage>15</damage><atkSpeed>2.7</atkSpeed><speed>1.8</speed></Sheet1><Sheet1><spriteType>8</spriteType><health>30</health><damage>40</damage><atkSpeed>3.7</atkSpeed><speed>4</speed></Sheet1><Sheet1><spriteType>9</spriteType><health>150</health><damage>70</damage><atkSpeed>5.2</atkSpeed><speed>2.7</speed></Sheet1><Sheet1><spriteType>10</spriteType><health>1000</health><damage>300</damage><atkSpeed>5</atkSpeed><speed>0.5</speed></Sheet1><Sheet1><spriteType>11</spriteType><health>50</health><damage>20</damage><atkSpeed>3.5</atkSpeed><speed>2.3</speed></Sheet1><Sheet1><spriteType>12</spriteType><health>90</health><damage>15</damage><atkSpeed>2.7</atkSpeed><speed>1.8</speed></Sheet1><Sheet1><spriteType>13</spriteType><health>30</health><damage>40</damage><atkSpeed>3.7</atkSpeed><speed>4</speed></Sheet1><Sheet1><spriteType>14</spriteType><health>150</health><damage>70</damage><atkSpeed>5.2</atkSpeed><speed>2.7</speed></Sheet1><Sheet1><spriteType>15</spriteType><health>1500</health><damage>400</damage><atkSpeed>5</atkSpeed><speed>0.5</speed></Sheet1><Sheet1><spriteType>16</spriteType><health>50</health><damage>20</damage><atkSpeed>3.5</atkSpeed><speed>2.3</speed></Sheet1><Sheet1><spriteType>17</spriteType><health>90</health><damage>15</damage><atkSpeed>2.7</atkSpeed><speed>1.8</speed></Sheet1><Sheet1><spriteType>18</spriteType><health>30</health><damage>40</damage><atkSpeed>3.7</atkSpeed><speed>4</speed></Sheet1><Sheet1><spriteType>19</spriteType><health>150</health><damage>70</damage><atkSpeed>5.2</atkSpeed><speed>2.7</speed></Sheet1><Sheet1><spriteType>20</spriteType><health>2000</health><damage>500</damage><atkSpeed>5</atkSpeed><speed>0.5</speed></Sheet1></root>

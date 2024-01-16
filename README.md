@@ -32,6 +32,10 @@
 - 몬스터 피격시 데미지 팝업이 뜨도록 설정
 <p align="center"> <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/88022886-73a0-4b7e-b4ff-23f68bd6c2a3" width = "200" height = "320">
 
+##### 내일 할 일
+- Idle 애니메이션 제작 후 벽에 도달시 Idle, Attack 둘만 나오도록
+- 스킬별 폭발 등 로직 구현
+- 메인햄찌 적용, 애니메이션 코드 구현
 ---
 ## V.1.1.3 - JS 2024-01-15
 - Card.cs 추가 작업

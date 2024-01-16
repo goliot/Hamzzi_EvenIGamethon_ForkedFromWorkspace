@@ -139,7 +139,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         SpriteRenderer spriteRenderer = enemy.GetComponent<SpriteRenderer>();
         spriteRenderer.transform.localScale = new Vector3(4, 4, 1); //scale 초기화값
 
-        if (index % 5 == 0) // 보스 몹일 경우
+        if (index % 5 == 4) // 보스 몹일 경우
         {
             if (spriteRenderer != null)
             {

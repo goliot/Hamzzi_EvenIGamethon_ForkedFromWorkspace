@@ -19,7 +19,20 @@
 |기간| 01.08 ~ 01.26 | 01.27 ~ 02.02 | 02.03 ~ 02.09 | 02.10 ~ 02.23 |
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
+## V.1.1.4 - SM 2024-01-16
+- 레벨 디자인 기획서대로 전부 Xml화
+- 스테이지, 챕터 선택창 테스트용 제작
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/073021c1-fcc7-4eca-baf5-547a27572e1a" width = "200" height = "320">
 
+- xml 불러와서 각 웨이브별 소환될 몬스터들을 저장
+    - 저장 후 셔플, 섞인대로 소환
+    - 프리팹 하나로 모든것을 통제하기 위한 코딩
+- 몹, 플레이어, 웨이브 데이터 모두 삽입
+    - 정상 작동
+- 몬스터 피격시 데미지 팝업이 뜨도록 설정
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/88022886-73a0-4b7e-b4ff-23f68bd6c2a3" width = "200" height = "320">
+
+---
 ## V.1.1.3 - JS 2024-01-15
 - Card.cs 추가 작업
   - Card UI 리팩토링
@@ -56,7 +69,7 @@
 
 <p align ="center"> <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/60afc6fe-d8f7-4384-9dcb-6140e1860570" width = "350" height = "170">
 
---
+---
 
 ## V.1.1.2 - JS 2024-01-14
 - Card, CardData script 작성

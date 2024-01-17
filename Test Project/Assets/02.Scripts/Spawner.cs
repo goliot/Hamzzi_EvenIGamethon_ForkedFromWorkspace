@@ -168,6 +168,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         //enemy.GetComponent<Enemy>().Init(spawnData[UnityEngine.Random.Range(0, spawnData.Count)]);
         enemy.GetComponent<Enemy>().Init(spawnData[index]);
         enemy.GetComponent<Enemy>().health *= mobMagnificationData[(chapter - 1) * 5 + (stage - 1)].mobHealth;
+        enemy.GetComponent<Enemy>().maxHealth *= mobMagnificationData[(chapter - 1) * +(stage - 1)].mobHealth;
         enemy.GetComponent<Enemy>().damage *= mobMagnificationData[(chapter - 1) * 5 + (stage - 1)].mobDamage;
 
         SpriteRenderer spriteRenderer = enemy.GetComponent<SpriteRenderer>();

@@ -20,7 +20,7 @@ public class CardData : ScriptableObject
     [Header("# Level Data")]
     public float baseDamage;    // 0레벨 기준 기본 공격력
     public int baseCount;       // 0레벨 기준 개수
-    public float[] damages;
+    public float[] damages;     // 이 카드의 속성에 해당하는 부분 (살리기)
     public int[] counts;
     #endregion
 }

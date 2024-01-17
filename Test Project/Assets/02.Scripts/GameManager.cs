@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
     public int level; // 플레이어의 현재 레벨
     public int kill; // 플레이어의 현재 킬수(UI 상 표기하진 않지만 우선 기록)
     public int exp; // 현재까지 쌓은 경험치 0~100% 까지 표기
-    public int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 600 }; // 다음 레벨에 필요한 경험치량 임의로 설정 Test용
+    public int[] nextExp = { 3, 5, 10, 15, 20, 25, 30, 35, 40, 45 }; // 다음 레벨에 필요한 경험치량 임의로 설정 Test용
 
     #region
     /// <summary>
@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
     {
         exp++;
         // 필요 경험치에 도달하면 레벨업
-        if(exp == nextExp[level])
+        if(exp == nextExp[Mathf.Min(level, nextExp.Length-1)])
         {
             level++;
             exp = 0;          // 경험치 초기화

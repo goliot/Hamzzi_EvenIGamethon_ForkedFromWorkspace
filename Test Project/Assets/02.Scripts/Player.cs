@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
-using System.IO;
-using System;
-using System.Xml.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -42,6 +39,9 @@ public class Player : MonoBehaviour
             newData.atkSpeed = float.Parse(node.SelectSingleNode("atkSpeed").InnerText);
             newData.bulletSpeed = float.Parse(node.SelectSingleNode("bulletSpeed").InnerText);
             newData.atkRange = float.Parse(node.SelectSingleNode("atkRange").InnerText);
+            newData.explodeDamage = float.Parse(node.SelectSingleNode("explodeDamage").InnerText);
+            newData.isExplode = bool.Parse(node.SelectSingleNode("isExplode").InnerText);
+            newData.isUnlocked = bool.Parse(node.SelectSingleNode("isUnlocked").InnerText);
 
             playerData.Add(newData);
         }
@@ -62,11 +62,38 @@ public class Player : MonoBehaviour
 
         foreach(PlayerData data in playerData)
         {
-            data.UpdateCooldown();
-            if(data.CanUseSkill() && distance < data.atkRange)
+            if (data.isUnlocked)
             {
-                StartCoroutine(Attack(target, data));
-                data.StartCoolDown();
+                data.UpdateCooldown();
+                if (data.CanUseSkill() && distance < data.atkRange)
+                {
+                    //StartCoroutine(Attack(target, data));
+                    switch(data.skillId)
+                    {
+                        case 0: 
+                            StartCoroutine(MagicBall(target, data));
+                            break;
+                        case 1:
+                            StartCoroutine(Bombarda(target, data));
+                            break;
+                        case 2:
+                            StartCoroutine(Aguamenti(target, data));
+                            break;
+                        case 3:
+                            StartCoroutine(Lumos(target, data));
+                            break;
+                        case 4:
+                            StartCoroutine(Aegseonia(target, data));
+                            break;
+                        case 5:
+                            StartCoroutine(Momenseuto(target, data));
+                            break;
+                        case 6:
+                            Pineseuta(target, data);
+                            break;
+                    }
+                    data.StartCoolDown();
+                }
             }
         }
     }
@@ -77,7 +104,43 @@ public class Player : MonoBehaviour
         //이제 총알의 움직임을 구현하자
     }*/
 
-    IEnumerator Attack(Transform target, PlayerData data)
+    IEnumerator MagicBall(Transform target, PlayerData data)
+    {
+        BulletSpawn(target, data);
+        yield return new WaitForSeconds(data.atkSpeed);
+    }
+
+    IEnumerator Bombarda(Transform target, PlayerData data)
+    {
+        BulletSpawn(target, data);
+        yield return new WaitForSeconds(data.atkSpeed);
+    }
+
+    IEnumerator Aguamenti(Transform target, PlayerData data)
+    {
+        BulletSpawn(target, data);
+        yield return new WaitForSeconds(data.atkSpeed);
+    }
+
+    IEnumerator Lumos(Transform target, PlayerData data)
+    {
+        BulletSpawn(target, data);
+        yield return new WaitForSeconds(data.atkSpeed);
+    }
+
+    IEnumerator Aegseonia(Transform target, PlayerData data)
+    {
+        BulletSpawn(target, data);
+        yield return new WaitForSeconds(data.atkSpeed);
+    }
+
+    IEnumerator Momenseuto(Transform target, PlayerData data)
+    {
+        BulletSpawn(target, data);
+        yield return new WaitForSeconds(data.atkSpeed);
+    }
+
+    IEnumerator Pineseuta(Transform target, PlayerData data)
     {
         BulletSpawn(target, data);
         yield return new WaitForSeconds(data.atkSpeed);
@@ -101,6 +164,10 @@ public class PlayerData //메인캐릭터 능력치(스킬) 데이터
     public float atkSpeed; //공격 속도
     public float bulletSpeed; //투사체 속도
     public float atkRange; //사정거리
+    public float explodeDamage;
+    public bool isExplode;
+    public bool isUnlocked;
+    
 
     private float cooldownTimer = 0f;
 

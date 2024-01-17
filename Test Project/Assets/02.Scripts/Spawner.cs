@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public int chapter;
     public int stage;
     public List<StageWaveData> stageWaveData = new List<StageWaveData>();
+    public List<MobMagnificationData> mobMagnificationData = new List<MobMagnificationData>();
+    string magXmlFileName = "MobStatMagnification";
 
     public event UnityAction<int> OnWaveChanged; // 웨이브 바뀔 때 알려주는 UnityAction
 
@@ -36,6 +38,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         stage = StageSelect.instance.stage;
         stageXmlFileName = "Chapter" + chapter;
         LoadStageXml(stageXmlFileName);
+
+        //스테이지별 몹 능력치 배율
+        LoadMagXml(magXmlFileName);
     }
 
     private void LoadXML(string _fileName)
@@ -95,6 +100,33 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         }
     }
 
+    private void LoadMagXml(string _fileName)
+    {
+        TextAsset txtAsset = (TextAsset)Resources.Load(_fileName);
+        if (txtAsset == null)
+        {
+            Debug.LogError("Failed to load XML file: " + _fileName);
+            return;
+        }
+
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(txtAsset.text);
+
+        // 전체 아이템 가져오기 예제.
+        XmlNodeList all_nodes = xmlDoc.SelectNodes("root/Sheet1");
+        foreach (XmlNode node in all_nodes)
+        {
+            MobMagnificationData newData = new MobMagnificationData();
+
+            newData.chpater = int.Parse(node.SelectSingleNode("chapter").InnerText);
+            newData.stage = int.Parse(node.SelectSingleNode("stage").InnerText);
+            newData.mobHealth = float.Parse(node.SelectSingleNode("mobHealth").InnerText);
+            newData.mobDamage = float.Parse(node.SelectSingleNode("mobDamage").InnerText);
+
+            mobMagnificationData.Add(newData);
+        }
+    }
+
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
@@ -135,6 +167,8 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         enemy.transform.position = spawnPoint[UnityEngine.Random.Range(1, spawnPoint.Length)].position;
         //enemy.GetComponent<Enemy>().Init(spawnData[UnityEngine.Random.Range(0, spawnData.Count)]);
         enemy.GetComponent<Enemy>().Init(spawnData[index]);
+        enemy.GetComponent<Enemy>().health *= mobMagnificationData[(chapter - 1) * 5 + (stage - 1)].mobHealth;
+        enemy.GetComponent<Enemy>().damage *= mobMagnificationData[(chapter - 1) * 5 + (stage - 1)].mobDamage;
 
         SpriteRenderer spriteRenderer = enemy.GetComponent<SpriteRenderer>();
         spriteRenderer.transform.localScale = new Vector3(4, 4, 1); //scale 초기화값
@@ -207,6 +241,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
                 spawnList.Add(eachIndex[i]);
             }
         }
+        string output = string.Join(" ", spawnList);
+        Debug.Log("Origin Spawn: " + output);
+
         ShuffleList(spawnList);
 
         foreach(var index in spawnList)
@@ -223,20 +260,24 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         }*/
     }
 
-    // 리스트를 섞는 Fisher-Yates 알고리즘
+    //순서 무작위로 섞기 - FisherYate 알고리즘
     void ShuffleList<T>(List<T> list)
     {
-        int n = list.Count;
-        System.Random rng = new System.Random();
+        System.Random random = new System.Random();
 
-        while (n > 1)
+        int n = list.Count;
+        for (int i = n - 1; i > 0; i--)
         {
-            n--;
-            int k = rng.Next(n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            int j = random.Next(0, i + 1);
+
+            // Swap list[i] and list[j]
+            T temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
         }
+
+        string output = string.Join(" ", list);
+        Debug.Log("Shuffled Spawn: " + output);
     }
 }
 
@@ -259,4 +300,13 @@ public class StageWaveData
     public int mob3;
     public int semiBoss;
     public int boss;
+}
+
+[System.Serializable]
+public class MobMagnificationData
+{
+    public int chpater;
+    public int stage;
+    public float mobHealth;
+    public float mobDamage;
 }

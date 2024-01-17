@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
     public Text popupText;
     public GameObject dmgCanvas;
 
+    [Header("#Color")]
+    public Color hitColor = new Color(1f, 0.5f, 0.5f, 1f);  // 피격 시 적용할 색상
+
+    SpriteRenderer spriteRenderer;
+    Color originalColor;
+
     bool isWallHit = false;
     bool isLive = false;
     bool isWallAttackInProgress = false;
@@ -31,6 +37,8 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();    
         wait = new WaitForFixedUpdate();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     private void OnEnable()
@@ -105,33 +113,40 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Bullet") || !isLive) return; // 사망 로직 연달아 발생하는 것을 방지
+        if (!collision.CompareTag("Bullet") || !isLive) return;
 
         health -= collision.GetComponent<Bullet>().damage;
         Debug.Log("피격");
 
-        //넉백 구현
-        //StartCoroutine(KnockBack());
-
-        //받은 데미지 팝업으로 보여주기
-        /*popupText.text = collision.GetComponent<Bullet>().damage.ToString();
-        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2, 0);
-        Instantiate(dmgText, pos, Quaternion.identity);
-        dmgText.transform.SetParent(dmgCanvas.transform, false);*/
         Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
         GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
         popupText.text = collision.GetComponent<Bullet>().damage.ToString();
-        if (health > 0) //피격 후 생존
+
+        if (health > 0)
         {
-            //anim.SetTrigger("Hit");
+            // 피격 후 생존
+            StartCoroutine(HitEffect());
         }
-        else //죽었을 때
+        else
         {
+            // 죽었을 때
             Dead();
-            // 플레이어의 경험치 상승
             GameManager.Inst.kill++;
             GameManager.Inst.GetExp();
         }
+    }
+
+    IEnumerator HitEffect()
+    {
+        // SpriteRenderer의 색상을 변경하여 어두워지는 효과 부여
+        spriteRenderer.color = hitColor;
+
+        yield return new WaitForSeconds(0.5f);  // 적절한 대기 시간 설정
+
+        // 다시 원래 색상으로 돌아오게 함
+        spriteRenderer.color = originalColor;
+
+        // anim.SetTrigger("Hit");  // 필요에 따라 애니메이션 트리거 설정
     }
 
     IEnumerator KnockBack()

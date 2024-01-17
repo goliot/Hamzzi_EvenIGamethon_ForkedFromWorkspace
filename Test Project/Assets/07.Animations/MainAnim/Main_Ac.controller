@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: art_main-attack-1
+  m_Name: Main_Ac
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

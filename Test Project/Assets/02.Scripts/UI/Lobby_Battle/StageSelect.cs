@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageSelect : MonoBehaviour
 {
@@ -9,11 +10,33 @@ public class StageSelect : MonoBehaviour
 
     public int chapter;
     public int stage;
+    public int max_chapter;
+    public int min_chapter;
 
     private void Awake()
     {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        Initialize();
+    }
+
+    private void Start()
+    {
+        chapter = 1;
+        stage = 1;
+        max_chapter = 5;
+        min_chapter = 1;
+    }
+
+    protected void Initialize()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // 씬이 전환되어도 게임오브젝트를 파괴하지 않는다 
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     public void SceneLoad()
@@ -44,25 +67,5 @@ public class StageSelect : MonoBehaviour
     public void OnClickStage5()
     {
         stage = 5;
-    }
-
-    public void OnClickChapter1()
-    {
-        chapter = 1;
-    }
-
-    public void OnClickChapter2()
-    {
-        chapter = 2;
-    }
-
-    public void OnClickChapter3()
-    {
-        chapter = 3;
-    }
-
-    public void OnClickChapter4()
-    {
-        chapter = 4;
     }
 }

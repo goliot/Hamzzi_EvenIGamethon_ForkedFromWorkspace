@@ -18,13 +18,10 @@ MonoBehaviour:
   cardDesc: 'Penetrate +2
 
     Damage +10%'
-  cardIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  baseDamage: 4.5
-  baseCount: 5
-  damages:
+  cardIcon: {fileID: 21300000, guid: 12450cc4abbad594e8255e68d85de179, type: 3}
+  levels:
   - 0
   - 0
   - 0
   - 0
   - 0
-  counts: 0100000002000000030000000400000005000000

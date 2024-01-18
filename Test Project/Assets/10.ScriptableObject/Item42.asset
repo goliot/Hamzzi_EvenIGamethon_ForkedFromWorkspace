@@ -16,13 +16,10 @@ MonoBehaviour:
   cardId: 4
   cardName: Remain Time
   cardDesc: Remain Time +2.1s
-  cardIcon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  baseDamage: 5
-  baseCount: 6
-  damages:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  counts: 0100000002000000030000000400000005000000
+  cardIcon: {fileID: 21300000, guid: 3c37b6fd130ef234b940ee83c4323d02, type: 3}
+  levels:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

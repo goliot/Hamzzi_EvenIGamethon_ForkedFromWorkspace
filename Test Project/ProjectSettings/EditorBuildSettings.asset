@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/Battle_Proto.unity
     guid: ea1b9afd3e2032c47b679f477d67fab1
+  - enabled: 1
+    path: Assets/01.Scenes/Lobby.unity
+    guid: f5228c1aef49d8c4aa17ce98363b844f
   m_configObjects: {}

@@ -20,6 +20,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            SceneManager.LoadScene("Lobby");
+        }
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;

@@ -12,17 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa84b0d4e302294098909fd7ba2dc74, type: 3}
   m_Name: Item24
   m_EditorClassIdentifier: 
-  cardType: 1
+  cardType: 2
   cardId: 6
   cardName: CoolTime
   cardDesc: CoolTime -20%
-  cardIcon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  baseDamage: 5
-  baseCount: 6
-  damages:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  counts: 0100000002000000030000000400000005000000
+  cardIcon: {fileID: 21300000, guid: 92843fb7dcf069e4aafa671838e14774, type: 3}
+  levels:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

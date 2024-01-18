@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Bombarda(Transform target, PlayerData data)
     {
+        //처음엔 투사체 하나 날아가다가 맞으면 0.7초뒤에 폭발 -> Bullet에서 제어?
         BulletSpawn(target, data);
         yield return new WaitForSeconds(data.atkSpeed);
     }

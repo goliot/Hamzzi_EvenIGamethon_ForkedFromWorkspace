@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Bullet") || !isLive) return;
 
@@ -133,14 +133,53 @@ public class Enemy : MonoBehaviour
             GameManager.Inst.kill++;
             GameManager.Inst.GetExp();
         }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Bullet") || !isLive) return;
+
+        TakeDamage(collision.GetComponent<Bullet>().damage);
     }
+
+    public void TakeDamage(float damageAmount)
+    {
+        Debug.Log("TakeDamage 호출 " + damageAmount);
+        health -= damageAmount;
+        Debug.Log("피격" + damageAmount);
+
+        //팝업 생성하는 부분
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
+        GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
+        popupText.text = damageAmount.ToString();
+
+        if (health > 0)
+        {
+            // 피격 후 생존
+            //StartCoroutine(HitEffect());
+        }
+        else
+        {
+            // 죽었을 때
+            Dead();
+            GameManager.Inst.kill++;
+            GameManager.Inst.GetExp();
+        }
+    }
+
+    /*private void OnCollisionStay2D(Collision2D collision) //장판딜 구현할때 쓸 친구
+    {
+        if (!collision.CompareTag("Bullet") || !isLive) return;
+
+        health -= collision.GetComponent<Bullet>().explodeDamage;
+    }*/
 
     IEnumerator HitEffect()
     {
         // SpriteRenderer의 색상을 변경하여 어두워지는 효과 부여
         spriteRenderer.color = hitColor;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         // 다시 원래 색상으로 돌아오게 함
         spriteRenderer.color = originalColor;

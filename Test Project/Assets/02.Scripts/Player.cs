@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
             newData.penetrate = int.Parse(node.SelectSingleNode("penetrate").InnerText);
             newData.damage = float.Parse(node.SelectSingleNode("damage").InnerText);
             newData.atkSpeed = float.Parse(node.SelectSingleNode("atkSpeed").InnerText);
+            newData.secondDelay = float.Parse(node.SelectSingleNode("secondDelay").InnerText);
+            newData.duration = float.Parse(node.SelectSingleNode("duration").InnerText);
             newData.bulletSpeed = float.Parse(node.SelectSingleNode("bulletSpeed").InnerText);
             newData.atkRange = float.Parse(node.SelectSingleNode("atkRange").InnerText);
             newData.explodeDamage = float.Parse(node.SelectSingleNode("explodeDamage").InnerText);
@@ -162,11 +164,13 @@ public class PlayerData //메인캐릭터 능력치(스킬) 데이터
     public int penetrate; //관통 횟수
     public float damage; //공격력
     public float atkSpeed; //공격 속도
+    public float secondDelay; //두번째 공격이 있는 스킬의 두번째 공격 딜레이
+    public float duration; //지속데미지 스킬의 지속시간
     public float bulletSpeed; //투사체 속도
     public float atkRange; //사정거리
-    public float explodeDamage;
-    public bool isExplode;
-    public bool isUnlocked;
+    public float explodeDamage; //폭발 데미지
+    public bool isExplode; //폭발형인지 여부
+    public bool isUnlocked; //해금됐는지 여부
     
 
     private float cooldownTimer = 0f;

@@ -5,6 +5,8 @@
 		<penetrate>0</penetrate>
 		<damage>25</damage>
 		<atkSpeed>3</atkSpeed>
+		<secondDelay>0</secondDelay>
+		<duration>0</duration>
 		<bulletSpeed>5</bulletSpeed>
 		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
@@ -16,6 +18,8 @@
 		<penetrate>1</penetrate>
 		<damage>50</damage>
 		<atkSpeed>5.8</atkSpeed>
+		<secondDelay>0.7</secondDelay>
+		<duration>0</duration>
 		<bulletSpeed>4</bulletSpeed>
 		<atkRange>25</atkRange>
 		<explodeDamage>23</explodeDamage>
@@ -27,6 +31,8 @@
 		<penetrate>0</penetrate>
 		<damage>20</damage>
 		<atkSpeed>13</atkSpeed>
+		<secondDelay>0</secondDelay>
+		<duration>3</duration>
 		<bulletSpeed>7</bulletSpeed>
 		<atkRange>50</atkRange>
 		<explodeDamage>0</explodeDamage>
@@ -38,6 +44,8 @@
 		<penetrate>0</penetrate>
 		<damage>30</damage>
 		<atkSpeed>4.2</atkSpeed>
+		<secondDelay>0</secondDelay>
+		<duration>0</duration>
 		<bulletSpeed>8</bulletSpeed>
 		<atkRange>25</atkRange>
 		<explodeDamage>0</explodeDamage>
@@ -49,6 +57,8 @@
 		<penetrate>1</penetrate>
 		<damage>25</damage>
 		<atkSpeed>17.4</atkSpeed>
+		<secondDelay>0</secondDelay>
+		<duration>5</duration>
 		<bulletSpeed>7</bulletSpeed>
 		<atkRange>20</atkRange>
 		<explodeDamage>0</explodeDamage>
@@ -60,6 +70,8 @@
 		<penetrate>0</penetrate>
 		<damage>0</damage>
 		<atkSpeed>18</atkSpeed>
+		<secondDelay>0</secondDelay>
+		<duration>0</duration>
 		<bulletSpeed>6</bulletSpeed>
 		<atkRange>35</atkRange>
 		<explodeDamage>0</explodeDamage>
@@ -71,10 +83,12 @@
 		<penetrate>1</penetrate>
 		<damage>40</damage>
 		<atkSpeed>7.2</atkSpeed>
+		<secondDelay>0.7</secondDelay>
+		<duration>0</duration>
 		<bulletSpeed>3</bulletSpeed>
 		<atkRange>0</atkRange>
 		<explodeDamage>35</explodeDamage>
-		<isExplode>true</isExplode>
+		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
 	</Sheet1>
 </root>

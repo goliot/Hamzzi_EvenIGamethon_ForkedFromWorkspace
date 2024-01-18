@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
 
     [Header("#Color")]
     public Color hitColor = new Color(1f, 0.5f, 0.5f, 1f);  // 피격 시 적용할 색상
-
     SpriteRenderer spriteRenderer;
     Color originalColor;
 
@@ -141,12 +140,10 @@ public class Enemy : MonoBehaviour
         // SpriteRenderer의 색상을 변경하여 어두워지는 효과 부여
         spriteRenderer.color = hitColor;
 
-        yield return new WaitForSeconds(0.5f);  // 적절한 대기 시간 설정
+        yield return new WaitForSeconds(0.5f);
 
         // 다시 원래 색상으로 돌아오게 함
         spriteRenderer.color = originalColor;
-
-        // anim.SetTrigger("Hit");  // 필요에 따라 애니메이션 트리거 설정
     }
 
     IEnumerator KnockBack()

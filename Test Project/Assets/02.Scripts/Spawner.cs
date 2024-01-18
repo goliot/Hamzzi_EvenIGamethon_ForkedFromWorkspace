@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
-using System.IO;
-using System;
-using System.Xml.Serialization;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
@@ -21,6 +19,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public List<StageWaveData> stageWaveData = new List<StageWaveData>();
     public List<MobMagnificationData> mobMagnificationData = new List<MobMagnificationData>();
     string magXmlFileName = "MobStatMagnification";
+
+    [Header("Boss Effect")]
+    public Image redLightImage;
 
     public event UnityAction<int> OnWaveChanged; // 웨이브 바뀔 때 알려주는 UnityAction
 
@@ -135,6 +136,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     private void Update()
     {
         float gameTime = GameManager.Inst.gameTime;
+
         if (currentWave >= maxWave)
         {
             CancelInvoke("IncreaseWave");
@@ -151,14 +153,39 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     {
         currentWave++;
         Debug.Log("Wave " + currentWave + " 시작");
-
-
         // 추가 작성 부분
         if (OnWaveChanged != null)
             OnWaveChanged.Invoke(currentWave);          // 웨이브 바뀔 때, 
 
+        if (stage == 5 && currentWave == 10) //각 챕터 스테이지 5, 10웨이브에서
+        {
+            //경고문구가 뜬 다음에 웨이브가 진행되도록, 별도의 보스 스폰 함수 사용할것
+            StartCoroutine(BossStageEffect());
+        }
+        else StartCoroutine(SpawnWaveEnemies(currentWave));
+    }
 
-        StartCoroutine(SpawnWaveEnemies(currentWave));
+    IEnumerator BossStageEffect()
+    {
+        redLightImage.gameObject.SetActive(true);
+        // 2. 화면 전체가 반투명한 빨간빛으로 3회 깜빡임
+        for (int i = 0; i < 3; i++)
+        {
+            SetRedLightImage(new Color(1f, 0f, 0f, 0.5f)); // 빨간빛 이미지 색상 조정
+            yield return new WaitForSeconds(0.5f); // 0.5초 대기
+            SetRedLightImage(Color.clear); // 빨간빛 이미지 색상을 원래 색으로 설정
+            yield return new WaitForSeconds(0.5f); // 0.5초 대기
+        }
+        redLightImage.gameObject.SetActive(false);
+
+        //여기다가 보스 스폰 넣기
+        Spawn((chapter * 5 - 1));
+    }
+
+    // 빨간빛 이미지의 색상을 조정하는 함수
+    void SetRedLightImage(Color color)
+    {
+        redLightImage.color = color;
     }
 
     void Spawn(int index)
@@ -174,7 +201,18 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         SpriteRenderer spriteRenderer = enemy.GetComponent<SpriteRenderer>();
         spriteRenderer.transform.localScale = new Vector3(4, 4, 1); //scale 초기화값
 
-        if (index % 5 == 4) // 보스 몹일 경우
+        if(index % 5 == 3)
+        {
+            if (spriteRenderer != null)
+            {
+                // 현재 scale 값을 가져옴
+                Vector3 currentScale = spriteRenderer.transform.localScale;
+
+                // scale 값을 현재 값에 2를 곱함
+                spriteRenderer.transform.localScale = new Vector3(currentScale.x * 1.5f, currentScale.y * 1.5f, currentScale.z);
+            }
+        }
+        else if (index % 5 == 4) // 보스 몹일 경우
         {
             if (spriteRenderer != null)
             {
@@ -189,7 +227,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
     IEnumerator SpawnWaveEnemies(int wave)
     {
-        int[] eachMobThisWave = new int[5];
+        int[] eachMobThisWave = new int[5]; //각원소 = 이번 웨이브에서 각 몬스터의 소환 수
         eachMobThisWave[0] = stageWaveData[wave - 1].mob1;
         eachMobThisWave[1] = stageWaveData[wave - 1].mob2;
         eachMobThisWave[2] = stageWaveData[wave - 1].mob3;

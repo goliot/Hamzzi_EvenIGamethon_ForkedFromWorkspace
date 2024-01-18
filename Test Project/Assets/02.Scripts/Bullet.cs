@@ -5,11 +5,22 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int skillId; //스킬 스프라이트 결정 아이디
-    public float damage;
     public int penetrate; //관통 횟수 -> 0이라면 한번 부딪히면 끝, -1이면 무한
+    public float damage;
+    public float atkSpeed;
+    public float secondDelay;
+    public float duration;
     public float bulletSpeed; //투사체 속도
     public float atkRange;
+    public float explodeDamage;
+    public bool isExplode;
+    public bool isUnlocked;
     public Transform target;
+
+    [Header("#Skill Effect")]
+    public RuntimeAnimatorController[] animCon;
+    Animator anim;
+
 
     Rigidbody2D rb;
     private Vector3 initialDirection;
@@ -18,15 +29,23 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     public void Init(PlayerData playerData)
     {
+        //anim.runtimeAnimatorController = animCon[playerData.skillId];
         skillId = playerData.skillId;
-        damage = playerData.damage;
         penetrate = playerData.penetrate;
+        damage = playerData.damage;
+        atkSpeed = playerData.atkSpeed;
+        secondDelay = playerData.secondDelay;
+        duration = playerData.duration;
         bulletSpeed = playerData.bulletSpeed;
         atkRange = playerData.atkRange;
+        explodeDamage = playerData.explodeDamage;
+        isExplode = playerData.isExplode;
+        isUnlocked = playerData.isUnlocked;
     }
 
     private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음

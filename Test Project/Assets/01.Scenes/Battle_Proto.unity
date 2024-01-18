@@ -262,7 +262,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 0440fccfda4ba27439dc4579e5553dfd, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &10851039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: c869b7e0f1c86ea4d8ee93284c1e121f, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &12692704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 5137a349127e381439faad75369d3642, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &38160111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: b3045dc4144fb974f9b00e67d935126e, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &53951895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   isLive: 0
   gameTime: 0
   waveChangeTime: 10
-  player: {fileID: 113341590}
+  player: {fileID: 845695604}
   pool: {fileID: 619013946}
   scanner: {fileID: 0}
   uiLevelUp: {fileID: 262202165}
@@ -1545,123 +1545,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110617118}
   m_CullTransparentMesh: 1
---- !u!1 &113341588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 113341589}
-  - component: {fileID: 113341591}
-  - component: {fileID: 113341590}
-  - component: {fileID: 113341592}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &113341589
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113341588}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1796173, y: 0.76045626, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1509542908}
-  - {fileID: 1246931408}
-  m_Father: {fileID: 481030892}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &113341590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113341588}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9cf3d32e3fce34fa269a27844eaa79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: []
-  fireArea: {fileID: 1246931408}
-  target: {fileID: 0}
---- !u!212 &113341591
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113341588}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: -1413294825, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1.1111112}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &113341592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113341588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f97d82106ba994e811a52a61ff3461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolManager: {fileID: 619013946}
-  nearestTarget: {fileID: 0}
 --- !u!1 &130280201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,7 +3513,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 75fd40bbea2930d498267368371dac30, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &337158856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3876,7 +3759,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: d581dc5ae2b657745a99f159cc8b94f6, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &343892576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4122,7 +4005,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: db6e9b9dc44100248b700acadb51b98d, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &355819317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,7 +4331,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: b4dd53755a542094cb92e2e595de068b, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &384851407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4835,7 +4718,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 672204ef96ce7e243b2d08ae39e2113f, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &406060907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5081,7 +4964,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 4ec13189f27c0194ab12c8167e73752d, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &408690732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5399,7 +5282,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 2b9fe3716fbf7ed4c8141cc7aebbc3b7, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &430339496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6007,7 +5890,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 845695601}
-  - {fileID: 113341589}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6084,7 +5966,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: bbef22a30cb35354a99dfe952f1549f0, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &482548051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8060,7 +7942,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 2a0946e2790d80447ad65ffbb8a82011, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &661568960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8257,7 +8139,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: b5b265b71d7c381439cf3b6ae3bc1285, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &669689484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9297,7 +9179,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 2def50ff28485be428e3395e7782ab42, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &740894579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10018,7 +9900,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 192b8ce72d9923841ab3060e3e635b84, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &807360505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10774,7 +10656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &845695601
 Transform:
   m_ObjectHideFlags: 0
@@ -10786,7 +10668,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 2.963631, z: 3.8971746}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1509542908}
+  - {fileID: 1246931408}
   m_Father: {fileID: 481030892}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11841,7 +11725,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 91f1f4b5ff7ea68459c4d5160318cede, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &969696003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12007,7 +11891,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 94d9aaa7241ffe9418be0f30825a74b8, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &971887808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12632,7 +12516,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 18e4ac1ad29abf04f8dba7eb3f1a1241, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &991476751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13038,7 +12922,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 2c60c8b2836268044827195f10554d01, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1020409207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13836,7 +13720,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 565cc14667be4aa42b565c4fe49ff159, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1109732094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14416,7 +14300,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 353c6679f8abfc54987dd9a83fc61d88, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1129857240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15026,7 +14910,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 5137a349127e381439faad75369d3642, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1165289727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15558,7 +15442,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 038db25f83db6374dae803d7ba12fe14, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1203936837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15724,7 +15608,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: c3cda844225e3af4b9922a7062ae7a69, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1205043194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16091,11 +15975,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246931407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 0.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.13, y: 0.065, z: 0}
+  m_LocalScale: {x: 0.25659615, y: 0.25659615, z: 0.25659615}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 113341589}
+  m_Father: {fileID: 845695601}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260649885
@@ -16239,7 +16123,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 7c0c17a926a056d45bedb6db35ba6dcb, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1269857296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16561,7 +16445,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 825dee26bacdfc643964a01c2a290103, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1276075753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17589,7 +17473,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 6f82212d835b8d24fbb6a1a11cdea2e3, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1361576680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18884,7 +18768,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: facb4326250137145a33d0876d1bbf27, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1466668246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19174,8 +19058,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509542907}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -260.27356, y: 294.3141, z: -4.3787723}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -66.78519, y: 75.51986, z: -1.123576}
+  m_LocalScale: {x: 0.25659615, y: 0.25659615, z: 0.25659615}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1674434011}
@@ -19187,7 +19071,7 @@ Transform:
   - {fileID: 69404583}
   - {fileID: 2140175446}
   - {fileID: 1713929250}
-  m_Father: {fileID: 113341589}
+  m_Father: {fileID: 845695601}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1509542909
@@ -19271,7 +19155,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 1bca71d29c429824b9a6774fb5db30c6, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1513764709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19837,7 +19721,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: f92c424f07bdfd74aa27089b8b460da9, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1606769147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20206,7 +20090,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 4fe4ac638622df94d8c1476bfeac6801, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1642095865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20372,7 +20256,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 3b7722afbe26ddd4c8984752b0176491, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1647187523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20538,7 +20422,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 44f4fc8dcbc8cca4bb7d49bdeb7c5d12, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1653256678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20973,7 +20857,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 88a669845e6f6854eba1e4ae35828d0a, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1687828743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22280,7 +22164,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: e1011d4779e7d104897c34170ab8757a, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1849573985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22684,7 +22568,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 605e6c167ecf95c43ac1168fe5743092, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1895314336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23334,7 +23218,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 639be0cca619372428c9eb54fb6e41ad, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1959814441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23660,7 +23544,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: d8d0edba639a3aa42a7f1f998a5f3366, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1977929317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24013,7 +23897,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 2eff6922eb4dba0448ac1eee6e4e37f7, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &1999143206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24811,7 +24695,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 02ee162081914c740b46a4b298efaa4f, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &2054616134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25246,7 +25130,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: b171d1478b0da234c9bf342bf9738e5a, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &2091731441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25810,7 +25694,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: 791cb447a59b93f43839484aa32964d4, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &2131701280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27944,7 +27828,7 @@ MonoBehaviour:
   cardMenu: {fileID: 4499059004236069852}
   cardData: {fileID: 11400000, guid: e92842d51281c9046a4c1416d1ee2615, type: 2}
   level: 0
-  player: {fileID: 113341590}
+  player: {fileID: 0}
 --- !u!114 &3746289348968498345
 MonoBehaviour:
   m_ObjectHideFlags: 0

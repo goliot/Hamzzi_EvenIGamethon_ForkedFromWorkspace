@@ -38,4 +38,17 @@ public class Singleton<T> : MonoBehaviour where T : Component
             Destroy(this);
         }
     }
+
+    protected void Initialize_DontDestroyOnLoad()
+    {
+        if (_inst == null)
+        {
+            _inst = this as T;
+            DontDestroyOnLoad(gameObject); // 씬이 전환되어도 게임오브젝트를 파괴하지 않는다 
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 }

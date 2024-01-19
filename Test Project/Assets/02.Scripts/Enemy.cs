@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour
     {
         isLive = true;
         isWallHit = false;
-        health = maxHealth;
         dmgCanvas = GameObject.Find("DmgPopUpCanvas");
     }
 
@@ -71,6 +70,7 @@ public class Enemy : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
 
+
         /*if(speed == 0f && !isWallAttackInProgress) //벽에 도달
         {
             GameObject wall = GameObject.Find("Wall");
@@ -87,7 +87,6 @@ public class Enemy : MonoBehaviour
                 isWallAttackInProgress = true; // 공격이 시작됨을 표시
                 anim.SetTrigger("Attack");
                 wall.GetComponent<Wall>().getDamage(damage);
-                //공격모션이 있다면 SetTrigger로 해보자
                 isWallAttackInProgress = false; // 공격이 끝남을 표시
                 yield return new WaitForSeconds(atkSpeed);
             }
@@ -110,6 +109,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isWallHit = false;
+    }
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Bullet") || !isLive) return;
@@ -135,12 +138,12 @@ public class Enemy : MonoBehaviour
         }
     }*/
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Bullet") || !isLive) return;
 
         TakeDamage(collision.GetComponent<Bullet>().damage);
-    }
+    }*/
 
     public void TakeDamage(float damageAmount)
     {
@@ -156,11 +159,12 @@ public class Enemy : MonoBehaviour
         if (health > 0)
         {
             // 피격 후 생존
-            //StartCoroutine(HitEffect());
+            StartCoroutine(HitEffect());
         }
         else
         {
             // 죽었을 때
+            spriteRenderer.color = originalColor;
             Dead();
             GameManager.Inst.kill++;
             GameManager.Inst.GetExp();

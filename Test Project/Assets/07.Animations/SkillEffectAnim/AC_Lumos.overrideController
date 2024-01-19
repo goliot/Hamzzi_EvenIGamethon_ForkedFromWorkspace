@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AC_Lumos
+  m_Controller: {fileID: 9100000, guid: d108671dd3cead8478c5fa7c51148e42, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3a659168f43184d4d99b5e3f09540bfa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5ff4a0f2269831a42a0b0e03f5aa514b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 30675cb167a7fee44aa7e51959e21ad0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5ff4a0f2269831a42a0b0e03f5aa514b, type: 2}

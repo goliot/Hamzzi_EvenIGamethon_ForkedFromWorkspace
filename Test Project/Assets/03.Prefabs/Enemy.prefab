@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8115620746709466097}
   - component: {fileID: 1309184614844528927}
-  - component: {fileID: -2850363664731709995}
   - component: {fileID: 1078908058042766205}
   - component: {fileID: -7447336920874453128}
+  - component: {fileID: -2850363664731709995}
   - component: {fileID: 5206392007824436964}
   m_Layer: 7
   m_Name: Enemy
@@ -88,47 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2850363664731709995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5389621803800444932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1f0ec9bce941e4ba4a4de8a5c207b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  health: 0
-  maxHealth: 0
-  damage: 0
-  atkSpeed: 0
-  animCon:
-  - {fileID: 22100000, guid: 4438838192c8a0a48867ed9d0f59e6da, type: 2}
-  - {fileID: 22100000, guid: 0c62330996d84f046ad5996c8bec3fa3, type: 2}
-  - {fileID: 22100000, guid: b692bde746fb92b4c8c5af1dc1e77054, type: 2}
-  - {fileID: 22100000, guid: 860b0d39dd4f11646996cf43211d5859, type: 2}
-  - {fileID: 22100000, guid: d2f1038214fd8ea4e817fbf4568fa4bf, type: 2}
-  - {fileID: 22100000, guid: df0a84fc9d7b7604b9456ddd6165effa, type: 2}
-  - {fileID: 22100000, guid: 8997c38145e1ba24c8543329609cbc4e, type: 2}
-  - {fileID: 22100000, guid: 6535d0d87d5b2ad4587d875cd5865784, type: 2}
-  - {fileID: 22100000, guid: 540fe43eccb3fe04cbf83843ce139afc, type: 2}
-  - {fileID: 22100000, guid: 16509a4f1d4bc9845964adcde95cb32d, type: 2}
-  - {fileID: 22100000, guid: e67e18a78d923114d88f55f5dc6a6f2d, type: 2}
-  - {fileID: 22100000, guid: 94239ba418efe2944b80968629d1e62a, type: 2}
-  - {fileID: 22100000, guid: 28dc24490155b4a419ee07de16b2d0b4, type: 2}
-  - {fileID: 22100000, guid: 3181ecb7f997fb64a9f345b5d3280049, type: 2}
-  - {fileID: 22100000, guid: c3623bb4a79281b4184e8c7b97107f3c, type: 2}
-  - {fileID: 22100000, guid: 569bd591f4bb9604dabaaff7b0233497, type: 2}
-  - {fileID: 22100000, guid: 2917d7c2aa5bc2a4c99b42563a7ad8b7, type: 2}
-  - {fileID: 22100000, guid: 7d65d1ee4775667479a19052a435a57f, type: 2}
-  - {fileID: 22100000, guid: e4247362d33ebc24dba10ba2a03bd892, type: 2}
-  - {fileID: 22100000, guid: 151dd82a98243ff4ea860b17fad41fd4, type: 2}
-  dmgText: {fileID: 5003722051863030437, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
-  popupText: {fileID: 3702007528897429254, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
-  dmgCanvas: {fileID: 0}
 --- !u!95 &1078908058042766205
 Animator:
   serializedVersion: 5
@@ -177,6 +136,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &-2850363664731709995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5389621803800444932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f0ec9bce941e4ba4a4de8a5c207b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  health: 0
+  maxHealth: 0
+  damage: 0
+  atkSpeed: 0
+  animCon:
+  - {fileID: 22100000, guid: 4438838192c8a0a48867ed9d0f59e6da, type: 2}
+  - {fileID: 22100000, guid: 0c62330996d84f046ad5996c8bec3fa3, type: 2}
+  - {fileID: 22100000, guid: b692bde746fb92b4c8c5af1dc1e77054, type: 2}
+  - {fileID: 22100000, guid: 860b0d39dd4f11646996cf43211d5859, type: 2}
+  - {fileID: 22100000, guid: d2f1038214fd8ea4e817fbf4568fa4bf, type: 2}
+  - {fileID: 22100000, guid: df0a84fc9d7b7604b9456ddd6165effa, type: 2}
+  - {fileID: 22100000, guid: 8997c38145e1ba24c8543329609cbc4e, type: 2}
+  - {fileID: 22100000, guid: 6535d0d87d5b2ad4587d875cd5865784, type: 2}
+  - {fileID: 22100000, guid: 540fe43eccb3fe04cbf83843ce139afc, type: 2}
+  - {fileID: 22100000, guid: 16509a4f1d4bc9845964adcde95cb32d, type: 2}
+  - {fileID: 22100000, guid: e67e18a78d923114d88f55f5dc6a6f2d, type: 2}
+  - {fileID: 22100000, guid: 94239ba418efe2944b80968629d1e62a, type: 2}
+  - {fileID: 22100000, guid: 28dc24490155b4a419ee07de16b2d0b4, type: 2}
+  - {fileID: 22100000, guid: 3181ecb7f997fb64a9f345b5d3280049, type: 2}
+  - {fileID: 22100000, guid: c3623bb4a79281b4184e8c7b97107f3c, type: 2}
+  - {fileID: 22100000, guid: 569bd591f4bb9604dabaaff7b0233497, type: 2}
+  - {fileID: 22100000, guid: 2917d7c2aa5bc2a4c99b42563a7ad8b7, type: 2}
+  - {fileID: 22100000, guid: 7d65d1ee4775667479a19052a435a57f, type: 2}
+  - {fileID: 22100000, guid: e4247362d33ebc24dba10ba2a03bd892, type: 2}
+  - {fileID: 22100000, guid: 151dd82a98243ff4ea860b17fad41fd4, type: 2}
+  dmgText: {fileID: 5003722051863030437, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
+  popupText: {fileID: 3702007528897429254, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
+  dmgCanvas: {fileID: 0}
+  hitColor: {r: 1, g: 0.5, b: 0.5, a: 1}
 --- !u!61 &5206392007824436964
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e125a6146441ee14899cc56da4391b06
+guid: d20a8b78e9e354743ad780be37c5cdd0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,12 +123,138 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_0
+      name: tktk_Laser_4L-2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 394
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6a8976970bb66429cc1f7d69c4c57b
+      internalID: -1633309098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tktk_Laser_4L-2_1
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 3072
+        width: 394
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d9bbcde8c4c2f4a995ae775b476355
+      internalID: 1310772844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tktk_Laser_4L-2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 394
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ff973f13ed6e0459d9883f90508a23
+      internalID: 298251714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tktk_Laser_4L-2_3
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 2688
+        width: 394
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c542d53745c64744384c00ce44e03023
+      internalID: 946634139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tktk_Laser_4L-2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 394
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a118631b2c41f49bb034e05397ae5e
+      internalID: 625142119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tktk_Laser_4L-2_5
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 2304
+        width: 394
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b136f6bfdae6bf46a5e59961c279c5c
+      internalID: -1337002354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tktk_Laser_4L-2_6
       rect:
         serializedVersion: 2
         x: 0
         y: 1920
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +263,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c88cbae422912834ab1e3d635a67a232
-      internalID: 674553929
+      spriteID: 52a7a9230a84a524e9ee35b22f08a29e
+      internalID: 666416069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_1
+      name: tktk_Laser_4L-2_7
       rect:
         serializedVersion: 2
-        x: 384
+        x: 394
         y: 1920
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,19 +284,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b44ed789c4cd51742b03e0fcb544624f
-      internalID: -873005878
+      spriteID: 7dd6faf42247e3b41b378b9dbb70b588
+      internalID: 146162447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_2
+      name: tktk_Laser_4L-2_8
       rect:
         serializedVersion: 2
         x: 0
         y: 1536
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -179,19 +305,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e04bf62064fb6d644ad46568192f8938
-      internalID: -890250731
+      spriteID: ed700ee002381d04eb76c00e434bb1c8
+      internalID: 256082020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_3
+      name: tktk_Laser_4L-2_9
       rect:
         serializedVersion: 2
-        x: 384
+        x: 394
         y: 1536
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,19 +326,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b5ca06d6af6ce1448d1cd0580977f35
-      internalID: -1622168085
+      spriteID: 635f4715317faa64d9a3ce19c11e654b
+      internalID: -817599272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_4
+      name: tktk_Laser_4L-2_10
       rect:
         serializedVersion: 2
         x: 0
         y: 1152
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -221,19 +347,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c6bb7e0e4ef60f4b8c15a7000d30aeb
-      internalID: 1042659602
+      spriteID: 803245a8bf66daf4a88fad8809b2ecd1
+      internalID: 1028429385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_5
+      name: tktk_Laser_4L-2_11
       rect:
         serializedVersion: 2
-        x: 384
+        x: 394
         y: 1152
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -242,19 +368,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 638cca45b71887a439c0b21f7ffd4227
-      internalID: -1868603107
+      spriteID: 6de2254af36dc404fb4cabeeaa414012
+      internalID: -1596730752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_6
+      name: tktk_Laser_4L-2_12
       rect:
         serializedVersion: 2
         x: 0
         y: 768
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -263,19 +389,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa45908bba821e741a3c86a8757354ce
-      internalID: -2038408685
+      spriteID: 15027b6af68a77146a92f5465c842254
+      internalID: -2083802567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_7
+      name: tktk_Laser_4L-2_13
       rect:
         serializedVersion: 2
-        x: 384
+        x: 394
         y: 768
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -284,19 +410,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 831f74802486bc2469d755703eb80793
-      internalID: -536448361
+      spriteID: 52837ec5bc7219f45925251e659e2ecc
+      internalID: -31626979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_8
+      name: tktk_Laser_4L-2_14
       rect:
         serializedVersion: 2
         x: 0
         y: 384
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -305,19 +431,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba0bc029cf3f07441ae3829aee3b2f73
-      internalID: 2141077616
+      spriteID: 34dc25013958be54985cdcc0ab1dfb8d
+      internalID: 518072243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_9
+      name: tktk_Laser_4L-2_15
       rect:
         serializedVersion: 2
-        x: 384
+        x: 394
         y: 384
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -326,19 +452,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98fc2456c5265914bb855aad1cbe0f04
-      internalID: -1023204201
+      spriteID: fbacd8e97a5f45848b0e11ee5180b3a8
+      internalID: -1860690663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_10
+      name: tktk_Laser_4L-2_16
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -347,19 +473,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fe28873a981f484eac65ab248cdfb9b
-      internalID: -1875161133
+      spriteID: 0df934834e920214b93621e672975a9d
+      internalID: 448416212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skilleffect_Bombarda_2_11
+      name: tktk_Laser_4L-2_17
       rect:
         serializedVersion: 2
-        x: 384
+        x: 394
         y: 0
-        width: 384
+        width: 394
         height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -368,8 +494,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d46e340737d33245bdfdfca7f601169
-      internalID: -836254719
+      spriteID: 77bc0691e11be7f4ebc72e2f249e9875
+      internalID: 427130145
       vertices: []
       indices: 
       edges: []
@@ -385,18 +511,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skilleffect_Bombarda_2_0: 674553929
-      Skilleffect_Bombarda_2_1: -873005878
-      Skilleffect_Bombarda_2_10: -1875161133
-      Skilleffect_Bombarda_2_11: -836254719
-      Skilleffect_Bombarda_2_2: -890250731
-      Skilleffect_Bombarda_2_3: -1622168085
-      Skilleffect_Bombarda_2_4: 1042659602
-      Skilleffect_Bombarda_2_5: -1868603107
-      Skilleffect_Bombarda_2_6: -2038408685
-      Skilleffect_Bombarda_2_7: -536448361
-      Skilleffect_Bombarda_2_8: 2141077616
-      Skilleffect_Bombarda_2_9: -1023204201
+      tktk_Laser_4L-2_0: -1633309098
+      tktk_Laser_4L-2_1: 1310772844
+      tktk_Laser_4L-2_10: 1028429385
+      tktk_Laser_4L-2_11: -1596730752
+      tktk_Laser_4L-2_12: -2083802567
+      tktk_Laser_4L-2_13: -31626979
+      tktk_Laser_4L-2_14: 518072243
+      tktk_Laser_4L-2_15: -1860690663
+      tktk_Laser_4L-2_16: 448416212
+      tktk_Laser_4L-2_17: 427130145
+      tktk_Laser_4L-2_2: 298251714
+      tktk_Laser_4L-2_3: 946634139
+      tktk_Laser_4L-2_4: 625142119
+      tktk_Laser_4L-2_5: -1337002354
+      tktk_Laser_4L-2_6: 666416069
+      tktk_Laser_4L-2_7: 146162447
+      tktk_Laser_4L-2_8: 256082020
+      tktk_Laser_4L-2_9: -817599272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

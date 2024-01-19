@@ -16,7 +16,8 @@ public class Bullet : MonoBehaviour
     public float explodeDamage;
     public bool isExplode;
     public bool isUnlocked;
-    public Transform target;
+    public float splashRange;
+    public Vector2 targetPosition;
 
     [Header("#Skill Effect")]
     public RuntimeAnimatorController[] animCon;
@@ -25,11 +26,13 @@ public class Bullet : MonoBehaviour
 
     Rigidbody2D rb;
     CapsuleCollider2D capsuleCollider;
-    private Vector3 initialDirection;
-    private Transform initialLocation;
+    private Vector2 initialDirection;
+    private Vector2 initialLocation;
 
     Vector2 currentSize;
     Vector2 newSize;
+
+    bool bombardaExplodeCoroutineStarted = false;
 
     private void Awake()
     {
@@ -52,16 +55,24 @@ public class Bullet : MonoBehaviour
         explodeDamage = playerData.explodeDamage;
         isExplode = playerData.isExplode;
         isUnlocked = playerData.isUnlocked;
+        splashRange = playerData.splashRange;
+
+        if (gameObject.GetComponent<Bullet>().skillId == 1) //봄바르다일경우 콜라이더 잠깐 끄기
+        {
+            capsuleCollider.enabled = false;
+        }
     }
 
     private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음
     {
-        initialLocation = GameManager.Inst.player.fireArea;
-        target = GameManager.Inst.player.target;
-        initialDirection = target.position - initialLocation.position;
+        initialLocation = GameManager.Inst.player.fireArea.position;
+        targetPosition = GameManager.Inst.player.target.position;
+        initialDirection = targetPosition - initialLocation;
 
         currentSize = capsuleCollider.size;
-        newSize = new Vector2(currentSize.x * 2f, currentSize.y * 2f);
+        newSize = new Vector2(currentSize.x * 8f, currentSize.y * 4f);
+        capsuleCollider.isTrigger = true;
+        capsuleCollider.size = new Vector2(1f, 1f);
     }
 
     private void Update()
@@ -81,6 +92,22 @@ public class Bullet : MonoBehaviour
 
         if (gameObject.activeSelf)
         {
+            if (skillId == 1)
+            {
+                // 일정 오차 범위 내에 위치가 일치하면
+                float positionError = 0.1f; // 적절한 오차 범위를 설정하세요
+
+                if (!capsuleCollider.enabled && Vector2.Distance(transform.position, targetPosition) < positionError)
+                {
+                    transform.localScale = Vector3.one;
+                    anim.speed = 2;
+                    anim.SetTrigger("MainEffect");
+                    //capsuleCollider.size = newSize;
+                    capsuleCollider.enabled = true; //딱 도달했을 때 터지게 해야지 콜라이더만 켜서는 안된다.
+                    bulletSpeed = 0f;
+                }
+            }
+
             rb.velocity = initialDirection.normalized * bulletSpeed;
             gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
         }
@@ -94,6 +121,7 @@ public class Bullet : MonoBehaviour
         switch (gameObject.GetComponent<Bullet>().skillId)
         {
             case 0:
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
                 penetrate--;
                 if (penetrate == -1)
                 {
@@ -102,18 +130,22 @@ public class Bullet : MonoBehaviour
                 }
                 break;
             case 1:
+                //collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
                 penetrate--;
                 if (penetrate == -1)
                 {
-                    bulletSpeed = 0;
-                    anim.SetTrigger("MainEffect"); //폭발 이펙트는 나옴
+                    var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashRange);
+                    foreach(var hitCollider in hitColliders)
+                    {
+                        var enemy = hitCollider.GetComponent<Enemy>();
+                        if(enemy)
+                        {
+                            var closestPoint = hitCollider.ClosestPoint(transform.position);
+                            var distance = Vector3.Distance(closestPoint, transform.position);
 
-                    //폭파 이펙트 너무 느림 -> 2배속
-                    anim.speed = 3.0f;
-
-                    //콜라이더 크기 키우고, 폭파 데미지 추가
-                    capsuleCollider.size = newSize;
-                    StartCoroutine(BombardaExplode(collision.gameObject, explodeDamage));
+                            enemy.TakeDamage(explodeDamage);
+                        }
+                    }
                 }
                 break;
             case 2:
@@ -135,45 +167,14 @@ public class Bullet : MonoBehaviour
                 }
                 break;
         }
-
-        //기본 그냥 맞으면 사라지기
-        /*penetrate--;
-        if (penetrate == -1)
-        {
-            bulletSpeed = 0;
-            penetrate = maxPenetrate;
-            gameObject.SetActive(false);
-        }*/
-    }
-
-    IEnumerator BombardaExplode(GameObject enemyObject, float damage)
-    {
-        if (enemyObject == null)
-        {
-            Debug.LogError("Enemy GameObject is null in BombardaExplode coroutine.");
-            yield break; // 적절한 처리를 한 후 코루틴을 종료합니다.
-        }
-
-        Enemy enemy = enemyObject.GetComponent<Enemy>();
-        if (enemy == null)
-        {
-            Debug.LogError("Enemy component not found on the Enemy GameObject in BombardaExplode coroutine.");
-            yield break; // 적절한 처리를 한 후 코루틴을 종료합니다.
-        }
-        else
-        {
-            Debug.Log("폭발데미지 시도");
-            //yield return new WaitForSeconds(0.7f); 
-            enemy.TakeDamage(damage); //딜레이 없애니까 됨.
-            Debug.Log("폭발데미지 들어감");
-            yield break;
-        }
     }
 
     public void OnAnimationEnd() //애니메이션 이벤트
     {
         // 애니메이션 끝까지 재생되면 호출되는 함수
-        gameObject.SetActive(false);
         capsuleCollider.size = currentSize;
+        anim.speed = 1;
+        transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        gameObject.SetActive(false);
     }
 }

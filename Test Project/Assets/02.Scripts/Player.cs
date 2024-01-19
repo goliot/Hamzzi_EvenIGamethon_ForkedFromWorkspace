@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
             newData.explodeDamage = float.Parse(node.SelectSingleNode("explodeDamage").InnerText);
             newData.isExplode = bool.Parse(node.SelectSingleNode("isExplode").InnerText);
             newData.isUnlocked = bool.Parse(node.SelectSingleNode("isUnlocked").InnerText);
+            newData.splashRange = float.Parse(node.SelectSingleNode("splashRange").InnerText);
 
             playerData.Add(newData);
         }
@@ -172,6 +173,7 @@ public class PlayerData //메인캐릭터 능력치(스킬) 데이터
     public float explodeDamage; //폭발 데미지
     public bool isExplode; //폭발형인지 여부
     public bool isUnlocked; //해금됐는지 여부
+    public float splashRange; //범위스킬 범위
     
 
     private float cooldownTimer = 0f;

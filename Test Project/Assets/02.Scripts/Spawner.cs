@@ -35,6 +35,27 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
 
         //웨이브 정보 관련 함수
+        if (GameObject.Find("StageManager") == null)
+        {
+            chapter = 1;
+            stage = 1;
+        }
+        else
+        {
+            chapter = StageSelect.instance.chapter;
+            stage = StageSelect.instance.stage;
+        }
+        stageXmlFileName = "Chapter" + chapter;
+        LoadStageXml(stageXmlFileName);
+
+        //스테이지별 몹 능력치 배율
+        LoadMagXml(magXmlFileName);
+
+        /*
+        LoadXML(xmlFileName);
+        InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
+
+        //웨이브 정보 관련 함수
         chapter = StageSelect.instance.chapter;
         stage = StageSelect.instance.stage;
         stageXmlFileName = "Chapter" + chapter;
@@ -42,6 +63,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         //스테이지별 몹 능력치 배율
         LoadMagXml(magXmlFileName);
+        */
     }
 
     private void LoadXML(string _fileName)

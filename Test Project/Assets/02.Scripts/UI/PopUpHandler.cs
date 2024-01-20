@@ -35,5 +35,4 @@ public class PopUpHandler : MonoBehaviour
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strProfileUI);
     }
-
 }

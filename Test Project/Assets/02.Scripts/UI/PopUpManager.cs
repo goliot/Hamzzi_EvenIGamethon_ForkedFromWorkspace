@@ -11,7 +11,7 @@ public class PopUpManager : MonoBehaviour
     public UnityAction allClose = null;                                 // 전체 팝업 창을 다 닫는 기능(현재는 적용 X)
 
     // PopUpNames 객체를 가져와 사용
-    public PopUpNames PopUpNames { get; private set; } = new PopUpNames("StageSelectUI", "SettingsUI", "ExplainStaminaUI", "ExplainCornUI", "ProfileUI"); 
+    public PopUpNames PopUpNames { get; private set; } = new PopUpNames("StageSelectUI", "SettingsUI", "ExplainStaminaUI", "ExplainCornUI", "ProfileUI", "VictoryUI");
 
     public static PopUpManager Inst { get; private set; }               // 스태틱 프로퍼티로 사용
 

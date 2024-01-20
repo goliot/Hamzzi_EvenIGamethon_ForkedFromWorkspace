@@ -27,6 +27,7 @@ public class Wall : MonoBehaviour
     public void gameOver()
     {
         //게임 오버 루틴 -> UI를 띄운다던가 하는 로직
+        UIManager.Inst.gameOverUI.SetActive(true);      // 게임 오버 UI 켜지게
     }
 
     private void OnCollisionStay2D(Collision2D collision)

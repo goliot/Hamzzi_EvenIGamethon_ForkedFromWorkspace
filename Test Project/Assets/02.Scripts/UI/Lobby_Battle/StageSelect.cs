@@ -22,7 +22,7 @@ public class StageSelect : MonoBehaviour
     {
         chapter = 1;
         stage = 1;
-        max_chapter = 5;
+        max_chapter = 4;
         min_chapter = 1;
     }
 

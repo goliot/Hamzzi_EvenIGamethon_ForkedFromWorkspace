@@ -147,6 +147,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     void Victory()
     {
         //승리 로직
+        UIManager.Inst.victoryUI.SetActive(true);          // VictoryUI를 켜기만 한다
     }
 
     private void IncreaseWaveAndWaveStart()

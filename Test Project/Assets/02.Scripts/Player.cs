@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
                 if (data.CanUseSkill() && distance < data.atkRange)
                 {
                     //StartCoroutine(Attack(target, data));
-                    switch(data.skillId)
+                    /*switch(data.skillId)
                     {
                         case 0: 
                             StartCoroutine(MagicBall(target, data));
@@ -94,7 +94,8 @@ public class Player : MonoBehaviour
                         case 6:
                             Pineseuta(target, data);
                             break;
-                    }
+                    }*/
+                    BulletSpawn(target, data);
                     data.StartCoolDown();
                 }
             }
@@ -107,7 +108,7 @@ public class Player : MonoBehaviour
         //이제 총알의 움직임을 구현하자
     }*/
 
-    IEnumerator MagicBall(Transform target, PlayerData data)
+    /*IEnumerator MagicBall(Transform target, PlayerData data)
     {
         BulletSpawn(target, data);
         yield return new WaitForSeconds(data.atkSpeed);
@@ -148,7 +149,7 @@ public class Player : MonoBehaviour
     {
         BulletSpawn(target, data);
         yield return new WaitForSeconds(data.atkSpeed);
-    }
+    }*/
 
     void BulletSpawn(Transform target, PlayerData data)
     {

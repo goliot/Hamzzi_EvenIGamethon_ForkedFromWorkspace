@@ -8,10 +8,10 @@
 		<secondDelay>0</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>5</bulletSpeed>
-		<atkRange>7</atkRange>
+		<atkRange>6.5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>
@@ -22,10 +22,10 @@
 		<secondDelay>0.7</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>4</bulletSpeed>
-		<atkRange>7</atkRange>
+		<atkRange>5</atkRange>
 		<explodeDamage>23</explodeDamage>
 		<isExplode>true</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0.45</splashRange>
 	</Sheet1>
 	<Sheet1>
@@ -36,7 +36,7 @@
 		<secondDelay>0</secondDelay>
 		<duration>3</duration>
 		<bulletSpeed>7</bulletSpeed>
-		<atkRange>50</atkRange>
+		<atkRange>5.5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
@@ -48,9 +48,9 @@
 		<damage>30</damage>
 		<atkSpeed>4.2</atkSpeed>
 		<secondDelay>0</secondDelay>
-		<duration>0</duration>
+		<duration>3</duration>
 		<bulletSpeed>8</bulletSpeed>
-		<atkRange>25</atkRange>
+		<atkRange>5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
@@ -64,7 +64,7 @@
 		<secondDelay>0</secondDelay>
 		<duration>5</duration>
 		<bulletSpeed>7</bulletSpeed>
-		<atkRange>20</atkRange>
+		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
@@ -78,7 +78,7 @@
 		<secondDelay>0</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>6</bulletSpeed>
-		<atkRange>35</atkRange>
+		<atkRange>4.2</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
@@ -90,12 +90,12 @@
 		<damage>40</damage>
 		<atkSpeed>7.2</atkSpeed>
 		<secondDelay>0.7</secondDelay>
-		<duration>0</duration>
+		<duration>1</duration>
 		<bulletSpeed>3</bulletSpeed>
-		<atkRange>0</atkRange>
+		<atkRange>5</atkRange>
 		<explodeDamage>35</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<splashRange>0</splashRange>
 	</Sheet1>
 </root>

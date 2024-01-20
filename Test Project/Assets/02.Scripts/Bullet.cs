@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
     public bool isUnlocked;
     public float splashRange;
     public Vector2 targetPosition;
+    public GameObject target;
 
     [Header("#Skill Effect")]
     public RuntimeAnimatorController[] animCon;
@@ -28,6 +30,7 @@ public class Bullet : MonoBehaviour
     CapsuleCollider2D capsuleCollider;
     private Vector2 initialDirection;
     private Vector2 initialLocation;
+    private bool isTargetLocked = false;
 
     Vector2 currentSize;
     Vector2 newSize;
@@ -68,6 +71,7 @@ public class Bullet : MonoBehaviour
         initialLocation = GameManager.Inst.player.fireArea.position;
         targetPosition = GameManager.Inst.player.target.position;
         initialDirection = targetPosition - initialLocation;
+        target = GameManager.Inst.player.target.gameObject;
 
         currentSize = capsuleCollider.size;
         newSize = new Vector2(currentSize.x * 8f, currentSize.y * 4f);
@@ -92,8 +96,11 @@ public class Bullet : MonoBehaviour
 
         if (gameObject.activeSelf)
         {
-            if (skillId == 1)
+            if (skillId == 1) //봄바르다
             {
+                rb.velocity = initialDirection.normalized * bulletSpeed;
+                gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+
                 // 일정 오차 범위 내에 위치가 일치하면
                 float positionError = 0.1f; // 적절한 오차 범위를 설정하세요
 
@@ -107,9 +114,24 @@ public class Bullet : MonoBehaviour
                     bulletSpeed = 0f;
                 }
             }
-
-            rb.velocity = initialDirection.normalized * bulletSpeed;
-            gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+            else if (skillId == 3) //루모스
+            {
+                transform.localScale = new Vector3(0.7f, 2f, 0.7f);
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy").Where(obj => obj.transform.position.y <= 2.5f).ToArray();
+                if (enemies.Length > 0 && !isTargetLocked)
+                {
+                    isTargetLocked = true;
+                    target = enemies[Random.Range(0, enemies.Length)];
+                    targetPosition = target.transform.position;
+                }
+                transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.2f);
+                anim.speed = 3;
+            }
+            else
+            {
+                rb.velocity = initialDirection.normalized * bulletSpeed;
+                gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+            }
         }
     }
 
@@ -120,8 +142,8 @@ public class Bullet : MonoBehaviour
 
         switch (gameObject.GetComponent<Bullet>().skillId)
         {
-            case 0:
-                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            case 0: //매직볼
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
                 penetrate--;
                 if (penetrate == -1)
                 {
@@ -129,7 +151,7 @@ public class Bullet : MonoBehaviour
                     gameObject.SetActive(false);
                 }
                 break;
-            case 1:
+            case 1: //봄바르다
                 //collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
                 penetrate--;
                 if (penetrate == -1)
@@ -143,20 +165,29 @@ public class Bullet : MonoBehaviour
                             var closestPoint = hitCollider.ClosestPoint(transform.position);
                             var distance = Vector3.Distance(closestPoint, transform.position);
 
-                            enemy.TakeDamage(explodeDamage);
+                            enemy.TakeDamage(explodeDamage, skillId, duration);
                         }
                     }
                 }
                 break;
-            case 2:
+            case 2: //아구아멘티
                 break;
-            case 3:
+            case 3: //루모스
+                //별도로 존재
                 break;
-            case 4:
+            case 4: //액소니아
                 break;
-            case 5:
+            case 5: //모멘스토
                 break;
-            case 6:
+            case 6: //피네스타
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(explodeDamage, skillId, duration);
+                penetrate--;
+                if (penetrate == -1)
+                {
+                    bulletSpeed = 0;
+                    gameObject.SetActive(false);
+                }
                 break;
             default:
                 penetrate--;
@@ -175,6 +206,18 @@ public class Bullet : MonoBehaviour
         capsuleCollider.size = currentSize;
         anim.speed = 1;
         transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        isTargetLocked = false;
+        gameObject.SetActive(false);
+    }
+
+    public void OnAnimationLumos()
+    {
+        target.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
+
+        capsuleCollider.size = currentSize;
+        anim.speed = 1;
+        transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        isTargetLocked = false;
         gameObject.SetActive(false);
     }
 }

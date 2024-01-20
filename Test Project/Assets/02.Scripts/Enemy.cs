@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Color originalColor;
 
+    [Header("#State")]
+    public bool isParalyzed = false;
+
     bool isWallHit = false;
     bool isLive = false;
     bool isWallAttackInProgress = false;
@@ -145,19 +148,23 @@ public class Enemy : MonoBehaviour
         TakeDamage(collision.GetComponent<Bullet>().damage);
     }*/
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damage, int skillId, float duration)
     {
-        Debug.Log("TakeDamage 호출 " + damageAmount);
-        health -= damageAmount;
-        Debug.Log("피격" + damageAmount);
+        Debug.Log("TakeDamage 호출 " + damage);
+        health -= damage;
+        Debug.Log("피격" + damage);
 
         //팝업 생성하는 부분
         Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
         GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
-        popupText.text = damageAmount.ToString();
+        popupText.text = damage.ToString();
 
         if (health > 0)
         {
+            if(skillId == 3 && !isParalyzed) //루모스일경우
+            {
+                StartCoroutine(Paralyze(duration));
+            }
             // 피격 후 생존
             StartCoroutine(HitEffect());
         }
@@ -180,13 +187,30 @@ public class Enemy : MonoBehaviour
 
     IEnumerator HitEffect()
     {
+        Color nowOrigin = spriteRenderer.color;
         // SpriteRenderer의 색상을 변경하여 어두워지는 효과 부여
         spriteRenderer.color = hitColor;
 
         yield return new WaitForSeconds(0.1f);
 
         // 다시 원래 색상으로 돌아오게 함
+        spriteRenderer.color = nowOrigin;
+    }
+
+    IEnumerator Paralyze(float duration) //마비상태
+    {
+        isParalyzed = true;
+        spriteRenderer.color = new Color(1f, 1f, 0f); //노란빛
+        speed *= 0.8f;
+        yield return new WaitForSeconds(duration);  
         spriteRenderer.color = originalColor;
+        speed /= 0.8f;
+        isParalyzed = false;
+    }
+
+    IEnumerator Pinesta(float secondDamage, float duration)
+    {
+        yield return new WaitForSeconds(duration);
     }
 
     IEnumerator KnockBack()

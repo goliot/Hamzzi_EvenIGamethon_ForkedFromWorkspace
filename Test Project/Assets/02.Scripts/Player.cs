@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
     public List<PlayerData> playerData = new List<PlayerData>();
     public Transform fireArea;
     public Transform target;
+
+    public Transform[] momenstoPoint;
+    public Transform nextMomenstoLocation;
+
     string xmlFileName = "PlayerData";
 
     void Start()
@@ -68,93 +73,32 @@ public class Player : MonoBehaviour
             if (data.isUnlocked)
             {
                 data.UpdateCooldown();
-                if (data.CanUseSkill() && distance < data.atkRange)
+                if (data.skillId == 5 && data.CanUseSkill()) //모멘스토일경우 다른 로직 사용
                 {
-                    //StartCoroutine(Attack(target, data));
-                    /*switch(data.skillId)
-                    {
-                        case 0: 
-                            StartCoroutine(MagicBall(target, data));
-                            break;
-                        case 1:
-                            StartCoroutine(Bombarda(target, data));
-                            break;
-                        case 2:
-                            StartCoroutine(Aguamenti(target, data));
-                            break;
-                        case 3:
-                            StartCoroutine(Lumos(target, data));
-                            break;
-                        case 4:
-                            StartCoroutine(Aegseonia(target, data));
-                            break;
-                        case 5:
-                            StartCoroutine(Momenseuto(target, data));
-                            break;
-                        case 6:
-                            Pineseuta(target, data);
-                            break;
-                    }*/
+                    nextMomenstoLocation = momenstoPoint[Random.Range(0, momenstoPoint.Length)];
+                    BulletSpawn(target, data);
+                    data.StartCoolDown();
+                }
+                else if (data.CanUseSkill() && distance < data.atkRange)
+                {
                     BulletSpawn(target, data);
                     data.StartCoolDown();
                 }
             }
         }
     }
-    /*void Attack(Transform target) //유도탄이 아닌 공격 당시의 위치로 그냥 발사
-    {
-        //총알을 생성하는데 -> 생성한 총알에 Init을 해야됨 -> 완료
-        BulletSpawn(target);
-        //이제 총알의 움직임을 구현하자
-    }*/
-
-    /*IEnumerator MagicBall(Transform target, PlayerData data)
-    {
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }
-
-    IEnumerator Bombarda(Transform target, PlayerData data)
-    {
-        //처음엔 투사체 하나 날아가다가 맞으면 0.7초뒤에 폭발 -> Bullet에서 제어?
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }
-
-    IEnumerator Aguamenti(Transform target, PlayerData data)
-    {
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }
-
-    IEnumerator Lumos(Transform target, PlayerData data)
-    {
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }
-
-    IEnumerator Aegseonia(Transform target, PlayerData data)
-    {
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }
-
-    IEnumerator Momenseuto(Transform target, PlayerData data)
-    {
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }
-
-    IEnumerator Pineseuta(Transform target, PlayerData data)
-    {
-        BulletSpawn(target, data);
-        yield return new WaitForSeconds(data.atkSpeed);
-    }*/
 
     void BulletSpawn(Transform target, PlayerData data)
     {
         GameObject bullet = GameManager.Inst.pool.Get(1);
-        bullet.transform.position = fireArea.position;
+        if (data.skillId == 5) //모멘스토만 다른 로직
+        {
+            bullet.transform.position = nextMomenstoLocation.position;
+        }
+        else
+        {
+            bullet.transform.position = fireArea.position;
+        }
         bullet.GetComponent<Bullet>().Init(data);
         //bullet.GetComponent<Bullet>().target = target;
     }

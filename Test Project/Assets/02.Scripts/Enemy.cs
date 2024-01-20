@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     [Header("#State")]
     public bool isParalyzed = false;
+    public bool isKnockback = false;
+    public float knockBackSpeed = 10f;
 
     bool isWallHit = false;
     bool isLive = false;
@@ -66,19 +68,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (!isWallHit)
+        if (!isWallHit && !isKnockback)
         {
             // 아래로 이동
-            Vector2 movement = Vector2.down * speed * Time.deltaTime;
-            rb.MovePosition(rb.position + movement);
+            rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 50;
+            Debug.Log("원래 속도 = " + rb.velocity);
         }
-
-
-        /*if(speed == 0f && !isWallAttackInProgress) //벽에 도달
-        {
-            GameObject wall = GameObject.Find("Wall");
-            StartCoroutine(WallAttack(wall));
-        }*/
     }
 
     IEnumerator WallAttack(GameObject wall)
@@ -98,9 +93,10 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) //벽과 충돌 로직
     {
+        if (!gameObject.activeSelf) return;
         if (collision.gameObject.CompareTag("Wall"))
         {
-            speed = 0f;  // 벽에 도달하면 속도를 0으로 설정
+            rb.velocity = Vector2.zero;  // 벽에 도달하면 속도를 0으로 설정
             isWallHit = true;
             GameObject wall = GameObject.Find("Wall");
             StartCoroutine(WallAttack(wall));
@@ -115,6 +111,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isWallHit = false;
+        rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 50;
     }
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -150,31 +147,38 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage, int skillId, float duration)
     {
-        Debug.Log("TakeDamage 호출 " + damage);
-        health -= damage;
-        Debug.Log("피격" + damage);
-
-        //팝업 생성하는 부분
-        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
-        GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
-        popupText.text = damage.ToString();
-
-        if (health > 0)
+        if (skillId == 5) //모멘스토일경우 -> 데미지 없이 넉백만 들어감
         {
-            if(skillId == 3 && !isParalyzed) //루모스일경우
-            {
-                StartCoroutine(Paralyze(duration));
-            }
-            // 피격 후 생존
-            StartCoroutine(HitEffect());
+            StartCoroutine(KnockBack());
         }
         else
         {
-            // 죽었을 때
-            spriteRenderer.color = originalColor;
-            Dead();
-            GameManager.Inst.kill++;
-            GameManager.Inst.GetExp();
+            Debug.Log("TakeDamage 호출 " + damage);
+            health -= damage;
+            Debug.Log("피격" + damage);
+
+            //팝업 생성하는 부분
+            Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
+            GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
+            popupText.text = damage.ToString();
+
+            if (health > 0)
+            {
+                if (skillId == 3 && !isParalyzed) //루모스일경우
+                {
+                    StartCoroutine(Paralyze(duration));
+                }
+                // 피격 후 생존
+                StartCoroutine(HitEffect());
+            }
+            else
+            {
+                // 죽었을 때
+                spriteRenderer.color = originalColor;
+                Dead();
+                GameManager.Inst.kill++;
+                GameManager.Inst.GetExp();
+            }
         }
     }
 
@@ -215,9 +219,22 @@ public class Enemy : MonoBehaviour
 
     IEnumerator KnockBack()
     {
-        yield return wait;
-        float knockBackDistance = 0.5f; // Adjust as needed
+        isKnockback = true;
+        float knockBackDuration = 0.1f; // 넉백 지속 시간 (코루틴이 돌아갈 시간)
+        float timer = 0f;
+
+        while (timer < knockBackDuration)
+        {
+            timer += Time.deltaTime;
+            rb.velocity = Vector2.up.normalized * speed * Time.deltaTime * knockBackSpeed * 50;
+            Debug.Log("현재 속도 = " + rb.velocity);
+            //spriteRenderer.color = new Color(0.5f, 0f, 0.5f, 1f);
+            yield return null;
+        }
+        //spriteRenderer.color = originalColor;
+        isKnockback = false;
     }
+
 
 
     void Dead()

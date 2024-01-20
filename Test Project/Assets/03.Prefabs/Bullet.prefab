@@ -148,6 +148,8 @@ MonoBehaviour:
   isUnlocked: 0
   splashRange: 0
   targetPosition: {x: 0, y: 0}
+  target: {fileID: 0}
+  momenstoPoint: []
   animCon:
   - {fileID: 22100000, guid: 5f8ba21f77e560b4899defc967f7ba53, type: 2}
   - {fileID: 22100000, guid: 63e524fe845442e4998f9ad154ecb942, type: 2}
@@ -181,7 +183,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!95 &-937765868833944807
 Animator:

@@ -20,11 +20,11 @@ public class Bullet : MonoBehaviour
     public float splashRange;
     public Vector2 targetPosition;
     public GameObject target;
+    public List<Transform> momenstoPoint = new List<Transform>();
 
     [Header("#Skill Effect")]
     public RuntimeAnimatorController[] animCon;
     Animator anim;
-
 
     Rigidbody2D rb;
     CapsuleCollider2D capsuleCollider;
@@ -124,8 +124,12 @@ public class Bullet : MonoBehaviour
                     target = enemies[Random.Range(0, enemies.Length)];
                     targetPosition = target.transform.position;
                 }
-                transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.2f);
+                transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.5f);
                 anim.speed = 3;
+            }
+            else if (skillId == 5) //모멘스토
+            {
+                bulletSpeed = 0f;
             }
             else
             {
@@ -162,12 +166,10 @@ public class Bullet : MonoBehaviour
                         var enemy = hitCollider.GetComponent<Enemy>();
                         if(enemy)
                         {
-                            var closestPoint = hitCollider.ClosestPoint(transform.position);
-                            var distance = Vector3.Distance(closestPoint, transform.position);
-
                             enemy.TakeDamage(explodeDamage, skillId, duration);
                         }
                     }
+                    hitColliders = null;
                 }
                 break;
             case 2: //아구아멘티
@@ -178,6 +180,20 @@ public class Bullet : MonoBehaviour
             case 4: //액소니아
                 break;
             case 5: //모멘스토
+                capsuleCollider.offset = new Vector2(0, -0.2f);
+                capsuleCollider.size *= 1.5f;
+                var momenstoColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f);
+                foreach (var hitCollider in momenstoColliders)
+                {
+                    var enemy = hitCollider.GetComponent<Enemy>();
+                    if (enemy)
+                    {
+                        enemy.TakeDamage(damage, skillId, duration);
+                    }
+                }
+                capsuleCollider.offset = Vector2.one;
+                capsuleCollider.size = Vector2.one;
+                momenstoColliders = null;
                 break;
             case 6: //피네스타
                 collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
@@ -214,6 +230,7 @@ public class Bullet : MonoBehaviour
     {
         target.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
 
+        gameObject.transform.rotation = Quaternion.identity;
         capsuleCollider.size = currentSize;
         anim.speed = 1;
         transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);

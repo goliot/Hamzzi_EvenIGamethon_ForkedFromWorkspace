@@ -19,6 +19,23 @@
 |기간| 01.08 ~ 01.26 | 01.27 ~ 02.02 | 02.03 ~ 02.09 | 02.10 ~ 02.23 |
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
+## V.1.2.1 - JS 2024-01-20
+- 승리 로직 구현
+  - VictoryUI
+    - No : GoToHome Button
+    - Yes : GoToNextStage 함수 구현 : 테스트 진행은 못해봄 (버그 있을 수 있다)
+- 패배 로직 구현
+  - GameOverUI
+    - No : GoToHome Button
+    - Yes : Retry Button
+- Spwaner Start함수 변경
+  - Battle_Proto 에서도 Run 되게 코드 수정
+- 카드 뽑기 로직
+    - AchiveManager와 PlayerPrefs를 활용하여 각각의 Card를 SetActive 하는 방법으로 구현해 봄 -> 실패
+    - Card가 모두 Active 되어 있는 상태에서 카드 뽑기가 안되게 끔 하는 방법으로 접근 필요 (Boolean...?) 
+
+
+---
 ## V.1.2.0 - JS 2024-01-19
 - SceneManager 구축으로 인한 개발 버전 업데이트
 - Image Upload

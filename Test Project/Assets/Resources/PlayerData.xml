@@ -25,7 +25,7 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>23</explodeDamage>
 		<isExplode>true</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0.45</splashRange>
 	</Sheet1>
 	<Sheet1>
@@ -53,7 +53,7 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>
@@ -81,7 +81,7 @@
 		<atkRange>4.2</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>true</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0.5</splashRange>
 	</Sheet1>
 	<Sheet1>
@@ -95,7 +95,7 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>35</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0</splashRange>
 	</Sheet1>
 </root>

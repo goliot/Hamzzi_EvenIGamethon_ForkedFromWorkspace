@@ -15,6 +15,9 @@ MonoBehaviour:
   cardType: 1
   cardId: 3
   cardName: Penetrate
+  isLocked: 0
+  noExplosion: 0
+  noPenetration: 0
   cardDesc: 'Penetrate +1
 
     Damage +10%'

@@ -15,6 +15,9 @@ MonoBehaviour:
   cardType: 0
   cardId: 2
   cardName: Explosion
+  isLocked: 0
+  noExplosion: 1
+  noPenetration: 0
   cardDesc: Explosion +60%
   cardIcon: {fileID: 21300000, guid: 12450cc4abbad594e8255e68d85de179, type: 3}
   levels:

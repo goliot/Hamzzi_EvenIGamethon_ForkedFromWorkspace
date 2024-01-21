@@ -15,11 +15,10 @@ MonoBehaviour:
   cardType: 1
   cardId: 9
   cardName: Add Ep Type
+  isLocked: 1
+  noExplosion: 0
+  noPenetration: 0
   cardDesc: Add Explosion type
   cardIcon: {fileID: 21300000, guid: 955c1eaccd75c4045b621aa28a0bbeba, type: 3}
   levels:
-  - 0
-  - 0
-  - 0
-  - 0
   - 0

@@ -15,11 +15,10 @@ MonoBehaviour:
   cardType: 3
   cardId: 8
   cardName: Unlock Skill
+  isLocked: 0
+  noExplosion: 0
+  noPenetration: 0
   cardDesc: Unlock Skill
   cardIcon: {fileID: 21300000, guid: 7a0dfb4661a3148408848228e5a81baf, type: 3}
   levels:
-  - 0
-  - 0
-  - 0
-  - 0
   - 0

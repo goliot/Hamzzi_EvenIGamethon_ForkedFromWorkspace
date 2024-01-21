@@ -27,10 +27,8 @@ public class LevelUp : MonoBehaviour
         GameManager.Inst.Resume();
     }
 
-
     void Next()
     {
-
         // 1. 모든 카드 비활성화
         foreach (Card card in cards)
         {
@@ -46,68 +44,50 @@ public class LevelUp : MonoBehaviour
             return;
         }
 
-        while (true)
+        bool isSkill1Unlocked = player.playerData[0].isUnlocked; // 1번 스킬 해금 여부
+        bool isSkill3Unlocked = player.playerData[2].isUnlocked; // 3번 스킬 해금 여부
+        bool isSkill5Unlocked = player.playerData[4].isUnlocked; // 5번 스킬 해금 여부
+        bool isSkill6Unlocked = player.playerData[5].isUnlocked; // 6번 스킬 해금 여부
+
+        // 더블업 체크
+        //if ((isSkill1Unlocked && isSkill5Unlocked) || (isSkill3Unlocked && isSkill6Unlocked))
         {
-            rnd[0] = Random.Range(0, cards.Length);
-            rnd[1] = Random.Range(0, cards.Length);
-            rnd[2] = Random.Range(0, cards.Length);
-
-            if (rnd[0] != rnd[1] && rnd[1] != rnd[2] && rnd[0] != rnd[2]) break; // 중복 카드 제거
-        }
-
-        for (int idx = 0; idx < rnd.Length; idx++)
-        {
-            Card rndCard = cards[rnd[idx]];
-
-            if (rndCard.level == rndCard.cardData.levels.Length)
+            for (int idx = 0; idx < rnd.Length; idx++)
             {
-                // 만렙인 경우 다시 뽑기
+                Card rndCard;
                 do
                 {
                     rnd[idx] = Random.Range(0, cards.Length);
-                } while (rndCard.level == rndCard.cardData.levels.Length);
+                    rndCard = cards[rnd[idx]];
+                } while (IsDuplicate(rnd, idx) || !IsValidCard(rndCard));
 
-                rndCard = cards[rnd[idx]];
-            }
-            else rndCard.gameObject.SetActive(true);
-        }
-        /*
-        rnd[0] = Random.Range(0, cards.Length);
-        for (int i = 0; i < rnd.Length; i++)
-        {
-            do
-            {
-                // 카드 뽑기 전에 해금됬는지 체크하는 로직
-                
-
-                isTry = false;
-                rnd[i] = Random.Range(0, cards.Length);     // n번째 아이템을 고르고
-                if (check[rnd[i]]) isTry = true;            // 중복되는 게 있다면 다시 하고
-                else check[rnd[i]] = true;
-            } while (isTry);
-        }
-
-
-        for (int idx = 0; idx < rnd.Length; idx++)
-        {
-            Card rndCard = cards[rnd[idx]];
-
-            // 3. 만렙 카드의 경우 더 이상 뜨지 않게
-            if (rndCard.level == rndCard.cardData.levels.Length)
-            {
-                // 카드가 모두 만렙인 경우
-                Debug.Log(rndCard.level); // 디버깅
-
-                // 추가 로직 구현 필요 (체력회복등의 카드 업그레이드와 상관없는 패시브 카드를 넣으면 가장 좋음)
-            }
-            else
-            {
                 rndCard.gameObject.SetActive(true);
             }
-        }*/
-
+        }
+        //else
+        //{
+        //    // 다시 뽑는 로직 추가
+        //    Debug.Log("해금 조건이 맞지 않습니다. 다시 뽑습니다.");
+        //    Next();
+        //}
     }
 
+    // 중복 체크
+    bool IsDuplicate(int[] array, int currentIndex)
+    {
+        for (int i = 0; i < currentIndex; i++)
+        {
+            if (array[i] == array[currentIndex])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
-
+    // 유효한 카드 체크
+    bool IsValidCard(Card card)
+    {
+        return !card.cardData.isLocked && !card.cardData.noExplosion && !card.cardData.noPenetration && card.level < card.cardData.levels.Length;
+    }
 }

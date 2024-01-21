@@ -15,6 +15,9 @@ MonoBehaviour:
   cardType: 1
   cardId: 1
   cardName: Damage
+  isLocked: 0
+  noExplosion: 0
+  noPenetration: 0
   cardDesc: Damage +60%
   cardIcon: {fileID: 21300000, guid: 955c1eaccd75c4045b621aa28a0bbeba, type: 3}
   levels:

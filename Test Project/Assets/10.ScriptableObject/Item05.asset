@@ -15,6 +15,9 @@ MonoBehaviour:
   cardType: 0
   cardId: 7
   cardName: DoubleUp
+  isLocked: 0
+  noExplosion: 0
+  noPenetration: 0
   cardDesc: 'Magic Bolt +40%
 
     Exonia +40%'

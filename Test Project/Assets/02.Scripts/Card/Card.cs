@@ -81,6 +81,10 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].damage *= 1.2f;
                     Debug.Log("damage : " + player.playerData[(int)cardData.cardType].damage + " penetrate : + " + player.playerData[(int)cardData.cardType].penetrate);
                 }
+                else if (cardData.cardId == 8)
+                {
+                    player.playerData[(int)cardData.cardType].isUnlocked = true;
+                }
                 break;
 
             case CardData.CardType.Aqua:
@@ -100,12 +104,20 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].duration += 2.1f;
                     player.playerData[(int)CardData.CardType.Aegs].duration += 2.1f;
                 }
+                else if (cardData.cardId == 8)
+                {
+                    player.playerData[(int)cardData.cardType].isUnlocked = true;
+                }
                 break;
             case CardData.CardType.Lumos:
                 if (cardData.cardId == 4)
                 {
                     player.playerData[(int)cardData.cardType].duration += 2f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
+                }
+                else if (cardData.cardId == 8)
+                {
+                    player.playerData[(int)cardData.cardType].isUnlocked = true;
                 }
                 break;
             case CardData.CardType.Aegs:
@@ -119,6 +131,10 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].atkRange *= 1.15f;
                     Debug.Log("atkRange : " + player.playerData[(int)cardData.cardType].atkRange);
                 }
+                else if (cardData.cardId == 8)
+                {
+                    player.playerData[(int)cardData.cardType].isUnlocked = true;
+                }
                 break;
             case CardData.CardType.Momen:
                 if (cardData.cardId == 4)
@@ -130,6 +146,10 @@ public class Card : MonoBehaviour
                 {
                     player.playerData[(int)cardData.cardType].splashRange *= 1.15f;
                     Debug.Log("splashRange : " + player.playerData[(int)cardData.cardType].splashRange);
+                }
+                else if (cardData.cardId == 8)
+                {
+                    player.playerData[(int)cardData.cardType].isUnlocked = true;
                 }
                 break;
             case CardData.CardType.Pines:
@@ -154,7 +174,6 @@ public class Card : MonoBehaviour
                 else if (cardData.cardId == 8)
                 {
                     player.playerData[(int)cardData.cardType].isUnlocked = true;
-
                 }
                 else if (cardData.cardId == 9)
                 {

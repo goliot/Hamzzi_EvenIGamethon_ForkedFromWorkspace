@@ -52,6 +52,25 @@ public class LevelUp : MonoBehaviour
             rnd[1] = Random.Range(0, cards.Length);
             rnd[2] = Random.Range(0, cards.Length);
 
+
+            for (int idx = 0; idx < rnd.Length; idx++)
+            {
+                Card rndCard = cards[rnd[idx]];
+
+                // 3. 만렙 카드의 경우 더 이상 뜨지 않게
+                if (rndCard.level == rndCard.cardData.levels.Length)
+                {
+                    // 카드가 모두 만렙인 경우
+                    Debug.Log(rndCard.level); // 디버깅
+
+                    // 추가 로직 구현 필요 (체력회복등의 카드 업그레이드와 상관없는 패시브 카드를 넣으면 가장 좋음)
+                }
+                else
+                {
+                    rndCard.gameObject.SetActive(true);
+                }
+            }
+
             if (rnd[0] != rnd[1] && rnd[1] != rnd[2] && rnd[0] != rnd[2]) break; // 중복 카드 제거
 
         }

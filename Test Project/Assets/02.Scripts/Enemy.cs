@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    [Header ("#Info")]
+    [Header("#Info")]
+    public int spriteType;
     public float speed;
     public float health;
     public float maxHealth;
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour
     public void Init(SpawnData data)
     {
         anim.runtimeAnimatorController = animCon[data.spriteType];
+        spriteType = data.spriteType;
         health = data.health;
         maxHealth = data.health;
         damage = data.damage;
@@ -72,7 +74,6 @@ public class Enemy : MonoBehaviour
         {
             // 아래로 이동
             rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 50;
-            Debug.Log("원래 속도 = " + rb.velocity);
         }
     }
 
@@ -177,7 +178,17 @@ public class Enemy : MonoBehaviour
                 spriteRenderer.color = originalColor;
                 Dead();
                 GameManager.Inst.kill++;
-                GameManager.Inst.GetExp();
+                int killExp;
+                if (spriteType % 5 < 3)
+                {
+                    killExp = 30;
+                }
+                else if (spriteType % 5 == 3)
+                {
+                    killExp = 60;
+                }
+                else killExp = 80;
+                GameManager.Inst.GetExp(killExp);
             }
         }
     }
@@ -227,7 +238,6 @@ public class Enemy : MonoBehaviour
         {
             timer += Time.deltaTime;
             rb.velocity = Vector2.up.normalized * speed * Time.deltaTime * knockBackSpeed * 50;
-            Debug.Log("현재 속도 = " + rb.velocity);
             //spriteRenderer.color = new Color(0.5f, 0f, 0.5f, 1f);
             yield return null;
         }

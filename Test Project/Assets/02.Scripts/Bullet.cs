@@ -237,4 +237,10 @@ public class Bullet : MonoBehaviour
         isTargetLocked = false;
         gameObject.SetActive(false);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, splashRange);
+    }
 }

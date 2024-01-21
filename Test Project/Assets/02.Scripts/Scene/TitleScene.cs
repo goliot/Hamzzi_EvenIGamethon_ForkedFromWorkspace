@@ -6,7 +6,7 @@ public class TitleScene : MonoBehaviour
 {
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             SceneLoader.Inst.ChangeScene(3);
         }

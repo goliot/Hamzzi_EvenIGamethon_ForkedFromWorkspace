@@ -64,6 +64,15 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         //스테이지별 몹 능력치 배율
         LoadMagXml(magXmlFileName);
         */
+
+        for(int i=0; i<20; i++)
+        {
+            stageMobCount += stageWaveData[i].mob1;
+            stageMobCount += stageWaveData[i].mob2;
+            stageMobCount += stageWaveData[i].mob3;
+            stageMobCount += stageWaveData[i].semiBoss;
+            stageMobCount += stageWaveData[i].boss;
+        }
     }
 
     private void LoadXML(string _fileName)
@@ -163,6 +172,11 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         {
             CancelInvoke("IncreaseWave");
             Debug.Log("Wave가 최대에 도달하여 InvokeRepeating이 종료되었습니다.");
+        }
+
+        if(GameManager.Inst.kill >= stageMobCount)
+        {
+            Victory();
         }
     }
 

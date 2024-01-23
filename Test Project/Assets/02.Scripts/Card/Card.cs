@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Xml;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
@@ -13,16 +14,16 @@ public class Card : MonoBehaviour
     public Player player;
 
     Image icon;
-    Text textLevel;
-    Text textName;
-    Text textDesc;
+    TextMeshProUGUI textLevel;
+    TextMeshProUGUI textName;
+    TextMeshProUGUI textDesc;
 
     private void Awake()
     {
         icon = GetComponentsInChildren<Image>()[1];
         icon.sprite = cardData.cardIcon;
 
-        Text[] texts = GetComponentsInChildren<Text>();
+        TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>();
         textLevel = texts[0];
         textName = texts[1];
         textDesc = texts[2];

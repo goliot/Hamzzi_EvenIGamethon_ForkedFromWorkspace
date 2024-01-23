@@ -133,7 +133,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.0
+  bundleVersion: 1.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -799,10 +799,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 2ba4776f-557c-4f9d-b7be-37b998bcbf89
+  cloudProjectId: 8c7da301-2217-427a-96a4-f64713bbe0f4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Test Project
+  projectName: Test Project 2024-01-22_07-51-02
   organizationId: jinlee0206
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

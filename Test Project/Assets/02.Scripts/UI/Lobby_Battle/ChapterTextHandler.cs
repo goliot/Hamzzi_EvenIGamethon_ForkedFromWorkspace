@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,13 +9,13 @@ public class ChapterTextHandler : MonoBehaviour
     public enum InfoType { Chapter, Total }
     public InfoType type;
 
-    Text chapterText;
-    Text totalText;
+    TextMeshProUGUI chapterText;
+    TextMeshProUGUI totalText;
 
     private void Awake()
     {
-        chapterText = GetComponent<Text>();
-        totalText = GetComponent<Text>();
+        chapterText = GetComponent<TextMeshProUGUI>();
+        totalText = GetComponent<TextMeshProUGUI>();
     }
 
     private void LateUpdate()

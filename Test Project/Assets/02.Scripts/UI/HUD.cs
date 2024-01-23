@@ -6,12 +6,13 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Time, Health, Wave}
+    public enum InfoType { Exp, Level, Time, Health, Wave, ChapterStage}
     public InfoType type;
 
-    Text lvText;
-    Text timeText;
-    Text waveText;
+    TextMeshProUGUI lvText;
+    TextMeshProUGUI timeText;
+    TextMeshProUGUI waveText;
+    TextMeshProUGUI chapterStageText;
     Slider expSlider;
     Slider hpSlider;
 
@@ -19,9 +20,10 @@ public class HUD : MonoBehaviour
 
     private void Awake()
     {
-        lvText = GetComponent<Text>();
-        timeText = GetComponent<Text>();
-        waveText = GetComponent<Text>();
+        lvText = GetComponent<TextMeshProUGUI>();
+        timeText = GetComponent<TextMeshProUGUI>();
+        waveText = GetComponent<TextMeshProUGUI>();
+        chapterStageText = GetComponent<TextMeshProUGUI>();
         expSlider = GetComponent<Slider>();
         hpSlider = GetComponent<Slider>();
     }
@@ -55,7 +57,10 @@ public class HUD : MonoBehaviour
                 hpSlider.value = curHealth / maxHealth;
                 break;
             case InfoType.Wave:
-                waveText.text = string.Format("Wave : {0:D2} / {1:D2}", spawner.currentWave ,spawner.maxWave);
+                waveText.text = string.Format("WAVE : {0:D2} / {1:D2}", spawner.currentWave ,spawner.maxWave);
+                break;
+            case InfoType.ChapterStage:
+                chapterStageText.text = string.Format("STAGE {0:F0} - {1:F0}", StageSelect.instance.chapter, StageSelect.instance.stage);
                 break;
 
         }

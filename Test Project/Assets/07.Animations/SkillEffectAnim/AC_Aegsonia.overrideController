@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: AC_Aegsonia
   m_Controller: {fileID: 9100000, guid: d108671dd3cead8478c5fa7c51148e42, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3a659168f43184d4d99b5e3f09540bfa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ce86e077c46f26e4ebf650211d761f36, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 30675cb167a7fee44aa7e51959e21ad0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ce86e077c46f26e4ebf650211d761f36, type: 2}

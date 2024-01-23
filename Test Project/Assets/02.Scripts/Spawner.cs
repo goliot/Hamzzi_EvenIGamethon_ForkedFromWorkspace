@@ -22,9 +22,11 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
     [Header("Boss Effect")]
     public Image redLightImage;
+    public Image warningImage;
 
     public event UnityAction<int> OnWaveChanged; // 웨이브 바뀔 때 알려주는 UnityAction
 
+    [Header("Wave Info")]
     public int currentWave;
     public int maxWave = 20;
     public int stageMobCount = 0; //현재 스테이지에서 나오는 총 몹의 수 -> 승리 로직에 사용
@@ -189,7 +191,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     private void IncreaseWaveAndWaveStart()
     {
         currentWave++;
-        Debug.Log("Wave " + currentWave + " 시작");
+        //Debug.Log("Wave " + currentWave + " 시작");
         // 추가 작성 부분
         if (OnWaveChanged != null)
             OnWaveChanged.Invoke(currentWave);          // 웨이브 바뀔 때, 
@@ -205,6 +207,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     IEnumerator BossStageEffect()
     {
         redLightImage.gameObject.SetActive(true);
+        warningImage.gameObject.SetActive(true);
         // 2. 화면 전체가 반투명한 빨간빛으로 3회 깜빡임
         for (int i = 0; i < 3; i++)
         {
@@ -214,6 +217,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             yield return new WaitForSeconds(0.5f); // 0.5초 대기
         }
         redLightImage.gameObject.SetActive(false);
+        warningImage.gameObject.SetActive(false);
 
         //여기다가 보스 스폰 넣기
         Spawn((chapter * 5 - 1));
@@ -318,7 +322,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             }
         }
         string output = string.Join(" ", spawnList);
-        Debug.Log("Origin Spawn: " + output);
+        //Debug.Log("Origin Spawn: " + output);
 
         ShuffleList(spawnList);
 
@@ -353,7 +357,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         }
 
         string output = string.Join(" ", list);
-        Debug.Log("Shuffled Spawn: " + output);
+        //Debug.Log("Shuffled Spawn: " + output);
     }
 }
 

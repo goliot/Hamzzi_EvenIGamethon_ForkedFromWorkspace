@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     public bool isExplode;
     public bool isUnlocked;
     public float splashRange;
-    public Vector2 targetPosition;
+    public Vector3 targetPosition;
     public GameObject target;
     public List<Transform> momenstoPoint = new List<Transform>();
 
@@ -28,8 +28,9 @@ public class Bullet : MonoBehaviour
 
     Rigidbody2D rb;
     CapsuleCollider2D capsuleCollider;
-    private Vector2 initialDirection;
-    private Vector2 initialLocation;
+    Collider2D[] hitColliders;
+    private Vector3 initialDirection;
+    private Vector3 initialLocation;
     private bool isTargetLocked = false;
 
     Vector2 currentSize;
@@ -81,6 +82,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        Vector3 dir = target.transform.position - transform.position;
         /*if(target == null || !target.gameObject.activeSelf)
         {
             gameObject.SetActive(false);
@@ -93,26 +95,33 @@ public class Bullet : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }*/
+        RotateTowardsMovementDirection();
 
         if (gameObject.activeSelf)
         {
             if (skillId == 1) //봄바르다
             {
-                rb.velocity = initialDirection.normalized * bulletSpeed;
-                gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
-
+                rb.velocity = dir.normalized * bulletSpeed;
+                //gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+                transform.localScale = new Vector3(6, 6, 6);
+                capsuleCollider.size = new Vector2(0.33f, 0.33f);
                 // 일정 오차 범위 내에 위치가 일치하면
                 float positionError = 0.1f; // 적절한 오차 범위를 설정하세요
 
-                if (!capsuleCollider.enabled && Vector2.Distance(transform.position, targetPosition) < positionError)
+                if (!capsuleCollider.enabled && Vector2.Distance(transform.position, target.transform.position) < positionError)
                 {
                     transform.localScale = Vector3.one;
                     anim.speed = 2;
-                    anim.SetTrigger("MainEffect");
+                    anim.SetTrigger("MainEffect"); //왜 1프레임 오른쪽으로 돌지?
+                    RotateTowardsMovementDirection();
                     //capsuleCollider.size = newSize;
                     capsuleCollider.enabled = true; //딱 도달했을 때 터지게 해야지 콜라이더만 켜서는 안된다.
                     bulletSpeed = 0f;
                 }
+            }
+            else if(skillId == 2) //아구아멘티
+            {
+                
             }
             else if (skillId == 3) //루모스
             {
@@ -127,22 +136,35 @@ public class Bullet : MonoBehaviour
                 transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.5f);
                 anim.speed = 3;
             }
+            else if (skillId == 4) //엑서니아
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90)); //수직으로 나오게
+                transform.position = new Vector3(target.transform.position.x, 0.7f, 0);
+                transform.localScale = new Vector3(5.5f, 5.5f, 5.5f);
+                capsuleCollider.size = new Vector2(1.55f, 0.1f);
+            }
             else if (skillId == 5) //모멘스토
             {
                 bulletSpeed = 0f;
             }
             else
             {
-                rb.velocity = initialDirection.normalized * bulletSpeed;
-                gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+                rb.velocity = dir.normalized * bulletSpeed;
+                //gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
             }
+        }
+        hitColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f);
+        for(int i=0; i<hitColliders.Length; i++)
+        {
+            Debug.Log(hitColliders[i]);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Enemy") || penetrate == -1) return; 
+        if (!collision.CompareTag("Enemy") || penetrate == -1) return;
         //관통력이 기본 -1이라면 무한관통
+        Debug.Log("Bullet OnTriggerEnter with: " + collision.gameObject.name);
 
         switch (gameObject.GetComponent<Bullet>().skillId)
         {
@@ -160,16 +182,19 @@ public class Bullet : MonoBehaviour
                 penetrate--;
                 if (penetrate == -1)
                 {
-                    var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashRange);
+                    //Collider2D[] hitColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f);
                     foreach(var hitCollider in hitColliders)
                     {
-                        var enemy = hitCollider.GetComponent<Enemy>();
-                        if(enemy)
+                        Debug.Log(hitCollider.name);
+                        if (hitCollider.CompareTag("Enemy"))
                         {
-                            enemy.TakeDamage(explodeDamage, skillId, duration);
+                            Enemy enemy = hitCollider.GetComponent<Enemy>();
+                            if (enemy)
+                            {
+                                enemy.TakeDamage(explodeDamage, skillId, duration);
+                            }
                         }
                     }
-                    hitColliders = null;
                 }
                 break;
             case 2: //아구아멘티
@@ -178,17 +203,36 @@ public class Bullet : MonoBehaviour
                 //별도로 존재
                 break;
             case 4: //액소니아
+                Collider2D[] aegsoniaColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleCollider.size, CapsuleDirection2D.Horizontal, 0f);
+                foreach (var hitCollider in aegsoniaColliders)
+                {
+                    if (hitCollider.gameObject == gameObject)
+                        continue;
+
+                    Debug.Log(hitCollider.name);
+                    if (hitCollider.CompareTag("Enemy"))
+                    {
+                        var enemy = hitCollider.GetComponent<Enemy>();
+                        if (enemy)
+                        {
+                            enemy.TakeDamage(damage, skillId, duration);
+                        }
+                    }
+                }
                 break;
             case 5: //모멘스토
                 capsuleCollider.offset = new Vector2(0, -0.2f);
                 capsuleCollider.size *= 1.5f;
-                var momenstoColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f);
+                var momenstoColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleCollider.size, CapsuleDirection2D.Horizontal, 0f);
                 foreach (var hitCollider in momenstoColliders)
                 {
-                    var enemy = hitCollider.GetComponent<Enemy>();
-                    if (enemy)
+                    if (hitCollider.CompareTag("Enemy"))
                     {
-                        enemy.TakeDamage(damage, skillId, duration);
+                        var enemy = hitCollider.GetComponent<Enemy>();
+                        if (enemy)
+                        {
+                            enemy.TakeDamage(explodeDamage, skillId, duration);
+                        }
                     }
                 }
                 capsuleCollider.offset = Vector2.one;
@@ -238,9 +282,29 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, splashRange);
+        Vector2 capsuleColliderSize = capsuleCollider.size;
+        // 그리기 전에 먼저 Physics2D.OverlapCapsuleAll을 사용하여 콜라이더를 얻습니다.
+        var aegsoniaColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleColliderSize, CapsuleDirection2D.Horizontal, 0f);
+
+        // 그림을 그리기 전에 색상을 설정할 수 있습니다.
+        Gizmos.color = Color.red;
+
+        // 얻은 콜라이더들을 기즈모로 그립니다.
+        foreach (var collider in aegsoniaColliders)
+        {
+            Gizmos.DrawWireCube(collider.bounds.center, collider.bounds.size);
+        }
+    }
+
+    void RotateTowardsMovementDirection()
+    {
+        // 현재 총알의 이동 방향을 구함
+        Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;
+
+        // 이동 방향으로 총알 회전
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

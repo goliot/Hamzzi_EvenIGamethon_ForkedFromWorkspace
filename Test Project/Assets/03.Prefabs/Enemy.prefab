@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1f0ec9bce941e4ba4a4de8a5c207b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteType: 0
   speed: 0
   health: 0
   maxHealth: 0
@@ -178,6 +179,9 @@ MonoBehaviour:
   popupText: {fileID: 3702007528897429254, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
   dmgCanvas: {fileID: 0}
   hitColor: {r: 1, g: 0.5, b: 0.5, a: 1}
+  isParalyzed: 0
+  isKnockback: 0
+  knockBackSpeed: 10
 --- !u!61 &5206392007824436964
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,10 +211,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.025}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}

@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     bool isWallHit = false;
     bool isLive = false;
     bool isWallAttackInProgress = false;
+    Coroutine coroutineInfo;
 
     Rigidbody2D rb;
     Animator anim;
@@ -93,7 +94,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) //벽과 충돌 로직
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!gameObject.activeSelf) return;
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            rb.velocity = Vector2.zero;  // 벽에 도달하면 속도를 0으로 설정
+            isWallHit = true;
+            GameObject wall = GameObject.Find("Wall");
+            StartCoroutine(WallAttack(wall));
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // "Enemy"와 충돌했을 때는 무시하고 그냥 겹치게 둠
+            //Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            return;
+        }
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision) //벽과 충돌 로직
     {
         if (!gameObject.activeSelf) return;
         if (collision.gameObject.CompareTag("Wall"))
@@ -108,7 +127,7 @@ public class Enemy : MonoBehaviour
             // "Enemy"와 충돌했을 때는 무시하고 그냥 겹치게 둠
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
-    }
+    }*/
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -149,7 +168,13 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage, int skillId, float duration)
     {
-        if (skillId == 5) //모멘스토일경우 -> 데미지 없이 넉백만 들어감
+        if(skillId == 4) //엑서니아경우
+        {
+            //지속 데미지
+            if (coroutineInfo != null)  StopCoroutine(Aegsonia(damage, duration));
+            coroutineInfo = StartCoroutine(Aegsonia(damage, duration));
+        }
+        else if (skillId == 5) //모멘스토일경우 -> 데미지 없이 넉백만 들어감
         {
             StartCoroutine(KnockBack());
         }
@@ -227,6 +252,52 @@ public class Enemy : MonoBehaviour
     IEnumerator Pinesta(float secondDamage, float duration)
     {
         yield return new WaitForSeconds(duration);
+    }
+
+    IEnumerator Aegsonia(float damage, float duration)
+    {
+        while (duration > 0f)
+        {
+            // 데미지를 입히는 작업 수행
+            Debug.Log("액서니아 타격 " + damage);
+            health -= damage;
+            Debug.Log("피격" + damage);
+
+            //팝업 생성하는 부분
+            Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
+            GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
+            popupText.text = damage.ToString();
+
+            // 1초 대기
+            yield return new WaitForSeconds(1f);
+
+            // 경과된 시간 감소
+            duration -= 1f;
+
+            if (health > 0)
+            {
+                // 피격 후 생존
+                StartCoroutine(HitEffect());
+            }
+            else
+            {
+                // 죽었을 때
+                spriteRenderer.color = originalColor;
+                Dead();
+                GameManager.Inst.kill++;
+                int killExp;
+                if (spriteType % 5 < 3)
+                {
+                    killExp = 30;
+                }
+                else if (spriteType % 5 == 3)
+                {
+                    killExp = 60;
+                }
+                else killExp = 80;
+                GameManager.Inst.GetExp(killExp);
+            }
+        }
     }
 
     IEnumerator KnockBack()

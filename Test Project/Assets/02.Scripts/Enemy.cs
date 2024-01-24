@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public bool isParalyzed = false;
     public bool isKnockback = false;
     public float knockBackSpeed = 10f;
+    public bool isAegsoniaRunning = false;
 
     bool isWallHit = false;
     bool isLive = false;
@@ -75,7 +76,7 @@ public class Enemy : MonoBehaviour
         if (!isWallHit && !isKnockback)
         {
             // 아래로 이동
-            rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 50;
+            rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 10;
         }
     }
 
@@ -171,8 +172,11 @@ public class Enemy : MonoBehaviour
         if(skillId == 4) //엑서니아경우
         {
             //지속 데미지
-            if (coroutineInfo != null)  StopCoroutine(Aegsonia(damage, duration));
-            coroutineInfo = StartCoroutine(Aegsonia(damage, duration));
+            if (!isAegsoniaRunning)
+            {
+                StartCoroutine(Aegsonia(damage, duration));
+            }
+            else return;
         }
         else if (skillId == 5) //모멘스토일경우 -> 데미지 없이 넉백만 들어감
         {
@@ -256,8 +260,11 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Aegsonia(float damage, float duration)
     {
+        isAegsoniaRunning = true;
         while (duration > 0f)
         {
+            yield return new WaitForSeconds(1f);
+
             // 데미지를 입히는 작업 수행
             Debug.Log("액서니아 타격 " + damage);
             health -= damage;
@@ -267,9 +274,6 @@ public class Enemy : MonoBehaviour
             Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
             GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
             popupText.text = damage.ToString();
-
-            // 1초 대기
-            yield return new WaitForSeconds(1f);
 
             // 경과된 시간 감소
             duration -= 1f;
@@ -296,8 +300,10 @@ public class Enemy : MonoBehaviour
                 }
                 else killExp = 80;
                 GameManager.Inst.GetExp(killExp);
+                break;
             }
         }
+        isAegsoniaRunning = false;
     }
 
     IEnumerator KnockBack()

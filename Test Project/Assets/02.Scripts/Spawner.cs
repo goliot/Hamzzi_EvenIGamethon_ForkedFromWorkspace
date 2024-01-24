@@ -5,6 +5,7 @@ using System.Xml;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
@@ -30,6 +31,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public int currentWave;
     public int maxWave = 20;
     public int stageMobCount = 0; //현재 스테이지에서 나오는 총 몹의 수 -> 승리 로직에 사용
+    public GameObject[] tilemaps;
 
     void Start()
     {
@@ -75,6 +77,12 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             stageMobCount += stageWaveData[i].semiBoss;
             stageMobCount += stageWaveData[i].boss;
         }
+
+        /*for(int i=0; i<4; i++)
+        {
+            tilemaps[i].SetActive(false);
+        }
+        tilemaps[chapter].SetActive(true);*/
     }
 
     private void LoadXML(string _fileName)

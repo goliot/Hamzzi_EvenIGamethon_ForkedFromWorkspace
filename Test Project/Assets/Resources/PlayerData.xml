@@ -25,8 +25,8 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>23</explodeDamage>
 		<isExplode>true</isExplode>
-		<isUnlocked>false</isUnlocked>
-		<splashRange>0.45</splashRange>
+		<isUnlocked>true</isUnlocked>
+		<splashRange>1</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>2</skillId>
@@ -67,7 +67,7 @@
 		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>

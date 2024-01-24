@@ -8,17 +8,40 @@ using UnityEngine.UI;
 public class SoundSettings : MonoBehaviour
 {
     public Slider bgmSlider;
+    public Slider sfxSlider;
+
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = AudioManager.Inst;
+    }
 
     void Start()
     {
-        SoundManager.Inst.PlayBGM(Resources.Load("GAME_MAIN_BGM_01") as AudioClip);
-        //bgmSlider.value = SoundManager.Inst.BgmVolume;
+        if (bgmSlider != null)
+        {
+            bgmSlider.value = audioManager.GetVolume(AudioManager.AudioType.BGM);
+            bgmSlider.onValueChanged.AddListener(value => audioManager.OnVolumeChanged(AudioManager.AudioType.BGM, value));
+        }
 
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = audioManager.GetVolume(AudioManager.AudioType.SFX);
+            sfxSlider.onValueChanged.AddListener(value => audioManager.OnVolumeChanged(AudioManager.AudioType.SFX, value));
+        }
     }
 
-    public void OnChangeBGMVolume(float v)
+    /*
+    Slider bgmSlider;
+    private void Awake()
     {
-        SoundManager.Inst.BgmVolume = v;
-        // PlayerPrefs에 저장하는 로직이 필요하다면 여기에 추가할 수 있습니다.
+        bgmSlider = GetComponent<Slider>();
     }
+
+    void Start()
+    {
+        bgmSlider.value = AudioManager.Inst.BgmVolume;
+        bgmSlider.onValueChanged.AddListener(AudioManager.Inst.OnChangedBGMVolume);
+    }*/
 }

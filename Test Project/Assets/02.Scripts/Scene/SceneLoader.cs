@@ -33,7 +33,7 @@ public class SceneLoader : Singleton<SceneLoader>
         {
             float currentProgress = op.progress / 0.9f;                                         // 현재 프레임의 진행률 계산
 
-            // slider.value = Mathf.Lerp(slider.value, currentProgress, Time.deltaTime * 7f);   // Lerp로 선형 보간
+            // bgmSlider.value = Mathf.Lerp(bgmSlider.value, currentProgress, Time.deltaTime * 7f);   // Lerp로 선형 보간
 
             // 초기에 로딩 바가 찰 때의 보간
             if (currentProgress < targetProgress)

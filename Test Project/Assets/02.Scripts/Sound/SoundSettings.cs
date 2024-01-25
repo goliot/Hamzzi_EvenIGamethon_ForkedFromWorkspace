@@ -31,17 +31,4 @@ public class SoundSettings : MonoBehaviour
             sfxSlider.onValueChanged.AddListener(value => audioManager.OnVolumeChanged(AudioManager.AudioType.SFX, value));
         }
     }
-
-    /*
-    Slider bgmSlider;
-    private void Awake()
-    {
-        bgmSlider = GetComponent<Slider>();
-    }
-
-    void Start()
-    {
-        bgmSlider.value = AudioManager.Inst.BgmVolume;
-        bgmSlider.onValueChanged.AddListener(AudioManager.Inst.OnChangedBGMVolume);
-    }*/
 }

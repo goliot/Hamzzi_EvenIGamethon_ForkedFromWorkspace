@@ -19,7 +19,48 @@
 |기간| 01.08 ~ 01.26 | 01.27 ~ 02.02 | 02.03 ~ 02.09 | 02.10 ~ 02.23 |
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
-## V.1.2.7 - SM 20204-01-25
+## V.1.2.9 - JS 2024-01-25
+- 서브 햄찌
+  - SpawnPoint 2개의 지점 RuleTile로 지정 (Tag "Tile"을 가짐)
+  - 마우스 RayCast가 Tag와 일치할 때, TowerUI(타워 설치용 UI)를 불러온다
+  - PopUpWindow 스크립트를 부착하여 PopUpManager의 구조를 사용하여 TowerUI 프리팹을 불러오고, 각각 버튼을 눌렀을 때, 설치형 햄찌를 Instantiate 한다
+  - 프리팹 Tower01 (for Test) 게임 씬 하이어라키에 생성됨 : 설치형 햄찌 인스턴스
+
+- TowerSpawner
+> 이는 추후에 ObjectPool을 이용한 구조로 변경 할 수도 있다 (참고용)
+
+- ObjectDetector
+  - 서브햄찌와 설치가 가능한 지점을 확인하기 위한 디텍터 스크립트
+
+- Tile
+  - 같은 타일에 재생성을 막는 스크립트
+
+- TowerUI
+  - 타워 설치 가능한 지점을 눌렀을 때, 생성되는 타워 설치 UI
+
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/6c87cab6-dc9f-440a-9854-3f2b0a106060" width = "130" height = "210">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/ee3c8fee-3c85-4159-97a9-3b38860eb6fd" width = "130" height = "210">
+</p> 
+
+- UI
+  - ScoreUI
+    - Bg 교체
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/2b26493a-0510-48aa-b051-09fb7010ebcb" width = "130" height = "210">
+</p> 
+
+  - CardUI
+    - 스크롤 이미지 수정완료
+    - CardUI 전체 크기 1.3배 확대
+    - 배경 이미지 삭제 (전체 패널이 투명하게 보임)
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/3e0cda15-1853-40d5-bbcb-9755d38da6a7" width = "130" height = "210">
+</p> 
+
+---
+
+## V.1.2.8 - SM 2024-01-25
 - 피네스타 구현
 - 기본 공격 비주얼 업데이트
 - 루모스 구현
@@ -30,6 +71,19 @@
 - 아구아멘티 구현
 - **모든 스킬 구현 완료**
 - 챕터별 맵 적용
+---
+## V.1.2.7 - JS 2024-01-24
+- Sound
+  - 사운드 매니저 시스템 구축 완료
+  - Intro 씬에서 시작할 때, AudioManager를 싱글톤으로 생성
+  - BGM Player는 단일 AudioSource, SFX Players는 복수의 AudioSource로 구성.
+  - Inspector 창에서 Sound Engineer가 작업하기 쉽게끔 하나의 AudioManager 하나의 오브젝트에서 조정이 가능하게 끔 구현
+
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/f33b4694-7fb8-4966-9dff-ea98882deab6" width = "260" height = "280">
+</p> 
+
+  - PopupManager를 이용해서 PopUpWindows를 나타내는 방향으로 PopUpSystem을 구현 하였기 떄문에 SoundSettingUI가 열릴 때, 게임 상의 Sound를 받아오고, 새로 생성된 Slider에 AddListener를 이용해 함수를 연결해주는 작업 완료  
 ---
 ## V.1.2.6 - SM 2024-01-24
 - 총알 로직 전면 수정

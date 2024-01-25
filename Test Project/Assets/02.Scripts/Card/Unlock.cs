@@ -25,14 +25,23 @@ public class Unlock : MonoBehaviour
             }
             else
             {
-                cardData.isLocked = true;
-            }
-        }
+                if (cardData.cardType != (int)CardData.CardType.MagicBolt)
+                {
 
-        // 마력구 Pn Type 체크를 막는 코드
-        if (this.gameObject.GetComponent<Card>().cardData.cardType == CardData.CardType.MagicBolt)
-        {
-            this.gameObject.GetComponent<Card>().cardData.isLocked = false;
+                    cardData.isLocked = true;
+                }
+                else
+                {
+                    if (cardData.cardId == 8)
+                    {
+                        cardData.isLocked = true;
+                    }
+                    else
+                    {
+                        cardData.isLocked = false;
+                    }
+                }
+            }
         }
     }
 

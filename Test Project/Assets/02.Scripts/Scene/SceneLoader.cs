@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SceneLoader : Singleton<SceneLoader>
 {
+    private bool isLoadingScene = false;                         // 씬 로딩 중인지 여부를 나타내는 변수
+
     private void Awake()
     {
         base.Initialize_DontDestroyOnLoad();
@@ -13,11 +15,16 @@ public class SceneLoader : Singleton<SceneLoader>
 
     public void ChangeScene(int i)
     {
-        StartCoroutine(Loading(i));
+        if (!isLoadingScene)                                    // 로딩 중일 땐, SceneLoading을 여러번 호출하지 않게 변경
+        {
+            StartCoroutine(Loading(i));
+        }
     }
-
+    
     IEnumerator Loading(int i)
     {
+        isLoadingScene = true;
+
         yield return SceneManager.LoadSceneAsync(2);            // 백그라운드에서 비동기로 씬을 로드
         AsyncOperation op = SceneManager.LoadSceneAsync(i);     // 코루틴의 진행 상황을 확인하기 위함
         op.allowSceneActivation = false;                        // 씬 로딩이 끝나면 바로 활성화 되게 하는 불 값 => false
@@ -55,5 +62,7 @@ public class SceneLoader : Singleton<SceneLoader>
             }
             yield return null;
         }
+
+        isLoadingScene = false;
     }
 }

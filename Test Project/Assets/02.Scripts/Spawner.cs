@@ -78,11 +78,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             stageMobCount += stageWaveData[i].boss;
         }
 
-        /*for(int i=0; i<4; i++)
-        {
-            tilemaps[i].SetActive(false);
-        }
-        tilemaps[chapter].SetActive(true);*/
+        tilemaps[chapter].SetActive(true);
     }
 
     private void LoadXML(string _fileName)

@@ -27,8 +27,9 @@ public class Bullet : MonoBehaviour
     [Header("#Skill Effect")]
     public RuntimeAnimatorController[] animCon;
     Animator anim;
-    List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> enemies = new List<GameObject>();
     List<GameObject> bombardaEnemies = new List<GameObject>();
+    List<GameObject> momenstoEnemies = new List<GameObject>();
 
     Rigidbody2D rb;
     CapsuleCollider2D capsuleCollider;
@@ -36,6 +37,7 @@ public class Bullet : MonoBehaviour
     private Vector3 initialDirection;
     private Vector3 initialLocation;
     private bool isTargetLocked = false;
+    public bool isAguaOn = false;
     private float distance;
 
     Vector2 currentSize;
@@ -66,13 +68,25 @@ public class Bullet : MonoBehaviour
         isUnlocked = playerData.isUnlocked;
         splashRange = playerData.splashRange;
 
-        if (gameObject.GetComponent<Bullet>().skillId == 1) //봄바르다일경우 콜라이더 잠깐 끄기
+        if (skillId == 1) //봄바르다일경우 콜라이더 잠깐 끄기
         {
             capsuleCollider.enabled = false;
         }
+        /*else if(gameObject.GetComponent<Bullet>().skillId == 5) //모멘스토 위치 설정
+        {
+            transform.position = momenstoPoint[Random.Range(0, momenstoPoint.Count)].transform.position;
+        }*/
+        else if(skillId == 2)
+        {
+            transform.position = new Vector3(target.transform.position.x, target.transform.position.y + 2, 0);
+            if(isAguaOn)
+            {
+                isAguaOn = false;
+            }
+        }
     }
 
-    private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음
+    private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음 -> 얘가 먼저, Init이 나중
     {
         initialLocation = GameManager.Inst.player.fireArea.position;
         targetPosition = GameManager.Inst.player.target.position;
@@ -89,6 +103,11 @@ public class Bullet : MonoBehaviour
     {
         if(enemies != null) enemies.Clear();
         enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+        /*if (!target.activeSelf) //날아가는 중에 타겟이 죽을 경우 대비 예외 처리
+        {
+            OnAnimationEnd();
+            return;
+        }*/
         Vector3 dir = target.transform.position - transform.position;
         distance = dir.magnitude;
         //Debug.Log(distance);
@@ -113,23 +132,20 @@ public class Bullet : MonoBehaviour
                     }
                     anim.SetTrigger("MainEffect");
                 }
-
-                /*if (!capsuleCollider.enabled && Vector2.Distance(transform.position, target.transform.position) < positionError)
-                {
-                    transform.localScale = Vector3.one;
-                    anim.speed = 2;
-                    anim.SetTrigger("MainEffect"); //왜 1프레임 오른쪽으로 돌지?
-                    RotateTowardsMovementDirection();
-                    bulletSpeed = 0f;
-                }*/
             }
-            else if(skillId == 2) //아구아멘티
+            else if (skillId == 2) //아구아멘티
             {
-                
+                transform.localScale = new Vector3(3, 15, 3);
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                bulletSpeed = 0;
+
+                if (!isAguaOn) StartCoroutine(Aguamenti(duration));
+                else return;
             }
             else if (skillId == 3) //루모스
             {
-                transform.localScale = new Vector3(0.7f, 2f, 0.7f);
+                transform.localScale = new Vector3(2, 4, 2);
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 GameObject[] onLumosEnemies = GameObject.FindGameObjectsWithTag("Enemy").Where(obj => obj.transform.position.y <= 2.5f).ToArray();
                 if (onLumosEnemies.Length > 0 && !isTargetLocked)
                 {
@@ -138,7 +154,7 @@ public class Bullet : MonoBehaviour
                     targetPosition = target.transform.position;
                 }
                 transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 0.5f);
-                anim.speed = 3;
+                //anim.speed = 2;
             }
             else if (skillId == 4) //엑서니아
             {
@@ -146,38 +162,61 @@ public class Bullet : MonoBehaviour
                 transform.position = new Vector3(target.transform.position.x, 0.7f, 0);
                 transform.localScale = new Vector3(5.5f, 5.5f, 5.5f);
 
-                foreach(GameObject enemy in enemies)
+                foreach (GameObject enemy in enemies)
                 {
-                    if(enemy.transform.position.x == transform.position.x)
+                    if (enemy.transform.position.x == transform.position.x)
                     {
-                        enemy.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
+                        enemy.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
                     }
                 }
             }
             else if (skillId == 5) //모멘스토
             {
+                transform.localScale = new Vector3(5, 5, 5);
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 bulletSpeed = 0f;
 
-                foreach(GameObject enemy in enemies)
+                foreach (GameObject enemy in enemies)
                 {
-                    if(distance < splashRange)
+                    if (enemy != null && distance < splashRange && !momenstoEnemies.Contains(enemy))
                     {
-                        enemy.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
+                        momenstoEnemies.Add(enemy);
                     }
                 }
             }
             else if(skillId == 6) //피네스타
             {
+                // 현재 총알의 이동 방향을 구함
+                Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;
 
+                // 이동 방향으로 총알 회전
+                float angle =  Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
+                transform.localScale = new Vector3(2, 2, 2);
+                rb.velocity = dir.normalized * bulletSpeed;
+                //gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
+                if (distance < positionError)
+                {
+                    penetrate--;
+                    target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+
+                    if (penetrate == -1)
+                    {
+                        bulletSpeed = 0;
+                        OnAnimationEnd();
+                    }
+                }
             }
             else //기본공격
             {
+                transform.localScale = new Vector3(4, 4, 4);
                 rb.velocity = dir.normalized * bulletSpeed;
                 //gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
                 if(distance < positionError)
                 {
                     penetrate--;
-                    target.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
+                    target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
 
                     if(penetrate == -1)
                     {
@@ -191,16 +230,65 @@ public class Bullet : MonoBehaviour
     
     public void OnAnimationBombarda()
     {
+        /*if (bombardaEnemies == null) return;
         foreach (GameObject enemy in bombardaEnemies)
         {
             if((transform.position - enemy.transform.position).magnitude < splashRange)
             {
                 Debug.Log((transform.position - enemy.transform.position).magnitude);
-                enemy.GetComponent<Enemy>().TakeDamage(explodeDamage, skillId, duration);
+                enemy.GetComponent<Enemy>().TakeDamage(explodeDamage, explodeDamage, skillId, duration);
             }
         }
         bombardaEnemies.Clear();
+        OnAnimationEnd();*/
+        foreach (GameObject enemy in enemies)
+        {
+            if ((transform.position - enemy.transform.position).magnitude < splashRange)
+            {
+                Debug.Log((transform.position - enemy.transform.position).magnitude);
+                enemy.GetComponent<Enemy>().TakeDamage(explodeDamage, explodeDamage, skillId, duration);
+            }
+        }
         OnAnimationEnd();
+    }
+
+    public void OnAnimationMomensto()
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            if((transform.position - enemy.transform.position).magnitude < splashRange)
+            {
+                Debug.Log((transform.position - enemy.transform.position).magnitude);
+                enemy.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+            }
+        }
+        OnAnimationEnd();
+    }
+
+    IEnumerator Aguamenti(float duration)
+    {
+        isAguaOn = true;
+        while (duration > 0)
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                Vector3 distance = enemy.transform.position - transform.position;
+                if (-2.4f < distance.y && distance.y < 0.5f && -0.55f < distance.x && distance.x < 0.6f)
+                {
+                    enemy.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+                }
+            }
+            yield return new WaitForSeconds(1);
+            duration--;
+        }
+        isAguaOn = false;
+        anim.speed = 1;
+        //OnAnimationEnd();
+    }
+
+    public void OnAnimationAguamenti()
+    {
+        anim.speed = 0;
     }
 
     public void OnAnimationEnd() //애니메이션 이벤트, 비활성화로직
@@ -216,7 +304,7 @@ public class Bullet : MonoBehaviour
 
     public void OnAnimationLumos()
     {
-        target.GetComponent<Enemy>().TakeDamage(damage, skillId, duration);
+        target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
 
         capsuleCollider.size = currentSize;
         anim.speed = 1;
@@ -226,23 +314,7 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    /*void OnDrawGizmos()
-    {
-        Vector2 capsuleColliderSize = capsuleCollider.size;
-        // 그리기 전에 먼저 Physics2D.OverlapCapsuleAll을 사용하여 콜라이더를 얻습니다.
-        var aegsoniaColliders = Physics2D.OverlapCapsuleAll(transform.position, capsuleColliderSize, CapsuleDirection2D.Horizontal, 0f);
-
-        // 그림을 그리기 전에 색상을 설정할 수 있습니다.
-        Gizmos.color = Color.red;
-
-        // 얻은 콜라이더들을 기즈모로 그립니다.
-        foreach (var collider in aegsoniaColliders)
-        {
-            Gizmos.DrawWireCube(collider.bounds.center, collider.bounds.size);
-        }
-    }*/
-
-    void RotateTowardsMovementDirection()
+    private void RotateTowardsMovementDirection()
     {
         // 현재 총알의 이동 방향을 구함
         Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;

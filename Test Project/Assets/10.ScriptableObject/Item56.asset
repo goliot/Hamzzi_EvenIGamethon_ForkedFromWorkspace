@@ -19,6 +19,6 @@ MonoBehaviour:
   noExplosion: 0
   noPenetration: 0
   cardDesc: Unlock Skill
-  cardIcon: {fileID: 21300000, guid: 73eeadd84ca1f4542beacf56107466dc, type: 3}
+  cardIcon: {fileID: 21300000, guid: 53fac44a220fb224e8d61a35461fe9ab, type: 3}
   levels:
   - 0

@@ -19,7 +19,7 @@ MonoBehaviour:
   noExplosion: 0
   noPenetration: 0
   cardDesc: Damage +60%
-  cardIcon: {fileID: 21300000, guid: 12450cc4abbad594e8255e68d85de179, type: 3}
+  cardIcon: {fileID: 21300000, guid: 92906ac532f2bf7498653b4456f7541e, type: 3}
   levels:
   - 0
   - 0

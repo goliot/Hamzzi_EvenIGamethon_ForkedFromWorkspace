@@ -15,10 +15,13 @@ MonoBehaviour:
   cardType: 2
   cardId: 7
   cardName: DoubleUp
+  isLocked: 1
+  noExplosion: 0
+  noPenetration: 0
   cardDesc: 'Aqua remain time +2.1s
 
     Momensto remain time +2.1s'
-  cardIcon: {fileID: 21300000, guid: 92843fb7dcf069e4aafa671838e14774, type: 3}
+  cardIcon: {fileID: 21300000, guid: 6c43b7d52602f3d45a0ffb53e20f87a0, type: 3}
   levels:
   - 0
   - 0

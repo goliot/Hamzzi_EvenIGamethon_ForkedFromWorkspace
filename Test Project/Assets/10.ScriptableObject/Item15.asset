@@ -15,11 +15,11 @@ MonoBehaviour:
   cardType: 1
   cardId: 6
   cardName: CoolTime
-  isLocked: 0
+  isLocked: 1
   noExplosion: 0
   noPenetration: 0
   cardDesc: CoolTime -20%
-  cardIcon: {fileID: 21300000, guid: 955c1eaccd75c4045b621aa28a0bbeba, type: 3}
+  cardIcon: {fileID: 21300000, guid: 45bdcd5c9e269244484f1258d7f97441, type: 3}
   levels:
   - 0
   - 0

@@ -8,6 +8,7 @@ public class ObjectDetector : MonoBehaviour
     Camera mainCamera;
     Ray ray;
     RaycastHit hit;
+    private Transform hitTransform;
 
     private void Awake()
     {
@@ -27,9 +28,16 @@ public class ObjectDetector : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Tile"))
                 {
-                    towerSpawner.SpawnTower(hit.transform);
+                    hitTransform = hit.transform;
+                    PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strTowerUI);
+                    //towerSpawner.SpawnTower(hit.transform);
                 }
             }
         }
+    }
+
+    public Transform GetHitTransform()
+    {
+        return hitTransform;
     }
 }

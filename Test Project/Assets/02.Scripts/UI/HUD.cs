@@ -60,6 +60,7 @@ public class HUD : MonoBehaviour
                 waveText.text = string.Format("WAVE : {0:D2} / {1:D2}", spawner.currentWave ,spawner.maxWave);
                 break;
             case InfoType.ChapterStage:
+                if (StageSelect.instance == null) break;
                 chapterStageText.text = string.Format("STAGE {0:F0} - {1:F0}", StageSelect.instance.chapter, StageSelect.instance.stage);
                 break;
 

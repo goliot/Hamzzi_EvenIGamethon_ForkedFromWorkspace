@@ -19,6 +19,6 @@ MonoBehaviour:
   noExplosion: 0
   noPenetration: 0
   cardDesc: Add Explosion type
-  cardIcon: {fileID: 21300000, guid: 955c1eaccd75c4045b621aa28a0bbeba, type: 3}
+  cardIcon: {fileID: 21300000, guid: 45bdcd5c9e269244484f1258d7f97441, type: 3}
   levels:
   - 0

@@ -65,7 +65,8 @@ public class GameManager : Singleton<GameManager>
         exp += killExp;
         Debug.Log("경험치 획득" + killExp);
         // 필요 경험치에 도달하면 레벨업
-        if(exp >= nextExp[level] && level < 20)
+        // if(exp >= nextExp[level] && level < 20)
+        if(exp >= nextExp[level])
         {
             level++;
             exp -= nextExp[level-1];          // 경험치 초기화

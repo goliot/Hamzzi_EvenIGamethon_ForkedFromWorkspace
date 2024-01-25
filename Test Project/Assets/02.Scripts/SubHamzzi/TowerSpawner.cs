@@ -14,7 +14,8 @@ public class TowerSpawner : MonoBehaviour
 
         tile.IsBuildTower = true;                        // 타워 건설되어 있음으로 설정
 
-        Instantiate(towerPrefab, tileTransform.position, Quaternion.identity);  // 임시
-        // GameManager.Inst.pool.Get(2); 풀매니저 활용
+        Instantiate(towerPrefab, tileTransform.position, Quaternion.identity);  // 테스트 임시
+        // GameManager.Inst.pool.Get(2);                 // 풀매니저 활용
+                                                         // 포지션, 위치 매개변수로 넘겨줄 필요 있음
     }
 }

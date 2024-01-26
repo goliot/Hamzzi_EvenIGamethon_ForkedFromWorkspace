@@ -49,12 +49,12 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].damage *= 1.6f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
-                // 마력구 스킬 2번 카드 증폭(폭발)  : 폭발 피해 +30%
-                else if (cardData.cardId == 2)
-                {
-                    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
-                    Debug.Log("damage : " + player.playerData[(int)cardData.cardType].explodeDamage);
-                }
+                // 마력구 스킬 2번 카드 증폭(폭발)  : 폭발 피해 +30%  ==> 제거
+                //else if (cardData.cardId == 2)
+                //{
+                //    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
+                //    Debug.Log("damage : " + player.playerData[(int)cardData.cardType].explodeDamage);
+                //}
                 // 마력구 스킬 3번 카드 관통        : 관통+2 / 피해 +10%
                 else if (cardData.cardId == 3)
                 {
@@ -76,16 +76,16 @@ public class Card : MonoBehaviour
                     Debug.Log("Mag damage : " + player.playerData[(int)cardData.cardType].damage);
                     Debug.Log("Aegs damage : " + player.playerData[(int)CardData.CardType.Aegs].damage);
                 }
-                // 마력구 스킬 9번 폭발 추가        : 폭발 공격 해금
-                else if (cardData.cardId == 9)
-                {
-                    player.playerData[(int)cardData.cardType].isExplode = false;
-                    Debug.Log("폭발 추가");
-                }
+                // 마력구 스킬 9번 폭발 추가: 폭발 공격 해금 ==> 제거
+                //else if (cardData.cardId == 9)
+                //{
+                //    player.playerData[(int)cardData.cardType].isExplode = false;
+                //    Debug.Log("폭발 추가");
+                //}
                 // 마력구 스킬 10번 관통 추가       : 관통 공격 해금
                 else if (cardData.cardId == 10)
                 {
-                    // 관통 추가
+                    player.playerData[(int)cardData.cardType].penetrate += 2;
                     Debug.Log("관통 추가");
                 }
                 break;
@@ -127,14 +127,14 @@ public class Card : MonoBehaviour
                     Debug.Log("붐바르다 스킬 해금 완료");
                     player.playerData[(int)cardData.cardType].isUnlocked = true;
                 }
-                else if (cardData.cardId == 9)
-                {
-                    player.playerData[(int)cardData.cardType].isExplode = false;
-                    Debug.Log("폭발 추가");
-                }
+                //else if (cardData.cardId == 9)
+                //{
+                //    player.playerData[(int)cardData.cardType].isExplode = false;
+                //    Debug.Log("폭발 추가");
+                //}
                 else if (cardData.cardId == 10)
                 {
-                    // 관통 추가
+                    player.playerData[(int)cardData.cardType].penetrate += 1;
                     Debug.Log("관통 추가");
                 }
                 break;
@@ -149,11 +149,11 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].duration += 2.7f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
                 }
-                else if (cardData.cardId == 5)
-                {
-                    player.playerData[(int)cardData.cardType].splashRange *= 1.15f;
-                    Debug.Log("splashRange : " + player.playerData[(int)cardData.cardType].splashRange);
-                }
+                //else if (cardData.cardId == 5)
+                //{
+                //    player.playerData[(int)cardData.cardType].splashRange *= 1.15f;
+                //    Debug.Log("splashRange : " + player.playerData[(int)cardData.cardType].splashRange);
+                //}
                 else if (cardData.cardId == 6)
                 {
                     player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
@@ -162,7 +162,7 @@ public class Card : MonoBehaviour
                 // 더블 증폭 : 아쿠아멘티 + 모멘스토
                 else if (cardData.cardId == 7)
                 {
-                    player.playerData[(int)cardData.cardType].duration += 2.1f;
+                    player.playerData[(int)cardData.cardType].duration += 2.1f;                             // 지속시간 -> 공격력으로 변경 필요
                     player.playerData[(int)CardData.CardType.Momen].duration += 2.1f;
                     Debug.Log("Mag duration : " + player.playerData[(int)cardData.cardType].duration);
                     Debug.Log("Aegs duration : " + player.playerData[(int)CardData.CardType.Aegs].duration);
@@ -178,11 +178,11 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].damage *= 1.6f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
-                else if (cardData.cardId == 2)
-                {
-                    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
-                    Debug.Log("damage : " + player.playerData[(int)cardData.cardType].explodeDamage);
-                }
+                //else if (cardData.cardId == 2)
+                //{
+                //    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
+                //    Debug.Log("damage : " + player.playerData[(int)cardData.cardType].explodeDamage);
+                //}
                 else if (cardData.cardId == 4)
                 {
                     player.playerData[(int)cardData.cardType].duration += 2f;
@@ -197,11 +197,11 @@ public class Card : MonoBehaviour
                 {
                     player.playerData[(int)cardData.cardType].isUnlocked = true;
                 }
-                else if (cardData.cardId == 9)
-                {
-                    player.playerData[(int)cardData.cardType].isExplode = false;
-                    Debug.Log("폭발 추가");
-                }
+                //else if (cardData.cardId == 9)
+                //{
+                //    player.playerData[(int)cardData.cardType].isExplode = false;
+                //    Debug.Log("폭발 추가");
+                //}
                 break;
             case CardData.CardType.Aegs:
                 if (cardData.cardId == 1)
@@ -214,11 +214,11 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].duration += 2.1f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
                 }
-                else if (cardData.cardId == 5)
-                {
-                    player.playerData[(int)cardData.cardType].atkRange *= 1.15f;
-                    Debug.Log("atkRange : " + player.playerData[(int)cardData.cardType].atkRange);
-                }
+                //else if (cardData.cardId == 5)
+                //{
+                //    player.playerData[(int)cardData.cardType].atkRange *= 1.15f;
+                //    Debug.Log("atkRange : " + player.playerData[(int)cardData.cardType].atkRange);
+                //}
                 else if (cardData.cardId == 6)
                 {
                     player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
@@ -240,11 +240,11 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].duration += 2.7f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
                 }
-                else if (cardData.cardId == 5)
-                {
-                    player.playerData[(int)cardData.cardType].splashRange *= 1.15f;
-                    Debug.Log("splashRange : " + player.playerData[(int)cardData.cardType].splashRange);
-                }
+                //else if (cardData.cardId == 5)
+                //{
+                //    player.playerData[(int)cardData.cardType].splashRange *= 1.15f;
+                //    Debug.Log("splashRange : " + player.playerData[(int)cardData.cardType].splashRange);
+                //}
                 else if (cardData.cardId == 6)
                 {
                     player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
@@ -280,6 +280,7 @@ public class Card : MonoBehaviour
                 }
                 else if (cardData.cardId == 10)
                 {
+                    player.playerData[(int)cardData.cardType].penetrate += 2;
                     Debug.Log("관통 추가");
                 }
                 break;

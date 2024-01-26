@@ -67,7 +67,7 @@ public class TowerUI : MonoBehaviour
         */
     }
 
-    IEnumerator ClosePopUpAfterDelay()
+    public IEnumerator ClosePopUpAfterDelay()
     {
         yield return new WaitForSeconds(0.3f); // 원하는 대기 시간 설정
         popUpWindow.OnClose();

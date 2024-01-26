@@ -174,16 +174,24 @@ public class Enemy : MonoBehaviour
                 Dead();
                 GameManager.Inst.kill++;
                 int killExp;
+                int seed;
                 if (spriteType % 5 < 3)
                 {
                     killExp = 30;
+                    seed = 50;
                 }
                 else if (spriteType % 5 == 3)
                 {
                     killExp = 60;
+                    seed = 70;
                 }
-                else killExp = 80;
+                else
+                {
+                    killExp = 80;
+                    seed = 100;
+                }
                 GameManager.Inst.GetExp(killExp);
+                GameManager.Inst.GetSeed(seed);
             }
         }
     }
@@ -340,7 +348,7 @@ public class Enemy : MonoBehaviour
         while (timer < knockBackDuration)
         {
             timer += Time.deltaTime;
-            rb.velocity = Vector2.up.normalized * speed * Time.unscaledDeltaTime * knockBackSpeed * 50;
+            rb.velocity = Vector2.up.normalized * Time.unscaledDeltaTime * knockBackSpeed * 50;
             //spriteRenderer.color = new Color(0.5f, 0f, 0.5f, 1f);
             yield return null;
         }

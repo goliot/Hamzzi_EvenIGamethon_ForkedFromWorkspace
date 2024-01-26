@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
     public float explodeDamage;
     public bool isExplode;
     public bool isUnlocked;
+    public bool isPenetrate;
     public float splashRange;
     public Vector3 targetPosition;
     public GameObject target;
@@ -31,9 +32,15 @@ public class Bullet : MonoBehaviour
     List<GameObject> bombardaEnemies = new List<GameObject>();
     List<GameObject> momenstoEnemies = new List<GameObject>();
 
+    [Header("#Skill State")]
+    Vector3 straightDir;
+
+    List<GameObject> targetedEnemies = new List<GameObject>();
+
     Rigidbody2D rb;
     CapsuleCollider2D capsuleCollider;
     Collider2D[] hitColliders;
+    SpriteRenderer spriteRenderer;
     private Vector3 initialDirection;
     private Vector3 initialLocation;
     private bool isTargetLocked = false;
@@ -50,6 +57,7 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Init(PlayerData playerData)
@@ -66,6 +74,7 @@ public class Bullet : MonoBehaviour
         explodeDamage = playerData.explodeDamage;
         isExplode = playerData.isExplode;
         isUnlocked = playerData.isUnlocked;
+        isPenetrate = playerData.isPenetrate;
         splashRange = playerData.splashRange;
 
         if (skillId == 1) //봄바르다일경우 콜라이더 잠깐 끄기
@@ -84,6 +93,9 @@ public class Bullet : MonoBehaviour
                 isAguaOn = false;
             }
         }
+
+        straightDir = target.transform.position - transform.position;
+        spriteRenderer.sortingOrder = 10;
     }
 
     private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음 -> 얘가 먼저, Init이 나중
@@ -103,14 +115,23 @@ public class Bullet : MonoBehaviour
     {
         if(enemies != null) enemies.Clear();
         enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
-        /*if (!target.activeSelf) //날아가는 중에 타겟이 죽을 경우 대비 예외 처리
-        {
-            OnAnimationEnd();
-            return;
-        }*/
+        enemies = enemies.Where(enemy => enemy.activeSelf).ToList();
+        //if (targetedEnemies.Count > 0)
+        //{
+        //    // targetedEnemies 리스트 안에 있는 GameObject들을 enemies 리스트에서 제외
+        //    foreach (GameObject targetedEnemy in targetedEnemies)
+        //    {
+        //        if (enemies.Contains(targetedEnemy))
+        //        {
+        //            enemies.Remove(targetedEnemy);
+        //        }
+        //    }
+        //}
+
+        if (enemies.Count == 0) OnAnimationEnd(); //적이 없으면 그냥 꺼버리기
+
         Vector3 dir = target.transform.position - transform.position;
         distance = dir.magnitude;
-        //Debug.Log(distance);
         RotateTowardsMovementDirection();
 
         if (gameObject.activeSelf)
@@ -135,6 +156,7 @@ public class Bullet : MonoBehaviour
             }
             else if (skillId == 2) //아구아멘티
             {
+                spriteRenderer.sortingOrder = 4;
                 transform.localScale = new Vector3(3, 15, 3);
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 bulletSpeed = 0;
@@ -172,7 +194,7 @@ public class Bullet : MonoBehaviour
             }
             else if (skillId == 5) //모멘스토
             {
-                transform.localScale = new Vector3(5, 5, 5);
+                transform.localScale = new Vector3(6, 6, 6);
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 bulletSpeed = 0f;
 
@@ -194,7 +216,8 @@ public class Bullet : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
 
                 transform.localScale = new Vector3(2, 2, 2);
-                rb.velocity = dir.normalized * bulletSpeed;
+                rb.velocity = straightDir.normalized * bulletSpeed; //타겟방향 직선운동하게 수정
+                capsuleCollider.size = new Vector2(0.1f, 0.1f);
                 //gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
                 if (distance < positionError)
                 {
@@ -211,36 +234,47 @@ public class Bullet : MonoBehaviour
             else //기본공격
             {
                 transform.localScale = new Vector3(4, 4, 4);
-                rb.velocity = dir.normalized * bulletSpeed;
-                //gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, initialDirection);
-                if(distance < positionError)
-                {
-                    penetrate--;
-                    target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
-
-                    if(penetrate == -1)
-                    {
-                        bulletSpeed = 0;
-                        OnAnimationEnd();
-                    }
-                }
+                rb.velocity = straightDir.normalized * bulletSpeed; //타겟방향 직선운동하게 수정
+                capsuleCollider.size = new Vector2(0.1f, 0.1f);
             }
         }
     }
-    
-    public void OnAnimationBombarda()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (bombardaEnemies == null) return;
-        foreach (GameObject enemy in bombardaEnemies)
+        if (collision.CompareTag("Border")) OnAnimationEnd();
+        if (!collision.CompareTag("Enemy") || penetrate == -1) return;
+
+        if (gameObject.GetComponent<Bullet>().skillId == 0) //매직볼
         {
-            if((transform.position - enemy.transform.position).magnitude < splashRange)
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+            penetrate--;
+            if(isExplode)
             {
-                Debug.Log((transform.position - enemy.transform.position).magnitude);
-                enemy.GetComponent<Enemy>().TakeDamage(explodeDamage, explodeDamage, skillId, duration);
+                OnAnimationMomensto();
+            }
+            if (penetrate == -1)
+            {
+                bulletSpeed = 0;
+                OnAnimationEnd();
             }
         }
-        bombardaEnemies.Clear();
-        OnAnimationEnd();*/
+        else if (gameObject.GetComponent<Bullet>().skillId == 6)
+        {
+            penetrate--;
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+
+            if (penetrate == -1)
+            {
+                bulletSpeed = 0;
+                OnAnimationEnd();
+            }
+        }
+        else return;
+    }
+
+    public void OnAnimationBombarda()
+    {
         foreach (GameObject enemy in enemies)
         {
             if ((transform.position - enemy.transform.position).magnitude < splashRange)
@@ -304,7 +338,11 @@ public class Bullet : MonoBehaviour
 
     public void OnAnimationLumos()
     {
-        target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+        if(isExplode)
+        {
+            OnAnimationMomensto();
+        }
+        else target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
 
         capsuleCollider.size = currentSize;
         anim.speed = 1;
@@ -322,5 +360,26 @@ public class Bullet : MonoBehaviour
         // 이동 방향으로 총알 회전
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
+    private GameObject FindNextClosestEnemy()
+    {
+        if (enemies.Count == 0) return null;
+        GameObject closestEnemy = null;
+        float closestDistance = float.MaxValue;
+
+        foreach(GameObject enemy in enemies)
+        {
+            if (targetedEnemies.Contains(enemy)) continue;
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if(distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
     }
 }

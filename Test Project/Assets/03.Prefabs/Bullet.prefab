@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1920460294, guid: d5e598e8f44132f4d92632cdba837e71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   explodeDamage: 0
   isExplode: 0
   isUnlocked: 0
+  isPenetrate: 0
   splashRange: 0
   targetPosition: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -159,6 +160,8 @@ MonoBehaviour:
   - {fileID: 22100000, guid: fd8055c3be8ef9f45b2ecde5b660a9a9, type: 2}
   - {fileID: 22100000, guid: 3e9f6c79320c1a34897285e1e79fa7f5, type: 2}
   - {fileID: 22100000, guid: 5c564e4806d3e7649b127a62f041f105, type: 2}
+  enemies: []
+  isAguaOn: 0
 --- !u!50 &-2662844308579638568
 Rigidbody2D:
   serializedVersion: 4

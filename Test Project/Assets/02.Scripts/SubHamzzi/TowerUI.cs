@@ -39,32 +39,13 @@ public class TowerUI : MonoBehaviour
         {
             buttonArrow.onClick.AddListener(() =>
             {
-                Transform hitTransform = objectDetector.GetHitTransform();
-                if (hitTransform != null)
+                if (objectDetector.TilePos != null)
                 {
-                    spawner.SpawnTower(hitTransform);
+                    spawner.SpawnTower(objectDetector.TilePos.transform, 0);
                     StartCoroutine(ClosePopUpAfterDelay());
                 }
             });
         }
-
-        // 나머지도 적용 최적화 필요
-        /*
-        if (buttonBomb != null) {
-            buttonBomb.onClick.AddListener(() => spawner.SpawnTower(objectDetector.GetHitTransform()));
-        }
-        if (buttonBlack != null) {
-            buttonBlack.onClick.AddListener(() => spawner.SpawnTower(objectDetector.GetHitTransform()));
-
-        }
-        if (buttonTank != null) {
-            buttonTank.onClick.AddListener(() => spawner.SpawnTower(objectDetector.GetHitTransform()));
-
-        }
-        if (buttonHeal != null) {
-            buttonHeal.onClick.AddListener(() => spawner.SpawnTower(objectDetector.GetHitTransform()));
-        }
-        */
     }
 
     public IEnumerator ClosePopUpAfterDelay()

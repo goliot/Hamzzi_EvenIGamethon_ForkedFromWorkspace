@@ -2,17 +2,18 @@
 <root>
 	<Sheet1>
 		<skillId>0</skillId>
-		<penetrate>0</penetrate>
+		<penetrate>3</penetrate>
 		<damage>25</damage>
-		<atkSpeed>3</atkSpeed>
+		<atkSpeed>1</atkSpeed>
 		<secondDelay>0</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>5</bulletSpeed>
-		<atkRange>6.5</atkRange>
+		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
-		<isExplode>false</isExplode>
+		<isExplode>true</isExplode>
 		<isUnlocked>true</isUnlocked>
-		<splashRange>0</splashRange>
+		<isPenetrate>false</isPenetrate>
+		<splashRange>0.4</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>1</skillId>
@@ -26,7 +27,8 @@
 		<explodeDamage>23</explodeDamage>
 		<isExplode>true</isExplode>
 		<isUnlocked>false</isUnlocked>
-		<splashRange>1</splashRange>
+		<isPenetrate>false</isPenetrate>
+		<splashRange>0.75</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>2</skillId>
@@ -36,38 +38,41 @@
 		<secondDelay>0</secondDelay>
 		<duration>3</duration>
 		<bulletSpeed>7</bulletSpeed>
-		<atkRange>5.5</atkRange>
+		<atkRange>5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
+		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>3</skillId>
 		<penetrate>0</penetrate>
 		<damage>30</damage>
-		<atkSpeed>4.2</atkSpeed>
+		<atkSpeed>1</atkSpeed>
 		<secondDelay>0</secondDelay>
-		<duration>3</duration>
+		<duration>0</duration>
 		<bulletSpeed>8</bulletSpeed>
 		<atkRange>5</atkRange>
 		<explodeDamage>0</explodeDamage>
-		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
-		<splashRange>0</splashRange>
+		<isExplode>true</isExplode>
+		<isUnlocked>true</isUnlocked>
+		<isPenetrate>false</isPenetrate>
+		<splashRange>1</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>4</skillId>
 		<penetrate>1</penetrate>
 		<damage>25</damage>
-		<atkSpeed>1</atkSpeed>
+		<atkSpeed>17.4</atkSpeed>
 		<secondDelay>0</secondDelay>
-		<duration>7</duration>
+		<duration>5</duration>
 		<bulletSpeed>7</bulletSpeed>
-		<atkRange>7</atkRange>
+		<atkRange>5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
+		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>
@@ -78,17 +83,18 @@
 		<secondDelay>0</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>6</bulletSpeed>
-		<atkRange>4.2</atkRange>
+		<atkRange>5</atkRange>
 		<explodeDamage>0</explodeDamage>
-		<isExplode>true</isExplode>
+		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
-		<splashRange>1.1</splashRange>
+		<isPenetrate>false</isPenetrate>
+		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>6</skillId>
-		<penetrate>0</penetrate>
+		<penetrate>3</penetrate>
 		<damage>40</damage>
-		<atkSpeed>7.2</atkSpeed>
+		<atkSpeed>1</atkSpeed>
 		<secondDelay>0.7</secondDelay>
 		<duration>1</duration>
 		<bulletSpeed>3</bulletSpeed>
@@ -96,6 +102,7 @@
 		<explodeDamage>35</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
+		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
 </root>

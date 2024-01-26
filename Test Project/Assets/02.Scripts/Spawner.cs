@@ -71,11 +71,25 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         for(int i=0; i<20; i++)
         {
-            stageMobCount += stageWaveData[i].mob1;
-            stageMobCount += stageWaveData[i].mob2;
-            stageMobCount += stageWaveData[i].mob3;
-            stageMobCount += stageWaveData[i].semiBoss;
-            stageMobCount += stageWaveData[i].boss;
+            if(stage == 5 && i == 9) //5스테이지 10웨이브의 경우는 보스 1마리만 추가
+            {
+                stageMobCount++;
+                continue;
+            }
+            if (stage >= 3)
+            {
+                stageMobCount += stageWaveData[i].mob1;
+                stageMobCount += stageWaveData[i].mob2;
+                stageMobCount += stageWaveData[i].mob3;
+                stageMobCount += stageWaveData[i].semiBoss;
+                stageMobCount += stageWaveData[i].boss;
+            }
+            else //스테이지 1, 2에서는 세미몹 카운트 x
+            {
+                stageMobCount += stageWaveData[i].mob1;
+                stageMobCount += stageWaveData[i].mob2;
+                stageMobCount += stageWaveData[i].mob3;
+            }
         }
 
         tilemaps[chapter].SetActive(true);
@@ -324,6 +338,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             {
                 spawnList.Add(eachIndex[i]);
             }
+            if (stage < 3 && i == 2) break; //스테이지1, 2에서는 세미몹 안나오도록
         }
         string output = string.Join(" ", spawnList);
         //Debug.Log("Origin Spawn: " + output);

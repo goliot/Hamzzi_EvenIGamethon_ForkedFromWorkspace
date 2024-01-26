@@ -62,6 +62,7 @@ public class GameManager : Singleton<GameManager>
     // 경험치 증가 함수
     public void GetExp(int killExp)
     {
+        if (level == 20) return;
         exp += killExp;
         Debug.Log("경험치 획득" + killExp);
         // 필요 경험치에 도달하면 레벨업

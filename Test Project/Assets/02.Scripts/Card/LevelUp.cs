@@ -1,22 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LevelUp : MonoBehaviour
 {
+    [SerializeField]
+    public enum Chapter { Chapter1 = 1, Chapter2, Chapter3, Chapter4 };
+
     RectTransform rect;
     Card[] cards;
     public Player player;
+
+    public Chapter chapter;
 
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>();
+
+        ActivateByChapter();
     }
+
+    private void ActivateByChapter()
+    {
+        StageSelect stageSelect = StageSelect.instance;
+
+        // 현재 챕터에 따라 활성화 여부 결정
+        bool shouldActivate = ((int)chapter == stageSelect.chapter);
+
+        // 활성화 여부에 따라 오브젝트 활성화 또는 비활성화
+        gameObject.SetActive(shouldActivate);
+
+        if (shouldActivate)
+        {
+            Debug.Log($"챕터 {chapter}의 카드 덱");
+        }
+    }
+
+    /*
+    private void ActivateByChapter()
+    {
+        StageSelect stageSelect = StageSelect.instance;
+
+        // 챕터에 따라 활성화 여부 결정
+        switch (chapter)
+        {
+            case Chapter.Chapter1:
+                if (stageSelect.chapter == 1)
+                {
+                    Debug.Log("챕터 1의 카드 덱");
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+                break;
+            case Chapter.Chapter2:
+                if (stageSelect.chapter == 2)
+                {
+                    Debug.Log("챕터 2의 카드 덱");
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+                break;
+            case Chapter.Chapter3:
+                if (stageSelect.chapter == 3)
+                {
+                    Debug.Log("챕터 3의 카드 덱");
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+                break;
+            case Chapter.Chapter4:
+                if (stageSelect.chapter == 4)
+                {
+                    Debug.Log("챕터 4의 카드 덱");
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+                break;
+            default:
+                gameObject.SetActive(false);
+                break;
+        }
+    }*/
 
     public void Show()
     {
         Next();
+        Debug.Log(chapter);
         rect.localScale = Vector3.one * 1.3f;
         GameManager.Inst.Stop();
     }
@@ -44,32 +127,18 @@ public class LevelUp : MonoBehaviour
             return;
         }
 
-        bool isSkill1Unlocked = player.playerData[0].isUnlocked; // 1번 스킬 해금 여부
-        bool isSkill3Unlocked = player.playerData[2].isUnlocked; // 3번 스킬 해금 여부
-        bool isSkill5Unlocked = player.playerData[4].isUnlocked; // 5번 스킬 해금 여부
-        bool isSkill6Unlocked = player.playerData[5].isUnlocked; // 6번 스킬 해금 여부
-
-        // 더블업 체크
-        //if ((isSkill1Unlocked && isSkill5Unlocked) || (isSkill3Unlocked && isSkill6Unlocked))
+        for (int idx = 0; idx < rnd.Length; idx++)
         {
-            for (int idx = 0; idx < rnd.Length; idx++)
+            Card rndCard;
+            do
             {
-                Card rndCard;
-                do
-                {
-                    rnd[idx] = Random.Range(0, cards.Length);
-                    rndCard = cards[rnd[idx]];
-                } while (IsDuplicate(rnd, idx) || !IsValidCard(rndCard));
+                rnd[idx] = Random.Range(0, cards.Length);
+                rndCard = cards[rnd[idx]];
+            } while (IsDuplicate(rnd, idx) || !IsValidCard(rndCard));
 
-                rndCard.gameObject.SetActive(true);
-            }
+            rndCard.gameObject.SetActive(true);
         }
-        //else
-        //{
-        //    // 다시 뽑는 로직 추가
-        //    Debug.Log("해금 조건이 맞지 않습니다. 다시 뽑습니다.");
-        //    Next();
-        //}
+        
     }
 
     // 중복 체크

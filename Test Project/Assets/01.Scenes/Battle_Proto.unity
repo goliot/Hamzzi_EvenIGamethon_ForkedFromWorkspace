@@ -2622,6 +2622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 845695604}
+  chapter: 1
 --- !u!1 &38456079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4010,7 +4011,11 @@ MonoBehaviour:
   player: {fileID: 845695604}
   pool: {fileID: 619013946}
   scanner: {fileID: 0}
-  uiLevelUp: {fileID: 6960794653921033586}
+  uiLevelUps:
+  - {fileID: 38232066}
+  - {fileID: 6960794653921033586}
+  - {fileID: 1136276517}
+  - {fileID: 1984527793}
   level: 0
   kill: 0
   exp: 0
@@ -29051,7 +29056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMenu: {fileID: 0}
-  cardData: {fileID: 11400000, guid: facb4326250137145a33d0876d1bbf27, type: 2}
+  cardData: {fileID: 11400000, guid: 0f08028b8af210b499b13886811229e6, type: 2}
   level: 0
   player: {fileID: 845695604}
 --- !u!114 &523196471
@@ -43664,7 +43669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMenu: {fileID: 0}
-  cardData: {fileID: 11400000, guid: facb4326250137145a33d0876d1bbf27, type: 2}
+  cardData: {fileID: 11400000, guid: 0f08028b8af210b499b13886811229e6, type: 2}
   level: 0
   player: {fileID: 845695604}
 --- !u!114 &793991986
@@ -62528,6 +62533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 845695604}
+  chapter: 3
 --- !u!1 &1138500902
 GameObject:
   m_ObjectHideFlags: 0
@@ -81946,7 +81952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMenu: {fileID: 0}
-  cardData: {fileID: 11400000, guid: facb4326250137145a33d0876d1bbf27, type: 2}
+  cardData: {fileID: 11400000, guid: 0f08028b8af210b499b13886811229e6, type: 2}
   level: 0
   player: {fileID: 845695604}
 --- !u!114 &1522661594
@@ -83502,6 +83508,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535820481}
   m_CullTransparentMesh: 1
+--- !u!1 &1545549392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545549394}
+  - component: {fileID: 1545549393}
+  m_Layer: 0
+  m_Name: StageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1545549393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545549392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aaeed7cbd764e44f989905459759210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapter: 1
+  stage: 1
+  max_chapter: 4
+  min_chapter: 1
+--- !u!4 &1545549394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545549392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -220.57533, y: 196.0028, z: -6.210473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545866833
 GameObject:
   m_ObjectHideFlags: 0
@@ -89925,7 +89979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMenu: {fileID: 0}
-  cardData: {fileID: 11400000, guid: facb4326250137145a33d0876d1bbf27, type: 2}
+  cardData: {fileID: 11400000, guid: 0f08028b8af210b499b13886811229e6, type: 2}
   level: 0
   player: {fileID: 845695604}
 --- !u!114 &1682794274
@@ -104578,6 +104632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 845695604}
+  chapter: 4
 --- !u!1 &1985697500
 GameObject:
   m_ObjectHideFlags: 0
@@ -123330,6 +123385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 845695604}
+  chapter: 2
 --- !u!222 &7029447390015738236
 CanvasRenderer:
   m_ObjectHideFlags: 0

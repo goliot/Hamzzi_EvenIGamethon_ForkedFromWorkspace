@@ -69,13 +69,13 @@ public class Card : MonoBehaviour
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 // 마력구 스킬 8번 더블 증폭        : 액서니아와 피해량 +40%
-                else if (cardData.cardId == 7)
-                {
-                    player.playerData[(int)cardData.cardType].damage *= 1.4f;
-                    player.playerData[(int)CardData.CardType.Aegs].damage *= 1.4f;
-                    Debug.Log("Mag damage : " + player.playerData[(int)cardData.cardType].damage);
-                    Debug.Log("Aegs damage : " + player.playerData[(int)CardData.CardType.Aegs].damage);
-                }
+                //else if (cardData.cardId == 7)
+                //{
+                //    player.playerData[(int)cardData.cardType].damage *= 1.4f;
+                //    player.playerData[(int)CardData.CardType.Aegs].damage *= 1.4f;
+                //    Debug.Log("Mag damage : " + player.playerData[(int)cardData.cardType].damage);
+                //    Debug.Log("Aegs damage : " + player.playerData[(int)CardData.CardType.Aegs].damage);
+                //}
                 // 마력구 스킬 9번 폭발 추가: 폭발 공격 해금 ==> 제거
                 //else if (cardData.cardId == 9)
                 //{
@@ -159,14 +159,14 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
-                // 더블 증폭 : 아쿠아멘티 + 모멘스토
-                else if (cardData.cardId == 7)
-                {
-                    player.playerData[(int)cardData.cardType].duration += 2.1f;                             // 지속시간 -> 공격력으로 변경 필요
-                    player.playerData[(int)CardData.CardType.Momen].duration += 2.1f;
-                    Debug.Log("Mag duration : " + player.playerData[(int)cardData.cardType].duration);
-                    Debug.Log("Aegs duration : " + player.playerData[(int)CardData.CardType.Aegs].duration);
-                }
+                //// 더블 증폭 : 아쿠아멘티 + 모멘스토
+                //else if (cardData.cardId == 7)
+                //{
+                //    player.playerData[(int)cardData.cardType].duration += 2.1f;                             // 지속시간 -> 공격력으로 변경 필요
+                //    player.playerData[(int)CardData.CardType.Momen].duration += 2.1f;
+                //    Debug.Log("Mag duration : " + player.playerData[(int)cardData.cardType].duration);
+                //    Debug.Log("Aegs duration : " + player.playerData[(int)CardData.CardType.Aegs].duration);
+                //}
                 else if (cardData.cardId == 8)
                 {
                     player.playerData[(int)cardData.cardType].isUnlocked = true;

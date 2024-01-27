@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -18,7 +19,7 @@ public class GameManager : Singleton<GameManager>
     public Player player;
     public PoolManager pool;
     public Scanner scanner;
-    public LevelUp uiLevelUp;
+    public LevelUp[] uiLevelUps;                // LevelUpUI 배열로 변경
 
     /// <summary>
     /// 몬스터를 처치하고 레벨업을 하게 구현
@@ -73,7 +74,7 @@ public class GameManager : Singleton<GameManager>
         {
             level++;
             exp -= nextExp[level-1];          // 경험치 초기화
-            uiLevelUp.Show(); // 레벨업 UI 켜기
+            foreach(var uiLevelUp in uiLevelUps) uiLevelUp.Show(); // 레벨업 UI 켜기
         }
     }
 

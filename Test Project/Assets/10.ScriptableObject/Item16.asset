@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   cardId: 8
-  cardName: Unlock Skill
+  cardName: "\uD574\uAE08"
   isLocked: 0
   noExplosion: 0
   noPenetration: 0
-  cardDesc: Unlock Skill
+  cardDesc: "\uC7A0\uACA8\uC788\uB294 \uC2A4\uD0AC\uC744 \uD68D\uB4DD\uD569\uB2C8\uB2E4"
   cardIcon: {fileID: 21300000, guid: 45bdcd5c9e269244484f1258d7f97441, type: 3}
   levels:
   - 0

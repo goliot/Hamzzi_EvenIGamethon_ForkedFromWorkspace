@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 6
   cardId: 1
-  cardName: Damage
-  isLocked: 1
+  cardName: "\uC99D\uD3ED(\uD53C\uD574)"
+  isLocked: 0
   noExplosion: 0
   noPenetration: 0
-  cardDesc: Damage +60%
+  cardDesc: "\uC2A4\uD0AC\uC758 \uD53C\uD574\uB7C9\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4
+    (\uC9C0\uC18D \uB370\uBBF8\uC9C0 \uD3EC\uD568)\n\n\uCC98\uC74C \uC801\uC911 \uD6C4
+    \uD3ED\uBC1C\uC758 \uC131\uC9C8\uC744 \uAC00\uC9C4 \uC2A4\uD0AC\uC758 \uB370\uBBF8\uC9C0\uB294
+    \uC99D\uAC00\uC2DC\uD0A4\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
   cardIcon: {fileID: 21300000, guid: c4b704abdb4611f43b343f60c2115696, type: 3}
   levels:
   - 0

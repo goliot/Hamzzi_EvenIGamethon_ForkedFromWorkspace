@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   cardId: 6
-  cardName: CoolTime
+  cardName: "\uCFE8\uD0C0\uC784\uAC10\uC18C"
   isLocked: 1
   noExplosion: 0
   noPenetration: 0
-  cardDesc: CoolTime -20%
+  cardDesc: "\uC2A4\uD0AC\uC758 \uCFE8\uD0C0\uC784 \uC2DC\uAC04\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4"
   cardIcon: {fileID: 21300000, guid: 45bdcd5c9e269244484f1258d7f97441, type: 3}
   levels:
   - 0

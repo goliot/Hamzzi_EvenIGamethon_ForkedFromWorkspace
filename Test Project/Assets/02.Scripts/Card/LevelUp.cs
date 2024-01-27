@@ -38,64 +38,6 @@ public class LevelUp : MonoBehaviour
         }
     }
 
-    /*
-    private void ActivateByChapter()
-    {
-        StageSelect stageSelect = StageSelect.instance;
-
-        // Ã©ÅÍ¿¡ µû¶ó È°¼ºÈ­ ¿©ºÎ °áÁ¤
-        switch (chapter)
-        {
-            case Chapter.Chapter1:
-                if (stageSelect.chapter == 1)
-                {
-                    Debug.Log("Ã©ÅÍ 1ÀÇ Ä«µå µ¦");
-                    gameObject.SetActive(true);
-                }
-                else
-                {
-                    gameObject.SetActive(false);
-                }
-                break;
-            case Chapter.Chapter2:
-                if (stageSelect.chapter == 2)
-                {
-                    Debug.Log("Ã©ÅÍ 2ÀÇ Ä«µå µ¦");
-                    gameObject.SetActive(true);
-                }
-                else
-                {
-                    gameObject.SetActive(false);
-                }
-                break;
-            case Chapter.Chapter3:
-                if (stageSelect.chapter == 3)
-                {
-                    Debug.Log("Ã©ÅÍ 3ÀÇ Ä«µå µ¦");
-                    gameObject.SetActive(true);
-                }
-                else
-                {
-                    gameObject.SetActive(false);
-                }
-                break;
-            case Chapter.Chapter4:
-                if (stageSelect.chapter == 4)
-                {
-                    Debug.Log("Ã©ÅÍ 4ÀÇ Ä«µå µ¦");
-                    gameObject.SetActive(true);
-                }
-                else
-                {
-                    gameObject.SetActive(false);
-                }
-                break;
-            default:
-                gameObject.SetActive(false);
-                break;
-        }
-    }*/
-
     public void Show()
     {
         Next();

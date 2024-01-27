@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   cardId: 4
-  cardName: Explosion Remain Time
+  cardName: "\uC2A4\uD0AC\uC9C0\uC18D\uC2DC\uAC04"
   isLocked: 1
   noExplosion: 0
   noPenetration: 0
-  cardDesc: Explosion Remain Time +2.7s
+  cardDesc: "\uC2A4\uD0AC\uC774 \uC720\uC9C0\uB418\uB294 \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4"
   cardIcon: {fileID: 21300000, guid: 6c43b7d52602f3d45a0ffb53e20f87a0, type: 3}
   levels:
   - 0

@@ -11,8 +11,10 @@ public class PopUpNames
     public string strExplainCornUI { get; set; }
     public string strProfileUI { get; set; }
     public string strTowerUI { get; set; }
+    public string strLevelUpUI { get; set; }
+    public string strStageStartUI { get; set; }
 
-    public PopUpNames(string stageSelectUI, string optionsUI, string explainStaminaUI, string explainCornUI, string profileUI, string towerUI)
+    public PopUpNames(string stageSelectUI, string optionsUI, string explainStaminaUI, string explainCornUI, string profileUI, string towerUI, string levelUpUI, string stageStartUI)
     {
         strStageSelectUI = stageSelectUI;
         strSettingsUI = optionsUI;
@@ -20,6 +22,8 @@ public class PopUpNames
         strExplainCornUI = explainCornUI;
         strProfileUI = profileUI;
         strTowerUI = towerUI;
+        strLevelUpUI = levelUpUI;
+        strStageStartUI = stageStartUI;
     }
 
 }

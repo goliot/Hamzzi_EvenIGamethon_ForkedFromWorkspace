@@ -368,10 +368,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC124\uBA85\uC744 \uC785\uB825\uD558\uC2DC\uC624 \uC124\uBA85\uC744 \uC785\uB825\uD558\uC2DC\uC624\n\uC124\uBA85\uC744
-    \uC785\uB825\uD558\uC2DC\uC624 \uC124\uBA85\uC744 \uC785\uB825\uD558\uC2DC\uC624\n\uC124\uBA85\uC744
-    \uC785\uB825\uD558\uC2DC\uC624 \uC124\uBA85\uC744 \uC785\uB825\uD558\uC2DC\uC624\n\uC124\uBA85\uC744
-    \uC785\uB825\uD558\uC2DC\uC624 \uC124\uBA85\uC744 \uC785\uB825\uD558\uC2DC\uC624"
+  m_text: "\uC804\uD22C \uC9C4\uD589 \uC2DC \uC18C\uBAA8\uB418\uB294 \uC7AC\uD654\n\uC804\uD22C\uB97C
+    \uD1B5\uD574 \uC5BB\uC744 \uC218 \uC788\uB2E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
   m_sharedMaterial: {fileID: 4802813550283124960, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}

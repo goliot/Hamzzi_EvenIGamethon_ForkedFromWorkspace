@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   cardId: 3
-  cardName: Penetrate
+  cardName: "\uAD00\uD1B5"
   isLocked: 0
   noExplosion: 0
   noPenetration: 1
-  cardDesc: 'Penetrate +1
-
-    Damage +10%'
+  cardDesc: "\uCC98\uC74C \uC801\uC911\uD55C \uBAAC\uC2A4\uD130\uB97C \uB6AB\uACE0
+    \uD574\uB2F9 \uBC29\uD5A5 \uADF8 \uB4A4\uC5D0 \uC788\uB294 \uBAAC\uC2A4\uD130\uB97C
+    \uD55C \uBC88 \uB354 \uACF5\uACA9\uD569\uB2C8\uB2E4"
   cardIcon: {fileID: 21300000, guid: 45bdcd5c9e269244484f1258d7f97441, type: 3}
   levels:
   - 0

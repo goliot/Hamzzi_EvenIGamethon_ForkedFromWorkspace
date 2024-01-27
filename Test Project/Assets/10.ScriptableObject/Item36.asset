@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 3
   cardId: 9
-  cardName: Add Ep Type
+  cardName: "\uCD94\uAC00(\uD3ED\uBC1C)"
   isLocked: 1
   noExplosion: 0
   noPenetration: 0
-  cardDesc: Add Explosion type
+  cardDesc: "\uC2A4\uD0AC\uC5D0 \uD3ED\uBC1C \uC131\uC9C8\uC744 \uCD94\uAC00\uD569\uB2C8\uB2E4"
   cardIcon: {fileID: 21300000, guid: 1c19bd377c60f29478530a89bb5f8d50, type: 3}
   levels:
   - 0

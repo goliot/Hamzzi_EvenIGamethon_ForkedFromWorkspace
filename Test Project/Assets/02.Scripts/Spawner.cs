@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
     public Transform[] spawnPoint;
     public List<SpawnData> spawnData = new List<SpawnData>();
+    public GameObject shadowObject;
     string xmlFileName = "MobData";
     string stageXmlFileName;
 
@@ -190,7 +191,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         if (currentWave >= maxWave)
         {
-            CancelInvoke("IncreaseWave");
+            CancelInvoke("IncreaseWaveAndWaveStart");
             Debug.Log("Wave가 최대에 도달하여 InvokeRepeating이 종료되었습니다.");
         }
 
@@ -250,6 +251,17 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     void Spawn(int index)
     {
         GameObject enemy = GameManager.Inst.pool.Get(0);
+
+        //그림자 생성 후 약간 투명해지도록 하는 코드 블록
+        GameObject shadow = Instantiate(shadowObject, enemy.transform.position, Quaternion.identity);
+        shadow.transform.SetParent(enemy.transform);
+        shadow.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        shadow.transform.localPosition = new Vector3(shadow.transform.localPosition.x, shadow.transform.localPosition.y - 0.12f, shadow.transform.localPosition.z);
+        SpriteRenderer shadowRenderer = shadow.GetComponent<SpriteRenderer>();
+        Material newMaterial = new Material(Shader.Find("Sprites/Default"));
+        newMaterial.color = new Color(1f, 1f, 1f, 0.7f);
+        shadowRenderer.material = newMaterial;
+
         enemy.transform.position = spawnPoint[UnityEngine.Random.Range(1, spawnPoint.Length)].position;
         //enemy.GetComponent<Enemy>().Init(spawnData[UnityEngine.Random.Range(0, spawnData.Count)]);
         enemy.GetComponent<Enemy>().Init(spawnData[index]);

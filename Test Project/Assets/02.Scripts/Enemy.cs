@@ -137,12 +137,12 @@ public class Enemy : MonoBehaviour
             }
             else return;
         }
-        else if (skillId == 5) //모멘스토일경우 -> 데미지 없이 넉백만 들어감
+        else if (skillId == 5) //모멘스토일경우
         {
             if (!isKnockback) StartCoroutine(KnockBack());
             else return;
         }
-        else if(skillId == 6)
+        else if(skillId == 6) //피네스타
         {
             if (!isPinestarRunning) StartCoroutine(Pinesta(damage, explodeDamage, duration));
             else return;
@@ -341,6 +341,47 @@ public class Enemy : MonoBehaviour
 
     IEnumerator KnockBack()
     {
+        Debug.Log("TakeDamage 호출 " + damage);
+        health -= damage;
+        Debug.Log("피격" + damage);
+
+        //팝업 생성하는 부분
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
+        popupText.text = damage.ToString();
+        GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
+
+        if (health > 0)
+        {
+            // 피격 후 생존
+            StartCoroutine(HitEffect());
+        }
+        else
+        {
+            // 죽었을 때
+            spriteRenderer.color = originalColor;
+            Dead();
+            GameManager.Inst.kill++;
+            int killExp;
+            int seed;
+            if (spriteType % 5 < 3)
+            {
+                killExp = 30;
+                seed = 50;
+            }
+            else if (spriteType % 5 == 3)
+            {
+                killExp = 60;
+                seed = 70;
+            }
+            else
+            {
+                killExp = 80;
+                seed = 100;
+            }
+            GameManager.Inst.GetExp(killExp);
+            GameManager.Inst.GetSeed(seed);
+        }
+
         isKnockback = true;
         float knockBackDuration = 0.1f; // 넉백 지속 시간 (코루틴이 돌아갈 시간)
         float timer = 0f;
@@ -358,6 +399,11 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         gameObject.SetActive(false);
     }
 }

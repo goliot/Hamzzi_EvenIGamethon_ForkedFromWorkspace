@@ -8,27 +8,27 @@
 		<duration>0</duration>
 		<barrier>0</barrier>
 		<heal>0</heal>
-		<atkRange>4.5</atkRange>
+		<atkRange>7</atkRange>
 	</Sheet1>
 	<Sheet1>
 		<towerType>1</towerType>
 		<atkSpeed>8.5</atkSpeed>
 		<damage>15</damage>
 		<splashRange>1.5</splashRange>
-		<duration>3</duration>
+		<duration>0</duration>
 		<barrier>0</barrier>
 		<heal>0</heal>
-		<atkRange>3.8</atkRange>
+		<atkRange>6</atkRange>
 	</Sheet1>
 	<Sheet1>
 		<towerType>2</towerType>
 		<atkSpeed>13</atkSpeed>
 		<damage>10</damage>
 		<splashRange>2</splashRange>
-		<duration>0</duration>
+		<duration>3</duration>
 		<barrier>0</barrier>
 		<heal>0</heal>
-		<atkRange>2</atkRange>
+		<atkRange>5</atkRange>
 	</Sheet1>
 	<Sheet1>
 		<towerType>3</towerType>
@@ -38,7 +38,7 @@
 		<duration>0</duration>
 		<barrier>200</barrier>
 		<heal>0</heal>
-		<atkRange>0</atkRange>
+		<atkRange>100</atkRange>
 	</Sheet1>
 	<Sheet1>
 		<towerType>4</towerType>
@@ -48,6 +48,6 @@
 		<duration>0</duration>
 		<barrier>0</barrier>
 		<heal>200</heal>
-		<atkRange>0</atkRange>
+		<atkRange>100</atkRange>
 	</Sheet1>
 </root>

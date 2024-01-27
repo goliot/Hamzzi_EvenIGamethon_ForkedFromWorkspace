@@ -46,6 +46,50 @@ public class TowerUI : MonoBehaviour
                 }
             });
         }
+        if(buttonBomb != null)
+        {
+            buttonBomb.onClick.AddListener(() =>
+            {
+                if (objectDetector.TilePos != null)
+                {
+                    spawner.SpawnTower(objectDetector.TilePos.transform, 1);
+                    StartCoroutine(ClosePopUpAfterDelay());
+                }
+            });
+        }
+        if (buttonBlack != null)
+        {
+            buttonBlack.onClick.AddListener(() =>
+            {
+                if (objectDetector.TilePos != null)
+                {
+                    spawner.SpawnTower(objectDetector.TilePos.transform, 2);
+                    StartCoroutine(ClosePopUpAfterDelay());
+                }
+            });
+        }
+        if (buttonTank != null)
+        {
+            buttonTank.onClick.AddListener(() =>
+            {
+                if (objectDetector.TilePos != null)
+                {
+                    spawner.SpawnTower(objectDetector.TilePos.transform, 3);
+                    StartCoroutine(ClosePopUpAfterDelay());
+                }
+            });
+        }
+        if (buttonHeal != null)
+        {
+            buttonHeal.onClick.AddListener(() =>
+            {
+                if (objectDetector.TilePos != null)
+                {
+                    spawner.SpawnTower(objectDetector.TilePos.transform, 4);
+                    StartCoroutine(ClosePopUpAfterDelay());
+                }
+            });
+        }
     }
 
     public IEnumerator ClosePopUpAfterDelay()

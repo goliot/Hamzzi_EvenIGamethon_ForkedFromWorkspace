@@ -23358,7 +23358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &424813295
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30374,7 +30374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &554440942
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34086,6 +34086,7 @@ MonoBehaviour:
   - {fileID: 5389621803800444932, guid: ded523f077dcd7746be27d61be456a62, type: 3}
   - {fileID: 2340391740326912275, guid: 2929c736218f3bc44b8c852f26102d14, type: 3}
   - {fileID: 5610037790512918101, guid: 876e2f9e3f1578747a25914429beb197, type: 3}
+  - {fileID: 1222281446241411465, guid: a2beddd27ed8b2f409daea23d281f624, type: 3}
 --- !u!4 &619013947
 Transform:
   m_ObjectHideFlags: 0
@@ -63715,7 +63716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1159450745
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73998,7 +73999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1364296690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81406,6 +81407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: []
   spawnData: []
+  shadowObject: {fileID: 1287306905996493675, guid: 93950d2df6e4f2f4fa910b97f6b2f05a, type: 3}
   chapter: 0
   stage: 0
   stageWaveData: []

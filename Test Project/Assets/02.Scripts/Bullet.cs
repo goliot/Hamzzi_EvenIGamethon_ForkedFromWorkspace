@@ -88,14 +88,11 @@ public class Bullet : MonoBehaviour
         else if(skillId == 2)
         {
             transform.position = new Vector3(target.transform.position.x, target.transform.position.y + 2, 0);
-            if(isAguaOn)
-            {
-                isAguaOn = false;
-            }
+            isAguaOn = false;
         }
 
         straightDir = target.transform.position - transform.position;
-        spriteRenderer.sortingOrder = 10;
+        if(skillId != 2) spriteRenderer.sortingOrder = 10;
     }
 
     private void OnEnable() //Start로하면 재활용될때 target정보가 업데이트되지 않음 -> 얘가 먼저, Init이 나중
@@ -113,9 +110,10 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(enemies != null) enemies.Clear();
+        if (enemies != null) enemies.Clear();
         enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
         enemies = enemies.Where(enemy => enemy.activeSelf).ToList();
+        //enemies = GameObject.FindGameObjectsWithTag("Enemy").Where(enemy => enemy.activeSelf).ToList();
         //if (targetedEnemies.Count > 0)
         //{
         //    // targetedEnemies 리스트 안에 있는 GameObject들을 enemies 리스트에서 제외
@@ -128,7 +126,7 @@ public class Bullet : MonoBehaviour
         //    }
         //}
 
-        if (enemies.Count == 0) OnAnimationEnd(); //적이 없으면 그냥 꺼버리기
+        //if (enemies.Count == 0) OnAnimationEnd(); //적이 없으면 그냥 꺼버리기
 
         Vector3 dir = target.transform.position - transform.position;
         distance = dir.magnitude;
@@ -231,6 +229,7 @@ public class Bullet : MonoBehaviour
                     }
                 }
             }
+ 
             else //기본공격
             {
                 transform.localScale = new Vector3(4, 4, 4);
@@ -259,7 +258,7 @@ public class Bullet : MonoBehaviour
                 OnAnimationEnd();
             }
         }
-        else if (gameObject.GetComponent<Bullet>().skillId == 6)
+        else if (gameObject.GetComponent<Bullet>().skillId == 6) //피네스타
         {
             penetrate--;
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);

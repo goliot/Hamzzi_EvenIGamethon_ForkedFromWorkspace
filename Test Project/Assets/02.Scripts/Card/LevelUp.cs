@@ -11,6 +11,7 @@ public class LevelUp : MonoBehaviour
     RectTransform rect;
     Card[] cards;
     public Player player;
+    
 
     public Chapter chapter;
 
@@ -40,6 +41,8 @@ public class LevelUp : MonoBehaviour
 
     public void Show()
     {
+        GameManager.Inst.isSelectingCard = true;                         // 카드 선택중일 때, 다른 행동 못하게 막아야함
+        PopUpManager.Inst.allClose?.Invoke();           // 이전 팝업창 모두 닫기
         Next();
         Debug.Log(chapter);
         rect.localScale = Vector3.one * 1.3f;
@@ -49,6 +52,7 @@ public class LevelUp : MonoBehaviour
     public void Hide()
     {
         rect.localScale = Vector3.zero;
+        GameManager.Inst.isSelectingCard = false;
         GameManager.Inst.Resume();
     }
 

@@ -34,9 +34,18 @@ public class ObjectDetector : MonoBehaviour
                     TilePos = hit.transform.GetComponent<Tile>();
                     Debug.Log(TilePos);
 
-                    if (TilePos != null && !TilePos.IsBuildTower) // 타워가 건설되어 있지 않다면
+                    if(!GameManager.Inst.isSelectingCard && PopUpManager.Inst.popUpList.Count < 1)         // 카드 선택창이 열려있지 않고, 팝업창이 열려 있지 않다면 (중복UI 생성 막기)
                     {
-                        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strTowerUI);
+                        if (TilePos != null && !TilePos.IsBuildTower) // 타워가 건설되어 있지 않다면
+                        {
+                            PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strTowerUI);
+                        }
+                        else if(TilePos != null && TilePos.IsBuildTower)    // 타워가 건설되어 있다면
+                        {
+                            Debug.Log("업그레이드 UI 팝업");
+                            // 업그레이드 UI
+                        }
+                        else return;
                     }
                     else return;
                 }

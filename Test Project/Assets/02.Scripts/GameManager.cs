@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
     public int exp; // 현재까지 쌓은 경험치 0~100% 까지 표기
     public int[] nextExp; // 다음 레벨에 필요한 경험치량 임의로 설정 Test용
     public int seed;
+    public bool isSelectingCard;
 
     #region
     /// <summary>
@@ -55,6 +56,7 @@ public class GameManager : Singleton<GameManager>
         level = 0;
         nextExp = new int[]{ 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500 };
         Application.targetFrameRate = 60;
+        isSelectingCard = false;
     }
 
     private void Update()

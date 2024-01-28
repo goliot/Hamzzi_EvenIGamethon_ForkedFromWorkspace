@@ -98,6 +98,7 @@ public class TowerBullet : MonoBehaviour
         }
         else if (towerType == 2) //ÈæÂî
         {
+            enemies = GameObject.FindGameObjectsWithTag("Enemy").Where(enemy => enemy.activeSelf).ToList();
             rb.velocity = Vector3.zero;
             if (!isBlackOn) StartCoroutine(Black(duration));
             else return;
@@ -142,16 +143,17 @@ public class TowerBullet : MonoBehaviour
 
     IEnumerator Black(float duration)
     {
+        //yield return new WaitForSeconds(0.5f);
         isBlackOn = true;
         while(duration > 0)
         {
             foreach(GameObject enemy in enemies)
             {
                 Vector3 distance = enemy.transform.position - transform.position;
-                //if(-1.2f < distance.x && distance.x < 1.2 && -0.45f < distance.y && distance.y < 0.45f)
-                if(distance.magnitude < splashRange)
+                if(-1.2f < distance.x && distance.x < 1.2 && -0.6f < distance.y && distance.y < 0.6f)
+                //if(distance.magnitude < splashRange)
                 {
-                    enemy.GetComponent<Enemy>().TakeDamage(damage, damage, 3, duration);
+                    enemy.GetComponent<Enemy>().TakeDamage(damage, damage, 2, duration);
                     Debug.Log("ÈæÂî");
                 }
             }

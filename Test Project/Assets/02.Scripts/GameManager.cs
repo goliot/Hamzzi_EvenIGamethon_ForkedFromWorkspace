@@ -29,8 +29,8 @@ public class GameManager : Singleton<GameManager>
     public int kill; // 플레이어의 현재 킬수(UI 상 표기하진 않지만 우선 기록)
     public int exp; // 현재까지 쌓은 경험치 0~100% 까지 표기
     public int[] nextExp; // 다음 레벨에 필요한 경험치량 임의로 설정 Test용
-    public int seed;
-    public bool isSelectingCard;
+    public int seed;  // 이번 게임에서 획득한 해바라기 씨
+    public bool isSelectingCard;  // 카드 선택 중인 상태일 때, 다른 PopUp창 선택 불가
 
     #region
     /// <summary>

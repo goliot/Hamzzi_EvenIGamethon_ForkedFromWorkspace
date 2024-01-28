@@ -11,7 +11,7 @@
 		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>0.4</splashRange>
 	</Sheet1>

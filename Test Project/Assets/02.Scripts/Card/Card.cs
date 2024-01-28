@@ -77,11 +77,11 @@ public class Card : MonoBehaviour
                 //    Debug.Log("Aegs damage : " + player.playerData[(int)CardData.CardType.Aegs].damage);
                 //}
                 // 마력구 스킬 9번 폭발 추가: 폭발 공격 해금 ==> 제거
-                //else if (cardData.cardId == 9)
-                //{
-                //    player.playerData[(int)cardData.cardType].isExplode = false;
-                //    Debug.Log("폭발 추가");
-                //}
+                else if (cardData.cardId == 9)
+                {
+                    player.playerData[(int)cardData.cardType].isExplode = false;
+                    Debug.Log("폭발 추가");
+                }
                 // 마력구 스킬 10번 관통 추가       : 관통 공격 해금
                 else if (cardData.cardId == 10)
                 {
@@ -197,11 +197,11 @@ public class Card : MonoBehaviour
                 {
                     player.playerData[(int)cardData.cardType].isUnlocked = true;
                 }
-                //else if (cardData.cardId == 9)
-                //{
-                //    player.playerData[(int)cardData.cardType].isExplode = false;
-                //    Debug.Log("폭발 추가");
-                //}
+                else if (cardData.cardId == 9)
+                {
+                    player.playerData[(int)cardData.cardType].isExplode = false;
+                    Debug.Log("폭발 추가");
+                }
                 break;
             case CardData.CardType.Aegs:
                 if (cardData.cardId == 1)

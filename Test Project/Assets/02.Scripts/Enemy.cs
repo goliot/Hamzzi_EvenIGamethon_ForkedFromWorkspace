@@ -243,16 +243,24 @@ public class Enemy : MonoBehaviour
             Dead();
             GameManager.Inst.kill++;
             int killExp;
+            int seed;
             if (spriteType % 5 < 3)
             {
                 killExp = 30;
+                seed = 5;
             }
             else if (spriteType % 5 == 3)
             {
                 killExp = 60;
+                seed = 7;
             }
-            else killExp = 80;
+            else
+            {
+                killExp = 80;
+                seed = 10;
+            }
             GameManager.Inst.GetExp(killExp);
+            GameManager.Inst.GetSeed(seed);
         }
 
         yield return new WaitForSeconds(duration);
@@ -277,16 +285,24 @@ public class Enemy : MonoBehaviour
             Dead();
             GameManager.Inst.kill++;
             int killExp;
+            int seed;
             if (spriteType % 5 < 3)
             {
                 killExp = 30;
+                seed = 5;
             }
             else if (spriteType % 5 == 3)
             {
                 killExp = 60;
+                seed = 7;
             }
-            else killExp = 80;
+            else
+            {
+                killExp = 80;
+                seed = 10;
+            }
             GameManager.Inst.GetExp(killExp);
+            GameManager.Inst.GetSeed(seed);
         }
         isPinestarRunning = false;
     }
@@ -318,22 +334,28 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                // Á×¾úÀ» ¶§
                 spriteRenderer.color = originalColor;
                 Dead();
                 GameManager.Inst.kill++;
                 int killExp;
+                int seed;
                 if (spriteType % 5 < 3)
                 {
                     killExp = 30;
+                    seed = 5;
                 }
                 else if (spriteType % 5 == 3)
                 {
                     killExp = 60;
+                    seed = 7;
                 }
-                else killExp = 80;
+                else
+                {
+                    killExp = 80;
+                    seed = 10;
+                }
                 GameManager.Inst.GetExp(killExp);
-                break;
+                GameManager.Inst.GetSeed(seed);
             }
         }
         isAegsoniaRunning = false;
@@ -366,17 +388,17 @@ public class Enemy : MonoBehaviour
             if (spriteType % 5 < 3)
             {
                 killExp = 30;
-                seed = 50;
+                seed = 5;
             }
             else if (spriteType % 5 == 3)
             {
                 killExp = 60;
-                seed = 70;
+                seed = 7;
             }
             else
             {
                 killExp = 80;
-                seed = 100;
+                seed = 10;
             }
             GameManager.Inst.GetExp(killExp);
             GameManager.Inst.GetSeed(seed);

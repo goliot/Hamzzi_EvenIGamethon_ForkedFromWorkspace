@@ -77,6 +77,7 @@ public class Bullet : MonoBehaviour
         isPenetrate = playerData.isPenetrate;
         splashRange = playerData.splashRange;
 
+        capsuleCollider.enabled = true;
         if (skillId == 1) //봄바르다일경우 콜라이더 잠깐 끄기
         {
             capsuleCollider.enabled = false;
@@ -229,7 +230,6 @@ public class Bullet : MonoBehaviour
                     }
                 }
             }
- 
             else //기본공격
             {
                 transform.localScale = new Vector3(4, 4, 4);
@@ -250,7 +250,7 @@ public class Bullet : MonoBehaviour
             penetrate--;
             if(isExplode)
             {
-                OnAnimationMomensto();
+                OnAnimationBombarda();
             }
             if (penetrate == -1)
             {
@@ -279,7 +279,7 @@ public class Bullet : MonoBehaviour
             if ((transform.position - enemy.transform.position).magnitude < splashRange)
             {
                 Debug.Log((transform.position - enemy.transform.position).magnitude);
-                enemy.GetComponent<Enemy>().TakeDamage(explodeDamage, explodeDamage, skillId, duration);
+                enemy.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
             }
         }
         OnAnimationEnd();
@@ -339,7 +339,7 @@ public class Bullet : MonoBehaviour
     {
         if(isExplode)
         {
-            OnAnimationMomensto();
+            OnAnimationBombarda();
         }
         else target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
 

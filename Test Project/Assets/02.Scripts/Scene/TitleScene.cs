@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleScene : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class TitleScene : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            SceneLoader.Inst.ChangeScene(3);
+            //SceneLoader.Inst.ChangeScene(3);
+            SceneManager.LoadScene("Loading");
         }
     }
 }

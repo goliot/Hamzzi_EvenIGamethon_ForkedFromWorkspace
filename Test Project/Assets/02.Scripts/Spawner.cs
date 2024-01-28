@@ -93,7 +93,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             }
         }
 
-        tilemaps[chapter].SetActive(true);
+        tilemaps[chapter - 1].SetActive(true);
     }
 
     private void LoadXML(string _fileName)

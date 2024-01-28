@@ -178,17 +178,17 @@ public class Enemy : MonoBehaviour
                 if (spriteType % 5 < 3)
                 {
                     killExp = 30;
-                    seed = 50;
+                    seed = 5;
                 }
                 else if (spriteType % 5 == 3)
                 {
                     killExp = 60;
-                    seed = 70;
+                    seed = 7;
                 }
                 else
                 {
                     killExp = 80;
-                    seed = 100;
+                    seed = 10;
                 }
                 GameManager.Inst.GetExp(killExp);
                 GameManager.Inst.GetSeed(seed);

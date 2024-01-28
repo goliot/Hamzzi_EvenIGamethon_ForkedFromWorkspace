@@ -42,7 +42,12 @@ public class PoolManager : MonoBehaviour
             select = Instantiate(prefabs[index], transform);
             pools[index].Add(select);
         }
-
         return select;
     }
+
+    public void Release(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
 }

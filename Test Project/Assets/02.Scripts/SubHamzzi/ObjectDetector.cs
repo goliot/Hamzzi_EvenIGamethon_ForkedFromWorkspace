@@ -43,7 +43,7 @@ public class ObjectDetector : MonoBehaviour
                         else if(TilePos != null && TilePos.IsBuildTower)    // 타워가 건설되어 있다면
                         {
                             Debug.Log("업그레이드 UI 팝업");
-                            // 업그레이드 UI
+                            PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strTowerUpgradeSellUI);
                         }
                         else return;
                     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Xml;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class TowerSpawner : MonoBehaviour
     private GameObject towerPrefab;
 
     public List<TowerData> towerData = new List<TowerData>();
+    public Dictionary<Transform, GameObject> InstalledTower = new Dictionary<Transform, GameObject>();
 
     string xmlFileName = "SubHamData";
 
@@ -49,14 +51,43 @@ public class TowerSpawner : MonoBehaviour
 
     public void SpawnTower(Transform tileTransform, int index)
     {
-        GameObject tower = GameManager.Inst.pool.Get(2);
+        if(GameManager.Inst.seed >= 40)
+        {
+            GameObject tower = GameManager.Inst.pool.Get(2);
 
+            Tile tile = tileTransform.GetComponent<Tile>();
+            if (tile.IsBuildTower == true) return;           // 현재 타워 건설되어 있으면 타워건설 X
+            tile.IsBuildTower = true;                        // 타워 건설되어 있음으로 설정
+
+            tower.GetComponent<Tower>().Init(towerData[index]);
+            tower.transform.position = tileTransform.position;
+            InstalledTower.Add(tile.transform, tower);
+            GameManager.Inst.seed -= 40;
+        }
+        else
+        {
+            Debug.Log("Not Enough Seeds");
+        }
+    }
+
+    public void SellTower(Transform tileTransform)
+    {
         Tile tile = tileTransform.GetComponent<Tile>();
-        if (tile.IsBuildTower == true) return;           // 현재 타워 건설되어 있으면 타워건설 X
-        tile.IsBuildTower = true;                        // 타워 건설되어 있음으로 설정
 
-        tower.GetComponent<Tower>().Init(towerData[index]);
-        tower.transform.position = tileTransform.position;
+        if (InstalledTower.ContainsKey(tileTransform))
+        {
+            // 타워가 건설되어 있으면 판매 처리
+            tile.IsBuildTower = false;  // 타워가 건설되어 있지 않음으로 설정
+
+            // 추가: 판매된 타워를 오브젝트 풀에 반환
+            GameObject tower;
+            if (InstalledTower.TryGetValue(tileTransform, out tower))
+            {
+                InstalledTower.Remove(tileTransform);
+                GameManager.Inst.pool.Release(tower);
+                GameManager.Inst.seed += 30;
+            }
+        }
     }
 }
 

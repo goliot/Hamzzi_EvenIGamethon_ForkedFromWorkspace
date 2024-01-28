@@ -11,6 +11,8 @@ public class TowerUI : MonoBehaviour
     public Button buttonTank;
     public Button buttonHeal;
 
+    public Button buttonSell;
+
     TowerSpawner spawner;
     ObjectDetector objectDetector;
     PopUpWindow popUpWindow;
@@ -86,6 +88,18 @@ public class TowerUI : MonoBehaviour
                 if (objectDetector.TilePos != null)
                 {
                     spawner.SpawnTower(objectDetector.TilePos.transform, 4);
+                    StartCoroutine(ClosePopUpAfterDelay());
+                }
+            });
+        }
+
+        if (buttonSell != null)
+        {
+            buttonSell.onClick.AddListener(() =>
+            {
+                if (objectDetector.TilePos != null)
+                {
+                    spawner.SellTower(objectDetector.TilePos.transform);
                     StartCoroutine(ClosePopUpAfterDelay());
                 }
             });

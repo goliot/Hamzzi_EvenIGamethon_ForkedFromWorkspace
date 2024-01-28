@@ -155,7 +155,8 @@ public class Enemy : MonoBehaviour
 
             //팝업 생성하는 부분
             Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
-            popupText.text = damage.ToString();
+            int intDamage = Mathf.FloorToInt(damage);
+            popupText.text = intDamage.ToString();
             GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
 
             if (health > 0)
@@ -228,7 +229,8 @@ public class Enemy : MonoBehaviour
 
         //팝업 생성하는 부분
         Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
-        popupText.text = damage.ToString();
+        int intDamage = Mathf.FloorToInt(damage);
+        popupText.text = intDamage.ToString();
         GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
 
         if (health > 0)
@@ -271,7 +273,8 @@ public class Enemy : MonoBehaviour
 
         //팝업 생성하는 부분
         popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
-        popupText.text = explodeDamage.ToString();
+        int intExplodeDamage = Mathf.FloorToInt(explodeDamage);
+        popupText.text = intExplodeDamage.ToString();
 
         if (health > 0)
         {
@@ -321,7 +324,8 @@ public class Enemy : MonoBehaviour
 
             //팝업 생성하는 부분
             Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
-            popupText.text = damage.ToString();
+            int intDamage = Mathf.FloorToInt(damage);
+            popupText.text = intDamage.ToString();
             GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
 
             // 경과된 시간 감소
@@ -369,7 +373,8 @@ public class Enemy : MonoBehaviour
 
         //팝업 생성하는 부분
         Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
-        popupText.text = damage.ToString();
+        int intDamage = Mathf.FloorToInt(damage);
+        popupText.text = intDamage.ToString();
         GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
 
         if (health > 0)

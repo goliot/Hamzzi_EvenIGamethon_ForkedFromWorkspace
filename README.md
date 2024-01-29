@@ -22,10 +22,23 @@
 ## V.2.1.2 - SM 2024-01-29
 - 전투
 	- 루모스 이속 감소효과 적용되지 않던 버그 수정
-- 구글 플레이 앱 게시(내부 테스트)
-- 구글플레이스토어 인앱 결제 키 프로젝트와 연동
-- 구글플레이 게임 서비스 로그인 성공
-- 구글플레이, 뒤끝 서버 연동 시도
+	- 밸런스 패치 적용
+	- 봄바르다가 날아가는 도중에 타겟이 바뀌던 버그 수정
+- 서버
+    - 구글 플레이 앱 게시(내부 테스트)
+      <p align="center"> 
+<imag src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/173af56d-0ab6-43c4-9252-67ca3d605c0d" width = "130" height = "210">
+</p> 
+    - 구글플레이스토어 인앱 결제 키 프로젝트와 연동
+    - 구글플레이 게임 서비스 로그인 성공
+    - 구글플레이, 뒤끝 서버 연동하여 자동로그인 진행
+<p align="center"> 
+<imag src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/f69a3285-aaa0-4d44-8da2-741ae2b4cf8f" width = "130" height = "210">
+</p> 
+	- 뒤끝 DB에 유저 정보 추가되는 것 확인
+	<p align="center"> 
+<imag src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/20e652bc-f891-4f65-9968-267b3c66a720" width = "130" height = "210">
+</p> 
 ---
 ## V.2.1.1 - SM 2024-01-28
 - 전투씬 수정 내용

@@ -37,7 +37,7 @@
 </p>
     - 뒤끝 DB에 유저 정보 추가되는 것 확인
 <p align="center">
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/20e652bc-f891-4f65-9968-267b3c66a720" width = "1600" height = "300">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/20e652bc-f891-4f65-9968-267b3c66a720" width = "1200" height = "100">
 </p>
   
 ---

@@ -8,40 +8,40 @@
 		<secondDelay>0</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>5</bulletSpeed>
-		<atkRange>7</atkRange>
+		<atkRange>6.5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
-		<splashRange>0.4</splashRange>
+		<splashRange>0</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>1</skillId>
-		<penetrate>1</penetrate>
+		<penetrate>0</penetrate>
 		<damage>23</damage>
 		<atkSpeed>5.8</atkSpeed>
 		<secondDelay>0.7</secondDelay>
 		<duration>0</duration>
-		<bulletSpeed>4</bulletSpeed>
+		<bulletSpeed>5.5</bulletSpeed>
 		<atkRange>5</atkRange>
 		<explodeDamage>23</explodeDamage>
 		<isExplode>true</isExplode>
 		<isUnlocked>false</isUnlocked>
 		<isPenetrate>false</isPenetrate>
-		<splashRange>0.75</splashRange>
+		<splashRange>1</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>2</skillId>
 		<penetrate>0</penetrate>
 		<damage>20</damage>
-		<atkSpeed>2</atkSpeed>
+		<atkSpeed>13</atkSpeed>
 		<secondDelay>0</secondDelay>
 		<duration>3</duration>
 		<bulletSpeed>7</bulletSpeed>
-		<atkRange>5</atkRange>
+		<atkRange>5.5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>true</isUnlocked>
+		<isUnlocked>false</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
@@ -68,7 +68,7 @@
 		<secondDelay>0</secondDelay>
 		<duration>5</duration>
 		<bulletSpeed>7</bulletSpeed>
-		<atkRange>5</atkRange>
+		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
@@ -83,7 +83,7 @@
 		<secondDelay>0</secondDelay>
 		<duration>0</duration>
 		<bulletSpeed>6</bulletSpeed>
-		<atkRange>5</atkRange>
+		<atkRange>4.2</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
@@ -97,7 +97,7 @@
 		<atkSpeed>7.2</atkSpeed>
 		<secondDelay>0.7</secondDelay>
 		<duration>1</duration>
-		<bulletSpeed>3</bulletSpeed>
+		<bulletSpeed>6</bulletSpeed>
 		<atkRange>5</atkRange>
 		<explodeDamage>35</explodeDamage>
 		<isExplode>false</isExplode>

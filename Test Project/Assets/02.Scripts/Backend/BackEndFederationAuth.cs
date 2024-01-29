@@ -2,8 +2,9 @@ using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using BackEnd;
+using UnityEngine.SceneManagement;
 
-public class BackEndFederationAuth : MonoBehaviour
+public class BackEndFederationAuth : LoginBase
 {
     // GPGS 로그인 
     void Start()
@@ -21,6 +22,8 @@ public class BackEndFederationAuth : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = true; // 디버그 로그를 보고 싶지 않다면 false로 바꿔주세요.
                                                   //GPGS 시작.
         PlayGamesPlatform.Activate();
+        //GPGSLogin();
+        string message = string.Empty;
     }
 
     public void GPGSLogin()
@@ -29,6 +32,7 @@ public class BackEndFederationAuth : MonoBehaviour
         if (Social.localUser.authenticated == true)
         {
             BackendReturnObject BRO = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs");
+            
         }
         else
         {
@@ -37,6 +41,7 @@ public class BackEndFederationAuth : MonoBehaviour
                 {
                     // 로그인 성공 -> 뒤끝 서버에 획득한 구글 토큰으로 가입 요청
                     BackendReturnObject BRO = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs");
+                    SceneManager.LoadScene("Lobby");
                 }
                 else
                 {
@@ -50,6 +55,8 @@ public class BackEndFederationAuth : MonoBehaviour
     // 구글 토큰 받아옴
     public string GetTokens()
     {
+        string message = string.Empty;
+
         if (PlayGamesPlatform.Instance.localUser.authenticated)
         {
             // 유저 토큰 받기 첫 번째 방법
@@ -60,6 +67,7 @@ public class BackEndFederationAuth : MonoBehaviour
         }
         else
         {
+            message = "접속되어 있지 않습니다. PlayGamesPlatform.Instance.localUser.authenticated :  fail";
             Debug.Log("접속되어 있지 않습니다. PlayGamesPlatform.Instance.localUser.authenticated :  fail");
             return null;
         }
@@ -67,6 +75,7 @@ public class BackEndFederationAuth : MonoBehaviour
 
     public void OnClickGPGSLogin()
     {
+        string message = string.Empty;
         BackendReturnObject bro = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs로 만든 계정");
         if(bro.IsSuccess())
         {
@@ -77,12 +86,15 @@ public class BackEndFederationAuth : MonoBehaviour
             switch(bro.GetStatusCode())
             {
                 case "200":
+                    message = "이미 회원가입된 회원";
                     Debug.Log("이미 회원가입된 회원");
                     break;
                 case "403":
+                    message = "차단된 사용자, : " + bro.GetErrorCode();
                     Debug.Log("차단된 사용자, : " + bro.GetErrorCode());
                     break;
                 default:
+                    message = "서버 공통 에러 " + bro.GetErrorCode();
                     Debug.Log("서버 공통 에러 발생" + bro.GetMessage());
                     break;
             }

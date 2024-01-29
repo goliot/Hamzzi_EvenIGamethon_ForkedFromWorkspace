@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
 
     [Header("#Skill State")]
     Vector3 straightDir;
+    bool isTargetDeadWhileGoing;
 
     List<GameObject> targetedEnemies = new List<GameObject>();
 
@@ -107,10 +108,15 @@ public class Bullet : MonoBehaviour
         newSize = new Vector2(currentSize.x * 8f, currentSize.y * 4f);
         capsuleCollider.isTrigger = true;
         capsuleCollider.size = new Vector2(1f, 1f);
+        isTargetDeadWhileGoing = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if (!target.activeSelf) //총알이 날아가다가 타겟이 죽은 적이 있는가?
+        {
+            isTargetDeadWhileGoing = true;
+        }
         if (enemies != null) enemies.Clear();
         enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
         enemies = enemies.Where(enemy => enemy.activeSelf).ToList();
@@ -129,7 +135,9 @@ public class Bullet : MonoBehaviour
 
         //if (enemies.Count == 0) OnAnimationEnd(); //적이 없으면 그냥 꺼버리기
 
-        Vector3 dir = target.transform.position - transform.position;
+        Vector3 dir = new Vector3();
+        if (isTargetDeadWhileGoing) dir = targetPosition - transform.position;
+        else dir = target.transform.position - transform.position;
         distance = dir.magnitude;
         RotateTowardsMovementDirection();
 
@@ -142,15 +150,9 @@ public class Bullet : MonoBehaviour
                 // 일정 오차 범위 내에 위치가 일치하면
                 if (distance < positionError)
                 {
-                    anim.speed = 2;
-                    foreach (GameObject enemy in enemies)
-                    {
-                        if (enemy != null && distance < splashRange && !bombardaEnemies.Contains(enemy))
-                        {
-                            bombardaEnemies.Add(enemy);
-                        }
-                    }
                     anim.SetTrigger("MainEffect");
+                    bulletSpeed = 0;
+                    //OnAnimationBombarda();
                 }
             }
             else if (skillId == 2) //아구아멘티
@@ -248,10 +250,6 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
             penetrate--;
-            if(isExplode)
-            {
-                OnAnimationBombarda();
-            }
             if (penetrate == -1)
             {
                 bulletSpeed = 0;
@@ -335,7 +333,7 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OnAnimationLumos() //루모스s
+    public void OnAnimationLumos() //루모스
     {
         if(isExplode)
         {
@@ -359,26 +357,5 @@ public class Bullet : MonoBehaviour
         // 이동 방향으로 총알 회전
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
-
-    private GameObject FindNextClosestEnemy()
-    {
-        if (enemies.Count == 0) return null;
-        GameObject closestEnemy = null;
-        float closestDistance = float.MaxValue;
-
-        foreach(GameObject enemy in enemies)
-        {
-            if (targetedEnemies.Contains(enemy)) continue;
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if(distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestEnemy = enemy;
-            }
-        }
-
-        return closestEnemy;
     }
 }

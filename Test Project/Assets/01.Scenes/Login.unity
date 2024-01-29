@@ -1236,7 +1236,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 643682542151653446, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_Name
-      value: ButtonLogin (1)
+      value: ButtonLoginGoogle
       objectReference: {fileID: 0}
     - target: {fileID: 2371416753922900330, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_text
@@ -1260,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8698128757895331549, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickGPGSLogin
+      value: GPGSLogin
       objectReference: {fileID: 0}
     - target: {fileID: 8698128757895331549, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1915,6 +1915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df6aedf37b56c24fb67d90518f0af07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMessage: {fileID: 1893041125}
 --- !u!1001 &1341614165
 PrefabInstance:
   m_ObjectHideFlags: 0

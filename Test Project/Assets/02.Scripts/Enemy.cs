@@ -215,10 +215,10 @@ public class Enemy : MonoBehaviour
     {
         isParalyzed = true;
         spriteRenderer.color = new Color(1f, 1f, 0f); //³ë¶õºû
-        gameObject.GetComponent<Enemy>().speed *= 0.8f;
+        gameObject.GetComponent<Enemy>().speed *= 0.5f;
         yield return new WaitForSeconds(duration);  
         spriteRenderer.color = originalColor;
-        gameObject.GetComponent<Enemy>().speed /= 0.8f;
+        gameObject.GetComponent<Enemy>().speed /= 0.5f;
         isParalyzed = false;
     }
 

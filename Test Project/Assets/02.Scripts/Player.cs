@@ -77,19 +77,19 @@ public class Player : MonoBehaviour
                 if (data.skillId == 5 && data.CanUseSkill()) //모멘스토일경우 다른 로직 사용
                 {
                     nextMomenstoLocation = momenstoPoint[Random.Range(0, momenstoPoint.Length)];
-                    BulletSpawn(target, data);
+                    BulletSpawn(data);
                     data.StartCoolDown();
                 }
                 else if (data.CanUseSkill() && distance < data.atkRange)
                 {
-                    BulletSpawn(target, data);
+                    BulletSpawn(data);
                     data.StartCoolDown();
                 }
             }
         }
     }
 
-    void BulletSpawn(Transform target, PlayerData data)
+    void BulletSpawn(PlayerData data)
     {
         GameObject bullet = GameManager.Inst.pool.Get(1);
         if (data.skillId == 5) //모멘스토만 다른 로직

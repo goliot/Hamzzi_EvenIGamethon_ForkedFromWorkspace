@@ -74,6 +74,8 @@ public class Enemy : MonoBehaviour
         damage = data.damage;
         atkSpeed = data.atkSpeed;
         speed = data.speed;
+
+        originalColor = spriteRenderer.color;
     }
 
     private void Update()
@@ -121,7 +123,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isWallHit = false;
-        rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 50;
+        rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 10;
     }
 
     public void TakeDamage(float damage, float explodeDamage, int skillId, float duration)
@@ -213,10 +215,10 @@ public class Enemy : MonoBehaviour
     {
         isParalyzed = true;
         spriteRenderer.color = new Color(1f, 1f, 0f); //³ë¶õºû
-        speed *= 0.8f;
+        gameObject.GetComponent<Enemy>().speed *= 0.8f;
         yield return new WaitForSeconds(duration);  
         spriteRenderer.color = originalColor;
-        speed /= 0.8f;
+        gameObject.GetComponent<Enemy>().speed /= 0.8f;
         isParalyzed = false;
     }
 

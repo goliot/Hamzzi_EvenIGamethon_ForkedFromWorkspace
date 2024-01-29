@@ -335,7 +335,7 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OnAnimationLumos()
+    public void OnAnimationLumos() //·ç¸ð½ºs
     {
         if(isExplode)
         {

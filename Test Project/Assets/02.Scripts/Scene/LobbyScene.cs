@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class LobbyScene : MonoBehaviour
 {
+    [SerializeField]
+    private UserInfo user;
+
+    private void Awake()
+    {
+        user.GetUserInfoFromBackend();
+    }
     void Start()
     {
         AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Title, false);

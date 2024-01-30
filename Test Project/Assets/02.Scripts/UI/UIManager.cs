@@ -16,6 +16,8 @@ public class UIManager : Singleton<UIManager>
     public Button gameOverUINoButton;
     public Button gameOverUIYesButton;
 
+    public Image[] rewards;
+
     private bool isGameSpeedIncreased = false; // 기본 1배속
 
     private void Awake()

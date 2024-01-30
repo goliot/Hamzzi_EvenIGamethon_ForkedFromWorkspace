@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
     public bool isLive;
     public float gameTime;
     public float waveChangeTime;
+    public bool isGameSpeedIncreased;
 
     [Header("Game Object")]
     public Player player;
@@ -53,10 +54,11 @@ public class GameManager : Singleton<GameManager>
         exp = 0;
         seed = 0;
         level = 0;
-        nextExp = new int[]{ 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500 };
+        nextExp = new int[] { 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500 };
         Application.targetFrameRate = 60;
         isSelectingCard = false;
-    } //
+        isGameSpeedIncreased = false;
+    }
 
     private void Update()
     {
@@ -71,11 +73,11 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("경험치 획득" + killExp);
         // 필요 경험치에 도달하면 레벨업
         // if(exp >= nextExp[level] && level < 20)
-        if(exp >= nextExp[level])
+        if (exp >= nextExp[level])
         {
             level++;
-            exp -= nextExp[level-1];          // 경험치 초기화
-            foreach(var uiLevelUp in uiLevelUps) uiLevelUp.Show(); // 레벨업 UI 켜기
+            exp -= nextExp[level - 1];          // 경험치 초기화
+            foreach (var uiLevelUp in uiLevelUps) uiLevelUp.Show(); // 레벨업 UI 켜기
         }
     }
 
@@ -93,7 +95,10 @@ public class GameManager : Singleton<GameManager>
     // 게임 시간 재개
     public void Resume()
     {
-        Time.timeScale = 1.0f;
+        if (isGameSpeedIncreased)
+        {
+            Time.timeScale = 1.5f;
+        }
+        else Time.timeScale = 1.0f;
     }
-
 }

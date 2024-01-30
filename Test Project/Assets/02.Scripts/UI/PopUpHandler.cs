@@ -43,6 +43,11 @@ public class PopUpHandler : MonoBehaviour
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
     }
 
+    public void OnClickPopUpShop()
+    {
+        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strShopUI);
+    }
+
     #endregion
 
     public void OnClickExit()

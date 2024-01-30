@@ -418,7 +418,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 786527267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae4ea11f155994428e994b297c344e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 62970ed095e1e874898bca745a90d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &872528072
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 1
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.464
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1150,7 +1150,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 786527268}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 50
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

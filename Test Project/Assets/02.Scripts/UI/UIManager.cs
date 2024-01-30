@@ -16,28 +16,24 @@ public class UIManager : Singleton<UIManager>
     public Button gameOverUINoButton;
     public Button gameOverUIYesButton;
 
-    public Image[] rewards;
+    GameObject speed_2times;  // 2배속 버튼 이미지 
 
-    private bool isGameSpeedIncreased = false; // 기본 1배속
+    public Image[] rewards;
 
     private void Awake()
     {
         this.Initialize();
+
+        InitSpeedControllBtn();
     }
 
-    private void Start()
+    void InitSpeedControllBtn()
     {
         if (speedControlButton != null)
         {
             speedControlButton.onClick.AddListener(ToggleGameSpeed);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F1)) // 디버그용
-        {
-            SceneManager.LoadScene("Lobby");
+            speed_2times = speedControlButton.gameObject.transform.GetChild(0).gameObject;
+            speed_2times.SetActive(false);
         }
     }
 
@@ -65,19 +61,22 @@ public class UIManager : Singleton<UIManager>
         SceneManager.LoadScene("Battle_Proto");
     }
 
+    // 게임 시간 조절 함수
     public void ToggleGameSpeed()
     {
-        isGameSpeedIncreased = !isGameSpeedIncreased; // 상태 토글
+        GameManager.Inst.isGameSpeedIncreased = !GameManager.Inst.isGameSpeedIncreased; // 상태 토글
 
-        if (isGameSpeedIncreased)
+        if (GameManager.Inst.isGameSpeedIncreased)
         {
             Debug.Log("게임 속도 : 1.5배속");
             Time.timeScale = 1.5f; // 게임 속도 2배로
+            speed_2times.SetActive(true);
         }
         else
         {
             Debug.Log("게임 속도 : 1배속");
             Time.timeScale = 1.0f; // 원래 속도로
+            speed_2times.SetActive(false);
         }
     }
 

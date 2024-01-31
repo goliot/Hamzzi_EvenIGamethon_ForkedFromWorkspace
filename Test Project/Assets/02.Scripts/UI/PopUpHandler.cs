@@ -10,6 +10,7 @@ public class PopUpHandler : MonoBehaviour
     #region PopUpButton
     public void OnClickPopUpStageSelect()
     {
+
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageSelectUI);
     }
 

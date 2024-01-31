@@ -7,7 +7,7 @@ public class TitleScene : MonoBehaviour
 {
     private void Start()
     {
-        AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Title, true);
+        AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Opening);
     }
 
     void Update()

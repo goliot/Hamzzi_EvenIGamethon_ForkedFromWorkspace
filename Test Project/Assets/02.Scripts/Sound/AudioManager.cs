@@ -19,10 +19,28 @@ public class AudioManager : Singleton<AudioManager>
     AudioSource[] sfxPlayers;                           // SFX는 동시에 여러개가 실행됨
     int channelIndex;
 
-    public enum BGM { BGM_Title, BGM_Lobby }
-    public enum SFX { Dead, Hit, LevelUp = 3, Lose, Melee, Range = 7, Select, Win }
+    public enum BGM {
+        BGM_Opening,
+        BGM_OpeningCartoon,
+        BGM_Lobby,
+        BGM_Shop,
+        BGM_IllustratedGuideArchive,
+        BGM_IllustratedGuideHamster,
+        BGM_IllustratedGuideMonster,
+        BGM_Chapter01,
+        BGM_Chapter01Cartton
+    }
 
-    public float BgmVolume
+    public enum SFX {
+        SFX_OpeningEffect,
+        SFX_UI,
+
+        SFX_Wheel = 4,
+        SFX_Corn = 5,
+
+    }
+
+    public float BGMVolume
     {
         get => GetVolume(AudioType.BGM);
         set => OnVolumeChanged(AudioType.BGM, value);
@@ -49,6 +67,10 @@ public class AudioManager : Singleton<AudioManager>
         bgmPlayer.playOnAwake = false;                          // 게임 시작 시 재생 끄기
         bgmPlayer.loop = true;
         bgmPlayer.volume = bgmVolume;
+
+        // 용량 최적화
+        bgmPlayer.dopplerLevel = 0.0f;
+        bgmPlayer.reverbZoneMix = 0.0f;
         //bgmPlayer.clip = bgmClips;
 
         // 효과음 플레이어 초기화
@@ -61,6 +83,8 @@ public class AudioManager : Singleton<AudioManager>
             sfxPlayers[idx] = sfxObject.AddComponent<AudioSource>();
             sfxPlayers[idx].playOnAwake = false;
             sfxPlayers[idx].volume = sfxVolume;
+            sfxPlayers[idx].dopplerLevel = 0.0f;
+            sfxPlayers[idx].reverbZoneMix = 0.0f;
         }
 
         bgmVolume = 1.0f - PlayerPrefs.GetFloat("BGM_Volume");           // default 값이 0이기 때문에 1.0f - value로 저장
@@ -68,17 +92,15 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     // BGM 사용을 위한 함수
-    public void PlayBgm(BGM bgm, bool isPlay)
+    public void PlayBgm(BGM bgm)
     {
-        if (isPlay)
-        {
-            bgmPlayer.clip = bgmClips[(int)bgm];
-            bgmPlayer.Play();
-        }
-        else
-        {
-            bgmPlayer.Stop();
-        }
+         bgmPlayer.clip = bgmClips[(int)bgm];
+         bgmPlayer.Play();
+    }
+
+    public void StopBgm()
+    {
+        if (bgmPlayer != null) bgmPlayer.Stop();
     }
 
     // 효과음 사용을 위한 함수
@@ -100,8 +122,8 @@ public class AudioManager : Singleton<AudioManager>
 
     public void OnChangedBGMVolume(float value)
     {
-        BgmVolume = value;
-        bgmPlayer.volume = BgmVolume;
+        BGMVolume = value;
+        bgmPlayer.volume = BGMVolume;
     }
 
     public float GetVolume(AudioType type)

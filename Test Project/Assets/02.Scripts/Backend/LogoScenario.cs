@@ -17,9 +17,9 @@ public class LogoScenario : MonoBehaviour
     {
         Application.runInBackground = true; //백그라운드에서 게임이 진행됨
 
-        int width = Screen.width;
-        int height = (int)(Screen.width * 16 / 9);
-        Screen.SetResolution(width, height, true);
+        //int width = Screen.width;                         
+        //int height = (int)(Screen.width * 16 / 9);
+        //Screen.SetResolution(width, height, true);        // 스크린 해상도 강제 설정 해제
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 

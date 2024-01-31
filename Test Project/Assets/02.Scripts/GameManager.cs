@@ -58,6 +58,10 @@ public class GameManager : Singleton<GameManager>
         Application.targetFrameRate = 60;
         isSelectingCard = false;
         isGameSpeedIncreased = false;
+
+        // 임시 Stage01 그냥 박아놓음
+        AudioManager.Inst.StopBgm();
+        AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
     }
 
     private void Update()

@@ -25,7 +25,10 @@ public class PopUpManager : MonoBehaviour
     {
         myNoTouch.SetActive(true);
         myNoTouch.transform.SetAsLastSibling();
-        PopUpWindow scp = (Instantiate(Resources.Load(popUp), transform) as GameObject).GetComponent<PopUpWindow>(); // 프리팹으로 미리 만들어 놓은 UI를 생성하고, PopUpWindow 컴포넌트를 scp에 할당
+        GameObject popupObject = Instantiate(Resources.Load(popUp), transform) as GameObject; // 프리팹으로 미리 만들어 놓은 UI를 생성하고
+        PopUpWindow scp = popupObject.GetComponent<PopUpWindow>();                            // PopUpWindow 컴포넌트를 scp에 할당
+        popupObject.name = popUp;
+        Debug.Log(popupObject.name); // 디버깅
         allClose += scp.OnClose;
         popUpList.Push(scp);
     }

@@ -21,6 +21,9 @@
 ---
 ## V.2.1.5 - SM 2024-01-31
 - 닉네임 변경 기능 추가
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/387412bc-9cc7-448d-9a67-3a4eb3f23c6c" width = "130" height = "250">
+</p>  
 - 사운드 삽입
 	- 메인 모든 공격 사운드
 	- 서브 모든 공격 사운드

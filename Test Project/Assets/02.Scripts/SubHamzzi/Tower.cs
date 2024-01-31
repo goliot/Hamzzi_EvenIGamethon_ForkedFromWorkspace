@@ -72,6 +72,24 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
             time = 0;
             //타입별 다른동작 함수가 필요하다면 여기에
             BulletSpawn(thisData, target);
+            switch(towerType)
+            {
+                case 0:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Arrow_Attack);
+                    break;
+                case 1:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Cannon_Attack);
+                    break;
+                case 2:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Black_Magic_Spell);
+                    break;
+                case 3:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Sheild_Spell);
+                    break;
+                case 4:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Heal_Spell);
+                    break;
+            }
         }
         if (targetsInRange.Count > 0) targetsInRange.Clear();
         if (target != null) target = null;

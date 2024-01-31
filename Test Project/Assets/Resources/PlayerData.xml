@@ -26,7 +26,7 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>23</explodeDamage>
 		<isExplode>true</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>1</splashRange>
 	</Sheet1>
@@ -41,7 +41,7 @@
 		<atkRange>5.5</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
@@ -56,7 +56,7 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>23</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>1</splashRange>
 	</Sheet1>
@@ -71,7 +71,7 @@
 		<atkRange>7</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
@@ -86,7 +86,7 @@
 		<atkRange>4.2</atkRange>
 		<explodeDamage>0</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>
@@ -101,7 +101,7 @@
 		<atkRange>5</atkRange>
 		<explodeDamage>35</explodeDamage>
 		<isExplode>false</isExplode>
-		<isUnlocked>false</isUnlocked>
+		<isUnlocked>true</isUnlocked>
 		<isPenetrate>false</isPenetrate>
 		<splashRange>0</splashRange>
 	</Sheet1>

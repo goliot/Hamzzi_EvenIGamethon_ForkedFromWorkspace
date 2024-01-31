@@ -14,10 +14,13 @@ public class Player : MonoBehaviour
     public Transform nextMomenstoLocation;
 
     string xmlFileName = "PlayerData";
+    int[] damageUpgradeAmount = { 3, 6, 9, 12, 19, 22, 25, 28, 31, 38, 41, 44, 47, 50, 58, 61, 64, 67, 70, 78 };
 
     void Start()
     {
         LoadXML(xmlFileName);
+
+        //PlayerUpgrade(레벨?);
     }
 
     private void LoadXML(string _fileName)
@@ -56,6 +59,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void PlayerUpgrade(int level) //서버에서 레벨 받아오기
+    {
+        foreach(PlayerData data in playerData)
+        {
+            data.damage += damageUpgradeAmount[level - 1];
+            data.explodeDamage += damageUpgradeAmount[level - 1];
+        }
+    }
+
     private void Update()
     {
         target = gameObject.GetComponent<Scanner>().nearestTarget;
@@ -84,6 +96,35 @@ public class Player : MonoBehaviour
                 {
                     BulletSpawn(data);
                     data.StartCoolDown();
+                    switch(data.skillId)
+                    {
+                        case 0:
+                            int rand = 0;
+                            rand = Random.Range(0, 3);
+                            if(rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Attack1);
+                            else if(rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Attack2);
+                            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Attack3);
+                            break;
+                        case 1:
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Fire_Attack);
+                            break;
+                        case 2:
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Ice_Attack);
+                            break;
+                        case 3:
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Electric_Attack);
+                            break;
+                        case 4:
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Lightning_Attack);
+                            break;
+                        case 5:
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Dark_Attack);
+                            break;
+                        case 6:
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Missile_Attack);
+                            break;
+
+                    }
                 }
             }
         }

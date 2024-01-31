@@ -84,6 +84,7 @@ public class Enemy : MonoBehaviour
         {
             // 아래로 이동
             rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 10;
+            //AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Grass_Effect);
         }
     }
 
@@ -95,6 +96,10 @@ public class Enemy : MonoBehaviour
             {
                 isWallAttackInProgress = true; // 공격이 시작됨을 표시
                 anim.SetTrigger("Attack");
+                int rand = Random.Range(0, 3);
+                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_01);
+                else if (rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_02);
+                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_03);
                 wall.GetComponent<Wall>().getDamage(damage);
                 isWallAttackInProgress = false; // 공격이 끝남을 표시
                 yield return new WaitForSeconds(atkSpeed);
@@ -428,6 +433,11 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
+        int rand = Random.Range(0, 3);
+        if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_01);
+        else if (rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_02);
+        else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_03);
+
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);

@@ -203,6 +203,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
     void Victory()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);
         //승리 로직
         UIManager.Inst.victoryUI.SetActive(true);          // VictoryUI를 켜기만 한다
     }
@@ -228,6 +229,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         redLightImage.gameObject.SetActive(true);
         warningImage.gameObject.SetActive(true);
         // 2. 화면 전체가 반투명한 빨간빛으로 3회 깜빡임
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Boss_Warning);
         for (int i = 0; i < 3; i++)
         {
             SetRedLightImage(new Color(1f, 0f, 0f, 0.5f)); // 빨간빛 이미지 색상 조정

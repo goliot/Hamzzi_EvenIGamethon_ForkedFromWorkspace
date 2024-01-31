@@ -93,7 +93,7 @@ public class GameManager : Singleton<GameManager>
     // 게임 시간 정지
     public void Stop()
     {
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0f;
     }
 
     // 게임 시간 재개

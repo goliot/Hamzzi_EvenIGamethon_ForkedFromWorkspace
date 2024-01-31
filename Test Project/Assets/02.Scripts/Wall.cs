@@ -24,26 +24,37 @@ public class Wall : MonoBehaviour
 
     private void Update()
     {
-        if (health > maxHealth * 0.8f)
+        int rand = Random.Range(0, 2);
+        /*if (health > maxHealth * 0.8f)
         {
             wallImage.sprite = wallImages[0];
+            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
         }
         else if (health < maxHealth * 0.8f && health > maxHealth * 0.6f)
         {
             wallImage.sprite = wallImages[1];
+            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
         }
         else if (health < maxHealth * 0.6f && health > maxHealth * 0.3f)
         {
             wallImage.sprite = wallImages[2];
+            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
         }
         else if (health < maxHealth * 0.3f && health > 0)
         {
             wallImage.sprite = wallImages[3];
+            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
         }
         else
         {
             wallImage.sprite = wallImages[4];
-        }
+            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+        }*/
     }
 
 
@@ -62,9 +73,11 @@ public class Wall : MonoBehaviour
 
     public void gameOver()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Fail);
         //게임 오버 루틴 -> UI를 띄운다던가 하는 로직
         GameManager.Inst.Stop();                        // 게임 시간 정지
         UIManager.Inst.gameOverUI.SetActive(true);      // 게임 오버 UI 켜지게
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)

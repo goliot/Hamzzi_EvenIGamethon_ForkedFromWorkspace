@@ -63,6 +63,24 @@ public class TowerSpawner : MonoBehaviour
             tower.transform.position = tileTransform.position;
             InstalledTower.Add(tile.transform, tower);
             GameManager.Inst.seed -= 40;
+            switch (index)
+            {
+                case 0:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
+                    break;
+                case 1:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_02);
+                    break;
+                case 2:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_03);
+                    break;
+                case 3:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_04);
+                    break;
+                case 4:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_05);
+                    break;
+            }
         }
         else
         {

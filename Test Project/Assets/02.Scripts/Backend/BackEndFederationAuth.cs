@@ -41,6 +41,8 @@ public class BackEndFederationAuth : LoginBase
                 {
                     // 로그인 성공 -> 뒤끝 서버에 획득한 구글 토큰으로 가입 요청
                     BackendReturnObject BRO = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs");
+
+                    //BackendGameData.Instance.GameDataInsert();
                     SceneManager.LoadScene("Lobby");
                 }
                 else

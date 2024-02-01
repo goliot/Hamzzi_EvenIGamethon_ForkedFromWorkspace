@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using BackEnd;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class RegisterAccount : LoginBase
 {
@@ -51,7 +53,7 @@ public class RegisterAccount : LoginBase
         CustomSignUp();
     }
 
-    private void CustomSignUp()
+    private void CustomSignUp() //회원가입
     {
         Backend.BMember.CustomSignUp(inputFieldID.text, inputFieldPW.text, callback =>
         {
@@ -64,6 +66,12 @@ public class RegisterAccount : LoginBase
                     if(callback.IsSuccess())
                     {
                         SetMessage($"계정 생성 성공. {inputFieldID.text}님 환영합니다.");
+
+                        //계정 생성에 성공했을 때 해당 계정의 게임 정보 생성
+                        BackendGameData.Instance.GameDataInsert();
+
+                        //로비로 이동
+                        SceneManager.LoadScene("Lobby");
                     }
                 });
             }

@@ -33,6 +33,8 @@ public class ChapterButtonHandler: MonoBehaviour
 
     public void OnClickGameStart()
     {
+        BackendGameData.Instance.UserGameData.threadmill -= 1;
+        BackendGameData.Instance.GameDataUpdate();
         StageSelect.instance.SceneLoad();
     }
 

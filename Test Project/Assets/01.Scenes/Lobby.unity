@@ -275,6 +275,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136089035}
   m_CullTransparentMesh: 1
+--- !u!114 &278094533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1099775033178106359, guid: c8a2a090d9db3734ca0def7099dce6f0, type: 3}
+  m_PrefabInstance: {fileID: 772850267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307631524
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 307631527}
+  textThreadmill: {fileID: 1215079096}
+  textCorn: {fileID: 1536144926}
 --- !u!114 &307631527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,10 +827,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 868378685}
-  - {fileID: 979779210}
   - {fileID: 730880761}
   - {fileID: 1485000514}
   - {fileID: 772850268}
+  - {fileID: 979779210}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1829,6 +1842,14 @@ PrefabInstance:
       value: -293.7
       objectReference: {fileID: 0}
     - target: {fileID: 2299394177312299174, guid: c8a2a090d9db3734ca0def7099dce6f0, type: 3}
+      propertyPath: textCorn
+      value: 
+      objectReference: {fileID: 1536144926}
+    - target: {fileID: 2299394177312299174, guid: c8a2a090d9db3734ca0def7099dce6f0, type: 3}
+      propertyPath: textLevel
+      value: 
+      objectReference: {fileID: 278094533}
+    - target: {fileID: 2299394177312299174, guid: c8a2a090d9db3734ca0def7099dce6f0, type: 3}
       propertyPath: textHolder
       value: 
       objectReference: {fileID: 0}
@@ -1836,6 +1857,10 @@ PrefabInstance:
       propertyPath: textGamerId
       value: 
       objectReference: {fileID: 756079178}
+    - target: {fileID: 2299394177312299174, guid: c8a2a090d9db3734ca0def7099dce6f0, type: 3}
+      propertyPath: textThreadmill
+      value: 
+      objectReference: {fileID: 1215079096}
     - target: {fileID: 2299394177312299174, guid: c8a2a090d9db3734ca0def7099dce6f0, type: 3}
       propertyPath: inputFieldNickname
       value: 

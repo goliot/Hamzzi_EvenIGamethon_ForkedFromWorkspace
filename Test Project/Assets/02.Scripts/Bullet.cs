@@ -274,6 +274,7 @@ public class Bullet : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
+            if (enemy == target) continue;
             if ((transform.position - enemy.transform.position).magnitude < splashRange)
             {
                 Debug.Log((transform.position - enemy.transform.position).magnitude);
@@ -337,6 +338,7 @@ public class Bullet : MonoBehaviour
     {
         if(isExplode)
         {
+            target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
             OnAnimationBombarda();
         }
         else target.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);

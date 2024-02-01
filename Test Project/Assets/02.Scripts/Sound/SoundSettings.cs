@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using BackEnd;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundSettings : MonoBehaviour
 {
@@ -30,5 +29,12 @@ public class SoundSettings : MonoBehaviour
             sfxSlider.value = audioManager.GetVolume(AudioManager.AudioType.SFX);
             sfxSlider.onValueChanged.AddListener(value => audioManager.OnVolumeChanged(AudioManager.AudioType.SFX, value));
         }
+    }
+
+    public void OnClickLogout()
+    {
+        Backend.BMember.Logout((callback) => {
+            SceneManager.LoadScene("Login");
+        });
     }
 }

@@ -11,6 +11,11 @@ public class Wall : MonoBehaviour
     public SpriteRenderer wallImage;
     public Sprite[] wallImages;
 
+    private bool wall80;
+    private bool wall60;
+    private bool wall30;
+    private bool wall0;
+
     private void Awake()
     {
         wallImage = GetComponent<SpriteRenderer>();
@@ -20,22 +25,35 @@ public class Wall : MonoBehaviour
     {
         maxHealth = 3500f;
         health = maxHealth;
+
+        wall80 = false;
+        wall60 = false;
+        wall30 = false;
+        wall0 = false;
     }
 
     private void Update()
     {
         int rand = Random.Range(0, 2);
-        /*if (health > maxHealth * 0.8f)
+        if (health > maxHealth * 0.8f)
         {
             wallImage.sprite = wallImages[0];
-            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
-            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            if (!wall80)
+            {
+                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            }
+            wall80 = true;
         }
         else if (health < maxHealth * 0.8f && health > maxHealth * 0.6f)
         {
             wallImage.sprite = wallImages[1];
-            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
-            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            if (!wall60)
+            {
+                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            }
+            wall60 = true;
         }
         else if (health < maxHealth * 0.6f && health > maxHealth * 0.3f)
         {
@@ -46,18 +64,24 @@ public class Wall : MonoBehaviour
         else if (health < maxHealth * 0.3f && health > 0)
         {
             wallImage.sprite = wallImages[3];
-            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
-            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            if (!wall30)
+            {
+                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            }
+            wall30 = true;
         }
         else
         {
             wallImage.sprite = wallImages[4];
-            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
-            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
-        }*/
+            if (!wall0)
+            {
+                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            }
+            wall0 = true;
+        }
     }
-
-
 
     public void getDamage(float damage)
     {

@@ -31,7 +31,6 @@
 	- 충전은 어떻게해야되지
 - 옥수수 IAP 구현
 	- 60, 300, 600개 적용
- https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/1dfcf6ca-af2e-4a67-9387-08815a721320
 <p align="center">
 <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/1dfcf6ca-af2e-4a67-9387-08815a721320" width = "180" height = "360">
 </p>

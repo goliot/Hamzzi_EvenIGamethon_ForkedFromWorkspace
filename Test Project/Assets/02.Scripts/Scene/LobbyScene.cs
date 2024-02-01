@@ -33,7 +33,7 @@ public class LobbyScene : MonoBehaviour
         BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData);
         BackendGameData.Instance.GameDataLoad();
     }
-    async void Start()
+    private void Start()
     {
         AudioManager.Inst.StopBgm();
         AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Lobby);
@@ -45,7 +45,13 @@ public class LobbyScene : MonoBehaviour
     public void UpdateCurrencyData()
     {
         Debug.Log("자원 업데이트");
-        textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill}";
+        textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
         textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
+    }
+
+    public void OnClickRefreshThreadmill()
+    {
+        BackendGameData.Instance.UserGameData.threadmill = 10;
+        BackendGameData.Instance.GameDataUpdate();
     }
 }

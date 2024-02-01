@@ -6,13 +6,14 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Time, Health, Wave, ChapterStage, Seed}
+    public enum InfoType { Exp, Level, Time, Health, Wave, ChapterStage, Stage, Seed}
     public InfoType type;
 
     TextMeshProUGUI lvText;
     TextMeshProUGUI timeText;
     TextMeshProUGUI waveText;
     TextMeshProUGUI chapterStageText;
+    TextMeshProUGUI stageText;
     TextMeshProUGUI seedText;
     Slider expSlider;
     Slider hpSlider;
@@ -25,6 +26,7 @@ public class HUD : MonoBehaviour
         timeText = GetComponent<TextMeshProUGUI>();
         waveText = GetComponent<TextMeshProUGUI>();
         chapterStageText = GetComponent<TextMeshProUGUI>();
+        stageText = GetComponent<TextMeshProUGUI>();
         seedText = GetComponent<TextMeshProUGUI>();
         expSlider = GetComponent<Slider>();
         hpSlider = GetComponent<Slider>();
@@ -64,6 +66,10 @@ public class HUD : MonoBehaviour
             case InfoType.ChapterStage:
                 if (StageSelect.instance == null) break;
                 chapterStageText.text = string.Format("STAGE {0:F0} - {1:F0}", StageSelect.instance.chapter, StageSelect.instance.stage);
+                break;
+            case InfoType.Stage:
+                if (StageSelect.instance == null) break;
+                stageText.text = string.Format("{0:F0}", StageSelect.instance.stage);
                 break;
             case InfoType.Seed:
                 seedText.text = string.Format($"{GameManager.Inst.seed}");

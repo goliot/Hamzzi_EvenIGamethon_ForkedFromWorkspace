@@ -64,7 +64,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         if (targetsInRange.Count > 0)
         {
             target = targetsInRange[Random.Range(0, targetsInRange.Count)].transform;
-            Debug.Log("사거리에 타겟 진입");
+            //Debug.Log("사거리에 타겟 진입");
         }
 
         if(time > atkSpeed && target != null)

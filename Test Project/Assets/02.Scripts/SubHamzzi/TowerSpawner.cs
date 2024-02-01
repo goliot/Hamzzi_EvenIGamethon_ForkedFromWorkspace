@@ -11,6 +11,7 @@ public class TowerSpawner : MonoBehaviour
 
     public List<TowerData> towerData = new List<TowerData>();
     public Dictionary<Transform, GameObject> InstalledTower = new Dictionary<Transform, GameObject>();
+    public GameObject seedUI;       // 설치 불가 UI
 
     string xmlFileName = "SubHamData";
 
@@ -49,9 +50,10 @@ public class TowerSpawner : MonoBehaviour
         }
     }
 
+    
     public void SpawnTower(Transform tileTransform, int index)
     {
-        if(GameManager.Inst.seed >= 40)
+        if (GameManager.Inst.seed >= 40)
         {
             GameObject tower = GameManager.Inst.pool.Get(2);
 
@@ -84,6 +86,7 @@ public class TowerSpawner : MonoBehaviour
         }
         else
         {
+            
             Debug.Log("Not Enough Seeds");
         }
     }
@@ -107,6 +110,7 @@ public class TowerSpawner : MonoBehaviour
             }
         }
     }
+    
 }
 
 [System.Serializable]

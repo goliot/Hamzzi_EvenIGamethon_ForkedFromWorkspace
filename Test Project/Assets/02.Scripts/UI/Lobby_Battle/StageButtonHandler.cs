@@ -21,23 +21,18 @@ public class StageButtonHandler : MonoBehaviour
         {
             case Stage.Stage1:
                 StageSelect.instance.OnClickStage1();
-                
                 break;
             case Stage.Stage2:
                 StageSelect.instance.OnClickStage2();
-                StageSelect.instance.SceneLoad();
                 break;
             case Stage.Stage3:
                 StageSelect.instance.OnClickStage3();
-                StageSelect.instance.SceneLoad();
                 break;
             case Stage.Stage4:
                 StageSelect.instance.OnClickStage4();
-                StageSelect.instance.SceneLoad();
                 break;
             case Stage.Stage5:
                 StageSelect.instance.OnClickStage5();
-                StageSelect.instance.SceneLoad();
                 break;
 
         }

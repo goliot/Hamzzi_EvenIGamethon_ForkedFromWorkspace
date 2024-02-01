@@ -19,6 +19,26 @@
 |기간| 01.08 ~ 01.26 | 01.27 ~ 02.02 | 02.03 ~ 02.09 | 02.10 ~ 02.23 |
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
+## V.2.1.6 - JS 2024-01-31
+- 사운드
+  - 사운드 클립 설정
+    - Force To Mono : 모노 채널 타입으로 변경
+    - SFX
+      - Decompressed On Load
+      - 압축품질 40으로 셋팅
+    - BGM
+      - Compressed In Memory
+      - Compression Format : Vorbis
+    - <AudioSource\>.dopplerLevel , <AudioSource\>.reverbZoneMix 각각 0으로 초기화
+    - 오프닝(배경음) Load In Backgroudn Check : 비동기 방식으로 사운드 설정
+  
+- BGM 사운드 적용
+  - Opening, Shop, Battle01
+
+- SFX 사운드 적용
+  - UI PopUpWindows
+
+---
 ## V.2.1.5 - SM 2024-01-31
 - 닉네임 변경 기능 추가
 <p align="center">

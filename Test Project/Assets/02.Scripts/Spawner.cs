@@ -227,6 +227,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);
         //승리 로직
+        GameManager.Inst.Stop();
         UIManager.Inst.victoryUI.SetActive(true);          // VictoryUI를 켜기만 한다
     }
 

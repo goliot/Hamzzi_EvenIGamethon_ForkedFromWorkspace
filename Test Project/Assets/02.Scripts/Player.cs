@@ -14,13 +14,14 @@ public class Player : MonoBehaviour
     public Transform nextMomenstoLocation;
 
     string xmlFileName = "PlayerData";
-    int[] damageUpgradeAmount = { 3, 6, 9, 12, 19, 22, 25, 28, 31, 38, 41, 44, 47, 50, 58, 61, 64, 67, 70, 78 };
+    int[] damageUpgradeAmount = { 0, 3, 6, 9, 12, 19, 22, 25, 28, 31, 38, 41, 44, 47, 50, 58, 61, 64, 67, 70, 78 };
 
     void Start()
     {
         LoadXML(xmlFileName);
 
-        //PlayerUpgrade(레벨?);
+        int level = BackendGameData.Instance.UserGameData.level;
+        PlayerUpgrade(level);
     }
 
     private void LoadXML(string _fileName)
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour
             data.damage += damageUpgradeAmount[level - 1];
             data.explodeDamage += damageUpgradeAmount[level - 1];
         }
+        Debug.Log("레벨 업그레이드 적용 " + level);
     }
 
     private void Update()

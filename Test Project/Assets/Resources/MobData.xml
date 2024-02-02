@@ -32,7 +32,7 @@
 		<spriteType>4</spriteType>
 		<health>500</health>
 		<damage>150</damage>
-		<atkSpeed>10</atkSpeed>
+		<atkSpeed>5</atkSpeed>
 		<speed>0.5</speed>
 	</Sheet1>
 	<Sheet1>
@@ -67,7 +67,7 @@
 		<spriteType>9</spriteType>
 		<health>1000</health>
 		<damage>300</damage>
-		<atkSpeed>10</atkSpeed>
+		<atkSpeed>5</atkSpeed>
 		<speed>0.5</speed>
 	</Sheet1>
 	<Sheet1>
@@ -102,7 +102,7 @@
 		<spriteType>14</spriteType>
 		<health>1500</health>
 		<damage>400</damage>
-		<atkSpeed>10</atkSpeed>
+		<atkSpeed>5</atkSpeed>
 		<speed>0.5</speed>
 	</Sheet1>
 	<Sheet1>
@@ -137,7 +137,7 @@
 		<spriteType>19</spriteType>
 		<health>2000</health>
 		<damage>500</damage>
-		<atkSpeed>10</atkSpeed>
+		<atkSpeed>5</atkSpeed>
 		<speed>0.5</speed>
 	</Sheet1>
 </root>

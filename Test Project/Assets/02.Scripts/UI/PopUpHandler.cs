@@ -58,9 +58,19 @@ public class PopUpHandler : MonoBehaviour
 
     public void OnClickLevelUp()
     {
+        int level = BackendGameData.Instance.UserGameData.level;
+        int bread = BackendGameData.Instance.UserGameData.bread;
+        int corn = BackendGameData.Instance.UserGameData.corn;
+
         //if() ==> 레벨업이 가능한 경우
+        if(bread > BackendGameData.Instance.UserGameData.levelUpData[level - 1] && corn > BackendGameData.Instance.UserGameData.cornCostToLevelUp[level - 1])
+        {
+            BackendGameData.Instance.UserGameData.bread -= BackendGameData.Instance.UserGameData.levelUpData[level - 1];
+            BackendGameData.Instance.UserGameData.level += 1;
+            BackendGameData.Instance.GameDataUpdate();
+        }
         //else ==> 레벨업이 불가능한 경우
-        StartCoroutine(NotEnoughCorn());
+        else StartCoroutine(NotEnoughCorn());
     }
 
     IEnumerator NotEnoughCorn()

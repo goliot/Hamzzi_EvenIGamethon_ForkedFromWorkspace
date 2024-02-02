@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     [Header("Boss Effect")]
     public Image redLightImage;
     public Image warningImage;
+    public GameObject bossHPBar;
 
     public event UnityAction<int> OnWaveChanged; // 웨이브 바뀔 때 알려주는 UnityAction
 
@@ -209,6 +210,10 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         {
             Victory();
         }
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            currentWave = 9;
+        }
     }
 
     void Victory()
@@ -247,6 +252,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         warningImage.gameObject.SetActive(true);
         // 2. 화면 전체가 반투명한 빨간빛으로 3회 깜빡임
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Boss_Warning);
+        Spawn((chapter * 5 - 1)); //보스 소환
         for (int i = 0; i < 3; i++)
         {
             SetRedLightImage(new Color(1f, 0f, 0f, 0.5f)); // 빨간빛 이미지 색상 조정
@@ -257,8 +263,6 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         redLightImage.gameObject.SetActive(false);
         warningImage.gameObject.SetActive(false);
 
-        //여기다가 보스 스폰 넣기
-        Spawn((chapter * 5 - 1));
     }
 
     // 빨간빛 이미지의 색상을 조정하는 함수
@@ -291,7 +295,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         SpriteRenderer spriteRenderer = enemy.GetComponent<SpriteRenderer>();
         spriteRenderer.transform.localScale = new Vector3(4, 4, 1); //scale 초기화값
 
-        if(index % 5 == 3)
+        if(index % 5 == 3) //준보스
         {
             if (spriteRenderer != null)
             {
@@ -311,6 +315,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
                 // scale 값을 현재 값에 2를 곱함
                 spriteRenderer.transform.localScale = new Vector3(currentScale.x * 2, currentScale.y * 2, currentScale.z);
+
+                //여기에 hp바 넣기
+
             }
         }
     }
@@ -369,7 +376,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             {
                 spawnList.Add(eachIndex[i]);
             }
-            if (stage < 3 && i == 2) break; //스테이지1, 2에서는 세미몹 안나오도록
+            if (stage < 3 && i == 3) break; //스테이지1, 2에서는 세미몹 안나오도록
         }
         string output = string.Join(" ", spawnList);
         //Debug.Log("Origin Spawn: " + output);

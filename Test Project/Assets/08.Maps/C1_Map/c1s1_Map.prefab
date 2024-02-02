@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 3500313269114760427}
   - component: {fileID: 5288139769934174712}
   m_Layer: 0
-  m_Name: Chapter_1_background
+  m_Name: c1s1_Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

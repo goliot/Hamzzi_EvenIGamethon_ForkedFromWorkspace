@@ -42,6 +42,15 @@ public class LobbyScene : MonoBehaviour
         UpdateCurrencyData(); //위 비동기가 종료되면 호출*/
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.B))
+        {
+            BackendGameData.Instance.UserGameData.bread += 1000;
+            BackendGameData.Instance.GameDataUpdate();
+        }
+    }
+
     public void UpdateCurrencyData()
     {
         Debug.Log("자원 업데이트");

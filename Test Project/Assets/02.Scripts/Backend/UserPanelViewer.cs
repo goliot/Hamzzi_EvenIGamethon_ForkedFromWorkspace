@@ -4,23 +4,20 @@ using UnityEngine.UI;
 
 public class UserPanelViewer : MonoBehaviour
 {
+    public static UserPanelViewer instance;
+
     [SerializeField]
     private TextMeshProUGUI inputFieldNickname;
     [SerializeField]
     private TextMeshProUGUI textGamerId; //출력되는 닉네임
     [SerializeField]
     private TextMeshProUGUI textLevel;
-    /*[SerializeField]
+    [SerializeField]
     private Slider sliderExperience;
-    [SerializeField]
-    private TextMeshProUGUI textThreadmill;
-    [SerializeField]
-    private TextMeshProUGUI textCorn;
-    /*[SerializeField]
-    private TextMeshProUGUI textBread;*/
 
     private void Awake()
     {
+        instance = this;
         BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateGameData);
     }
 
@@ -35,11 +32,6 @@ public class UserPanelViewer : MonoBehaviour
     public void UpdateGameData()
     {
         textLevel.text = $"{BackendGameData.Instance.UserGameData.level}";
-
-        //임시로 최대 경험치가 100이 되게 설정함
-        //sliderExperience.value = BackendGameData.Instance.UserGameData.experience / 100;
-        //textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill}";
-        //textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
-        //textBread.text = $"{BackendGameData.Instance.UserGameData.bread}";
+        //sliderExperience.value = BackendGameData.Instance.UserGameData.bread / BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
     }
 }

@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public GameObject dmgText;
     public Text popupText;
     public GameObject dmgCanvas;
+    public Slider bossHpBar;
 
     [Header("#Color")]
     public Color hitColor = new Color(1f, 0.5f, 0.5f, 1f);  // 피격 시 적용할 색상
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
     public float knockBackSpeed = 10f;
     public bool isAegsoniaRunning = false;
     public bool isPinestarRunning = false;
+    public bool angry = false; //보스 체력 50퍼 효과 나온적 있는지
 
     bool isWallHit = false;
     bool isLive = false;
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();    
         wait = new WaitForFixedUpdate();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        bossHpBar = GetComponent<Slider>();
         originalColor = spriteRenderer.color;
     }
 
@@ -59,6 +62,7 @@ public class Enemy : MonoBehaviour
         isParalyzed = false;
         isKnockback = false;
         isPinestarRunning = false;
+        angry = false;
     }
 
     /// <summary>
@@ -85,6 +89,17 @@ public class Enemy : MonoBehaviour
             // 아래로 이동
             rb.velocity = Vector2.down.normalized * speed * Time.deltaTime * 10;
             //AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Grass_Effect);
+        }
+        if(spriteType % 5 == 4 && health < maxHealth / 2 && !angry) //반피 이하로 내려가면
+        {
+            damage *= 2;
+            atkSpeed /= 2;
+
+            angry = true;
+        }
+        if(spriteType % 5 == 4 && angry)
+        {
+            spriteRenderer.color = Color.red;
         }
     }
 

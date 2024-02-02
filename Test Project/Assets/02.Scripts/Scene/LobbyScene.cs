@@ -30,7 +30,7 @@ public class LobbyScene : MonoBehaviour
     private void Awake()
     {
         user.GetUserInfoFromBackend();
-        BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData);
+        BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData); //GameData관련 리스너
         BackendGameData.Instance.GameDataLoad();
     }
     private void Start()

@@ -34,6 +34,16 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public int stageMobCount = 0; //현재 스테이지에서 나오는 총 몹의 수 -> 승리 로직에 사용
     public GameObject[] tilemaps;
 
+    [Header("Reward")]
+    int[,] cornReward = { { 50, 70, 90, 110, 130 },
+                          {60, 80, 100, 120, 140 },
+                          {70, 90, 110, 130, 150 },
+                          {80, 100, 120, 140, 160 } };
+    int[,] breadReward = { { 20, 30 ,40, 50, 60 },
+                            {70, 80, 90, 100, 110 },
+                           {120, 130, 140, 150, 160 },
+                           {170, 180, 190, 200, 210 } };
+
     void Start()
     {
         LoadXML(xmlFileName);
@@ -195,7 +205,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             Debug.Log("Wave가 최대에 도달하여 InvokeRepeating이 종료되었습니다.");
         }
 
-        if(GameManager.Inst.kill >= stageMobCount)
+        if(GameManager.Inst.kill >= stageMobCount || Input.GetKeyDown(KeyCode.V))
         {
             Victory();
         }
@@ -203,6 +213,13 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
     void Victory()
     {
+        int breadRewardThisStage = breadReward[chapter - 1, stage - 1];
+        int cornRewardThisStage = cornReward[chapter - 1, stage - 1];
+
+        BackendGameData.Instance.UserGameData.bread += breadRewardThisStage;
+        BackendGameData.Instance.UserGameData.corn += cornRewardThisStage;
+        BackendGameData.Instance.GameDataUpdate();
+
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);
         //승리 로직
         UIManager.Inst.victoryUI.SetActive(true);          // VictoryUI를 켜기만 한다

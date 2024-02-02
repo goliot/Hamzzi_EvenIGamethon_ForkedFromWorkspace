@@ -82,6 +82,7 @@ public class GameManager : Singleton<GameManager>
             level++;
             exp -= nextExp[level - 1];          // 경험치 초기화
             foreach (var uiLevelUp in uiLevelUps) uiLevelUp.Show(); // 레벨업 UI 켜기
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_In_Game_Level_Up);
         }
     }
 

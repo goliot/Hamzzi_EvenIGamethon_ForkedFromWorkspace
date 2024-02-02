@@ -41,7 +41,22 @@ public class StageSelect : MonoBehaviour
 
     public void SceneLoad()
     {
-        SceneManager.LoadScene("Battle_Proto");
+        GameManager.Inst.Resume();          // 게임 재개
+        StartCoroutine(Loading());
+    }
+
+    IEnumerator Loading()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Battle_Proto");
+
+        // 로딩이 완료될 때까지 대기
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        // 로딩이 완료된 후에 호출
+        UIManager.Inst.UpdateSpeedControllBtn();
     }
 
     public void OnClickStage1()

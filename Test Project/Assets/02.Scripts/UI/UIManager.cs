@@ -9,6 +9,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject pauseMenu;
     public GameObject victoryUI;
     public GameObject gameOverUI;
+    public GameObject tutorialUI;
 
     public Button speedControlButton; // 버튼 추가
     public Button victoryUINoButton;
@@ -16,15 +17,16 @@ public class UIManager : Singleton<UIManager>
     public Button gameOverUINoButton;
     public Button gameOverUIYesButton;
 
-    GameObject speed_2times;  // 2배속 버튼 이미지 
+    public GameObject speed_2times;  // 2배속 버튼 이미지 
 
     public Image[] rewards;
 
     private void Awake()
     {
-        this.Initialize();
+        base.Initialize_DontDestroyOnLoad();
 
         InitSpeedControllBtn();
+        UpdateSpeedControllBtn();
     }
 
     void InitSpeedControllBtn()
@@ -33,13 +35,29 @@ public class UIManager : Singleton<UIManager>
         {
             speedControlButton.onClick.AddListener(ToggleGameSpeed);
             speed_2times = speedControlButton.gameObject.transform.GetChild(0).gameObject;
+        }
+    }
+
+    public void UpdateSpeedControllBtn()
+    {
+        if(GameManager.Inst.isGameSpeedIncreased && !speed_2times.activeSelf)
+        {
+            speed_2times.SetActive(true);
+        }
+        else if(!GameManager.Inst.isGameSpeedIncreased && speed_2times.activeSelf)
+        {
             speed_2times.SetActive(false);
         }
     }
 
+    public void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UpdateSpeedControllBtn();
+    }
+
     public void PauseGame()
     {
-        Time.timeScale = 0f;
+        GameManager.Inst.Stop();                // 게임 매니저에 있는 Stop 함수로 변경 (UIManager가 GameTime을 변경하는 건 Non-Logical)
         pauseMenu.SetActive(true);
     }
 
@@ -51,14 +69,16 @@ public class UIManager : Singleton<UIManager>
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
-        pauseMenu.SetActive(false);
+        UpdateSpeedControllBtn();               // 속도 버튼 동기화
+        pauseMenu.SetActive(false);             // Pause 이후 속도 내려가는 버그 수정
+        GameManager.Inst.Resume();
     }
 
     public void RetryGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Battle_Proto");
+        //GameManager.Inst.Resume();
+        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
+        //SceneManager.LoadScene("Battle_Proto");
     }
 
     // 게임 시간 조절 함수
@@ -69,7 +89,7 @@ public class UIManager : Singleton<UIManager>
         if (GameManager.Inst.isGameSpeedIncreased)
         {
             Debug.Log("게임 속도 : 1.5배속");
-            Time.timeScale = 1.5f; // 게임 속도 2배로
+            Time.timeScale = 1.5f; // 게임 속도 1.5배로
             speed_2times.SetActive(true);
         }
         else
@@ -86,17 +106,32 @@ public class UIManager : Singleton<UIManager>
         if (StageSelect.instance.stage < 5)
         {
             StageSelect.instance.stage++;
-            RetryGame();
+            PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
+            //RetryGame();
         }
         else if (StageSelect.instance.stage == 5 && StageSelect.instance.chapter < 4)
         {
             StageSelect.instance.stage = 1;
             StageSelect.instance.chapter++;
-            RetryGame();
+            PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
+            //RetryGame();
         }
         else if (StageSelect.instance.stage == 5 && StageSelect.instance.chapter == 4) // 마지막 판
         {
             GoToHome();
         }
+    }
+
+    // 튜토리얼 Open, Close 함수
+    public void OpenTutorial()
+    {
+        pauseMenu.SetActive(false);
+        tutorialUI.SetActive(true);        
+    }
+
+    public void CloseTutorial()
+    {
+        pauseMenu.SetActive(true);
+        tutorialUI.SetActive(false);
     }
 }

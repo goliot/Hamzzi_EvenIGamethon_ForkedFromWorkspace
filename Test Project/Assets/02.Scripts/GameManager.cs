@@ -67,6 +67,14 @@ public class GameManager : Singleton<GameManager>
     private void Update()
     {
         gameTime += Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            foreach(var uiLevelUp in uiLevelUps)
+            {
+                uiLevelUp.Show();
+            }
+        }
     }
 
     // 경험치 증가 함수

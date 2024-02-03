@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
     public GameObject dmgText;
     public Text popupText;
     public GameObject dmgCanvas;
-    public Slider bossHpBar;
+    /*public GameObject hpBar;
+    public Slider bossHPBar;*/
 
     [Header("#Color")]
     public Color hitColor = new Color(1f, 0.5f, 0.5f, 1f);  // 피격 시 적용할 색상
@@ -49,7 +50,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();    
         wait = new WaitForFixedUpdate();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        bossHpBar = GetComponent<Slider>();
+        //bossHPBar =  hpBar.GetComponentInChildren<Slider>();
         originalColor = spriteRenderer.color;
     }
 
@@ -80,6 +81,7 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
 
         originalColor = spriteRenderer.color;
+        //bossHPBar.value = 1;
     }
 
     private void Update()
@@ -100,6 +102,12 @@ public class Enemy : MonoBehaviour
         if(spriteType % 5 == 4 && angry)
         {
             spriteRenderer.color = Color.red;
+        }
+        if(spriteType % 5 == 4)
+        {
+            /*Instantiate(hpBar, gameObject.transform);
+            bossHPBar.value = health / maxHealth;
+            hpBar.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1f, gameObject.transform.position.z);*/
         }
     }
 

@@ -4011,7 +4011,6 @@ MonoBehaviour:
   isGameSpeedIncreased: 0
   player: {fileID: 845695604}
   pool: {fileID: 619013946}
-  uiManager: {fileID: 1413900996}
   scanner: {fileID: 0}
   uiLevelUps:
   - {fileID: 38232066}
@@ -81266,6 +81265,7 @@ MonoBehaviour:
   mobMagnificationData: []
   redLightImage: {fileID: 6853030276978114176}
   warningImage: {fileID: 1649107714}
+  bossHPBar: {fileID: 0}
   currentWave: 0
   maxWave: 20
   stageMobCount: 0

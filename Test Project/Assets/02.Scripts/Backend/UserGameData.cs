@@ -2,8 +2,7 @@
 public class UserGameData
 {
     public int level;
-    public float experience;
-    public int bread; //무료 재화
+    public int bread; //레벨업시 사용하는 것 -> 경험치 개념
     public int corn; //유료 재화
     public int threadmill;
 
@@ -13,7 +12,6 @@ public class UserGameData
     public void Reset()
     {
         level = 1;
-        experience = 0;
         bread = 0;
         corn = 0;
         threadmill = 10;

@@ -46,7 +46,6 @@ public class BackendGameData
         Param param = new Param()
         {
             {"level", userGameData.level },
-            {"experience", userGameData.experience },
             {"bread", userGameData.bread },
             {"corn", userGameData.corn},
             {"threadmill", userGameData.threadmill}
@@ -94,7 +93,6 @@ public class BackendGameData
                          gameDataRowInDate = gameDataJson[0]["inDate"].ToString();
 
                          userGameData.level = int.Parse(gameDataJson[0]["level"].ToString());
-                         userGameData.experience = float.Parse(gameDataJson[0]["experience"].ToString());
                          userGameData.bread = int.Parse(gameDataJson[0]["bread"].ToString());
                          userGameData.corn = int.Parse(gameDataJson[0]["corn"].ToString());
                          userGameData.threadmill = int.Parse(gameDataJson[0]["threadmill"].ToString());
@@ -131,7 +129,6 @@ public class BackendGameData
         Param param = new Param()
         {
             {"level", userGameData.level },
-            {"experience", userGameData.experience },
             {"bread", userGameData.bread },
             {"corn", userGameData.corn},
             {"threadmill", userGameData.threadmill}

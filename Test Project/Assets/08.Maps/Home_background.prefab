@@ -2691,12 +2691,12 @@ GameObject:
   - component: {fileID: 8450690725541326971}
   - component: {fileID: 7723212100490439380}
   m_Layer: 0
-  m_Name: Home background
+  m_Name: Home_background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8450690725541326971
 Transform:
   m_ObjectHideFlags: 0

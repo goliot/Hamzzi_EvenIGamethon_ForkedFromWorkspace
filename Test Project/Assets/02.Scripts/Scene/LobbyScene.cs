@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class LobbyScene : MonoBehaviour
 {
@@ -25,7 +26,6 @@ public class LobbyScene : MonoBehaviour
     private TextMeshProUGUI textThreadmill;
     [SerializeField]
     private TextMeshProUGUI textCorn;
-
 
     private void Awake()
     {

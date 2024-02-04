@@ -1468,6 +1468,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyBackground:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5047730371783833279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyBackground:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6662138927035037156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,6 +2412,7 @@ MonoBehaviour:
   inputFieldNickname: {fileID: 2675521766477867009}
   textGamerId: {fileID: 2675521766477867009}
   textLevel: {fileID: 1099775033178106359}
+  sliderExperience: {fileID: 0}
 --- !u!114 &2492686367524407582
 MonoBehaviour:
   m_ObjectHideFlags: 0

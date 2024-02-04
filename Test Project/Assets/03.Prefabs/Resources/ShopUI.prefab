@@ -3427,6 +3427,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobbyBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8593104676048788095
 GameObject:
   m_ObjectHideFlags: 0

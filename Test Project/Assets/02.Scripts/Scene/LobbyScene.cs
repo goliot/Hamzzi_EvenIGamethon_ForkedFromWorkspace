@@ -27,6 +27,11 @@ public class LobbyScene : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textCorn;
 
+    [Header("# Background")]
+    public GameObject lobbyBackground;
+    public GameObject shopBackground;
+    public GameObject dogamBackground;
+
     private void Awake()
     {
         user.GetUserInfoFromBackend();
@@ -37,6 +42,7 @@ public class LobbyScene : MonoBehaviour
     {
         AudioManager.Inst.StopBgm();
         AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Lobby);
+        PopUpHandler.Inst.lobbyLoadEvent.AddListener(loadLobby);
 
         /*await BackendGameData.Instance.GameDataLoad(); // await를 추가하여 비동기 메서드가 완료될 때까지 대기
         UpdateCurrencyData(); //위 비동기가 종료되면 호출*/
@@ -62,5 +68,26 @@ public class LobbyScene : MonoBehaviour
     {
         BackendGameData.Instance.UserGameData.threadmill = 10;
         BackendGameData.Instance.GameDataUpdate();
+    }
+
+    public void loadLobby()
+    {
+        lobbyBackground.SetActive(true);
+        shopBackground.SetActive(false);
+        dogamBackground.SetActive(false);
+    }
+
+    public void loadShop()
+    {
+        lobbyBackground.SetActive(false);
+        shopBackground.SetActive(true);
+        dogamBackground.SetActive(false);
+    }
+
+    public void loadDogam()
+    {
+        lobbyBackground.SetActive(false);
+        shopBackground.SetActive(false);
+        dogamBackground.SetActive(true);
     }
 }

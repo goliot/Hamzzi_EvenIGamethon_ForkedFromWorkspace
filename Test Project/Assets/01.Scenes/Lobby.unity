@@ -323,6 +323,9 @@ MonoBehaviour:
   user: {fileID: 307631527}
   textThreadmill: {fileID: 1215079096}
   textCorn: {fileID: 1536144926}
+  lobbyBackground: {fileID: 1697005688}
+  shopBackground: {fileID: 1475117587}
+  dogamBackground: {fileID: 627967511}
 --- !u!114 &307631527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,7 +909,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &621426761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,9 +983,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dogam_Background
       objectReference: {fileID: 0}
+    - target: {fileID: 5133360912316704155, guid: 80cb9026e25fab344ab783ac67509354, type: 3}
+      propertyPath: m_TagString
+      value: LobbyBackground
+      objectReference: {fileID: 0}
     - target: {fileID: 9149623592128486411, guid: 80cb9026e25fab344ab783ac67509354, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9149623592128486411, guid: 80cb9026e25fab344ab783ac67509354, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1799,10 +1811,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground:
-  - {fileID: 1697005688}
-  - {fileID: 1475117587}
-  - {fileID: 627967511}
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1195768063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,7 +2174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1299751340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,10 +2327,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground:
-  - {fileID: 1697005688}
-  - {fileID: 1475117587}
-  - {fileID: 627967511}
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 307631526}
+        m_TargetAssemblyTypeName: LobbyScene, Assembly-CSharp
+        m_MethodName: loadShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 307631526}
+        m_TargetAssemblyTypeName: LobbyScene, Assembly-CSharp
+        m_MethodName: loadDogam
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1312550882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2658,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6401792971638464670, guid: 4847acafbb481664a8bb11237bd8d1a0, type: 3}
+      propertyPath: m_TagString
+      value: LobbyBackground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2811,7 +2860,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1622097030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3059,9 +3113,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4946280804610817079, guid: fe53f825ea29c28489c2c81198c23ccc, type: 3}
+      propertyPath: m_TagString
+      value: LobbyBackground
+      objectReference: {fileID: 0}
     - target: {fileID: 8450690725541326971, guid: fe53f825ea29c28489c2c81198c23ccc, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8450690725541326971, guid: fe53f825ea29c28489c2c81198c23ccc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5329,7 +5387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &5537098718063742315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5957,7 +6020,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyBackground: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7772031714554837025
 GameObject:
   m_ObjectHideFlags: 0

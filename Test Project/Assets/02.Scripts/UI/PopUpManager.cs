@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 // 팝업 전체를 관리하는 매니저
 public class PopUpManager : MonoBehaviour

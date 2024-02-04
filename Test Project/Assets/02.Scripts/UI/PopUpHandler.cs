@@ -2,28 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using System.Linq;
 
 // PopUpManager에서 팝업 이름(PopUpNames)을 가져와 사용할 수 있다
 // 이미 이름을 PopUpManager에서 생성 및 초기화 해놔서, 동작 함수만 추가 작성하면 됨
 public class PopUpHandler : MonoBehaviour
 {
-    public GameObject[] lobbyBackground;
+    [System.Serializable]
+    public class LobbyLoadEvent : UnityEvent { }
+    public LobbyLoadEvent lobbyLoadEvent = new LobbyLoadEvent();
 
-    private void Start()
+    public UnityEvent onShopBackground;
+    public UnityEvent onDogamBackground;
+
+    private static PopUpHandler instance = null;
+    public static PopUpHandler Inst
     {
-        //로비씬에서만 수행
-        if (SceneManager.GetActiveScene().name == "Lobby")
+        get
         {
-            lobbyBackground[0] = GameObject.Find("Home_Background");
-            lobbyBackground[1] = GameObject.Find("Shop_Background");
-            lobbyBackground[2] = GameObject.Find("Dogam_Background");
+            if (instance == null)
+            {
+                instance = new PopUpHandler();
+            }
+
+            return instance;
         }
     }
 
     #region PopUpButton
     public void OnClickPopUpStageSelect()
     {
-
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageSelectUI);
     }
 
@@ -60,30 +69,23 @@ public class PopUpHandler : MonoBehaviour
     public void OnClickPopUpShop()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strShopUI);
-        lobbyBackground[0].SetActive(false);
-        lobbyBackground[1].SetActive(true);
-        lobbyBackground[2].SetActive(false);
+        onShopBackground.Invoke();
     }
 
     public void OnClickPopUpDogam()
     {
-        //도감 프리팹 활성화 코드 넣고
-        lobbyBackground[0].SetActive(false);
-        lobbyBackground[1].SetActive(false);
-        lobbyBackground[2].SetActive(true);
+        onDogamBackground.Invoke();
     }
-
     #endregion
 
     public void OnClickExit()
     {
-        PopUpManager.Inst.popUpList.Peek().OnClose();
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
-            lobbyBackground[0].SetActive(true);
-            lobbyBackground[1].SetActive(false);
-            lobbyBackground[2].SetActive(false);
+            Debug.Log("로비 소환!");
+            lobbyLoadEvent.Invoke();
         }
+        PopUpManager.Inst.popUpList.Peek().OnClose();
     }
 
     public void OnClickLevelUp()

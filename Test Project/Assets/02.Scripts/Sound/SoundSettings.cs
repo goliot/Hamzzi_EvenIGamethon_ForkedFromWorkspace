@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
+using GooglePlayGames;
 
 public class SoundSettings : MonoBehaviour
 {
@@ -34,7 +36,26 @@ public class SoundSettings : MonoBehaviour
     public void OnClickLogout()
     {
         Backend.BMember.Logout((callback) => {
+            if(callback.IsSuccess())
+            {
+                LogoutGoogle();
+            }
             SceneManager.LoadScene("Login");
         });
+    }
+
+    public void LogoutGoogle()
+    {
+        if (PlayGamesPlatform.Instance.IsAuthenticated())
+        {
+            Debug.Log("구글로그아웃");
+            PlayGamesPlatform.Instance.SignOut();
+            //PlayGamesPlatform.Activate();
+        }
+        else
+        {
+            Debug.Log("구글계정 아님");
+            return;
+        }
     }
 }

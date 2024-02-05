@@ -43,7 +43,8 @@ public class BackEndFederationAuth : LoginBase
                     BackendReturnObject BRO = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs");
 
                     //BackendGameData.Instance.GameDataInsert();
-                    SceneManager.LoadScene("Lobby");
+                    //SceneManager.LoadScene("Lobby");
+                    SceneManager.LoadScene("FirstPlay");
                 }
                 else
                 {

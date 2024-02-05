@@ -120,11 +120,14 @@ public class Enemy : MonoBehaviour
                 isWallAttackInProgress = true; // 공격이 시작됨을 표시
                 anim.SetTrigger("Attack");
                 int rand = Random.Range(0, 3);
+
                 if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_01);
                 else if (rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_02);
                 else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_03);
+
                 wall.GetComponent<Wall>().getDamage(damage);
                 isWallAttackInProgress = false; // 공격이 끝남을 표시
+
                 yield return new WaitForSeconds(atkSpeed);
             }
         }
@@ -181,6 +184,7 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("TakeDamage 호출 " + damage);
             health -= damage;
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Hit);
             Debug.Log("피격" + damage);
 
             //팝업 생성하는 부분
@@ -255,6 +259,7 @@ public class Enemy : MonoBehaviour
         isPinestarRunning = true;
         Debug.Log("TakeDamage 호출 " + damage);
         health -= damage;
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Hit);
         Debug.Log("피격" + damage);
 
         //팝업 생성하는 부분
@@ -350,6 +355,7 @@ public class Enemy : MonoBehaviour
             // 데미지를 입히는 작업 수행
             Debug.Log("액서니아 타격 " + damage);
             health -= damage;
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Hit);
             Debug.Log("피격" + damage);
 
             //팝업 생성하는 부분
@@ -399,6 +405,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("TakeDamage 호출 " + damage);
         health -= damage;
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Hit);
         Debug.Log("피격" + damage);
 
         //팝업 생성하는 부분
@@ -457,9 +464,43 @@ public class Enemy : MonoBehaviour
     void Dead()
     {
         int rand = Random.Range(0, 3);
-        if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_01);
-        else if (rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_02);
-        else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_03);
+        switch (spriteType) 
+        {
+            //챕터 1
+            case 0:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_01);
+                break;
+            case 1:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_01);
+                break;
+            case 2:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_02);
+                break;
+            case 3:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_02);
+                break;
+            case 4:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_03);
+                break;
+            //챕터 2
+            case 5:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_04);
+                break;
+            case 6:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_04);
+                break;
+            case 7:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_05);
+                break;
+            case 8:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_05);
+                break;
+            case 9:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_06);
+                break;
+            //챕터 3
+        }
+
 
         foreach (Transform child in transform)
         {

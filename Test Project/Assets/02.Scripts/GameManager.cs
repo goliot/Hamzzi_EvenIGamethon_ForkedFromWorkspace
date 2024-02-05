@@ -62,7 +62,18 @@ public class GameManager : Singleton<GameManager>
 
         // 임시 Stage01 그냥 박아놓음
         AudioManager.Inst.StopBgm();
-        AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
+        switch(StageSelect.instance.chapter)
+        {
+            case 1:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
+                break;
+            case 2:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter02);
+                break;
+            default:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
+                break;
+        }
     }
 
     private void Update()

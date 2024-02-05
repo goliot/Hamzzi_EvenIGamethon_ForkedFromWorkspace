@@ -20,10 +20,6 @@ public class StageSelect : MonoBehaviour
     {
         Initialize();
         //speedIncreased = false;
-    }
-
-    private void Start()
-    {
         chapter = 1;
         stage = 1;
         max_chapter = 4;

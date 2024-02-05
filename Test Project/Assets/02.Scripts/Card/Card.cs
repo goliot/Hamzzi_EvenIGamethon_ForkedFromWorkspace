@@ -40,6 +40,7 @@ public class Card : MonoBehaviour
 
     public void OnClick()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Select_Skill);
         switch (cardData.cardType)
         {
             case CardData.CardType.MagicBolt:

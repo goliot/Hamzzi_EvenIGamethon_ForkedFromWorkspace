@@ -11,6 +11,7 @@ public class ChapterButtonHandler: MonoBehaviour
     {
         if (StageSelect.instance.chapter < StageSelect.instance.max_chapter)
         {
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
             Debug.Log("Next Chapter");
             StageSelect.instance.chapter++;
             StageSelect.instance.stage = 1;
@@ -22,6 +23,7 @@ public class ChapterButtonHandler: MonoBehaviour
     {
         if (StageSelect.instance.chapter > StageSelect.instance.min_chapter)
         {
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
             Debug.Log("Prev Chapter");
             StageSelect.instance.chapter--;
             StageSelect.instance.stage = 1;
@@ -33,6 +35,7 @@ public class ChapterButtonHandler: MonoBehaviour
 
     public void OnClickGameStart()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         BackendGameData.Instance.UserGameData.threadmill -= 1;
         BackendGameData.Instance.GameDataUpdate();
         StageSelect.instance.SceneLoad();

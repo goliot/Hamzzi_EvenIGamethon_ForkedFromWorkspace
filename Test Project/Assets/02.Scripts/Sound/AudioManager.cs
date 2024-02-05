@@ -20,36 +20,50 @@ public class AudioManager : Singleton<AudioManager>
     int channelIndex;
 
     public enum BGM {
-        BGM_Opening,
-        BGM_OpeningCartoon,
-        BGM_Lobby,
-        BGM_Shop,
-        BGM_IllustratedGuideArchive,
-        BGM_IllustratedGuideHamster,
-        BGM_IllustratedGuideMonster,
-        BGM_Chapter01,
-        BGM_Chapter01Cartton
+        BGM_Opening = 0,
+        BGM_OpeningCartoon = 1,
+        BGM_Lobby = 2,
+        BGM_Shop = 3,
+        BGM_IllustratedGuideArchive = 4,
+        BGM_IllustratedGuideHamster = 5,
+        BGM_IllustratedGuideMonster = 6,
+        BGM_Chapter01 = 7,
+        BGM_Chapter01Cartton = 8,
+        BGM_Chapter02 = 8,
     }
 
     public enum SFX {
+        //UI
         SFX_OpeningEffect = 0,
         SFX_UI = 1,
-
+        SFX_Change_Up = 2,
+        SFX_Book_Effect = 3,
         SFX_Wheel = 4,
         SFX_Corn = 5,
+        SFX_Shop_Effect = 6,
+        SFX_Battle_Effect = 7,
+        SFX_Lobby_Hamster_ExpUprising = 8,
+        SFX_Lobby_Hamster_Level_Up = 9,
+        SFX_Purchase_Effect = 10,
+
+        //도감
         SFX_Sub_Hamster_Voice_01 = 11,
         SFX_Sub_Hamster_Voice_02 = 12,
         SFX_Sub_Hamster_Voice_03 = 13,
         SFX_Sub_Hamster_Voice_04 = 14,
         SFX_Sub_Hamster_Voice_05 = 15,
 
-        SFX_Grass_Effect = 29,
+        //보이스 부분 도감 이후에 작업
+        //16~28번
+
+        //챕터1
+        SFX_Monster_Hit = 29,
         SFX_Castle_Brake_01 = 30,
         SFX_Castle_Brake_02 = 31,
         SFX_Main_Hamster_Attack1 = 32,
         SFX_Main_Hamster_Attack2 = 33,
         SFX_Main_Hamster_Attack3 = 34,
-        SFX_Main_Hamster_Attack_Woosh = 35,
+        SFX_Main_Hamster_Sub_Hamster_Build = 35,
         SFX_Main_Hamster_Fire_Attack = 36,
         SFX_Main_Hamster_Ice_Attack = 37,
         SFX_Main_Hamster_Electric_Attack = 38,
@@ -61,8 +75,8 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Sub_Hamster_Black_Magic_Spell = 44,
         SFX_Sub_Hamster_Sheild_Spell = 45,
         SFX_Sub_Hamster_Heal_Spell = 46,
-        SFX_Monster_Move_01 = 47,
-        SFX_Monster_Move_02 = 48,
+        SFX_Monster_Move_01 = 47, //발걸음 삭제
+        SFX_Monster_Move_02 = 48, //발걸음 삭제
         SFX_Boss_Warning = 49,
         SFX_Monster_Smash_Castle_01 = 50,
         SFX_Monster_Smash_Castle_02 = 51,
@@ -74,6 +88,13 @@ public class AudioManager : Singleton<AudioManager>
         SFX_In_Game_Level_Up = 57,
         SFX_Stage_Clear = 58,
         SFX_Select_Skill = 59,
+
+        //챕터2
+        SFX_Monster_Die_04 = 60,
+        SFX_Monster_Die_05 = 61,
+        SFX_Monster_Die_06 = 62,
+        SFX_Monster_Move_04 = 63, //발걸음 삭제
+        SFX_Monster_Move_05 = 64, //발걸음 삭제
     }
 
     public float BGMVolume

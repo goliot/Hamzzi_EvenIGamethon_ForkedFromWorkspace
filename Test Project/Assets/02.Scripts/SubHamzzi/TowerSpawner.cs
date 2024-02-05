@@ -65,7 +65,7 @@ public class TowerSpawner : MonoBehaviour
             tower.transform.position = tileTransform.position;
             InstalledTower.Add(tile.transform, tower);
             GameManager.Inst.seed -= 40;
-            switch (index)
+            /*switch (index)
             {
                 case 0:
                     AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
@@ -82,7 +82,8 @@ public class TowerSpawner : MonoBehaviour
                 case 4:
                     AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_05);
                     break;
-            }
+            }*/ //도감만들때 갖다 쓰세요
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Sub_Hamster_Build);
         }
         else
         {

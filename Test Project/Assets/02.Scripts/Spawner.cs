@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public List<StageWaveData> stageWaveData = new List<StageWaveData>();
     public List<MobMagnificationData> mobMagnificationData = new List<MobMagnificationData>();
     string magXmlFileName = "MobStatMagnification";
+    private bool isGameLive;
 
     [Header("Boss Effect")]
     public Image redLightImage;
@@ -88,7 +89,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
                 stageMobCount++;
                 continue;
             }
-            if (stage >= 3)
+            else if (stage >= 3)
             {
                 stageMobCount += stageWaveData[i].mob1;
                 stageMobCount += stageWaveData[i].mob2;
@@ -194,6 +195,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
+        isGameLive = false;
     }
 
     private void Update()
@@ -208,7 +210,13 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         if(GameManager.Inst.kill >= stageMobCount || Input.GetKeyDown(KeyCode.V))
         {
-            Victory();
+            if (isGameLive)
+            {
+                isGameLive = false;
+                GameManager.Inst.Stop();
+                Victory();
+            }
+            else return;
         }
         if(Input.GetKeyDown(KeyCode.W))
         {
@@ -226,8 +234,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         BackendGameData.Instance.GameDataUpdate();
 
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);
-        //승리 로직
-        GameManager.Inst.Stop();
+
         UIManager.Inst.victoryUI.SetActive(true);          // VictoryUI를 켜기만 한다
     }
 
@@ -253,7 +260,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         warningImage.gameObject.SetActive(true);
         // 2. 화면 전체가 반투명한 빨간빛으로 3회 깜빡임
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Boss_Warning);
+
         Spawn((chapter * 5 - 1)); //보스 소환
+
         for (int i = 0; i < 3; i++)
         {
             SetRedLightImage(new Color(1f, 0f, 0f, 0.5f)); // 빨간빛 이미지 색상 조정

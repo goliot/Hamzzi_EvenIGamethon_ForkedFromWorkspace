@@ -19,6 +19,11 @@ public class LevelUp : MonoBehaviour
         rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>();
 
+        //ActivateByChapter();
+    }
+
+    private void Start()
+    {
         ActivateByChapter();
     }
 
@@ -45,7 +50,7 @@ public class LevelUp : MonoBehaviour
         Next();
         Debug.Log(chapter);
         rect.localScale = Vector3.one * 1.3f;
-        //GameManager.Inst.Stop();
+        GameManager.Inst.Stop();
     }
 
     public void Hide()

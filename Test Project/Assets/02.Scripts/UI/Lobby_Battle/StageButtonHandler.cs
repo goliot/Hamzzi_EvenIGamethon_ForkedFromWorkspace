@@ -17,6 +17,7 @@ public class StageButtonHandler : MonoBehaviour
 
     public void OnClickStage()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         switch (stage)
         {
             case Stage.Stage1:

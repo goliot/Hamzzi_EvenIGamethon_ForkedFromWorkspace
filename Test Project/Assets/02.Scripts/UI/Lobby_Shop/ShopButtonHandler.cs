@@ -54,18 +54,21 @@ public class ShopButtonHandler : MonoBehaviour
     {
         BackendGameData.Instance.UserGameData.corn += 60;
         BackendGameData.Instance.GameDataUpdate();
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
     }
 
     public void OnClickCorn300()
     {
         BackendGameData.Instance.UserGameData.corn += 300;
         BackendGameData.Instance.GameDataUpdate();
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
     }
 
     public void OnClickCorn600()
     {
         BackendGameData.Instance.UserGameData.corn += 600;
         BackendGameData.Instance.GameDataUpdate();
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
     }
 
 }

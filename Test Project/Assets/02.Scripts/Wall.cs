@@ -38,28 +38,26 @@ public class Wall : MonoBehaviour
         if (health > maxHealth * 0.8f)
         {
             wallImage.sprite = wallImages[0];
-            if (!wall80)
-            {
-                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
-                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
-            }
-            wall80 = true;
         }
         else if (health < maxHealth * 0.8f && health > maxHealth * 0.6f)
         {
             wallImage.sprite = wallImages[1];
-            if (!wall60)
+            if (!wall80)
             {
                 if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
                 else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+                wall80 = true;
             }
-            wall60 = true;
         }
         else if (health < maxHealth * 0.6f && health > maxHealth * 0.3f)
         {
-            wallImage.sprite = wallImages[2];
-            if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
-            else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+            if (!wall60)
+            {
+                wallImage.sprite = wallImages[2];
+                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
+                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+                wall60 = true;
+            }
         }
         else if (health < maxHealth * 0.3f && health > 0)
         {
@@ -68,8 +66,8 @@ public class Wall : MonoBehaviour
             {
                 if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
                 else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+                wall30 = true;
             }
-            wall30 = true;
         }
         else
         {
@@ -78,8 +76,8 @@ public class Wall : MonoBehaviour
             {
                 if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_01);
                 else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Castle_Brake_02);
+                wall0 = true;
             }
-            wall0 = true;
         }
     }
 
@@ -90,6 +88,7 @@ public class Wall : MonoBehaviour
 
         if(health <= 0)
         {
+            GameManager.Inst.Stop(); //게임 시간 정지 미리 시켜놓고 다음스텝을
             wallImage.sprite = Resources.Load<Sprite>("04.Images/Wall/Castle_0percent.png");
             gameOver();
         }
@@ -99,7 +98,6 @@ public class Wall : MonoBehaviour
     {
         StartCoroutine(PlayGameOverSFX());
         //게임 오버 루틴 -> UI를 띄운다던가 하는 로직
-        GameManager.Inst.Stop();                        // 게임 시간 정지
         UIManager.Inst.gameOverUI.SetActive(true);      // 게임 오버 UI 켜지게
     }
 

@@ -34,52 +34,63 @@ public class PopUpHandler : MonoBehaviour
     public void OnClickPopUpStageSelect()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageSelectUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Battle_Effect);
     }
 
     public void OnClickPopUpSettings()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strSettingsUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
     public void OnClickPopUpExplainStamina()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strExplainStaminaUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Wheel);
+
     }
 
     public void OnClickPopUpExplainCorn()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strExplainCornUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Corn);
     }
 
     public void OnClickPopUpProfile()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strProfileUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
-    public void OnClickPopUpLevelUp()
+    public void OnClickPopUpLevelUp() //레벨업 하시겠습니까?
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strLevelUpUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
     public void OnClickPopUpStart()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Battle_Effect);
     }
 
     public void OnClickPopUpShop()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strShopUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Shop_Effect);
         onShopBackground.Invoke();
     }
 
     public void OnClickPopUpDogam()
     {
         onDogamBackground.Invoke();
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
     }
     #endregion
 
     public void OnClickExit()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
             Debug.Log("로비 소환!");
@@ -100,6 +111,7 @@ public class PopUpHandler : MonoBehaviour
             BackendGameData.Instance.UserGameData.bread -= BackendGameData.Instance.UserGameData.levelUpData[level - 1];
             BackendGameData.Instance.UserGameData.level += 1;
             BackendGameData.Instance.GameDataUpdate();
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Lobby_Hamster_Level_Up);
         }
         //else ==> 레벨업이 불가능한 경우
         else StartCoroutine(NotEnoughCorn());
@@ -107,6 +119,7 @@ public class PopUpHandler : MonoBehaviour
 
     IEnumerator NotEnoughCorn()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         transform.parent.parent.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         transform.parent.parent.GetChild(1).gameObject.SetActive(false);

@@ -97,6 +97,10 @@ public class Threadmill : MonoBehaviour
         {
             PlayerPrefs.SetInt("HeartAmount", m_HeartAmount);
             PlayerPrefs.Save();
+            
+            //내 코드
+
+
             Debug.Log("Saved HeartAmount : " + m_HeartAmount);
             result = true;
         }

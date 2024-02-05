@@ -3427,7 +3427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onLobbyBackground:
+  lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
   onShopBackground:

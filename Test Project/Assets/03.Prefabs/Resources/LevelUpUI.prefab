@@ -109,6 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1064740475011675417
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +264,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1436278907419565864
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +627,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uC544\uB798 \uC7AC\uD654\uB97C \uC18C\uBAA8\uD558\uC5EC \uB808\uBCA8\uC5C5
-    \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    \uD558\uC2E4\uAC70\uCBB8?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
   m_sharedMaterial: {fileID: 4802813550283124960, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
@@ -1049,7 +1067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB808\uBCA8\uC5C5"
+  m_text: "\uC88B\uC544\uC694"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
   m_sharedMaterial: {fileID: 4802813550283124960, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
@@ -1341,3 +1359,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []

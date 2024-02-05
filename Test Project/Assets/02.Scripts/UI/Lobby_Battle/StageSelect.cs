@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,9 +14,12 @@ public class StageSelect : MonoBehaviour
     public int max_chapter;
     public int min_chapter;
 
+    //public bool speedIncreased; // 퍄괴되지 않는 정보 임시 저장
+
     private void Awake()
     {
         Initialize();
+        //speedIncreased = false;
     }
 
     private void Start()

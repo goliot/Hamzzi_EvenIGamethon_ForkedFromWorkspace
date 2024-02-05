@@ -130,6 +130,7 @@ public class AudioManager : Singleton<AudioManager>
     // BGM 사용을 위한 함수
     public void PlayBgm(BGM bgm)
     {
+        if (bgmPlayer == null) return;
          bgmPlayer.clip = bgmClips[(int)bgm];
          bgmPlayer.Play();
     }

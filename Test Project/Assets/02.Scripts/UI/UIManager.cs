@@ -23,7 +23,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Awake()
     {
-        base.Initialize_DontDestroyOnLoad();
+        base.Initialize();
 
         InitSpeedControllBtn();
         UpdateSpeedControllBtn();
@@ -40,12 +40,14 @@ public class UIManager : Singleton<UIManager>
 
     public void UpdateSpeedControllBtn()
     {
-        if(GameManager.Inst.isGameSpeedIncreased && !speed_2times.activeSelf)
+        if(GameManager.Inst.isGameSpeedIncreased)
         {
+            GameManager.Inst.isGameSpeedIncreased = true;
             speed_2times.SetActive(true);
         }
-        else if(!GameManager.Inst.isGameSpeedIncreased && speed_2times.activeSelf)
+        else
         {
+            GameManager.Inst.isGameSpeedIncreased = false;
             speed_2times.SetActive(false);
         }
     }
@@ -76,7 +78,8 @@ public class UIManager : Singleton<UIManager>
 
     public void RetryGame()
     {
-        //GameManager.Inst.Resume();
+        GameManager.Inst.Resume();
+        //StageSelect.instance.speedIncreased = GameManager.Inst.isGameSpeedIncreased;
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
         //SceneManager.LoadScene("Battle_Proto");
     }

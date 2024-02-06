@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 7640443de1d445eab9dfaac68fefcc3b
+guid: 6ae0253c494ae2d4f88398ea23483a7f
 labels:
-- gvh
-- gvh_version-8.7.0
-- gvhp_exportpath-ExternalDependencyManager/Editor/LICENSE
+- gpsr
 DefaultImporter:
   externalObjects: {}
   userData: 

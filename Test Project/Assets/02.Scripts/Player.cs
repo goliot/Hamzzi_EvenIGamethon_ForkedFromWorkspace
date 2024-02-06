@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
                 {
                     nextMomenstoLocation = momenstoPoint[Random.Range(0, momenstoPoint.Length)];
                     BulletSpawn(data);
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Dark_Attack);
                     data.StartCoolDown();
                 }
                 else if (data.CanUseSkill() && distance < data.atkRange)
@@ -118,9 +119,6 @@ public class Player : MonoBehaviour
                             break;
                         case 4:
                             AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Lightning_Attack);
-                            break;
-                        case 5:
-                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Dark_Attack);
                             break;
                         case 6:
                             AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Missile_Attack);

@@ -195,7 +195,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
-        isGameLive = false;
+        isGameLive = true;
     }
 
     private void Update()
@@ -382,11 +382,11 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         List<int> spawnList = new List<int>();
         for(int i=0; i<4; i++)
         {
-            for(int j=0; j < eachMobThisWave[i]; j++)
+            if (stage < 3 && i == 3) break; //스테이지1, 2에서는 세미몹 안나오도록
+            for (int j=0; j < eachMobThisWave[i]; j++)
             {
                 spawnList.Add(eachIndex[i]);
             }
-            if (stage < 3 && i == 3) break; //스테이지1, 2에서는 세미몹 안나오도록
         }
         string output = string.Join(" ", spawnList);
         //Debug.Log("Origin Spawn: " + output);

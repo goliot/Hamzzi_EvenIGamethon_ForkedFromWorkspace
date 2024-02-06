@@ -15,14 +15,16 @@ public class TowerBullet : MonoBehaviour
     public float heal;
     public float atkRange;
     public RuntimeAnimatorController[] animCon;
-    public Transform targetFixed;
+    public GameObject targetFixed;
+    public Transform targetPosition;
 
     Animator anim;
     Rigidbody2D rb;
     float bulletSpeed;
     float positionError;
     bool isBlackOn;
-    List<GameObject> enemies = new List<GameObject>();  
+    List<GameObject> enemies = new List<GameObject>();
+    bool isTargetDeadWhileGoing;
 
     private void Awake()
     {
@@ -32,7 +34,7 @@ public class TowerBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();   
     }
 
-    public void Init(TowerData data, Transform target)
+    public void Init(TowerData data, GameObject target)
     {
         anim.runtimeAnimatorController = animCon[data.towerType];
         towerType = data.towerType;
@@ -44,6 +46,7 @@ public class TowerBullet : MonoBehaviour
         heal = data.heal;
         atkRange = data.atkRange;
         targetFixed = target;
+        targetPosition = target.transform;
 
         gameObject.transform.localScale = new Vector3(3, 3, 3);
 
@@ -64,13 +67,18 @@ public class TowerBullet : MonoBehaviour
             transform.localScale = new Vector3(6, 6, 6);
         }
         isBlackOn = false;
+        isTargetDeadWhileGoing = false;
     }
 
     private void Update()
     {
         if (targetFixed == null) return;
+        if (!targetFixed.gameObject.activeSelf) isTargetDeadWhileGoing = true;
 
-        Vector3 dir = targetFixed.transform.position - transform.position;
+        Vector3 dir = new Vector3();
+        if (isTargetDeadWhileGoing) dir = targetPosition.position - transform.position;
+        else dir = targetFixed.transform.position - transform.position;
+
         float distance = dir.magnitude;
         RotateTowardsMovementDirection();
 

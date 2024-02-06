@@ -20,7 +20,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
     public RuntimeAnimatorController[] animCon;
 
     [Header("#State")]
-    public Transform target;
+    public GameObject target;
     List<GameObject> targetsInRange = new List<GameObject>();
 
     TowerData thisData;
@@ -63,7 +63,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         }
         if (targetsInRange.Count > 0)
         {
-            target = targetsInRange[Random.Range(0, targetsInRange.Count)].transform;
+            target = targetsInRange[Random.Range(0, targetsInRange.Count)];
             //Debug.Log("사거리에 타겟 진입");
         }
 
@@ -95,7 +95,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         if (target != null) target = null;
     }
 
-    void BulletSpawn(TowerData data, Transform target)
+    void BulletSpawn(TowerData data, GameObject target)
     {
         GameObject towerBullet = GameManager.Inst.pool.Get(3);
         towerBullet.GetComponent<TowerBullet>().Init(data, target);

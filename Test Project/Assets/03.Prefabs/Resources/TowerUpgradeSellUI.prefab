@@ -874,6 +874,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6245044548996288402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1030,7 @@ MonoBehaviour:
   buttonTank: {fileID: 0}
   buttonHeal: {fileID: 0}
   buttonSell: {fileID: 5000429445619291278}
+  buttonUpgrade: {fileID: 7704122064557792000}
 --- !u!1 &8674669735933030136
 GameObject:
   m_ObjectHideFlags: 0

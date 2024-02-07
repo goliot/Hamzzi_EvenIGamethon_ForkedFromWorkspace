@@ -15,50 +15,50 @@
 	<Sheet1>
 		<chapter>1</chapter>
 		<stage>3</stage>
-		<mobHealth>1.07</mobHealth>
-		<mobDamage>1.05</mobDamage>
+		<mobHealth>1.1</mobHealth>
+		<mobDamage>1.06</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>1</chapter>
 		<stage>4</stage>
-		<mobHealth>1.3</mobHealth>
-		<mobDamage>1.2</mobDamage>
+		<mobHealth>1.2</mobHealth>
+		<mobDamage>1.1</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>1</chapter>
 		<stage>5</stage>
-		<mobHealth>1.4</mobHealth>
-		<mobDamage>1.3</mobDamage>
+		<mobHealth>1.25</mobHealth>
+		<mobDamage>1.2</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>2</chapter>
 		<stage>1</stage>
-		<mobHealth>1.5</mobHealth>
-		<mobDamage>1.4</mobDamage>
+		<mobHealth>1.25</mobHealth>
+		<mobDamage>1.23</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>2</chapter>
 		<stage>2</stage>
-		<mobHealth>1.7</mobHealth>
-		<mobDamage>1.5</mobDamage>
+		<mobHealth>1.27</mobHealth>
+		<mobDamage>1.25</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>2</chapter>
 		<stage>3</stage>
-		<mobHealth>1.9</mobHealth>
-		<mobDamage>1.7</mobDamage>
+		<mobHealth>1.31</mobHealth>
+		<mobDamage>1.28</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>2</chapter>
 		<stage>4</stage>
-		<mobHealth>2.1</mobHealth>
-		<mobDamage>1.9</mobDamage>
+		<mobHealth>1.4</mobHealth>
+		<mobDamage>1.35</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>2</chapter>
 		<stage>5</stage>
-		<mobHealth>2.3</mobHealth>
-		<mobDamage>2.1</mobDamage>
+		<mobHealth>1.45</mobHealth>
+		<mobDamage>1.4</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>

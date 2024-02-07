@@ -106,15 +106,32 @@ public class PopUpHandler : MonoBehaviour
         int corn = BackendGameData.Instance.UserGameData.corn;
 
         //if() ==> 레벨업이 가능한 경우
-        if(bread > BackendGameData.Instance.UserGameData.levelUpData[level - 1] && corn > BackendGameData.Instance.UserGameData.cornCostToLevelUp[level - 1])
+        if (bread > BackendGameData.Instance.UserGameData.levelUpData[level - 1] && corn > BackendGameData.Instance.UserGameData.cornCostToLevelUp[level - 1] && level < 20)
         {
             BackendGameData.Instance.UserGameData.bread -= BackendGameData.Instance.UserGameData.levelUpData[level - 1];
+            BackendGameData.Instance.UserGameData.corn -= BackendGameData.Instance.UserGameData.cornCostToLevelUp[level - 1];
             BackendGameData.Instance.UserGameData.level += 1;
+
+            LevelUpUI.Inst.ChangeCornText();
             BackendGameData.Instance.GameDataUpdate();
             AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Lobby_Hamster_Level_Up);
         }
         //else ==> 레벨업이 불가능한 경우
-        else StartCoroutine(NotEnoughCorn());
+        else
+        {
+            //임시
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+            if(bread < BackendGameData.Instance.UserGameData.levelUpData[level - 1])
+            {
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+                //빵이 부족합니다 메시지 띄우기
+                StartCoroutine(NotEnoughBread());
+            }
+            else if (corn < BackendGameData.Instance.UserGameData.cornCostToLevelUp[level - 1])
+            {
+                StartCoroutine(NotEnoughCorn());
+            }
+        }
     }
 
     IEnumerator NotEnoughCorn()
@@ -123,5 +140,13 @@ public class PopUpHandler : MonoBehaviour
         transform.parent.parent.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         transform.parent.parent.GetChild(1).gameObject.SetActive(false);
+    }
+
+    IEnumerator NotEnoughBread()
+    {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+        transform.parent.parent.GetChild(2).gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        transform.parent.parent.GetChild(2).gameObject.SetActive(false);
     }
 }

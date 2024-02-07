@@ -25,12 +25,11 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
 
     TowerData thisData;
     Animator anim;
-    float time = 0;
+    float time = 1000;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        time = 1000;
         thisData = new TowerData();
     }
 
@@ -48,6 +47,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         atkRange = data.atkRange;
 
         gameObject.transform.localScale = new Vector3(3, 3, 3);
+        time = 1000;
     }
 
     private void FixedUpdate()

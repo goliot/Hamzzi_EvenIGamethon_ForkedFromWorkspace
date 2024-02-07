@@ -128,10 +128,7 @@ public class TowerBullet : MonoBehaviour
     public void OnAnimationTank()
     {
         GameObject wall = GameObject.FindGameObjectWithTag("Wall");
-        if (wall.GetComponent<Wall>().health > wall.GetComponent<Wall>().maxHealth)
-        {
-            wall.GetComponent<Wall>().health = wall.GetComponent<Wall>().maxHealth;
-        }
+        wall.GetComponent<Wall>().health += barrier;
     }
 
     public void OnAnimationHeal()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
+using UnityEngine.UI;
 using System.Linq;
 
 public class Player : MonoBehaviour
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     public List<PlayerData> playerData = new List<PlayerData>();
     public Transform fireArea;
     public Transform target;
+
+    public Image[] skillImages;
 
     public Transform[] momenstoPoint;
     public Transform nextMomenstoLocation;
@@ -87,7 +90,13 @@ public class Player : MonoBehaviour
         {
             if (data.isUnlocked)
             {
+                skillImages[data.skillId].transform.parent.gameObject.SetActive(true);
+                skillImages[data.skillId].gameObject.SetActive(true);
+                skillImages[data.skillId].transform.SetAsFirstSibling();
+                Debug.Log(skillImages[data.skillId].name);
                 data.UpdateCooldown();
+                skillImages[data.skillId].fillAmount = data.cooldownTimer / data.atkSpeed;
+
                 if (data.skillId == 5 && data.CanUseSkill()) //모멘스토일경우 다른 로직 사용
                 {
                     nextMomenstoLocation = momenstoPoint[Random.Range(0, momenstoPoint.Length)];
@@ -162,9 +171,8 @@ public class PlayerData //메인캐릭터 능력치(스킬) 데이터
     public bool isUnlocked; //해금됐는지 여부
     public bool isPenetrate; //관통형인지 여부
     public float splashRange; //범위스킬 범위
-    
 
-    private float cooldownTimer = 0f;
+    public float cooldownTimer = 0f;
 
     public bool CanUseSkill()
     {

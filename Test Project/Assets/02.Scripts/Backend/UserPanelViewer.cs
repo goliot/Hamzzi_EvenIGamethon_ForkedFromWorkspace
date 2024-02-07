@@ -14,11 +14,23 @@ public class UserPanelViewer : MonoBehaviour
     private TextMeshProUGUI textLevel;
     [SerializeField]
     private Slider sliderExperience;
+    [SerializeField]
+    private TextMeshProUGUI sliderText;
 
     private void Awake()
     {
         instance = this;
         BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateGameData);
+    }
+
+    private void Update()
+    {
+        UpdateGameData();
+        int bread = BackendGameData.Instance.UserGameData.bread;
+        int nextBread = BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
+        float value = (float)bread / nextBread;
+        sliderExperience.value = sliderExperience.value = Mathf.Clamp01(value);
+        sliderText.text = bread.ToString() + "/" + nextBread.ToString();
     }
 
     public void showNickname()

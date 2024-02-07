@@ -111,6 +111,45 @@ public class TowerSpawner : MonoBehaviour
             }
         }
     }
+
+    public void UpgradeTower(Transform tileTransform)
+    {
+        Tile tile = tileTransform.GetComponent<Tile>();
+        if(InstalledTower.ContainsKey(tileTransform))
+        {
+            GameObject tower;
+            if(InstalledTower.TryGetValue(tileTransform, out tower))
+            {
+                int towerType = tower.GetComponent<Tower>().towerType;
+                Tower towerComponent = tower.GetComponent<Tower>();
+                switch(towerType)
+                {
+                    case 0:
+                        towerComponent.atkSpeed -= 0.5f;
+                        towerComponent.damage += 10;
+                        break;
+                    case 1:
+                        towerComponent.atkRange += 0.4f;
+                        towerComponent.damage += 5;
+                        break;
+                    case 2:
+                        towerComponent.atkSpeed -= 0.5f;
+                        towerComponent.damage += 2;
+                        towerComponent.duration += 1;
+                        break;
+                    case 3:
+                        towerComponent.barrier += 200;
+                        towerComponent.atkSpeed -= 5;
+                        break;
+                    case 4:
+                        towerComponent.heal += 200;
+                        towerComponent.atkSpeed -= 5;
+                        break;
+                }
+                GameManager.Inst.seed -= 20;
+            }
+        }
+    }
     
 }
 

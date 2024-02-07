@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
@@ -22,6 +23,8 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public List<MobMagnificationData> mobMagnificationData = new List<MobMagnificationData>();
     string magXmlFileName = "MobStatMagnification";
     private bool isGameLive;
+    public TextMeshProUGUI cornText;
+    public TextMeshProUGUI breadText;
 
     [Header("Boss Effect")]
     public Image redLightImage;
@@ -37,10 +40,10 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public GameObject[] tilemaps;
 
     [Header("Reward")]
-    int[,] cornReward = { { 50, 70, 90, 110, 130 },
-                          {60, 80, 100, 120, 140 },
-                          {70, 90, 110, 130, 150 },
-                          {80, 100, 120, 140, 160 } };
+    int[,] cornReward = { { 30, 40, 50, 60, 70 },
+                          { 80, 90, 100, 110, 120 },
+                          { 130, 140, 150, 160, 170 },
+                          { 180, 190, 200, 210, 220 } };
     int[,] breadReward = { { 20, 30 ,40, 50, 60 },
                             {70, 80, 90, 100, 110 },
                            {120, 130, 140, 150, 160 },
@@ -228,6 +231,8 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     {
         int breadRewardThisStage = breadReward[chapter - 1, stage - 1];
         int cornRewardThisStage = cornReward[chapter - 1, stage - 1];
+        cornText.text = cornRewardThisStage.ToString();
+        breadText.text = breadRewardThisStage.ToString();
 
         BackendGameData.Instance.UserGameData.bread += breadRewardThisStage;
         BackendGameData.Instance.UserGameData.corn += cornRewardThisStage;

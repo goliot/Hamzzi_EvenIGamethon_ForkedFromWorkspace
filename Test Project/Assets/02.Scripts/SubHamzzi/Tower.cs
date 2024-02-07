@@ -52,6 +52,13 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
 
     private void FixedUpdate()
     {
+        thisData.damage = damage;
+        thisData.atkSpeed = atkSpeed;
+        thisData.duration = duration;
+        thisData.barrier = barrier;
+        thisData.heal = heal;
+        thisData.atkRange = atkRange;
+
         time += Time.deltaTime;
         List<GameObject> targets = GameObject.FindGameObjectsWithTag("Enemy").ToList();
         foreach(GameObject target in targets)

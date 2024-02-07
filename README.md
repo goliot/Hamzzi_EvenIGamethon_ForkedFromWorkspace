@@ -34,7 +34,7 @@
 <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/b2ba5c5e-e014-4dc3-89a6-460ee6482cdb" width = "180" height = "360">
 </p>
 
-- 서브햄찌 강화 제작
+- 서브햄찌 강화 구현
 - 홈, 챕터3 맵 변경
 - 보상 UI 수정
 <p align="center">
@@ -46,6 +46,7 @@
 <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/15a08347-4496-4dd8-8732-03ebad5bf989" width = "180" height = "360">
 </p>
 
+- 추가: 서브햄찌 강화가 정상적으로 이루어지지 않던 버그 수정
 ---
 ## V.3.1.3 - SM 2024-02-06
 - 애드몹 테스트 씬 작업

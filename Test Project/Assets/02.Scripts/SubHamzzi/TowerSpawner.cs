@@ -122,28 +122,34 @@ public class TowerSpawner : MonoBehaviour
             {
                 int towerType = tower.GetComponent<Tower>().towerType;
                 Tower towerComponent = tower.GetComponent<Tower>();
-                switch(towerType)
+                if (towerComponent.level >= 5) return;
+                switch (towerType)
                 {
                     case 0:
                         towerComponent.atkSpeed -= 0.5f;
                         towerComponent.damage += 10;
+                        towerComponent.level++;
                         break;
                     case 1:
                         towerComponent.atkRange += 0.4f;
                         towerComponent.damage += 5;
+                        towerComponent.level++;
                         break;
                     case 2:
                         towerComponent.atkSpeed -= 0.5f;
                         towerComponent.damage += 2;
                         towerComponent.duration += 1;
+                        towerComponent.level++;
                         break;
                     case 3:
                         towerComponent.barrier += 200;
                         towerComponent.atkSpeed -= 5;
+                        towerComponent.level++;
                         break;
                     case 4:
                         towerComponent.heal += 200;
                         towerComponent.atkSpeed -= 5;
+                        towerComponent.level++;
                         break;
                 }
                 GameManager.Inst.seed -= 20;

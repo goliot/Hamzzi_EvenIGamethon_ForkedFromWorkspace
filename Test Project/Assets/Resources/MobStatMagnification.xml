@@ -63,32 +63,32 @@
 	<Sheet1>
 		<chapter>3</chapter>
 		<stage>1</stage>
-		<mobHealth>2.6</mobHealth>
-		<mobDamage>2.3</mobDamage>
+		<mobHealth>1.45</mobHealth>
+		<mobDamage>1.4</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
 		<stage>2</stage>
-		<mobHealth>2.9</mobHealth>
-		<mobDamage>2.5</mobDamage>
+		<mobHealth>1.47</mobHealth>
+		<mobDamage>1.42</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
 		<stage>3</stage>
-		<mobHealth>3.2</mobHealth>
-		<mobDamage>2.7</mobDamage>
+		<mobHealth>1.52</mobHealth>
+		<mobDamage>1.46</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
 		<stage>4</stage>
-		<mobHealth>3.5</mobHealth>
-		<mobDamage>2.9</mobDamage>
+		<mobHealth>1.6</mobHealth>
+		<mobDamage>1.54</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
 		<stage>5</stage>
-		<mobHealth>3.8</mobHealth>
-		<mobDamage>3.1</mobDamage>
+		<mobHealth>1.67</mobHealth>
+		<mobDamage>1.6</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>4</chapter>

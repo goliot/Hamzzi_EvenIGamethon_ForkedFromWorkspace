@@ -117,8 +117,9 @@ public class CutSceneManager : Singleton<CutSceneManager>
 
         if (currentFrameIndex >= frameCount - 1)
         {
-            if (cutSceneType == CutSceneType.Opening) MoveToFirstPlay();
-            else MoveToLobby();
+            /*if (cutSceneType == CutSceneType.Opening) MoveToFirstPlay();
+            else MoveToLobby();*/
+            MoveToLobby();
         }
         else
         {

@@ -8,7 +8,7 @@ using System;
 
 public class AdmobManager : MonoBehaviour
 {
-    public TextMeshProUGUI rewardText;
+    //public TextMeshProUGUI rewardText;
 
     public void Start()
     {
@@ -277,7 +277,7 @@ public class AdmobManager : MonoBehaviour
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
 
                 //여기다가 광고 보상 넣는 함수
-                rewardText.text = "reward ad ended";
+                //rewardText.text = "reward ad ended";
             });
         }
     }

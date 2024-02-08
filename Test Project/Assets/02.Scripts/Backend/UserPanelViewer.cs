@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class UserPanelViewer : MonoBehaviour
 {
@@ -26,12 +27,15 @@ public class UserPanelViewer : MonoBehaviour
 
     private void Update()
     {
-        UpdateGameData();
-        int bread = BackendGameData.Instance.UserGameData.bread;
-        int nextBread = BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
-        float value = (float)bread / nextBread;
-        sliderExperience.value = sliderExperience.value = Mathf.Clamp01(value);
-        sliderText.text = bread.ToString() + "/" + nextBread.ToString();
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            UpdateGameData();
+            int bread = BackendGameData.Instance.UserGameData.bread;
+            int nextBread = BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
+            float value = (float)bread / nextBread;
+            sliderExperience.value = sliderExperience.value = Mathf.Clamp01(value);
+            sliderText.text = bread.ToString() + "/" + nextBread.ToString();
+        }
     }
 
     public void showNickname()
@@ -44,7 +48,10 @@ public class UserPanelViewer : MonoBehaviour
 
     public void UpdateGameData()
     {
-        textLevel.text = $"{BackendGameData.Instance.UserGameData.level}";
-        //sliderExperience.value = BackendGameData.Instance.UserGameData.bread / BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            textLevel.text = $"{BackendGameData.Instance.UserGameData.level}";
+            //sliderExperience.value = BackendGameData.Instance.UserGameData.bread / BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
+        }
     }
 }

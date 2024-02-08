@@ -1558,6 +1558,13 @@ MonoBehaviour:
   buttonTank: {fileID: 1495753926464447144}
   buttonHeal: {fileID: 1829023896279734078}
   buttonSell: {fileID: 0}
+  buttonUpgrade: {fileID: 0}
+  arrowImage: {fileID: 21300000, guid: c042d8545074e9a428a3328f08de665f, type: 3}
+  bombImage: {fileID: 21300000, guid: 1332c2b735927184a938feaab028b2bb, type: 3}
+  blackImage: {fileID: 21300000, guid: 50c592932e1822c40a8f3fbe428def30, type: 3}
+  tankImage: {fileID: 21300000, guid: 6b32bd66e92477a4b957a9b73e083ea1, type: 3}
+  healImage: {fileID: 21300000, guid: d5f4a10e4f8e2484cb186a8704f5af1b, type: 3}
+  nullImage: {fileID: 21300000, guid: c66975438c0100041b11660de398b446, type: 3}
 --- !u!1 &8081207067899749767
 GameObject:
   m_ObjectHideFlags: 0

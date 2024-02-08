@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class LobbyScene : MonoBehaviour
@@ -34,10 +35,38 @@ public class LobbyScene : MonoBehaviour
 
     private void Awake()
     {
-        user.GetUserInfoFromBackend();
+        if (UserInfo.Data.nickname == null)
+        {
+            user.onUserInfoEvent.AddListener(isFirstTime);
+            user.GetUserInfoFromBackend();
+        }
         BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData); //GameData관련 리스너
+                                                                                      //BackendGameData.Instance.onGameDataUpdateEvent.AddListener(UpdateCurrencyData);
         BackendGameData.Instance.GameDataLoad();
+        BackendGameData.Instance.TowerDataLoad();
+        //BackendGameData.Instance.DogamDataLoad();
+        //BackendGameData.Instance.ClearDataLoad();
     }
+
+    private void isFirstTime()
+    {
+        if (UserInfo.Data.nickname == null)
+        {
+            SceneManager.LoadScene("FirstPlay");
+            return;
+        }
+        else
+        {
+            /*BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData); //GameData관련 리스너
+            //BackendGameData.Instance.onGameDataUpdateEvent.AddListener(UpdateCurrencyData);
+            BackendGameData.Instance.GameDataLoad();
+            BackendGameData.Instance.TowerDataLoad();
+            //BackendGameData.Instance.DogamDataLoad();
+            //BackendGameData.Instance.ClearDataLoad();*/
+            return;
+        }
+    }
+
     private void Start()
     {
         AudioManager.Inst.StopBgm();

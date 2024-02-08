@@ -40,7 +40,7 @@ public class ChapterButtonHandler: MonoBehaviour
     {
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         BackendGameData.Instance.UserGameData.threadmill -= 1;
-        BackendGameData.Instance.GameDataUpdate();
+        //BackendGameData.Instance.GameDataUpdate();
         StageSelect.instance.SceneLoad();
     }
 

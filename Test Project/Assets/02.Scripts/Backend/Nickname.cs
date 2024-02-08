@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using BackEnd;
-using UnityEditor.VersionControl;
+using UnityEngine.SceneManagement;
 
 public class Nickname : LoginBase
 {
@@ -53,6 +53,7 @@ public class Nickname : LoginBase
                 SetMessage($"{inputFieldNickname.text}\n(으)로 닉네임이\n변경되었습니다.");
                 message = $"{inputFieldNickname.text}\n(으)로 닉네임이\n변경되었습니다.";
                 onNicknameEvent.Invoke();
+                if (SceneManager.GetActiveScene().name != "Lobby") SceneManager.LoadScene("Lobby");
             }
             else
             {
@@ -70,9 +71,12 @@ public class Nickname : LoginBase
                 }
                 GuideForIncorrectlyEnteredData(imageNickname, message);
             }
-            nicknameWarningPanel.SetActive(true);
-            nicknameWaringBoard.SetActive(true);
-            warningText.text = message;
+            if (SceneManager.GetActiveScene().name == "Lobby")
+            {
+                nicknameWarningPanel.SetActive(true);
+                nicknameWaringBoard.SetActive(true);
+                warningText.text = message;
+            }
         });
     }
 }

@@ -115,6 +115,7 @@ public class PopUpHandler : MonoBehaviour
 
             LevelUpUI.Inst.ChangeCornText();
             BackendGameData.Instance.GameDataUpdate();
+            BackendGameData.Instance.GameDataLoad();
             AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Lobby_Hamster_Level_Up);
         }
         //else ==> 레벨업이 불가능한 경우

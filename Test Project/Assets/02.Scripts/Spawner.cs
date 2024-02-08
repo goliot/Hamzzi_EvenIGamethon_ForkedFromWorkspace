@@ -259,7 +259,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         BackendGameData.Instance.UserGameData.bread += breadRewardThisStage;
         BackendGameData.Instance.UserGameData.corn += cornRewardThisStage;
-        BackendGameData.Instance.GameDataUpdate();
+        //BackendGameData.Instance.GameDataUpdate();
 
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);
 

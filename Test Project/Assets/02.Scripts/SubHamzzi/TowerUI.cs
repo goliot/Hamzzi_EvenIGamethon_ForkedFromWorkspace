@@ -14,6 +14,13 @@ public class TowerUI : MonoBehaviour
     public Button buttonSell;
     public Button buttonUpgrade;
 
+    public Sprite arrowImage;
+    public Sprite bombImage;
+    public Sprite blackImage;
+    public Sprite tankImage;
+    public Sprite healImage;
+    public Sprite nullImage;
+
     TowerSpawner spawner;
     ObjectDetector objectDetector;
     PopUpWindow popUpWindow;
@@ -23,6 +30,17 @@ public class TowerUI : MonoBehaviour
         objectDetector = FindObjectOfType<ObjectDetector>();
         spawner = FindObjectOfType<TowerSpawner>();
         popUpWindow = GetComponent<PopUpWindow>();
+
+        buttonArrow.interactable = true;
+        buttonBomb.interactable = true;
+        buttonBlack.interactable = true;
+        buttonTank.interactable = true;
+        buttonHeal.interactable = true;
+        buttonArrow.GetComponent<Image>().sprite = arrowImage;
+        buttonBomb.GetComponent<Image>().sprite = bombImage;
+        buttonBlack.GetComponent<Image>().sprite = blackImage;
+        buttonTank.GetComponent<Image>().sprite = tankImage;
+        buttonHeal.GetComponent<Image>().sprite = healImage;
     }
 
     private void Start()
@@ -32,6 +50,32 @@ public class TowerUI : MonoBehaviour
 
     void Init()
     {
+        if (!BackendGameData.Instance.TowerDB.t0)
+        {
+            buttonArrow.interactable = false;
+            buttonArrow.GetComponent <Image>().sprite = nullImage;
+        }
+        if (!BackendGameData.Instance.TowerDB.t1)
+        {
+            buttonBomb.interactable = false;
+            buttonBomb.GetComponent <Image>().sprite = nullImage;
+        }
+        if (!BackendGameData.Instance.TowerDB.t2) 
+        {
+            buttonBlack.interactable = false;
+            buttonBlack.GetComponent <Image>().sprite = nullImage;
+        }
+        if (!BackendGameData.Instance.TowerDB.t3)
+        {
+            buttonTank.interactable = false;
+            buttonTank.GetComponent<Image>().sprite = nullImage;
+        }
+        if (!BackendGameData.Instance.TowerDB.t4)
+        {
+            buttonHeal.interactable = false;
+            buttonHeal.GetComponent <Image>().sprite = nullImage;
+        }
+
         if (objectDetector == null || spawner == null)
         {
             Debug.LogError("ObjectDetector or TowerSpawner not assigned!");

@@ -15,7 +15,7 @@ public class FirstPlay : MonoBehaviour
 
     private void Awake()
     {
-        user.onUserInfoEvent.AddListener(isFirstTime);
+        //user.onUserInfoEvent.AddListener(isFirstTime);
         user.GetUserInfoFromBackend();
     }
 
@@ -37,7 +37,7 @@ public class FirstPlay : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
-    private void isFirstTime()
+    /*private void isFirstTime()
     {
         if (UserInfo.Data.nickname == null)
         {
@@ -49,5 +49,5 @@ public class FirstPlay : MonoBehaviour
             Debug.Log("로비로 가라");
             SecondBtn(); //처음 아니면 그냥 로비로 가라
         }
-    }
+    }*/
 }

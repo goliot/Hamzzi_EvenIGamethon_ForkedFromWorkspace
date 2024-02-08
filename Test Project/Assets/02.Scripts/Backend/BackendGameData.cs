@@ -8,6 +8,10 @@ public class BackendGameData
     public class GameDataLoadEvent : UnityEvent { }
     public GameDataLoadEvent onGameDataLoadEvent = new GameDataLoadEvent();
 
+    [System.Serializable]
+    public class GameDataUpdateEvent : UnityEvent { }
+    public GameDataUpdateEvent onGameDataUpdateEvent = new GameDataUpdateEvent();
+
     private static BackendGameData instance = null;
     public static BackendGameData Instance
     {
@@ -35,6 +39,9 @@ public class BackendGameData
     public TowerDB TowerDB => towerDB;
 
     private string gameDataRowInDate = string.Empty;
+    private string clearDataRowInDate = string.Empty;
+    private string towerDataRowInDate = string.Empty;
+    private string dogamDataRowInDate = string.Empty;
 
     /// <summary>
     /// 뒤끝 콘솔 테이블에 새로운 유저 정보 추가
@@ -59,7 +66,7 @@ public class BackendGameData
 
                 Debug.Log($"게임 정보 데이터 삽입에 성공했습니다. : {callback}");
 
-                onGameDataLoadEvent?.Invoke();
+                GameDataLoad();
             }
             else
             {
@@ -78,6 +85,7 @@ public class BackendGameData
              if (callback.IsSuccess())
              {
                  Debug.Log($"게임 정보 데이터 불러오기에 성공했습니다 : {callback}");
+                 //gameDataRowInDate = callback.GetInDate();
 
                  try
                  {
@@ -152,10 +160,12 @@ public class BackendGameData
                     Debug.Log($"게임 정보 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
-                    GameDataLoad();
+                    onGameDataUpdateEvent.Invoke();
+                    //GameDataLoad();
                 }
                 else
                 {
+                    Debug.Log(gameDataRowInDate);
                     Debug.LogError($"게임 정보 데이터 수정에 실패했습니다. : {callback}");
                 }
             });
@@ -197,11 +207,13 @@ public class BackendGameData
             {
                 gameDataRowInDate = callback.GetInDate();
 
-                Debug.Log($"게임 정보 데이터 삽입에 성공했습니다. : {callback}");
+                Debug.Log($"클리어 정보 데이터 삽입에 성공했습니다. : {callback}");
+
+                ClearDataLoad();
             }
             else
             {
-                Debug.LogError($"게임 정보 데이터 삽입에 실패했습니다. : {callback}");
+                Debug.LogError($"클리어 정보 데이터 삽입에 실패했습니다. : {callback}");
             }
         });
     }
@@ -212,8 +224,8 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                Debug.Log($"게임 정보 데이터 불러오기에 성공했습니다 : {callback}");
-
+                Debug.Log($"클리어 정보 데이터 불러오기에 성공했습니다 : {callback}");
+                clearDataRowInDate = callback.GetInDate();
                 try
                 {
                     LitJson.JsonData gameDataJson = callback.FlattenRows();
@@ -225,7 +237,7 @@ public class BackendGameData
                     }
                     else
                     {
-                        gameDataRowInDate = gameDataJson[0]["inDate"].ToString();
+                        clearDataRowInDate = gameDataJson[0]["inDate"].ToString();
 
                         clearData.c1s1 = int.Parse(gameDataJson[0]["c1s1"].ToString());
                         clearData.c1s2 = int.Parse(gameDataJson[0]["c1s2"].ToString());
@@ -258,7 +270,7 @@ public class BackendGameData
             }
             else
             {
-                Debug.LogError($"게임 정보 데이터 불러오기에 실패했습니다 : {callback}");
+                Debug.LogError($"클리어 정보 데이터 불러오기에 실패했습니다 : {callback}");
             }
         });
     }
@@ -298,7 +310,7 @@ public class BackendGameData
         };
 
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
-        if (string.IsNullOrEmpty(gameDataRowInDate))
+        if (string.IsNullOrEmpty(clearDataRowInDate))
         {
             Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
         }
@@ -306,20 +318,20 @@ public class BackendGameData
         // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
         else
         {
-            Debug.Log($"{gameDataRowInDate}의 게임 정보 데이터 수정을 요청합니다.");
+            Debug.Log($"{clearDataRowInDate}의 클리어 정보 데이터 수정을 요청합니다.");
 
-            Backend.GameData.UpdateV2("CLEAR_DATA", gameDataRowInDate, Backend.UserInDate, param, callback =>
+            Backend.GameData.UpdateV2("CLEAR_DATA", clearDataRowInDate, Backend.UserInDate, param, callback =>
             {
                 if (callback.IsSuccess())
                 {
-                    Debug.Log($"게임 정보 데이터 수정에 성공했습니다. : {callback}");
+                    Debug.Log($"클리어 정보 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
-                    ClearDataLoad();
+                    //ClearDataLoad();
                 }
                 else
                 {
-                    Debug.LogError($"게임 정보 데이터 수정에 실패했습니다. : {callback}");
+                    Debug.LogError($"클리어 정보 데이터 수정에 실패했습니다. : {callback}");
                 }
             });
         }
@@ -357,13 +369,15 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                gameDataRowInDate = callback.GetInDate();
+                dogamDataRowInDate = callback.GetInDate();
 
-                Debug.Log($"게임 정보 데이터 삽입에 성공했습니다. : {callback}");
+                Debug.Log($"도감 정보 데이터 삽입에 성공했습니다. : {callback}");
+
+                DogamDataLoad();
             }
             else
             {
-                Debug.LogError($"게임 정보 데이터 삽입에 실패했습니다. : {callback}");
+                Debug.LogError($"도감 정보 데이터 삽입에 실패했습니다. : {callback}");
             }
         });
     }
@@ -374,7 +388,7 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                Debug.Log($"게임 정보 데이터 불러오기에 성공했습니다 : {callback}");
+                Debug.Log($"도감 정보 데이터 불러오기에 성공했습니다 : {callback}");
 
                 try
                 {
@@ -387,7 +401,7 @@ public class BackendGameData
                     }
                     else
                     {
-                        gameDataRowInDate = gameDataJson[0]["inDate"].ToString();
+                        dogamDataRowInDate = gameDataJson[0]["inDate"].ToString();
 
                         dogamData.m0 = bool.Parse(gameDataJson[0]["m0"].ToString());
                         dogamData.m1 = bool.Parse(gameDataJson[0]["m1"].ToString());
@@ -419,7 +433,7 @@ public class BackendGameData
             }
             else
             {
-                Debug.LogError($"게임 정보 데이터 불러오기에 실패했습니다 : {callback}");
+                Debug.LogError($"도감 정보 데이터 불러오기에 실패했습니다 : {callback}");
             }
         });
     }
@@ -458,7 +472,7 @@ public class BackendGameData
         };
 
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
-        if (string.IsNullOrEmpty(gameDataRowInDate))
+        if (string.IsNullOrEmpty(dogamDataRowInDate))
         {
             Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
         }
@@ -466,20 +480,20 @@ public class BackendGameData
         // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
         else
         {
-            Debug.Log($"{gameDataRowInDate}의 게임 정보 데이터 수정을 요청합니다.");
+            Debug.Log($"{dogamDataRowInDate}의 도감 정보 데이터 수정을 요청합니다.");
 
-            Backend.GameData.UpdateV2("DOGAM_INFO", gameDataRowInDate, Backend.UserInDate, param, callback =>
+            Backend.GameData.UpdateV2("DOGAM_INFO", dogamDataRowInDate, Backend.UserInDate, param, callback =>
             {
                 if (callback.IsSuccess())
                 {
-                    Debug.Log($"게임 정보 데이터 수정에 성공했습니다. : {callback}");
+                    Debug.Log($"도감 정보 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
-                    DogamDataLoad();
+                    //DogamDataLoad();
                 }
                 else
                 {
-                    Debug.LogError($"게임 정보 데이터 수정에 실패했습니다. : {callback}");
+                    Debug.LogError($"도감 정보 데이터 수정에 실패했습니다. : {callback}");
                 }
             });
         }
@@ -502,13 +516,15 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                gameDataRowInDate = callback.GetInDate();
+                towerDataRowInDate = callback.GetInDate();
 
-                Debug.Log($"게임 정보 데이터 삽입에 성공했습니다. : {callback}");
+                Debug.Log($"타워 정보 데이터 삽입에 성공했습니다. : {callback}");
+
+                TowerDataLoad();
             }
             else
             {
-                Debug.LogError($"게임 정보 데이터 삽입에 실패했습니다. : {callback}");
+                Debug.LogError($"타워 정보 데이터 삽입에 실패했습니다. : {callback}");
             }
         });
     }
@@ -519,7 +535,7 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                Debug.Log($"게임 정보 데이터 불러오기에 성공했습니다 : {callback}");
+                Debug.Log($"타워 정보 데이터 불러오기에 성공했습니다 : {callback}");
 
                 try
                 {
@@ -532,7 +548,7 @@ public class BackendGameData
                     }
                     else
                     {
-                        gameDataRowInDate = gameDataJson[0]["inDate"].ToString();
+                        towerDataRowInDate = gameDataJson[0]["inDate"].ToString();
                         
                         towerDB.t0 = bool.Parse(gameDataJson[0]["t0"].ToString());
                         towerDB.t1 = bool.Parse(gameDataJson[0]["t1"].ToString());
@@ -549,7 +565,7 @@ public class BackendGameData
             }
             else
             {
-                Debug.LogError($"게임 정보 데이터 불러오기에 실패했습니다 : {callback}");
+                Debug.LogError($"타워 정보 데이터 불러오기에 실패했습니다 : {callback}");
             }
         });
     }
@@ -573,7 +589,7 @@ public class BackendGameData
         };
 
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
-        if (string.IsNullOrEmpty(gameDataRowInDate))
+        if (string.IsNullOrEmpty(towerDataRowInDate))
         {
             Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
         }
@@ -581,20 +597,20 @@ public class BackendGameData
         // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
         else
         {
-            Debug.Log($"{gameDataRowInDate}의 게임 정보 데이터 수정을 요청합니다.");
+            Debug.Log($"{towerDataRowInDate}의 타워 정보 데이터 수정을 요청합니다.");
 
-            Backend.GameData.UpdateV2("TOWER_DATA", gameDataRowInDate, Backend.UserInDate, param, callback =>
+            Backend.GameData.UpdateV2("TOWER_DATA", towerDataRowInDate, Backend.UserInDate, param, callback =>
             {
                 if (callback.IsSuccess())
                 {
-                    Debug.Log($"게임 정보 데이터 수정에 성공했습니다. : {callback}");
+                    Debug.Log($"타워 정보 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
-                    TowerDataLoad();
+                    //TowerDataLoad();
                 }
                 else
                 {
-                    Debug.LogError($"게임 정보 데이터 수정에 실패했습니다. : {callback}");
+                    Debug.LogError($"타워 정보 데이터 수정에 실패했습니다. : {callback}");
                 }
             });
         }

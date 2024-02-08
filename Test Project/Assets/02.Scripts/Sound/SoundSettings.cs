@@ -39,8 +39,8 @@ public class SoundSettings : MonoBehaviour
             if(callback.IsSuccess())
             {
                 LogoutGoogle();
+                SceneManager.LoadScene("Login");
             }
-            SceneManager.LoadScene("Login");
         });
     }
 
@@ -54,7 +54,7 @@ public class SoundSettings : MonoBehaviour
         }
         else
         {
-            Debug.Log("구글계정 아님");
+            Debug.Log("구글 계정 아님");
             return;
         }
     }

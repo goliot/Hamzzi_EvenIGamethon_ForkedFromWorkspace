@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -65,6 +66,7 @@ public class UIManager : Singleton<UIManager>
 
     public void GoToHome()
     {
+        BackendGameData.Instance.GameDataUpdate();
         GameManager.Inst.Resume();
         SceneManager.LoadScene("Lobby");
     }

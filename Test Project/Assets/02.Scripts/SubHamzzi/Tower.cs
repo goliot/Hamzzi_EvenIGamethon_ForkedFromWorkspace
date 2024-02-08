@@ -17,6 +17,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
     public float barrier;
     public float heal;
     public float atkRange;
+    public int level;
     public RuntimeAnimatorController[] animCon;
 
     [Header("#State")]
@@ -45,6 +46,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         barrier = data.barrier;
         heal = data.heal;
         atkRange = data.atkRange;
+        level = 0;
 
         gameObject.transform.localScale = new Vector3(3, 3, 3);
         time = 1000;

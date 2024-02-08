@@ -15,9 +15,9 @@ MonoBehaviour:
   cutSceneType: 0
   frameSprites:
   - {fileID: 21300000, guid: d1c066b9b580c34448644d6a8e6e5d7f, type: 3}
-  - {fileID: 21300000, guid: 04c7ec414ac79f14a91e012602d070a4, type: 3}
+  - {fileID: 21300000, guid: 5583a9eb7544e1240b30fdac54a9721e, type: 3}
   - {fileID: 21300000, guid: e6a075f35d8b90642872e68e1235c8d0, type: 3}
   - {fileID: 21300000, guid: 3d88a923ed8883c499b7d6bd90086dd1, type: 3}
-  - {fileID: 21300000, guid: 5b53479ed83ed0d4aa001db6dc75c096, type: 3}
+  - {fileID: 21300000, guid: dd98e76e206d3f747ba351e442b92952, type: 3}
   - {fileID: 21300000, guid: d21a9fe054dbbfb4f92e99468f516420, type: 3}
-  - {fileID: 21300000, guid: 076ff0fa71fc853468df021722500f33, type: 3}
+  - {fileID: 21300000, guid: 73be4282b818cc1418d27ab192cc478b, type: 3}

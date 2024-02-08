@@ -1564,7 +1564,11 @@ MonoBehaviour:
   blackImage: {fileID: 21300000, guid: 50c592932e1822c40a8f3fbe428def30, type: 3}
   tankImage: {fileID: 21300000, guid: 6b32bd66e92477a4b957a9b73e083ea1, type: 3}
   healImage: {fileID: 21300000, guid: d5f4a10e4f8e2484cb186a8704f5af1b, type: 3}
-  nullImage: {fileID: 21300000, guid: c66975438c0100041b11660de398b446, type: 3}
+  arrowNullImage: {fileID: 21300000, guid: 502ba07f7d8ecbf4493ccd6e6ed11635, type: 3}
+  bombNullImage: {fileID: 21300000, guid: 2711b00f7195bb046ae9bc9f5f21f015, type: 3}
+  blackNullImage: {fileID: 21300000, guid: a3f4fa65ac154754aab061e376187c79, type: 3}
+  tankNullImage: {fileID: 21300000, guid: b458cb2319fc7e64080c22d8a740ec6a, type: 3}
+  healNullImage: {fileID: 21300000, guid: 38fe82bfcd9870c4a88182a7aa77b1cf, type: 3}
 --- !u!1 &8081207067899749767
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,11 @@ public class TowerUI : MonoBehaviour
     public Sprite blackImage;
     public Sprite tankImage;
     public Sprite healImage;
-    public Sprite nullImage;
+    public Sprite arrowNullImage;
+    public Sprite bombNullImage;
+    public Sprite blackNullImage;
+    public Sprite tankNullImage;
+    public Sprite healNullImage;
 
     TowerSpawner spawner;
     ObjectDetector objectDetector;
@@ -53,27 +57,27 @@ public class TowerUI : MonoBehaviour
         if (!BackendGameData.Instance.TowerDB.t0)
         {
             buttonArrow.interactable = false;
-            buttonArrow.GetComponent <Image>().sprite = nullImage;
+            buttonArrow.GetComponent <Image>().sprite = arrowNullImage;
         }
         if (!BackendGameData.Instance.TowerDB.t1)
         {
             buttonBomb.interactable = false;
-            buttonBomb.GetComponent <Image>().sprite = nullImage;
+            buttonBomb.GetComponent <Image>().sprite = bombNullImage;
         }
         if (!BackendGameData.Instance.TowerDB.t2) 
         {
             buttonBlack.interactable = false;
-            buttonBlack.GetComponent <Image>().sprite = nullImage;
+            buttonBlack.GetComponent <Image>().sprite = blackNullImage;
         }
         if (!BackendGameData.Instance.TowerDB.t3)
         {
             buttonTank.interactable = false;
-            buttonTank.GetComponent<Image>().sprite = nullImage;
+            buttonTank.GetComponent<Image>().sprite = tankNullImage;
         }
         if (!BackendGameData.Instance.TowerDB.t4)
         {
             buttonHeal.interactable = false;
-            buttonHeal.GetComponent <Image>().sprite = nullImage;
+            buttonHeal.GetComponent <Image>().sprite = healNullImage;
         }
 
         if (objectDetector == null || spawner == null)

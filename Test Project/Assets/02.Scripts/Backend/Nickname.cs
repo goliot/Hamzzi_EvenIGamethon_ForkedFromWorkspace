@@ -19,6 +19,8 @@ public class Nickname : LoginBase
     [SerializeField]
     private GameObject nicknameWarningPanel;
     [SerializeField]
+    private GameObject nicknameWaringBoard;
+    [SerializeField]
     private TextMeshProUGUI warningText;
 
     private void OnEnable()
@@ -69,8 +71,8 @@ public class Nickname : LoginBase
                 GuideForIncorrectlyEnteredData(imageNickname, message);
             }
             nicknameWarningPanel.SetActive(true);
+            nicknameWaringBoard.SetActive(true);
             warningText.text = message;
-            gameObject.SetActive(false);
         });
     }
 }

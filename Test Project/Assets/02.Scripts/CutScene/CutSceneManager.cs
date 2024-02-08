@@ -58,6 +58,25 @@ public class CutSceneManager : Singleton<CutSceneManager>
     // 컷씬 재생 함수
     public void PlayCutScene(CutSceneType cutSceneType)
     {
+        AudioManager.Inst.StopBgm();
+        switch ((int)cutSceneType) 
+        {
+            case 0:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_OpeningCartoon);
+                break;
+            case 1:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01Cartoon);
+                break;
+            case 2:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter02Cartoon);
+                break;
+            case 3:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter03Cartoon);
+                break;
+            case 4:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter04Cartoon);
+                break;
+        }
         // 주어진 컷씬 타입에 해당하는 CutSceneData를 찾음
         currentCutSceneData = GetCutSceneData(cutSceneType);
         if (currentCutSceneData != null)
@@ -84,6 +103,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
     // 이전 프레임을 보여주는 함수
     public void ShowPreviousFrame()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (currentFrameIndex <= 0) return;
         currentFrameIndex--;
         ShowCurrentFrame();
@@ -92,6 +112,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
     // 다음 프레임을 보여주는 함수
     public void ShowNextFrame()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         int frameCount = currentCutSceneData.frameSprites.Length;
 
         if (currentFrameIndex >= frameCount - 1)
@@ -110,6 +131,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
     // 현재 프레임을 보여주는 함수
     private void ShowCurrentFrame()
     {
+        if(currentCutSceneData.cutSceneType == 0 && currentFrameIndex == 5) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Change_Up);
         // 현재 프레임의 스프라이트를 표시
         if (currentFrameIndex >= 0 && currentFrameIndex < currentCutSceneData.frameSprites.Length)
         {

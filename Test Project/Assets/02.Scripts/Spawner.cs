@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using TMPro;
+using System.Net.Http.Headers;
 
 public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 {
@@ -51,6 +52,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
     void Start()
     {
+        AudioManager.Inst.StopBgm();
+        AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
+
         LoadXML(xmlFileName);
         InvokeRepeating("IncreaseWaveAndWaveStart", 0f, GameManager.Inst.waveChangeTime);
 
@@ -65,6 +69,25 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             chapter = StageSelect.instance.chapter;
             stage = StageSelect.instance.stage;
         }
+
+        //챕터에 맞는 브금 재생
+        AudioManager.Inst.StopBgm();
+        switch (chapter)
+        {
+            case 1:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
+                break;
+            case 2:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter02);
+                break;
+            case 3:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter03);
+                break;
+            case 4:
+                AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter04);
+                break;
+        }
+
         stageXmlFileName = "Chapter" + chapter;
         LoadStageXml(stageXmlFileName);
 

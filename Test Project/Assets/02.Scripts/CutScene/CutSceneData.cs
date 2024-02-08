@@ -7,11 +7,11 @@ public class CutSceneData : ScriptableObject
 {
     public enum CutSceneType
     {
-        Opening,
-        Chapter01,
-        Chapter02,
-        Chapter03,
-        Chapter04
+        Opening = 0,
+        Chapter01 = 1,
+        Chapter02 = 2,
+        Chapter03 = 3,
+        Chapter04 = 4
     }
 
     public CutSceneType cutSceneType;

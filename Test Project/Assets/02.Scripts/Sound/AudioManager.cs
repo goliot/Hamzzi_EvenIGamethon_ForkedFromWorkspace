@@ -35,7 +35,6 @@ public class AudioManager : Singleton<AudioManager>
         BGM_Chapter03Cartoon = 12,
         BGM_Chapter04 = 13,
         BGM_Chapter04Cartoon = 14
-
     }
 
     public enum SFX {
@@ -58,9 +57,19 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Sub_Hamster_Voice_03 = 13,
         SFX_Sub_Hamster_Voice_04 = 14,
         SFX_Sub_Hamster_Voice_05 = 15,
-
-        //보이스 부분 도감 이후에 작업
-        //16~28번
+        //SFX_Haebaragisa_Voice = 16, 두번들어감
+        SFX_Insam_Gamsam_Voice = 17,
+        SFX_Appuri_Chopuri_Gampuri_Voice = 18,
+        SFX__Injangyi_Gamjangyi_Voice = 19,
+        SFX_Ifari_Gamfari_Voice = 20,
+        SFX_Poison_Mushroom_Voice = 21,
+        SFX_Erumi_Pinkuri_Voice = 22,
+        SFX_BlueKnight_BlackKnight_KimKnight_Voice = 23,
+        SFX_Huindungyi_Voice = 24,
+        SFX_Gomtaengyi_Voice = 25,
+        SFX_Taepungyi_Voice = 26,
+        SFX_Ippeunyi_Voice = 27,
+        SFX_Haebaragisa_Voice = 28,
 
         //챕터1
         SFX_Monster_Hit = 29,
@@ -81,26 +90,42 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Sub_Hamster_Black_Magic_Spell = 44,
         SFX_Sub_Hamster_Sheild_Spell = 45,
         SFX_Sub_Hamster_Heal_Spell = 46,
-        SFX_Monster_Move_01 = 47, //발걸음 삭제
-        SFX_Monster_Move_02 = 48, //발걸음 삭제
-        SFX_Boss_Warning = 49,
-        SFX_Monster_Smash_Castle_01 = 50,
-        SFX_Monster_Smash_Castle_02 = 51,
-        SFX_Monster_Smash_Castle_03 = 52,
-        SFX_Monster_Die_01 = 53,
-        SFX_Monster_Die_02 = 54,
-        SFX_Monster_Die_03 = 55,
-        SFX_Stage_Fail = 56,
-        SFX_In_Game_Level_Up = 57,
-        SFX_Stage_Clear = 58,
-        SFX_Select_Skill = 59,
+        SFX_Boss_Warning = 47,
+        SFX_Monster_Smash_Castle_01 = 48,
+        SFX_Monster_Smash_Castle_02 = 49,
+        SFX_Monster_Smash_Castle_03 = 50,
+        SFX_Monster_Die_01 = 51,
+        SFX_Monster_Die_02 = 52,
+        SFX_Monster_Die_03 = 53,
+        SFX_Stage_Fail = 54,
+        SFX_In_Game_Level_Up = 55,
+        SFX_Stage_Clear = 56,
+        SFX_Select_Skill = 57,
 
         //챕터2
-        SFX_Monster_Die_04 = 60,
-        SFX_Monster_Die_05 = 61,
-        SFX_Monster_Die_06 = 62,
-        SFX_Monster_Move_04 = 63, //발걸음 삭제
-        SFX_Monster_Move_05 = 64, //발걸음 삭제
+        SFX_Monster_Die_04 = 58,
+        SFX_Monster_Die_05 = 59,
+        SFX_Monster_Die_06 = 60,
+        SFX_Monster_Smash_Castle_04 = 61,
+
+        //챕터3
+        SFX_Monster_Die_07 = 62,
+        SFX_Monster_Die_08 = 63,
+        SFX_Monster_Smash_Castle_05 = 64,
+        SFX_Monster_Smash_Castle_06 = 65,
+        SFX_Monster_Smash_Castle_07 = 66,
+        SFX_Monster_Smash_Castle_08 = 67,
+        SFX_Monster_Smash_Castle_12 = 68,
+
+        //챕터4
+        SFX_Monster_Die_09 = 69,
+        SFX_Monster_Die_10 = 70,
+        SFX_Monster_Die_11 = 71,
+        SFX_Monster_Die_12 = 72,
+        SFX_Monster_Die_13 = 73,
+        SFX_Monster_Smash_Castle_09 = 74,
+        SFX_Monster_Smash_Castle_10 = 75,
+        SFX_Monster_Smash_Castle_11 = 76
     }
 
     public float BGMVolume

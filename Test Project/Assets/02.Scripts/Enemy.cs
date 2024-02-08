@@ -1,3 +1,4 @@
+using BackEnd;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -119,11 +120,38 @@ public class Enemy : MonoBehaviour
             {
                 isWallAttackInProgress = true; // 공격이 시작됨을 표시
                 anim.SetTrigger("Attack");
-                int rand = Random.Range(0, 3);
 
-                if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_01);
-                else if (rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_02);
-                else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_03);
+                if (0 <= spriteType && spriteType <= 8)
+                {
+                    int rand = Random.Range(0, 3);
+                    if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_01);
+                    else if (rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_02);
+                    else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_03);
+                }
+                else if(spriteType == 9)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_04);
+                }
+                else if(spriteType == 10 || spriteType == 11)
+                {
+                    int rand = Random.Range(0, 2);
+                    if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_05);
+                    else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_12);
+                }
+                else if(12 <= spriteType && spriteType <= 18) 
+                {
+                    int rand = Random.Range(0, 3);
+                    if (rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_06);
+                    else if(rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_07);
+                    else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_08);
+                }
+                else
+                {
+                    int rand = Random.Range(0, 3);
+                    if(rand == 0) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_09);
+                    else if(rand == 1) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_10);
+                    else AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Smash_Castle_11);
+                }
 
                 wall.GetComponent<Wall>().getDamage(damage);
                 isWallAttackInProgress = false; // 공격이 끝남을 표시
@@ -499,6 +527,37 @@ public class Enemy : MonoBehaviour
                 AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_06);
                 break;
             //챕터 3
+            case 10:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_07);
+                break;
+            case 11:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_07);
+                break;
+            case 12:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_08);
+                break;
+            case 13:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_08);
+                break;
+            case 14:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_08);
+                break;
+            //챕터 4
+            case 15:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_09);
+                break;
+            case 16:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_10);
+                break;
+            case 17:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_11);
+                break;
+            case 18:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_12);
+                break;
+            case 19:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Die_13);
+                break;
         }
 
 

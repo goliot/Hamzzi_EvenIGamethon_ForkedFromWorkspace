@@ -70,7 +70,9 @@ public class RegisterAccount : LoginBase
                         BackendGameData.Instance.GameDataInsert();
 
                         //로비로 이동
-                        SceneManager.LoadScene("FirstPlay");
+                        //SceneManager.LoadScene("FirstPlay");
+                        SceneManager.LoadScene("CutScene");
+                        
                     }
                 });
             }

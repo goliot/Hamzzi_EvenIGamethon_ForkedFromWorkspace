@@ -108,6 +108,11 @@ public class GameManager : Singleton<GameManager>
 
     public void GetSeed(int getSeed)
     {
+        if (seed >= 100)
+        {
+            seed = 100;
+            return;               // 시드 상한선 100개
+        }
         seed += getSeed;
     }
 

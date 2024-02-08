@@ -44,7 +44,8 @@ public class BackEndFederationAuth : LoginBase
 
                     //BackendGameData.Instance.GameDataInsert();
                     //SceneManager.LoadScene("Lobby");
-                    SceneManager.LoadScene("FirstPlay");
+                    //SceneManager.LoadScene("FirstPlay");
+                    SceneManager.LoadScene("CutScene"); // ÄÆ¾ÀÀ¸·Î ³Ñ¾î°¡°Ô
                 }
                 else
                 {

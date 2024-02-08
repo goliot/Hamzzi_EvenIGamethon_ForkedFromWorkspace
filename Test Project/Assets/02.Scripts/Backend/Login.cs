@@ -40,7 +40,8 @@ public class Login : LoginBase
             if (callback.IsSuccess())
             {
                 SetMessage($"{inputFieldID.text}님 환영합니다.");
-                SceneManager.LoadScene("Lobby");
+                //SceneManager.LoadScene("Lobby");
+                SceneManager.LoadScene("CutScene");
             } 
             else
             {

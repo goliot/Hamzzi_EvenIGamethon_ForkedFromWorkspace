@@ -213,6 +213,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &293893358088871945
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +444,7 @@ GameObject:
   - component: {fileID: 533680231477135312}
   - component: {fileID: 5302678888715349107}
   - component: {fileID: 8710720778472588270}
-  - component: {fileID: 8368674152429899470}
+  - component: {fileID: 3315893449459768829}
   m_Layer: 5
   m_Name: Chapter
   m_TagString: Untagged
@@ -560,7 +569,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8368674152429899470
+--- !u!114 &3315893449459768829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,6 +872,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3767576189342712130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4521440857914651677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1293,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5670401066611854717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,6 +2093,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7170395465380409507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,6 +2275,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7223647790831073897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,7 +2519,7 @@ GameObject:
   - component: {fileID: 1335124128481625806}
   - component: {fileID: 854239075376447484}
   - component: {fileID: 7620057913835510915}
-  - component: {fileID: 2303983448618194273}
+  - component: {fileID: 8920290888192883893}
   m_Layer: 5
   m_Name: Story
   m_TagString: Untagged
@@ -2576,9 +2630,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2303983448618194273}
-        m_TargetAssemblyTypeName: StageButtonHandler, Assembly-CSharp
-        m_MethodName: OnClickStage
+      - m_Target: {fileID: 8920290888192883893}
+        m_TargetAssemblyTypeName: StoryButtonHandler, Assembly-CSharp
+        m_MethodName: LoadCutScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2588,7 +2642,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2303983448618194273
+--- !u!114 &8920290888192883893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2597,10 +2651,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7960186832959433695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f42ec40bbfa7d4c98302e13cd85b32, type: 3}
+  m_Script: {fileID: 11500000, guid: dbfebdef70bc15d4a8123852a59319e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 0
 --- !u!1 &8594978455326861872
 GameObject:
   m_ObjectHideFlags: 0

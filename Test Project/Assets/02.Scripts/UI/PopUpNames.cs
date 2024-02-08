@@ -15,8 +15,9 @@ public class PopUpNames
     public string strStageStartUI { get; set; }
     public string strTowerUpgradeSellUI { get; set; }
     public string strShopUI { get; set; }
+    public string strDogamUI {  get; set; }
 
-    public PopUpNames(string stageSelectUI, string optionsUI, string explainStaminaUI, string explainCornUI, string profileUI, string towerUI, string levelUpUI, string stageStartUI, string towerUpgradeSellUI, string shopUI)
+    public PopUpNames(string stageSelectUI, string optionsUI, string explainStaminaUI, string explainCornUI, string profileUI, string towerUI, string levelUpUI, string stageStartUI, string towerUpgradeSellUI, string shopUI, string DogamUI)
     {
         strStageSelectUI = stageSelectUI;
         strSettingsUI = optionsUI;
@@ -28,6 +29,7 @@ public class PopUpNames
         strStageStartUI = stageStartUI;
         strTowerUpgradeSellUI = towerUpgradeSellUI;
         strShopUI = shopUI;
+        strDogamUI = DogamUI;
     }
 
 }

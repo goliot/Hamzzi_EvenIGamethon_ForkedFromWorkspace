@@ -2775,6 +2775,8 @@ MonoBehaviour:
   bottonCorn01: {fileID: 2036939438555256586}
   bottonCorn05: {fileID: 2630566533564894333}
   bottonCorn10: {fileID: 1628659920279508431}
+  lobbyGrid: {fileID: 0}
+  shopGrid: {fileID: 0}
 --- !u!1 &7247968159097398120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3408,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4657929641058477090}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5844730157332500016}
+        m_TargetAssemblyTypeName: ShopButtonHandler, Assembly-CSharp
+        m_MethodName: OnPopupClosed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

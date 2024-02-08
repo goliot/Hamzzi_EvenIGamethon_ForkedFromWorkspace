@@ -9,6 +9,9 @@ public class ShopButtonHandler : MonoBehaviour
     public Button bottonCorn05;
     public Button bottonCorn10;
 
+    public GameObject lobbyGrid; // 로비 그리드
+    public GameObject shopGrid; // 상점 그리드
+
     void Start()
     {
         Init();
@@ -48,7 +51,29 @@ public class ShopButtonHandler : MonoBehaviour
         //        LobbyScene.Instance.UpdateCurrencyData();
         //    });
         //}
+
+        lobbyGrid = FindObjectOfType<Grid>().gameObject.transform.GetChild(0).gameObject;
+        shopGrid = FindObjectOfType<Grid>().gameObject.transform.GetChild(1).gameObject;
+
+        OnPopupOpened();
     }
+
+    // 팝업 창이 열릴 때 호출되는 함수
+    public void OnPopupOpened()
+    {
+        // 로비씬에 해당하는 그리드를 비활성화하고, 상점 맵에 해당하는 그리드를 활성화
+        lobbyGrid.SetActive(false);
+        shopGrid.SetActive(true);
+    }
+
+    // 팝업 창이 닫힐 때 호출되는 함수
+    public void OnPopupClosed()
+    {
+        // 로비씬에 해당하는 그리드를 활성화하고, 상점 맵에 해당하는 그리드를 비활성화
+        lobbyGrid.SetActive(true);
+        shopGrid.SetActive(false);
+    }
+
 
     public void OnClickConr60()
     {

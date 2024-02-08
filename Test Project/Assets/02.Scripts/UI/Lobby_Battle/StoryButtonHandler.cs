@@ -17,17 +17,19 @@ public class StoryButtonHandler : MonoBehaviour
     {
         currentChapter = 1;
 
-        ChapterButtonHandler chapterButtonHandler = FindObjectOfType<ChapterButtonHandler>();
-        if (chapterButtonHandler != null)
+        ChapterButtonHandler[] chapterButtonHandlers = FindObjectsOfType<ChapterButtonHandler>();
+        if (chapterButtonHandlers != null)
         {
-            chapterButtonHandler.OnChapterChanged.AddListener(UpdateChapter);
+            foreach(var cbh in chapterButtonHandlers)
+            {
+                cbh.OnChapterChanged.AddListener(UpdateChapter);
+            }
         }
         else
         {
             Debug.LogError("ChapterButtonHandler를 찾을 수 없습니다.");
         }
     }
-
     
     // UnityEvent 구독
     void UpdateChapter()
@@ -40,22 +42,17 @@ public class StoryButtonHandler : MonoBehaviour
 
     public void LoadChapterCutScene()
     {
-        SceneManager.LoadScene("CutScene");
+        // 비동기 로드가 완료된 후에 PlayCutScene 함수를 호출
+        SceneManager.LoadSceneAsync("CutScene").completed += OnLoadCutSceneComplete; // SceneManager.LoadSceneAsync를 사용
+    }
 
-        //switch (currentChapter)
-        //{
-        //    case 1:
-        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter01);
-        //        break;
-        //    case 2:
-        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter02);
-        //        break;
-        //    case 3:
-        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter03);
-        //        break;
-        //    case 4:
-        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter04);
-        //        break;
-        //}
+    // 로드 완료 콜백을 등록하여 로드가 완료된 후에 PlayCutScene을 호출
+    private void OnLoadCutSceneComplete(AsyncOperation operation)
+    {
+        if (operation.isDone)
+        {
+            // 씬 로드가 완료된 후에 PlayCutScene을 호출
+            CutSceneManager.Inst.PlayCutScene((CutSceneData.CutSceneType)currentChapter);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class ChapterButtonHandler: MonoBehaviour
             Debug.Log("Next Chapter");
             StageSelect.instance.chapter++;
             StageSelect.instance.stage = 1;
-            UpdateChapterButtons();
+            //UpdateChapterButtons();
             OnChapterChanged.Invoke();
         }
     }
@@ -31,10 +31,8 @@ public class ChapterButtonHandler: MonoBehaviour
             Debug.Log("Prev Chapter");
             StageSelect.instance.chapter--;
             StageSelect.instance.stage = 1;
-            UpdateChapterButtons();
+            //UpdateChapterButtons();
             OnChapterChanged.Invoke();
-
-            button.interactable = true;
         }
     }
 
@@ -46,21 +44,21 @@ public class ChapterButtonHandler: MonoBehaviour
         StageSelect.instance.SceneLoad();
     }
 
-    private void UpdateChapterButtons()
-    {
-        UpdateNextChapterButton();
-        UpdatePrevChapterButton();
-    }
+    //private void UpdateChapterButtons()
+    //{
+    //    UpdateNextChapterButton();
+    //    UpdatePrevChapterButton();
+    //}
 
-    private void UpdateNextChapterButton()
-    {
-        button.interactable = (StageSelect.instance.chapter < StageSelect.instance.max_chapter);
-        Debug.Log($"Next Chapter Button Interactable: {button.interactable}");
-    }
+    //private void UpdateNextChapterButton()
+    //{
+    //    button.interactable = (StageSelect.instance.chapter < StageSelect.instance.max_chapter);
+    //    Debug.Log($"Next Chapter Button Interactable: {button.interactable}");
+    //}
 
-    private void UpdatePrevChapterButton()
-    {
-        button.interactable = (StageSelect.instance.chapter > StageSelect.instance.min_chapter);
-        Debug.Log($"Prev Chapter Button Interactable: {button.interactable}");
-    }
+    //private void UpdatePrevChapterButton()
+    //{
+    //    button.interactable = (StageSelect.instance.chapter > StageSelect.instance.min_chapter);
+    //    Debug.Log($"Prev Chapter Button Interactable: {button.interactable}");
+    //}
 }

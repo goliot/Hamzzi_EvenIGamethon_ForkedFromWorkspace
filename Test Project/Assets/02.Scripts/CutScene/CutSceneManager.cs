@@ -9,25 +9,44 @@ using static CutSceneData;
 public class CutSceneManager : Singleton<CutSceneManager>
 {
     public CutSceneData[] cutSceneData;
-    Image cutSceneImage;
+    public Image cutSceneImage;
+    public Button nextButton;
+    public Button prevButton;
 
     int currentFrameIndex = 0;
     CutSceneData currentCutSceneData;
     public CutSceneType cutSceneType;
 
-    private void Awake()
+    void Awake()
     {
-        base.Initialize();
         Init();
+        base.Initialize_DontDestroyOnLoad();
     }
 
     void Init()
     {
-        cutSceneImage = GameObject.Find("CutSceneImage").GetComponent<Image>();
-        Button nextButton = GameObject.Find("NextButton").GetComponent<Button>();
-        Button prevButton = GameObject.Find("PrevButton").GetComponent<Button>();
-        nextButton.onClick.AddListener(ShowNextFrame);
-        prevButton.onClick.AddListener(ShowPreviousFrame);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬이 로드될 때마다 이미지와 버튼을 찾아서 연결
+        if (scene.name == "CutScene")
+        {
+            cutSceneImage = GameObject.Find("CutSceneImage").GetComponent<Image>();
+            nextButton = GameObject.Find("NextButton").GetComponent<Button>();
+            prevButton = GameObject.Find("PrevButton").GetComponent<Button>();
+
+            if (nextButton != null)
+            {
+                nextButton.onClick.AddListener(ShowNextFrame);
+            }
+
+            if (prevButton != null)
+            {
+                prevButton.onClick.AddListener(ShowPreviousFrame);
+            }
+        }
     }
 
     void Start()

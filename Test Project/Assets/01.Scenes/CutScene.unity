@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 1730081603}
   - component: {fileID: 1730081604}
   m_Layer: 0
-  m_Name: CutScene
+  m_Name: CutSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,9 +716,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97f824dddd8cfc549b773dcef7090996, type: 2}
   - {fileID: 11400000, guid: f4ab0ec210b05e44a8abcaa5be340bed, type: 2}
   - {fileID: 11400000, guid: f3f6c3c1552bf6d4fa157c4810c182ed, type: 2}
-  cutSceneImage: {fileID: 1924409297}
-  nextButton: {fileID: 0}
-  prevButton: {fileID: 0}
+  cutSceneType: 0
 --- !u!1 &1755304620
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6482901cd1a39ce4fbec0ee23ebb7722, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

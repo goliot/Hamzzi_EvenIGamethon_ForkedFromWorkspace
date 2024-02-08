@@ -6,16 +6,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static CutSceneData;
 
-public class CutSceneManager : MonoBehaviour
+public class CutSceneManager : Singleton<CutSceneManager>
 {
     public CutSceneData[] cutSceneData;
-    public Image cutSceneImage;
+    Image cutSceneImage;
+
     int currentFrameIndex = 0;
     CutSceneData currentCutSceneData;
+    public CutSceneType cutSceneType;
 
     private void Awake()
     {
-        // 버튼 리스너 추가
+        base.Initialize();
+        Init();
+    }
+
+    void Init()
+    {
+        cutSceneImage = GameObject.Find("CutSceneImage").GetComponent<Image>();
         Button nextButton = GameObject.Find("NextButton").GetComponent<Button>();
         Button prevButton = GameObject.Find("PrevButton").GetComponent<Button>();
         nextButton.onClick.AddListener(ShowNextFrame);
@@ -24,13 +32,8 @@ public class CutSceneManager : MonoBehaviour
 
     void Start()
     {
-        if (cutSceneImage == null)
-        {
-            cutSceneImage = GetComponent<Image>();
-        }
-
         // 시작 시 오프닝 컷씬 실행
-        PlayCutScene(CutSceneType.Opening);
+        PlayCutScene(cutSceneType);
     }
 
     // 컷씬 재생 함수
@@ -74,7 +77,8 @@ public class CutSceneManager : MonoBehaviour
 
         if (currentFrameIndex >= frameCount - 1)
         {
-            MoveToFirstPlay();
+            if (cutSceneType == CutSceneType.Opening) MoveToFirstPlay();
+            else MoveToLobby();
         }
         else
         {
@@ -100,6 +104,7 @@ public class CutSceneManager : MonoBehaviour
         cutSceneImage.sprite = sprite;
     }
 
+    // 최초 진행인지 아닌지는 FirstPlay 씬에서 무조건 검사
     void MoveToLobby()
     {
         SceneManager.LoadScene("Lobby");

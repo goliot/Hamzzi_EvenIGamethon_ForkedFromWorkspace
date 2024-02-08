@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/Battle_Proto.unity
     guid: ea1b9afd3e2032c47b679f477d67fab1
+  - enabled: 1
+    path: Assets/01.Scenes/CutScene.unity
+    guid: ad2ad3879463d5d48baa0a9d98f5d6e3
   - enabled: 0
     path: Assets/01.Scenes/AdsTest.unity
     guid: e440db793df46d14b9f41e3353370a3e

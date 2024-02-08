@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ChapterButtonHandler: MonoBehaviour
 {
     [SerializeField] Button button;
+    public UnityEvent OnChapterChanged;
+
 
     public void OnClickNextChapter()
     {
@@ -16,6 +19,7 @@ public class ChapterButtonHandler: MonoBehaviour
             StageSelect.instance.chapter++;
             StageSelect.instance.stage = 1;
             UpdateChapterButtons();
+            OnChapterChanged.Invoke();
         }
     }
 
@@ -28,6 +32,7 @@ public class ChapterButtonHandler: MonoBehaviour
             StageSelect.instance.chapter--;
             StageSelect.instance.stage = 1;
             UpdateChapterButtons();
+            OnChapterChanged.Invoke();
 
             button.interactable = true;
         }

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class StoryButtonHandler : MonoBehaviour
 {
+    int currentChapter;
+
     void Awake()
     {
         Init();
@@ -13,10 +15,12 @@ public class StoryButtonHandler : MonoBehaviour
 
     void Init()
     {
+        currentChapter = 1;
+
         ChapterButtonHandler chapterButtonHandler = FindObjectOfType<ChapterButtonHandler>();
         if (chapterButtonHandler != null)
         {
-            //chapterButtonHandler.OnChapterChanged.AddListener(UpdateChapter);
+            chapterButtonHandler.OnChapterChanged.AddListener(UpdateChapter);
         }
         else
         {
@@ -24,15 +28,34 @@ public class StoryButtonHandler : MonoBehaviour
         }
     }
 
+    
     // UnityEvent ±¸µ¶
     void UpdateChapter()
     {
-        int currentChapter = StageSelect.instance.chapter;
+        currentChapter = StageSelect.instance.chapter;
         Debug.Log(currentChapter);
+        CutSceneManager.Inst.cutSceneType = (CutSceneData.CutSceneType)currentChapter;
+        Debug.Log(CutSceneManager.Inst.cutSceneType);
     }
 
-    public void LoadCutScene()
+    public void LoadChapterCutScene()
     {
         SceneManager.LoadScene("CutScene");
+
+        //switch (currentChapter)
+        //{
+        //    case 1:
+        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter01);
+        //        break;
+        //    case 2:
+        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter02);
+        //        break;
+        //    case 3:
+        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter03);
+        //        break;
+        //    case 4:
+        //        CutSceneManager.Inst.PlayCutScene(CutSceneData.CutSceneType.Chapter04);
+        //        break;
+        //}
     }
 }

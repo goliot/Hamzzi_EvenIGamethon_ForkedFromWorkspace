@@ -717,8 +717,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4ab0ec210b05e44a8abcaa5be340bed, type: 2}
   - {fileID: 11400000, guid: f3f6c3c1552bf6d4fa157c4810c182ed, type: 2}
   cutSceneImage: {fileID: 1924409297}
-  nextButton: {fileID: 590264560}
-  prevButton: {fileID: 606895261}
+  nextButton: {fileID: 0}
+  prevButton: {fileID: 0}
 --- !u!1 &1755304620
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 1924409298}
   - component: {fileID: 1924409297}
   m_Layer: 5
-  m_Name: CutScene
+  m_Name: CutSceneImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

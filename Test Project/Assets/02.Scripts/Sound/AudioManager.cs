@@ -28,8 +28,14 @@ public class AudioManager : Singleton<AudioManager>
         BGM_IllustratedGuideHamster = 5,
         BGM_IllustratedGuideMonster = 6,
         BGM_Chapter01 = 7,
-        BGM_Chapter01Cartton = 8,
-        BGM_Chapter02 = 8,
+        BGM_Chapter01Cartoon = 8,
+        BGM_Chapter02 = 9,
+        BGM_Chapter02Cartoon = 10,
+        BGM_Chapter03 = 11,
+        BGM_Chapter03Cartoon = 12,
+        BGM_Chapter04 = 13,
+        BGM_Chapter04Cartoon = 14
+
     }
 
     public enum SFX {

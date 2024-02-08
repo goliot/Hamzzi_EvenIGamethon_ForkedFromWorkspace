@@ -2507,6 +2507,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 8677889527796320992}
+  OnChapterChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7960186832959433695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,7 +2635,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8920290888192883893}
         m_TargetAssemblyTypeName: StoryButtonHandler, Assembly-CSharp
-        m_MethodName: LoadCutScene
+        m_MethodName: LoadChapterCutScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2936,6 +2939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 57959222901785616}
+  OnChapterChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9170576782656891848
 GameObject:
   m_ObjectHideFlags: 0

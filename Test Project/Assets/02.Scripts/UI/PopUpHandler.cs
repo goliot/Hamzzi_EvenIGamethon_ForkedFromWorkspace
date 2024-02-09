@@ -87,6 +87,13 @@ public class PopUpHandler : MonoBehaviour
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         onDogamBackground.Invoke();
     }
+
+    public void OnClickPopUpDogamMonster()
+    {
+        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strDogamMonsterUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
+    }
+
     #endregion
 
     public void OnClickExit()

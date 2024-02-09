@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 5983750587129106675}
   - component: {fileID: 4204623693573254598}
   - component: {fileID: 7131939484352213896}
+  - component: {fileID: 7757207860713788360}
   m_Layer: 5
   m_Name: Image (4)
   m_TagString: Untagged
@@ -255,6 +256,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4204623693573254598}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7757207860713788360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145898045570302303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &351801035110429882
 GameObject:
@@ -328,10 +362,10 @@ RectTransform:
   m_Father: {fileID: 4568222468229921352}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 102.87024, y: -402.87024}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &96186127454107194
 CanvasRenderer:
@@ -1333,6 +1367,7 @@ GameObject:
   - component: {fileID: 2520539094553687401}
   - component: {fileID: 1746418636227305700}
   - component: {fileID: 6735907718683170458}
+  - component: {fileID: 257540335935024562}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -1440,6 +1475,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1746418636227305700}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &257540335935024562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745093873165983562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1803458876525194073
@@ -1822,6 +1890,7 @@ GameObject:
   - component: {fileID: 8544846824676246124}
   - component: {fileID: 587647117950464240}
   - component: {fileID: 7770856677279395661}
+  - component: {fileID: 8414899106900883667}
   m_Layer: 5
   m_Name: Image (4)
   m_TagString: Untagged
@@ -1930,6 +1999,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 587647117950464240}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8414899106900883667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339053750199198960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2503152437786661727
 GameObject:
@@ -1943,6 +2045,7 @@ GameObject:
   - component: {fileID: 2959173436968845638}
   - component: {fileID: 2166087532083696834}
   - component: {fileID: 8013047240091744851}
+  - component: {fileID: 1022030064157301075}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -2050,6 +2153,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 2166087532083696834}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1022030064157301075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503152437786661727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2530997277170758531
@@ -3066,6 +3202,7 @@ GameObject:
   - component: {fileID: 7213304541113451146}
   - component: {fileID: 7043338976529195859}
   - component: {fileID: 6573066381311887456}
+  - component: {fileID: 7806604184669697980}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -3088,10 +3225,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -330}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7213304541113451146
 CanvasRenderer:
@@ -3173,6 +3310,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 7043338976529195859}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7806604184669697980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021763756556563470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3045150237289898552
@@ -3665,6 +3835,7 @@ GameObject:
   - component: {fileID: 8050369269925493694}
   - component: {fileID: 7440277135829002831}
   - component: {fileID: 6151816711578196330}
+  - component: {fileID: 3322474569984400607}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -3772,6 +3943,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 7440277135829002831}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3322474569984400607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504259816297366727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3545248357574292863
@@ -3921,6 +4125,7 @@ GameObject:
   - component: {fileID: 7309346435133491273}
   - component: {fileID: 3030801487510112726}
   - component: {fileID: 8849501998823216190}
+  - component: {fileID: 7679084180833579481}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -4029,6 +4234,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3030801487510112726}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7679084180833579481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575507873339816630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3595150834908790143
 GameObject:
@@ -4042,6 +4280,7 @@ GameObject:
   - component: {fileID: 1588943552348052485}
   - component: {fileID: 3886443477955501858}
   - component: {fileID: 118605995773002179}
+  - component: {fileID: 5051875048453781287}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -4149,6 +4388,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 3886443477955501858}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5051875048453781287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595150834908790143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3681876776357018663
@@ -4698,6 +4970,7 @@ GameObject:
   - component: {fileID: 3286365985784772110}
   - component: {fileID: 4279240006268260982}
   - component: {fileID: 1564929451234874786}
+  - component: {fileID: 4005306324032052480}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -4720,10 +4993,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3286365985784772110
 CanvasRenderer:
@@ -4805,6 +5078,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4279240006268260982}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4005306324032052480}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4005306324032052480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944626667923675439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3971113539268400954
@@ -4944,7 +5250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4568222468229921352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5421,10 +5727,10 @@ RectTransform:
   m_Father: {fileID: 4568222468229921352}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 302.87024, y: -202.87024}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3653013646301672246
 CanvasRenderer:
@@ -5520,6 +5826,7 @@ GameObject:
   - component: {fileID: 1481177612466518699}
   - component: {fileID: 5629813048063546183}
   - component: {fileID: 4962232254310145891}
+  - component: {fileID: 7450085573170101856}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -5628,6 +5935,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5629813048063546183}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7450085573170101856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640653532750324456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4644184202455237855
 GameObject:
@@ -5663,10 +6003,10 @@ RectTransform:
   m_Father: {fileID: 4568222468229921352}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 102.87024, y: -202.87024}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5420411323392228197
 CanvasRenderer:
@@ -6033,6 +6373,7 @@ GameObject:
   - component: {fileID: 3392834385555152325}
   - component: {fileID: 2145858241973638918}
   - component: {fileID: 3070641762813328393}
+  - component: {fileID: 9212545122489882842}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -6140,6 +6481,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 2145858241973638918}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9212545122489882842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966455773907182742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5073276791809073766
@@ -6275,6 +6649,7 @@ GameObject:
   - component: {fileID: 1805026705485551101}
   - component: {fileID: 547342267246380959}
   - component: {fileID: 2145544007503711760}
+  - component: {fileID: 3914325819385542005}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -6383,6 +6758,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 547342267246380959}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3914325819385542005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124939038240361633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5292785229954759311
 GameObject:
@@ -6396,6 +6804,7 @@ GameObject:
   - component: {fileID: 3933154034217926110}
   - component: {fileID: 6667218937971758341}
   - component: {fileID: 6667764020181908986}
+  - component: {fileID: 8323518238854586968}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -6418,10 +6827,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 560, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3933154034217926110
 CanvasRenderer:
@@ -6503,6 +6912,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6667218937971758341}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8323518238854586968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5292785229954759311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5313554162390136300
@@ -6986,6 +7428,7 @@ GameObject:
   - component: {fileID: 3606617355462312518}
   - component: {fileID: 4431797682951972604}
   - component: {fileID: 5654623657681275673}
+  - component: {fileID: 8837558701080925886}
   m_Layer: 5
   m_Name: Image (4)
   m_TagString: Untagged
@@ -7008,10 +7451,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 330, y: -330}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3606617355462312518
 CanvasRenderer:
@@ -7094,6 +7537,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4431797682951972604}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8837558701080925886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977703679467657941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &6011558833171487585
 GameObject:
@@ -7150,7 +7626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7373046194383522934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7232,7 +7708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814742818232361901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7667,6 +8143,7 @@ GameObject:
   - component: {fileID: 7233549889204494725}
   - component: {fileID: 7893184577819445505}
   - component: {fileID: 5353792486450919587}
+  - component: {fileID: 5160561140811364969}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -7774,6 +8251,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 7893184577819445505}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5160561140811364969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076620004033178327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7098550106008569870
@@ -7902,6 +8412,7 @@ GameObject:
   - component: {fileID: 6416023727215941015}
   - component: {fileID: 4805244303465693811}
   - component: {fileID: 2042221900162613327}
+  - component: {fileID: 2400245990513664377}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -8009,6 +8520,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4805244303465693811}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2400245990513664377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249066564051771922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7366794492881268219
@@ -8205,10 +8749,10 @@ RectTransform:
   m_Father: {fileID: 4568222468229921352}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 502.87024, y: -202.87024}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1135619427225154367
 CanvasRenderer:
@@ -8380,6 +8924,7 @@ GameObject:
   - component: {fileID: 1580649458268340758}
   - component: {fileID: 542088169348795890}
   - component: {fileID: 810300537540937800}
+  - component: {fileID: 5560144966439601012}
   m_Layer: 5
   m_Name: Image (4)
   m_TagString: Untagged
@@ -8487,6 +9032,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 542088169348795890}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5560144966439601012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8040086825600982826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8069105526668531465
@@ -8772,6 +9350,7 @@ GameObject:
   - component: {fileID: 2743886652462873947}
   - component: {fileID: 8890555022405986644}
   - component: {fileID: 8860129942867742317}
+  - component: {fileID: 5865681398904162855}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -8794,10 +9373,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 330, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2743886652462873947
 CanvasRenderer:
@@ -8880,6 +9459,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8890555022405986644}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5865681398904162855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289779261546364664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8548978788525326432
 GameObject:
@@ -8893,6 +9505,7 @@ GameObject:
   - component: {fileID: 8979257458625417510}
   - component: {fileID: 5146188295210282870}
   - component: {fileID: 4221416673396254284}
+  - component: {fileID: 4716672680016575425}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -9001,6 +9614,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5146188295210282870}
   m_OnClick:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4716672680016575425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548978788525326432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8569799929492094062
 GameObject:
@@ -9094,7 +9740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5837884699562165005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9218,10 +9864,10 @@ RectTransform:
   m_Father: {fileID: 4568222468229921352}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 302.87024, y: -402.87024}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4255222374046811983
 CanvasRenderer:
@@ -9431,6 +10077,7 @@ GameObject:
   - component: {fileID: 4450098259641241294}
   - component: {fileID: 8863315160344271262}
   - component: {fileID: 158352749645859850}
+  - component: {fileID: 2134093741719583888}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -9538,6 +10185,39 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 8863315160344271262}
   m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7757207860713788360}
+        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
+        m_MethodName: OnClickPopUpDogamMonster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2134093741719583888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055196378136855608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShopBackground:
+    m_PersistentCalls:
+      m_Calls: []
+  onDogamBackground:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &9210383602126681756

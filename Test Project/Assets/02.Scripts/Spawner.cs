@@ -259,6 +259,10 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
         BackendGameData.Instance.UserGameData.bread += breadRewardThisStage;
         BackendGameData.Instance.UserGameData.corn += cornRewardThisStage;
+        if(BackendGameData.Instance.ClearData.lastClear == ((chapter-1) * 5 + (stage - 1)))
+        {
+            BackendGameData.Instance.ClearData.lastClear = (chapter - 1) * 5 + stage; // 1-1을 깨면 lastClear가 1
+        }
         //BackendGameData.Instance.GameDataUpdate();
 
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);

@@ -35,6 +35,11 @@ public class UserPanelViewer : MonoBehaviour
             float value = (float)bread / nextBread;
             sliderExperience.value = sliderExperience.value = Mathf.Clamp01(value);
             sliderText.text = bread.ToString() + "/" + nextBread.ToString();
+
+            inputFieldNickname.GetComponent<TextMeshProUGUI>().text = UserInfo.Data.nickname == null ?
+                            UserInfo.Data.gamerId : UserInfo.Data.nickname;
+
+            textGamerId.text = inputFieldNickname.GetComponent<TextMeshProUGUI>().text;
         }
     }
 

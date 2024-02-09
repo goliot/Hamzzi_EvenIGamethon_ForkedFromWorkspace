@@ -55,7 +55,8 @@ public class BackendGameData
             {"level", userGameData.level },
             {"bread", userGameData.bread },
             {"corn", userGameData.corn},
-            {"threadmill", userGameData.threadmill}
+            {"threadmill", userGameData.threadmill},
+            //{"isAdRemoved", userGameData.isAdRemoved }
         };
 
         Backend.GameData.Insert("USER_DATA", param, callback =>
@@ -104,6 +105,7 @@ public class BackendGameData
                          userGameData.bread = int.Parse(gameDataJson[0]["bread"].ToString());
                          userGameData.corn = int.Parse(gameDataJson[0]["corn"].ToString());
                          userGameData.threadmill = int.Parse(gameDataJson[0]["threadmill"].ToString());
+                         //userGameData.isAdRemoved = bool.Parse(gameDataJson[0]["isAdRemoved"].ToString());
 
                          onGameDataLoadEvent?.Invoke();
                      }
@@ -139,7 +141,8 @@ public class BackendGameData
             {"level", userGameData.level },
             {"bread", userGameData.bread },
             {"corn", userGameData.corn},
-            {"threadmill", userGameData.threadmill}
+            {"threadmill", userGameData.threadmill},
+            //{"isAdRemoved", userGameData.isAdRemoved }
         };
 
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
@@ -174,11 +177,11 @@ public class BackendGameData
 
     public void ClearDataInsert()
     {
-        userGameData.Reset();
+        clearData.Reset();
 
         Param param = new Param()
         {
-            {"c1s1", clearData.c1s1 },
+            /*{"c1s1", clearData.c1s1 },
             {"c1s2", clearData.c1s2 },
             {"c1s3", clearData.c1s3 },
             {"c1s4", clearData.c1s4 },
@@ -197,7 +200,7 @@ public class BackendGameData
             {"c4s2", clearData.c4s2 },
             {"c4s3", clearData.c4s3 },
             {"c4s4", clearData.c4s4 },
-            {"c4s5", clearData.c4s5 },
+            {"c4s5", clearData.c4s5 },*/
             {"lastClear", clearData.lastClear }
         };
 
@@ -205,7 +208,7 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                gameDataRowInDate = callback.GetInDate();
+                clearDataRowInDate = callback.GetInDate();
 
                 Debug.Log($"클리어 정보 데이터 삽입에 성공했습니다. : {callback}");
 
@@ -239,7 +242,7 @@ public class BackendGameData
                     {
                         clearDataRowInDate = gameDataJson[0]["inDate"].ToString();
 
-                        clearData.c1s1 = int.Parse(gameDataJson[0]["c1s1"].ToString());
+                        /*clearData.c1s1 = int.Parse(gameDataJson[0]["c1s1"].ToString());
                         clearData.c1s2 = int.Parse(gameDataJson[0]["c1s2"].ToString());
                         clearData.c1s3 = int.Parse(gameDataJson[0]["c1s3"].ToString());
                         clearData.c1s4 = int.Parse(gameDataJson[0]["c1s4"].ToString());
@@ -258,7 +261,7 @@ public class BackendGameData
                         clearData.c4s2 = int.Parse(gameDataJson[0]["c4s2"].ToString());
                         clearData.c4s3 = int.Parse(gameDataJson[0]["c4s3"].ToString());
                         clearData.c4s4 = int.Parse(gameDataJson[0]["c4s4"].ToString());
-                        clearData.c4s5 = int.Parse(gameDataJson[0]["c4s5"].ToString());
+                        clearData.c4s5 = int.Parse(gameDataJson[0]["c4s5"].ToString());*/
                         clearData.lastClear = int.Parse(gameDataJson[0]["lastClear"].ToString());
                     }
                 }
@@ -286,7 +289,7 @@ public class BackendGameData
 
         Param param = new Param()
         {
-            {"c1s1", clearData.c1s1 },
+            /*{"c1s1", clearData.c1s1 },
             {"c1s2", clearData.c1s2 },
             {"c1s3", clearData.c1s3 },
             {"c1s4", clearData.c1s4 },
@@ -305,7 +308,7 @@ public class BackendGameData
             {"c4s2", clearData.c4s2 },
             {"c4s3", clearData.c4s3 },
             {"c4s4", clearData.c4s4 },
-            {"c4s5", clearData.c4s5 },
+            {"c4s5", clearData.c4s5 },*/
             {"lastClear", clearData.lastClear }
         };
 
@@ -339,7 +342,7 @@ public class BackendGameData
 
     public void DogamDataInsert()
     {
-        userGameData.Reset();
+        dogamData.Reset();
 
         Param param = new Param()
         {
@@ -440,7 +443,7 @@ public class BackendGameData
 
     public void DogamDataUpdate(UnityAction action = null)
     {
-        if (clearData == null)
+        if (dogamData == null)
         {
             Debug.LogError("서버에서 다운받거나 새로 삽입한 데이터가 존재하지 않습니다." +
                            "Insert 혹은 Load를 통해 데이터를 생성해주세요.");
@@ -501,7 +504,7 @@ public class BackendGameData
 
     public void TowerDataInsert()
     {
-        userGameData.Reset();
+        towerDB.Reset();
 
         Param param = new Param()
         {
@@ -572,7 +575,7 @@ public class BackendGameData
 
     public void TowerDataUpdate(UnityAction action = null)
     {
-        if (clearData == null)
+        if (towerDB == null)
         {
             Debug.LogError("서버에서 다운받거나 새로 삽입한 데이터가 존재하지 않습니다." +
                            "Insert 혹은 Load를 통해 데이터를 생성해주세요.");

@@ -5,22 +5,49 @@ using TMPro;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AdmobManager : MonoBehaviour
 {
-    //public TextMeshProUGUI rewardText;
+    public static AdmobManager instance;
 
-    public void Start()
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
     {
         // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize(initStatus => 
+        MobileAds.Initialize(initStatus =>
         {
             Debug.Log("광고 초기화 성공");
+
+            //LoadAd();
         });
+
+        // 씬이 변경될 때마다 호출될 함수를 등록합니다.
+        //SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // 씬이 로드될 때마다 호출되는 콜백 함수
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //if (BackendGameData.Instance.UserGameData.isAdRemoved) return;
+        if(scene.name == "Lobby" || scene.name == "Battle_Proto") LoadAd();
     }
 
 #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111";
+    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
+    //private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
 #else
   private string _adUnitId = "unused";
 #endif

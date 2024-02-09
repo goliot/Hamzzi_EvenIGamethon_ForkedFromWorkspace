@@ -46,13 +46,14 @@ public class CutSceneManager : Singleton<CutSceneManager>
             {
                 prevButton.onClick.AddListener(ShowPreviousFrame);
             }
+            PlayCutScene(cutSceneType);
         }
     }
 
     void Start()
     {
         // ½ÃÀÛ ½Ã ¿ÀÇÁ´× ÄÆ¾À ½ÇÇà
-        PlayCutScene(cutSceneType);
+        //PlayCutScene(cutSceneType);
     }
 
     // ÄÆ¾À Àç»ý ÇÔ¼ö

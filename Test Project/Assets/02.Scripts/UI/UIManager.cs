@@ -67,6 +67,7 @@ public class UIManager : Singleton<UIManager>
     public void GoToHome()
     {
         BackendGameData.Instance.GameDataUpdate();
+        BackendGameData.Instance.ClearDataUpdate();
         GameManager.Inst.Resume();
         SceneManager.LoadScene("Lobby");
     }

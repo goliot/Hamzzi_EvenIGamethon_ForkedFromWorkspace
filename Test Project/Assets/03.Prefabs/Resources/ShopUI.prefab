@@ -4929,7 +4929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: corn_60
+  productId: adremove
   buttonType: 0
   consumePurchase: 1
   onTransactionsRestored:
@@ -4937,7 +4937,19 @@ MonoBehaviour:
       m_Calls: []
   onPurchaseComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5844730157332500016}
+        m_TargetAssemblyTypeName: ShopButtonHandler, Assembly-CSharp
+        m_MethodName: OnClickRemoveAds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
@@ -6971,6 +6983,7 @@ MonoBehaviour:
   blackBtn: {fileID: 4425837441520328305}
   tankBtn: {fileID: 3192043251064301556}
   healBtn: {fileID: 6190166934475895305}
+  removeAdBtn: {fileID: 513427603640313078}
   yesBtn: {fileID: 2924443330958950310}
   noBtn: {fileID: 5899576352582348591}
   warningMsg: {fileID: 5732620898391026250}

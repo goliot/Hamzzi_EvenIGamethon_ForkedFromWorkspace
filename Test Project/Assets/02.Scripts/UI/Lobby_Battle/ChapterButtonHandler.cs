@@ -38,7 +38,7 @@ public class ChapterButtonHandler: MonoBehaviour
 
     public void OnClickGameStart()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Wheel);
         BackendGameData.Instance.UserGameData.threadmill -= 1;
         //BackendGameData.Instance.GameDataUpdate();
         StageSelect.instance.SceneLoad();

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using JetBrains.Annotations;
 using GooglePlayGames;
 
 public class SoundSettings : MonoBehaviour

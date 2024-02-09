@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ShopButtonHandler : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ShopButtonHandler : MonoBehaviour
     public Button blackBtn;
     public Button tankBtn;
     public Button healBtn;
+    public Button removeAdBtn;
 
     public Button yesBtn;
     public Button noBtn;
@@ -32,6 +34,7 @@ public class ShopButtonHandler : MonoBehaviour
         if(BackendGameData.Instance.TowerDB.t2) blackBtn.interactable = false;
         if(BackendGameData.Instance.TowerDB.t3) tankBtn.interactable = false;
         if(BackendGameData.Instance.TowerDB.t4) healBtn.interactable = false;
+        //if(BackendGameData.Instance.UserGameData.isAdRemoved) removeAdBtn.interactable = false;
     }
 
     void Init()
@@ -96,7 +99,7 @@ public class ShopButtonHandler : MonoBehaviour
     {
         BackendGameData.Instance.UserGameData.corn += 60;
         BackendGameData.Instance.GameDataUpdate();
-        BackendGameData.Instance.GameDataLoad();
+        //BackendGameData.Instance.GameDataLoad();
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
     }
 
@@ -104,7 +107,7 @@ public class ShopButtonHandler : MonoBehaviour
     {
         BackendGameData.Instance.UserGameData.corn += 300;
         BackendGameData.Instance.GameDataUpdate();
-        BackendGameData.Instance.GameDataLoad();
+        //BackendGameData.Instance.GameDataLoad();
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
     }
 
@@ -112,7 +115,7 @@ public class ShopButtonHandler : MonoBehaviour
     {
         BackendGameData.Instance.UserGameData.corn += 600;
         BackendGameData.Instance.GameDataUpdate();
-        BackendGameData.Instance.GameDataLoad();
+        //BackendGameData.Instance.GameDataLoad();
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
     }
 
@@ -148,6 +151,11 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickRemoveAds()
     {
+        /*AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+        BackendGameData.Instance.UserGameData.isAdRemoved = true;
+        BackendGameData.Instance.GameDataUpdate();
+        AdmobManager.instance.DestroyBannerView();*/
+
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         //그냥 IAP 함수 수행
         warningPanel.SetActive(true);
@@ -228,14 +236,14 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.UserGameData.corn -= 20;
             BackendGameData.Instance.UserGameData.bread += 5;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
         }
         else if(cornProductId == 1) //쳇바퀴 구매일 경우
         {
             BackendGameData.Instance.UserGameData.corn -= 10;
             BackendGameData.Instance.UserGameData.threadmill += 1;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
         }
         else if(cornProductId == 2)
         {
@@ -247,7 +255,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.TowerDB.t0 = true;
             BackendGameData.Instance.UserGameData.corn -= 250;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
             BackendGameData.Instance.TowerDataLoad();
         }
@@ -256,7 +264,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.TowerDB.t1 = true;
             BackendGameData.Instance.UserGameData.corn -= 480;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
             BackendGameData.Instance.TowerDataLoad();
         }
@@ -265,7 +273,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.TowerDB.t2 = true;
             BackendGameData.Instance.UserGameData.corn -= 800;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
             BackendGameData.Instance.TowerDataLoad();
         }
@@ -274,7 +282,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.TowerDB.t3 = true;
             BackendGameData.Instance.UserGameData.corn -= 1500;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
             BackendGameData.Instance.TowerDataLoad();
         }
@@ -283,7 +291,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.TowerDB.t4 = true;
             BackendGameData.Instance.UserGameData.corn -= 1500;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
             BackendGameData.Instance.TowerDataLoad();
         }

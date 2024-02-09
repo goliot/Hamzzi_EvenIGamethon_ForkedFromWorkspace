@@ -41,11 +41,12 @@ public class LobbyScene : MonoBehaviour
             user.GetUserInfoFromBackend();
         }
         BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData); //GameData관련 리스너
-                                                                                      //BackendGameData.Instance.onGameDataUpdateEvent.AddListener(UpdateCurrencyData);
+        BackendGameData.Instance.onGameDataUpdateEvent.AddListener(BackendGameData.Instance.GameDataLoad);
+
         BackendGameData.Instance.GameDataLoad();
         BackendGameData.Instance.TowerDataLoad();
         //BackendGameData.Instance.DogamDataLoad();
-        //BackendGameData.Instance.ClearDataLoad();
+        BackendGameData.Instance.ClearDataLoad();
     }
 
     private void isFirstTime()
@@ -83,6 +84,7 @@ public class LobbyScene : MonoBehaviour
         {
             BackendGameData.Instance.UserGameData.bread += 1000;
             BackendGameData.Instance.GameDataUpdate();
+            BackendGameData.Instance.GameDataLoad();
         }
     }
 
@@ -97,6 +99,7 @@ public class LobbyScene : MonoBehaviour
     {
         BackendGameData.Instance.UserGameData.threadmill = 10;
         BackendGameData.Instance.GameDataUpdate();
+        BackendGameData.Instance.GameDataLoad();
     }
 
     public void loadLobby()

@@ -891,6 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2945133362947504611}
   - component: {fileID: 27368776479444077}
+  - component: {fileID: 8153629539337134991}
   m_Layer: 5
   m_Name: StageSelectUI
   m_TagString: Untagged
@@ -938,6 +939,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14fa2a4f590752641bb8ff57788029f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8153629539337134991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767576189342712130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d4093c39b6513468a7ae6238d0f5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 333726123497852873}
+  - {fileID: 614838131947982984}
+  - {fileID: 2439953973142370124}
+  - {fileID: 4523325612266740369}
+  - {fileID: 2105610755178042236}
+  unlockColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  chapter: 0
 --- !u!1 &4261220743935263545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,7 +2617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7960186832959433695}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 

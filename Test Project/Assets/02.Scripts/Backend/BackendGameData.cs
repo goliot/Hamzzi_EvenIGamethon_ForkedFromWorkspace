@@ -12,6 +12,14 @@ public class BackendGameData
     public class GameDataUpdateEvent : UnityEvent { }
     public GameDataUpdateEvent onGameDataUpdateEvent = new GameDataUpdateEvent();
 
+    [System.Serializable]
+    public class ClearDataUpdateEvent : UnityEvent { }
+    public ClearDataUpdateEvent onClearDataUpdateEvent = new ClearDataUpdateEvent();
+
+    [System.Serializable]
+    public class TowerDataUpdateEvent : UnityEvent { }
+    public TowerDataUpdateEvent onTowerDataUpdateEvent = new TowerDataUpdateEvent();
+
     private static BackendGameData instance = null;
     public static BackendGameData Instance
     {
@@ -330,7 +338,7 @@ public class BackendGameData
                     Debug.Log($"클리어 정보 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
-                    //ClearDataLoad();
+                    onClearDataUpdateEvent.Invoke();
                 }
                 else
                 {
@@ -609,7 +617,7 @@ public class BackendGameData
                     Debug.Log($"타워 정보 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
-                    //TowerDataLoad();
+                    onTowerDataUpdateEvent.Invoke();
                 }
                 else
                 {

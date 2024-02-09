@@ -42,6 +42,8 @@ public class LobbyScene : MonoBehaviour
         }
         BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData); //GameData관련 리스너
         BackendGameData.Instance.onGameDataUpdateEvent.AddListener(BackendGameData.Instance.GameDataLoad);
+        BackendGameData.Instance.onClearDataUpdateEvent.AddListener(BackendGameData.Instance.ClearDataLoad);
+        BackendGameData.Instance.onTowerDataUpdateEvent.AddListener(BackendGameData.Instance.TowerDataLoad);
 
         BackendGameData.Instance.GameDataLoad();
         BackendGameData.Instance.TowerDataLoad();

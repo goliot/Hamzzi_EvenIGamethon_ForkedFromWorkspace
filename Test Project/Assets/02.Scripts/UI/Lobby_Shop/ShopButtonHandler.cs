@@ -28,12 +28,15 @@ public class ShopButtonHandler : MonoBehaviour
         Init();
         warningMsg.text = "";
         cornProductId = 0;
+    }
 
-        if(BackendGameData.Instance.TowerDB.t0) arrowBtn.interactable = false;
-        if(BackendGameData.Instance.TowerDB.t1) bombBtn.interactable = false;
-        if(BackendGameData.Instance.TowerDB.t2) blackBtn.interactable = false;
-        if(BackendGameData.Instance.TowerDB.t3) tankBtn.interactable = false;
-        if(BackendGameData.Instance.TowerDB.t4) healBtn.interactable = false;
+    private void Update()
+    {
+        if (BackendGameData.Instance.TowerDB.t0) arrowBtn.interactable = false;
+        if (BackendGameData.Instance.TowerDB.t1) bombBtn.interactable = false;
+        if (BackendGameData.Instance.TowerDB.t2) blackBtn.interactable = false;
+        if (BackendGameData.Instance.TowerDB.t3) tankBtn.interactable = false;
+        if (BackendGameData.Instance.TowerDB.t4) healBtn.interactable = false;
         //if(BackendGameData.Instance.UserGameData.isAdRemoved) removeAdBtn.interactable = false;
     }
 
@@ -266,7 +269,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.GameDataUpdate();
             //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
-            BackendGameData.Instance.TowerDataLoad();
+            //BackendGameData.Instance.TowerDataLoad();
         }
         else if (cornProductId == 5)
         {
@@ -275,7 +278,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.GameDataUpdate();
             //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
-            BackendGameData.Instance.TowerDataLoad();
+            //BackendGameData.Instance.TowerDataLoad();
         }
         else if (cornProductId == 6)
         {
@@ -284,7 +287,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.GameDataUpdate();
             //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
-            BackendGameData.Instance.TowerDataLoad();
+            //BackendGameData.Instance.TowerDataLoad();
         }
         else if (cornProductId == 7)
         {
@@ -293,7 +296,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.GameDataUpdate();
             //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
-            BackendGameData.Instance.TowerDataLoad();
+            //BackendGameData.Instance.TowerDataLoad();
         }
         warningPanel.SetActive(false);
         warningMsg.text = string.Empty;

@@ -34,6 +34,7 @@ public class Wall : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F)) gameOver();
         int rand = Random.Range(0, 2);
         if (health > maxHealth * 0.8f)
         {

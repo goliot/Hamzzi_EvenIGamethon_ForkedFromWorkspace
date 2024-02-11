@@ -84434,6 +84434,7 @@ MonoBehaviour:
   - {fileID: 548736420}
   - {fileID: 1436565612}
   - {fileID: 1698217595}
+  tutorial: {fileID: 719523074}
 --- !u!1 &1511414268
 GameObject:
   m_ObjectHideFlags: 0

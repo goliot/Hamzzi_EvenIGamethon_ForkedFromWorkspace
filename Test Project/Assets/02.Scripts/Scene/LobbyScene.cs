@@ -95,6 +95,7 @@ public class LobbyScene : MonoBehaviour
         Debug.Log("자원 업데이트");
         textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
         textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
+        if (BackendGameData.Instance.UserGameData.isAdRemoved) AdmobManager.instance.DestroyBannerView();
     }
 
     public void OnClickRefreshThreadmill()

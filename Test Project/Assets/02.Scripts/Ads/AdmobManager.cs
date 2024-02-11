@@ -16,7 +16,7 @@ public class AdmobManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            //DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -35,19 +35,24 @@ public class AdmobManager : MonoBehaviour
         });
 
         // 씬이 변경될 때마다 호출될 함수를 등록합니다.
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // 씬이 로드될 때마다 호출되는 콜백 함수
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //if (BackendGameData.Instance.UserGameData.isAdRemoved) return;
+        if(BackendGameData.Instance.UserGameData.isAdRemoved) return;
         if(scene.name == "Lobby" || scene.name == "Battle_Proto") LoadAd();
     }
 
+    public void StopAds()
+    {
+        DestroyBannerView();
+    }
+
 #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
-    //private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
+    //private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
+    private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
 #else
   private string _adUnitId = "unused";
 #endif

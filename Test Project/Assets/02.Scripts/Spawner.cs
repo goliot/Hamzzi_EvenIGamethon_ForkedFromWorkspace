@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public int maxWave = 20;
     public int stageMobCount = 0; //현재 스테이지에서 나오는 총 몹의 수 -> 승리 로직에 사용
     public GameObject[] tilemaps;
+    public GameObject tutorial;
 
     [Header("Reward")]
     int[,] cornReward = { { 30, 40, 50, 60, 70 },
@@ -108,9 +109,9 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         LoadMagXml(magXmlFileName);
         */
 
-        for(int i=0; i<20; i++)
+        for (int i = 0; i < 20; i++)
         {
-            if(stage == 5 && i == 9) //5스테이지 10웨이브의 경우는 보스 1마리만 추가
+            if (stage == 5 && i == 9) //5스테이지 10웨이브의 경우는 보스 1마리만 추가
             {
                 stageMobCount++;
                 continue;
@@ -132,6 +133,11 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         }
 
         tilemaps[(chapter - 1) * 5 + (stage - 1)].SetActive(true);
+        if (chapter == 1 && stage == 1)
+        {
+            tutorial.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private void LoadXML(string _fileName)

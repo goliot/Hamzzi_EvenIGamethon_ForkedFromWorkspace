@@ -64,7 +64,7 @@ public class BackendGameData
             {"bread", userGameData.bread },
             {"corn", userGameData.corn},
             {"threadmill", userGameData.threadmill},
-            //{"isAdRemoved", userGameData.isAdRemoved }
+            {"isAdRemoved", userGameData.isAdRemoved }
         };
 
         Backend.GameData.Insert("USER_DATA", param, callback =>
@@ -94,7 +94,6 @@ public class BackendGameData
              if (callback.IsSuccess())
              {
                  Debug.Log($"게임 정보 데이터 불러오기에 성공했습니다 : {callback}");
-                 //gameDataRowInDate = callback.GetInDate();
 
                  try
                  {
@@ -113,7 +112,7 @@ public class BackendGameData
                          userGameData.bread = int.Parse(gameDataJson[0]["bread"].ToString());
                          userGameData.corn = int.Parse(gameDataJson[0]["corn"].ToString());
                          userGameData.threadmill = int.Parse(gameDataJson[0]["threadmill"].ToString());
-                         //userGameData.isAdRemoved = bool.Parse(gameDataJson[0]["isAdRemoved"].ToString());
+                         userGameData.isAdRemoved = bool.Parse(gameDataJson[0]["isAdRemoved"].ToString());
 
                          onGameDataLoadEvent?.Invoke();
                      }
@@ -150,7 +149,7 @@ public class BackendGameData
             {"bread", userGameData.bread },
             {"corn", userGameData.corn},
             {"threadmill", userGameData.threadmill},
-            //{"isAdRemoved", userGameData.isAdRemoved }
+            {"isAdRemoved", userGameData.isAdRemoved }
         };
 
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력

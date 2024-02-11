@@ -81,6 +81,11 @@ public class ShopButtonHandler : MonoBehaviour
         OnPopupOpened();
     }
 
+    public void PlayPurchaseSFX()
+    {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+    }
+
     // 팝업 창이 열릴 때 호출되는 함수
     public void OnPopupOpened()
     {
@@ -104,6 +109,7 @@ public class ShopButtonHandler : MonoBehaviour
         BackendGameData.Instance.GameDataUpdate();
         //BackendGameData.Instance.GameDataLoad();
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+        //AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
     public void OnClickCorn300()
@@ -112,6 +118,7 @@ public class ShopButtonHandler : MonoBehaviour
         BackendGameData.Instance.GameDataUpdate();
         //BackendGameData.Instance.GameDataLoad();
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+        //AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
     public void OnClickCorn600()
@@ -120,6 +127,7 @@ public class ShopButtonHandler : MonoBehaviour
         BackendGameData.Instance.GameDataUpdate();
         //BackendGameData.Instance.GameDataLoad();
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+        //AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
     public void OnClickBread05()
@@ -154,16 +162,16 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickRemoveAds()
     {
-        /*AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+        //AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
         BackendGameData.Instance.UserGameData.isAdRemoved = true;
         BackendGameData.Instance.GameDataUpdate();
-        AdmobManager.instance.DestroyBannerView();*/
+        AdmobManager.instance.DestroyBannerView();
 
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
-        //그냥 IAP 함수 수행
+        /*//그냥 IAP 함수 수행
         warningPanel.SetActive(true);
         warningMsg.text = "준비 중 입니다...";
-        cornProductId = 2;
+        cornProductId = 2;*/
     }
 
     public void OnClickArrowBtn()

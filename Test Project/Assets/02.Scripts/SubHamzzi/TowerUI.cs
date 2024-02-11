@@ -35,16 +35,19 @@ public class TowerUI : MonoBehaviour
         spawner = FindObjectOfType<TowerSpawner>();
         popUpWindow = GetComponent<PopUpWindow>();
 
-        buttonArrow.interactable = true;
-        buttonBomb.interactable = true;
-        buttonBlack.interactable = true;
-        buttonTank.interactable = true;
-        buttonHeal.interactable = true;
-        buttonArrow.GetComponent<Image>().sprite = arrowImage;
-        buttonBomb.GetComponent<Image>().sprite = bombImage;
-        buttonBlack.GetComponent<Image>().sprite = blackImage;
-        buttonTank.GetComponent<Image>().sprite = tankImage;
-        buttonHeal.GetComponent<Image>().sprite = healImage;
+        if (gameObject.name == "TowerUI")
+        {
+            buttonArrow.interactable = true;
+            buttonBomb.interactable = true;
+            buttonBlack.interactable = true;
+            buttonTank.interactable = true;
+            buttonHeal.interactable = true;
+            buttonArrow.GetComponent<Image>().sprite = arrowImage;
+            buttonBomb.GetComponent<Image>().sprite = bombImage;
+            buttonBlack.GetComponent<Image>().sprite = blackImage;
+            buttonTank.GetComponent<Image>().sprite = tankImage;
+            buttonHeal.GetComponent<Image>().sprite = healImage;
+        }
     }
 
     private void Start()
@@ -54,116 +57,122 @@ public class TowerUI : MonoBehaviour
 
     void Init()
     {
-        if (!BackendGameData.Instance.TowerDB.t0)
-        {
-            buttonArrow.interactable = false;
-            buttonArrow.GetComponent <Image>().sprite = arrowNullImage;
-        }
-        if (!BackendGameData.Instance.TowerDB.t1)
-        {
-            buttonBomb.interactable = false;
-            buttonBomb.GetComponent <Image>().sprite = bombNullImage;
-        }
-        if (!BackendGameData.Instance.TowerDB.t2) 
-        {
-            buttonBlack.interactable = false;
-            buttonBlack.GetComponent <Image>().sprite = blackNullImage;
-        }
-        if (!BackendGameData.Instance.TowerDB.t3)
-        {
-            buttonTank.interactable = false;
-            buttonTank.GetComponent<Image>().sprite = tankNullImage;
-        }
-        if (!BackendGameData.Instance.TowerDB.t4)
-        {
-            buttonHeal.interactable = false;
-            buttonHeal.GetComponent <Image>().sprite = healNullImage;
-        }
-
         if (objectDetector == null || spawner == null)
         {
             Debug.LogError("ObjectDetector or TowerSpawner not assigned!");
             return;
         }
 
-        if (buttonArrow != null)
+        if (gameObject.name == "TowerUI")
         {
-            buttonArrow.onClick.AddListener(() =>
+            if (!BackendGameData.Instance.TowerDB.t0)
             {
-                if (objectDetector.TilePos != null)
-                {
-                    spawner.SpawnTower(objectDetector.TilePos.transform, 0);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
-        }
-        if(buttonBomb != null)
-        {
-            buttonBomb.onClick.AddListener(() =>
+                buttonArrow.interactable = false;
+                buttonArrow.GetComponent<Image>().sprite = arrowNullImage;
+            }
+            if (!BackendGameData.Instance.TowerDB.t1)
             {
-                if (objectDetector.TilePos != null)
-                {
-                    spawner.SpawnTower(objectDetector.TilePos.transform, 1);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
-        }
-        if (buttonBlack != null)
-        {
-            buttonBlack.onClick.AddListener(() =>
+                buttonBomb.interactable = false;
+                buttonBomb.GetComponent<Image>().sprite = bombNullImage;
+            }
+            if (!BackendGameData.Instance.TowerDB.t2)
             {
-                if (objectDetector.TilePos != null)
-                {
-                    spawner.SpawnTower(objectDetector.TilePos.transform, 2);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
-        }
-        if (buttonTank != null)
-        {
-            buttonTank.onClick.AddListener(() =>
+                buttonBlack.interactable = false;
+                buttonBlack.GetComponent<Image>().sprite = blackNullImage;
+            }
+            if (!BackendGameData.Instance.TowerDB.t3)
             {
-                if (objectDetector.TilePos != null)
-                {
-                    spawner.SpawnTower(objectDetector.TilePos.transform, 3);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
-        }
-        if (buttonHeal != null)
-        {
-            buttonHeal.onClick.AddListener(() =>
+                buttonTank.interactable = false;
+                buttonTank.GetComponent<Image>().sprite = tankNullImage;
+            }
+            if (!BackendGameData.Instance.TowerDB.t4)
             {
-                if (objectDetector.TilePos != null)
-                {
-                    spawner.SpawnTower(objectDetector.TilePos.transform, 4);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
-        }
+                buttonHeal.interactable = false;
+                buttonHeal.GetComponent<Image>().sprite = healNullImage;
+            }
 
-        if (buttonSell != null)
-        {
-            buttonSell.onClick.AddListener(() =>
-            {
-                if (objectDetector.TilePos != null)
-                {
-                    spawner.SellTower(objectDetector.TilePos.transform);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
-        }
 
-        if(buttonUpgrade != null)
-        {
-            buttonUpgrade.onClick.AddListener(() =>
+            if (buttonArrow != null)
             {
-                if(objectDetector.TilePos != null)
+                buttonArrow.onClick.AddListener(() =>
                 {
-                    spawner.UpgradeTower(objectDetector.TilePos.transform);
-                    StartCoroutine(ClosePopUpAfterDelay());
-                }
-            });
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.SpawnTower(objectDetector.TilePos.transform, 0);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
+            if (buttonBomb != null)
+            {
+                buttonBomb.onClick.AddListener(() =>
+                {
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.SpawnTower(objectDetector.TilePos.transform, 1);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
+            if (buttonBlack != null)
+            {
+                buttonBlack.onClick.AddListener(() =>
+                {
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.SpawnTower(objectDetector.TilePos.transform, 2);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
+            if (buttonTank != null)
+            {
+                buttonTank.onClick.AddListener(() =>
+                {
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.SpawnTower(objectDetector.TilePos.transform, 3);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
+            if (buttonHeal != null)
+            {
+                buttonHeal.onClick.AddListener(() =>
+                {
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.SpawnTower(objectDetector.TilePos.transform, 4);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
+        }
+        else
+        {
+            if (buttonSell != null)
+            {
+                buttonSell.onClick.AddListener(() =>
+                {
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.SellTower(objectDetector.TilePos.transform);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
+
+            if (buttonUpgrade != null)
+            {
+                buttonUpgrade.onClick.AddListener(() =>
+                {
+                    if (objectDetector.TilePos != null)
+                    {
+                        spawner.UpgradeTower(objectDetector.TilePos.transform);
+                        StartCoroutine(ClosePopUpAfterDelay());
+                    }
+                });
+            }
         }
     }
 

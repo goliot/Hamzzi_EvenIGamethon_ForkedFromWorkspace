@@ -178,8 +178,6 @@ MonoBehaviour:
   dmgText: {fileID: 5003722051863030437, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
   popupText: {fileID: 3702007528897429254, guid: bf6c7098cfe36404b865a67da9e0a193, type: 3}
   dmgCanvas: {fileID: 0}
-  hpBar: {fileID: 4282985644421034580, guid: b5a062628e282da49bd021ec488dd6b0, type: 3}
-  bossHPBar: {fileID: 0}
   hitColor: {r: 1, g: 0.5, b: 0.5, a: 1}
   isParalyzed: 0
   isKnockback: 0

@@ -51,8 +51,8 @@ public class AdmobManager : MonoBehaviour
     }
 
 #if UNITY_ANDROID
-    //private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
-    private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
+    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
+    //private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
 #else
   private string _adUnitId = "unused";
 #endif

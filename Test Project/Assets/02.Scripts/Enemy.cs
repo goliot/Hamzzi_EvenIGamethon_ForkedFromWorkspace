@@ -107,10 +107,11 @@ public class Enemy : MonoBehaviour
         }
         if (spriteType % 5 == 4)
         {
+            hpSlider.gameObject.SetActive(true);
             hpSlider.value = Mathf.Clamp01(health / maxHealth);
         }
-        //else hpSlider.gameObject.SetActive(false);
-        hpSlider.value = Mathf.Clamp01(health / maxHealth);
+        else hpSlider.gameObject.SetActive(false);
+        //hpSlider.value = Mathf.Clamp01(health / maxHealth);
     }
 
     IEnumerator WallAttack(GameObject wall)

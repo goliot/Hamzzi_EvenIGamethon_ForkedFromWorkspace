@@ -48,7 +48,7 @@
 - 서브햄찌 안내사항 추가
 - 로그인 화면 디자인 변경
 <p align="center">
-<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7af14f02-4a12-4118-ac52-1c20e0148657" width = "360" height = "180">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7af14f02-4a12-4118-ac52-1c20e0148657" width = "180" height = "360">
 </p>
 
 - 오프닝씬 스킵 버튼 추가

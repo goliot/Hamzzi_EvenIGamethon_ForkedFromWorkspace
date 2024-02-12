@@ -39,6 +39,7 @@ public class BackEndFederationAuth : LoginBase
             Social.localUser.Authenticate((bool success) => {
                 if (success)
                 {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
                     // 로그인 성공 -> 뒤끝 서버에 획득한 구글 토큰으로 가입 요청
                     BackendReturnObject BRO = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs");
 

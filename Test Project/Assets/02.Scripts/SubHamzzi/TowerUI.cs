@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,8 @@ public class TowerUI : MonoBehaviour
     public Sprite tankNullImage;
     public Sprite healNullImage;
 
+    [SerializeField] private TextMeshProUGUI towerText;
+
     TowerSpawner spawner;
     ObjectDetector objectDetector;
     PopUpWindow popUpWindow;
@@ -47,6 +50,8 @@ public class TowerUI : MonoBehaviour
             buttonBlack.GetComponent<Image>().sprite = blackImage;
             buttonTank.GetComponent<Image>().sprite = tankImage;
             buttonHeal.GetComponent<Image>().sprite = healImage;
+
+            towerText = GameObject.Find("TowerText").GetComponent<TextMeshProUGUI>();
         }
     }
 
@@ -67,27 +72,27 @@ public class TowerUI : MonoBehaviour
         {
             if (!BackendGameData.Instance.TowerDB.t0)
             {
-                buttonArrow.interactable = false;
+                //buttonArrow.interactable = false;
                 buttonArrow.GetComponent<Image>().sprite = arrowNullImage;
             }
             if (!BackendGameData.Instance.TowerDB.t1)
             {
-                buttonBomb.interactable = false;
+                //buttonBomb.interactable = false;
                 buttonBomb.GetComponent<Image>().sprite = bombNullImage;
             }
             if (!BackendGameData.Instance.TowerDB.t2)
             {
-                buttonBlack.interactable = false;
+                //buttonBlack.interactable = false;
                 buttonBlack.GetComponent<Image>().sprite = blackNullImage;
             }
             if (!BackendGameData.Instance.TowerDB.t3)
             {
-                buttonTank.interactable = false;
+                //buttonTank.interactable = false;
                 buttonTank.GetComponent<Image>().sprite = tankNullImage;
             }
             if (!BackendGameData.Instance.TowerDB.t4)
             {
-                buttonHeal.interactable = false;
+                //buttonHeal.interactable = false;
                 buttonHeal.GetComponent<Image>().sprite = healNullImage;
             }
 
@@ -98,6 +103,12 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        if(buttonArrow.GetComponent<Image>().sprite == arrowNullImage)
+                        {
+                            ObjectDetector.instance.towerText.text = "상점에서 용병을 구입할 수 있습니다!";
+                            StartCoroutine(TextClose());
+                            return;
+                        }
                         spawner.SpawnTower(objectDetector.TilePos.transform, 0);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }
@@ -109,6 +120,12 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        if (buttonBomb.GetComponent<Image>().sprite == bombNullImage)
+                        {
+                            ObjectDetector.instance.towerText.text = "상점에서 용병을 구입할 수 있습니다!";
+                            StartCoroutine(TextClose());
+                            return;
+                        }
                         spawner.SpawnTower(objectDetector.TilePos.transform, 1);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }
@@ -120,6 +137,12 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        if (buttonBlack.GetComponent<Image>().sprite == blackNullImage)
+                        {
+                            ObjectDetector.instance.towerText.text = "상점에서 용병을 구입할 수 있습니다!";
+                            StartCoroutine(TextClose());
+                            return;
+                        }
                         spawner.SpawnTower(objectDetector.TilePos.transform, 2);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }
@@ -131,6 +154,12 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        if (buttonTank.GetComponent<Image>().sprite == tankNullImage)
+                        {
+                            ObjectDetector.instance.towerText.text = "상점에서 용병을 구입할 수 있습니다!";
+                            StartCoroutine(TextClose());
+                            return;
+                        }
                         spawner.SpawnTower(objectDetector.TilePos.transform, 3);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }
@@ -142,6 +171,12 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        if (buttonHeal.GetComponent<Image>().sprite == healNullImage)
+                        {
+                            ObjectDetector.instance.towerText.text = "상점에서 용병을 구입할 수 있습니다!";
+                            StartCoroutine(TextClose());
+                            return;
+                        }
                         spawner.SpawnTower(objectDetector.TilePos.transform, 4);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }
@@ -182,4 +217,10 @@ public class TowerUI : MonoBehaviour
         popUpWindow.OnClose();
     }
 
+    public IEnumerator TextClose()
+    {
+        ObjectDetector.instance.towerText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        ObjectDetector.instance.towerText.gameObject.SetActive(false);
+    }
 }

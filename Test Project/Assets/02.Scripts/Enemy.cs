@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public GameObject dmgText;
     public Text popupText;
     public GameObject dmgCanvas;
+    public Slider hpSlider;
     /*public GameObject hpBar;
     public Slider bossHPBar;*/
 
@@ -104,12 +105,12 @@ public class Enemy : MonoBehaviour
         {
             spriteRenderer.color = Color.red;
         }
-        if(spriteType % 5 == 4)
+        if (spriteType % 5 == 4)
         {
-            /*Instantiate(hpBar, gameObject.transform);
-            bossHPBar.value = health / maxHealth;
-            hpBar.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1f, gameObject.transform.position.z);*/
+            hpSlider.value = Mathf.Clamp01(health / maxHealth);
         }
+        //else hpSlider.gameObject.SetActive(false);
+        hpSlider.value = Mathf.Clamp01(health / maxHealth);
     }
 
     IEnumerator WallAttack(GameObject wall)

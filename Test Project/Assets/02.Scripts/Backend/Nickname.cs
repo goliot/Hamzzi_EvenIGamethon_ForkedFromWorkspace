@@ -74,7 +74,7 @@ public class Nickname : LoginBase
             if (SceneManager.GetActiveScene().name == "Lobby")
             {
                 nicknameWarningPanel.SetActive(true);
-                nicknameWaringBoard.SetActive(true);
+                //nicknameWaringBoard.SetActive(true);
                 warningText.text = message;
             }
         });

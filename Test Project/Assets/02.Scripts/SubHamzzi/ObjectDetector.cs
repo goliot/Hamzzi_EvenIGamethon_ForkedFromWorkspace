@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class ObjectDetector : MonoBehaviour
 {
+    public static ObjectDetector instance;
+
     [SerializeField] TowerSpawner towerSpawner;
+    public TextMeshProUGUI towerText;
+
     Camera mainCamera;
     Ray ray;
     RaycastHit hit;
@@ -15,6 +17,7 @@ public class ObjectDetector : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         mainCamera = Camera.main;
     }
 

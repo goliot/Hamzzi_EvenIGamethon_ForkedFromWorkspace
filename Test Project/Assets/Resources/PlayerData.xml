@@ -88,7 +88,7 @@
 		<isExplode>false</isExplode>
 		<isUnlocked>false</isUnlocked>
 		<isPenetrate>false</isPenetrate>
-		<splashRange>0</splashRange>
+		<splashRange>2</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>6</skillId>

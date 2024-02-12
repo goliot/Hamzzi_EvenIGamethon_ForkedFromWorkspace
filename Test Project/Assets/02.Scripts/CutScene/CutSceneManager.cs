@@ -8,10 +8,14 @@ using static CutSceneData;
 
 public class CutSceneManager : Singleton<CutSceneManager>
 {
+    [SerializeField]
+    private UserInfo user = new UserInfo();
+
     public CutSceneData[] cutSceneData;
     public Image cutSceneImage;
     public Button nextButton;
     public Button prevButton;
+    public Button skipButton;
 
     int currentFrameIndex = 0;
     CutSceneData currentCutSceneData;
@@ -36,6 +40,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
             cutSceneImage = GameObject.Find("CutSceneImage").GetComponent<Image>();
             nextButton = GameObject.Find("NextButton").GetComponent<Button>();
             prevButton = GameObject.Find("PrevButton").GetComponent<Button>();
+            skipButton = GameObject.Find("SkipButton").GetComponent<Button>();
 
             if (nextButton != null)
             {
@@ -45,6 +50,11 @@ public class CutSceneManager : Singleton<CutSceneManager>
             if (prevButton != null)
             {
                 prevButton.onClick.AddListener(ShowPreviousFrame);
+            }
+
+            if(skipButton != null && skipButton.gameObject.activeSelf)
+            {
+                skipButton.onClick.AddListener(ToLobby);
             }
             PlayCutScene(cutSceneType);
         }
@@ -59,6 +69,8 @@ public class CutSceneManager : Singleton<CutSceneManager>
     // 컷씬 재생 함수
     public void PlayCutScene(CutSceneType cutSceneType)
     {
+        if (cutSceneType == 0) skipButton.gameObject.SetActive(true);
+        else skipButton.gameObject.SetActive(false);
         AudioManager.Inst.StopBgm();
         switch ((int)cutSceneType) 
         {
@@ -128,6 +140,11 @@ public class CutSceneManager : Singleton<CutSceneManager>
             currentFrameIndex++;
             ShowCurrentFrame();
         }
+    }
+
+    public void ToLobby()
+    {
+        SceneManager.LoadScene("Lobby");
     }
 
     // 현재 프레임을 보여주는 함수

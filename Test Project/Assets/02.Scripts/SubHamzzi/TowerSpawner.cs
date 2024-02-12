@@ -87,9 +87,17 @@ public class TowerSpawner : MonoBehaviour
         }
         else
         {
-            
+            ObjectDetector.instance.towerText.text = "¾¾¾ÑÀÌ ºÎÁ·ÇÕ´Ï´Ù!";
+            StartCoroutine(TextClose());
             Debug.Log("Not Enough Seeds");
         }
+    }
+
+    public IEnumerator TextClose()
+    {
+        ObjectDetector.instance.towerText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        ObjectDetector.instance.towerText.gameObject.SetActive(false);
     }
 
     public void SellTower(Transform tileTransform)

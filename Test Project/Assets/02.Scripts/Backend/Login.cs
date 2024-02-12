@@ -29,6 +29,7 @@ public class Login : LoginBase
         StartCoroutine(nameof(LoginProcess));
 
         ResponseToLogin(inputFieldID.text, inputFieldPW.text);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
     }
 
     private void ResponseToLogin(string ID, string PW)
@@ -90,4 +91,9 @@ public class Login : LoginBase
             yield return null;
         }
     }   
+
+    public void PlayUI()
+    {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+    }
 }

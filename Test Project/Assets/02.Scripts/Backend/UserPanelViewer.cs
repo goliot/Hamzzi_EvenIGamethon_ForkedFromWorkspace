@@ -18,6 +18,8 @@ public class UserPanelViewer : MonoBehaviour
     private Slider sliderExperience;
     [SerializeField]
     private TextMeshProUGUI sliderText;
+    [SerializeField]
+    private TextMeshProUGUI upgradeInfoText;
 
     private void Awake()
     {
@@ -40,6 +42,9 @@ public class UserPanelViewer : MonoBehaviour
                             UserInfo.Data.gamerId : UserInfo.Data.nickname;
 
             textGamerId.text = inputFieldNickname.GetComponent<TextMeshProUGUI>().text;
+
+            int damageUpAmount = BackendGameData.Instance.UserGameData.damageUpgradeAmount[BackendGameData.Instance.UserGameData.level - 1];
+            upgradeInfoText.text = "현재: 모든 스킬 데미지 +" + damageUpAmount.ToString();
         }
     }
 

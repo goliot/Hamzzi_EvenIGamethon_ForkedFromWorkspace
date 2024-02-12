@@ -274,7 +274,7 @@ public class Bullet : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            if (enemy == target) continue;
+            //if (enemy == target) continue;
             if ((transform.position - enemy.transform.position).magnitude < splashRange)
             {
                 Debug.Log((transform.position - enemy.transform.position).magnitude);

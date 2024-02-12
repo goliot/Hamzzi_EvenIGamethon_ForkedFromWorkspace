@@ -86,7 +86,6 @@ public class LobbyScene : MonoBehaviour
         {
             BackendGameData.Instance.UserGameData.bread += 1000;
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
         }
     }
 

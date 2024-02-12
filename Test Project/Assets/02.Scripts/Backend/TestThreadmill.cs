@@ -1,14 +1,11 @@
-﻿//쳇바퀴 원본
-
-using System;
+﻿using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Threadmill : MonoBehaviour
+public class TestThreadmill : MonoBehaviour
 {
-    public static Threadmill instance;
+    public static TestThreadmill instance;
 
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI threadmillText;
@@ -26,7 +23,7 @@ public class Threadmill : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -36,12 +33,8 @@ public class Threadmill : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Lobby")
-        {
-            timeText.text = ConvertToMinutesAndSeconds(m_RechargeRemainTime);
-            threadmillText.text = m_HeartAmount.ToString() + " / 10";
-        }
-        BackendGameData.Instance.UserGameData.threadmill = m_HeartAmount;
+        timeText.text = ConvertToMinutesAndSeconds(m_RechargeRemainTime);
+        threadmillText.text = m_HeartAmount.ToString() + " / 10";
     }
 
     string ConvertToMinutesAndSeconds(float timeInSeconds)
@@ -127,7 +120,6 @@ public class Threadmill : MonoBehaviour
         {
             PlayerPrefs.SetInt("HeartAmount", m_HeartAmount);
             PlayerPrefs.Save();
-            BackendGameData.Instance.GameDataUpdate();
             Debug.Log("Saved HeartAmount : " + m_HeartAmount);
             result = true;
         }

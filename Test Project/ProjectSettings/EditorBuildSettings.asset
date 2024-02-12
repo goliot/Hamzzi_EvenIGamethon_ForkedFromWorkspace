@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/01.Scenes/AdsTest.unity
     guid: e440db793df46d14b9f41e3353370a3e
+  - enabled: 0
+    path: Assets/01.Scenes/ThreadmillTest.unity
+    guid: e2c5aa3f9b7f3d04c83ebbbe85862709
   m_configObjects: {}

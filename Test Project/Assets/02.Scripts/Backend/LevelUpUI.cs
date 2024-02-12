@@ -7,6 +7,7 @@ public class LevelUpUI : MonoBehaviour
 {
     public static LevelUpUI Inst = null;
     public TextMeshProUGUI cornCost;
+    public TextMeshProUGUI infoText;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class LevelUpUI : MonoBehaviour
     private void OnEnable()
     {
         cornCost.text = BackendGameData.Instance.UserGameData.cornCostToLevelUp[BackendGameData.Instance.UserGameData.level - 1].ToString();
+        infoText.text = "레벨업시\n모든 스킬 데미지 +" + (BackendGameData.Instance.UserGameData.damageUpgradeAmount[BackendGameData.Instance.UserGameData.level] - BackendGameData.Instance.UserGameData.damageUpgradeAmount[BackendGameData.Instance.UserGameData.level - 1]).ToString();
     }
 
     public void ChangeCornText()

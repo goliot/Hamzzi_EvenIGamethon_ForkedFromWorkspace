@@ -9,6 +9,7 @@ public class UserGameData
 
     public int[] levelUpData = { 50, 60, 70, 80, 90, 110, 130, 150, 170, 190, 220, 250, 280, 310, 340, 370, 400, 430, 460, 500 };
     public int[] cornCostToLevelUp = { 60, 80, 100, 120, 140, 165, 190, 215, 230, 255, 285, 315, 345, 375, 405, 440, 475, 510, 545, 600 };
+    public int[] damageUpgradeAmount = { 0, 3, 6, 9, 12, 19, 22, 25, 28, 31, 38, 41, 44, 47, 50, 58, 61, 64, 67, 70, 78 };
 
     public void Reset()
     {

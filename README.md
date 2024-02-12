@@ -34,6 +34,24 @@
 <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/894f631c-d108-4b10-b76d-1416a2812124" width = "180" height = "360">
 </p>
 
+- 프로필 UI 배치 업데이트
+    - 닉네임 변경 별도의 팝업으로 분리
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/ae5394f9-93ea-488e-841c-f80ce74fb8cd" width = "180" height = "360">
+</p>
+
+- 보스몹 hp바 제작
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/372de29b-c668-4f3a-ae4f-cc947e42a836" width = "360" height = "180">
+</p>
+
+- 서브햄찌 안내사항 추가
+- 로그인 화면 디자인 변경
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/7af14f02-4a12-4118-ac52-1c20e0148657" width = "360" height = "180">
+</p>
+
+- 오프닝씬 스킵 버튼 추가
 ---
 ## V.3.1.7 SM 2024-02-11
 - 강화, 철거 버튼 오류 수정

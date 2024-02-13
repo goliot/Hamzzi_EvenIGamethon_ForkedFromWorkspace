@@ -17,15 +17,19 @@ public class Dogam_MonsterUI : MonoBehaviour
 
     string xmlFileName = "DogamMonsterData";
 
-    private void Start()
+    private void Awake()
     {
         LoadXML(xmlFileName);
+    }
+
+    private void OnEnable()
+    {
         PopUpHandler.OnDogamMonsterButtonClicked.AddListener(SetPopUpData);
     }
 
-    private void LateUpdate()
+    private void OnDisable()
     {
-        SetPopUpData(currentDataIndex);
+        PopUpHandler.OnDogamMonsterButtonClicked.RemoveListener(SetPopUpData);
     }
 
     private void LoadXML(string _fileName)
@@ -55,14 +59,11 @@ public class Dogam_MonsterUI : MonoBehaviour
 
     public void SetPopUpData(int dataIndex)
     {
-        currentDataIndex = dataIndex;
-
-        Debug.Log($"dataIndex : {dataIndex}");
-        Debug.Log($"currentDataIndex : {currentDataIndex}");
         if (dataIndex >= 0 && dataIndex < dogamMonsterData.Count)
         {
             myTitle.text = dogamMonsterData[dataIndex].myName;
             myDesc.text = dogamMonsterData[dataIndex].myDesc;
+            myImage.sprite = mySprites[dataIndex];
         }
         else
         {

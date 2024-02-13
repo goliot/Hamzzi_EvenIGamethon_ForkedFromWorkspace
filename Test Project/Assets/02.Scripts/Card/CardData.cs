@@ -16,6 +16,8 @@ public class CardData : ScriptableObject
     public bool noPenetration;  // 투과 스킬 해금 안됨
 
     [TextArea]                  // Inspector에 텍스트를 여러 줄 넣을 수 있게하는 Attribute 
+    public string cardUpg;      // 업그레이드 내용
+    [TextArea]                   
     public string cardDesc;     // 아이템 설명
     public Sprite cardIcon;     // 아이템의 UI를 담기위한 아이콘
 

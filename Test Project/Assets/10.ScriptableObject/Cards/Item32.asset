@@ -16,8 +16,9 @@ MonoBehaviour:
   cardId: 2
   cardName: "\uC99D\uD3ED(\uD3ED\uBC1C)"
   isLocked: 0
-  noExplosion: 1
+  noExplosion: 0
   noPenetration: 0
+  cardUpg: "\uD3ED\uBC1C \uD53C\uD574 +30%"
   cardDesc: "\uD3ED\uBC1C\uC758 \uB370\uBBF8\uC9C0\uB9CC \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4\n\n\uD3ED\uBC1C\uC758
     \uC131\uC9C8\uC774 \uC5C6\uB294 \uC2A4\uD0AC\uC740 \uCD94\uAC00 \uD6C4 \uB370\uBBF8\uC9C0\uB97C
     \uC99D\uAC00\uC2DC\uD0AC \uC218 \uC788\uC2B5\uB2C8\uB2E4"

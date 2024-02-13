@@ -75,7 +75,7 @@ public class DogamUI : MonoBehaviour
     private void LateUpdate()
     {
         chapterText.text = string.Format($"0{m_curIdx + 1}");
-        if (s_curIdx == 0) skillText.text = string.Format($"카드 스킬");
+        if (s_curIdx == 0) skillText.text = string.Format($"선택 스킬");
         else skillText.text = string.Format($"용병단 스킬");
     }
 
@@ -86,6 +86,22 @@ public class DogamUI : MonoBehaviour
         skill.SetActive(objectToActivate == skill);
 
         // 도감 BGM 사운드 작업 여기에
+        if (objectToActivate == hamzzi)
+        {
+            AudioManager.Inst.StopBgm();
+            AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_IllustratedGuideHamster);
+        }
+        else if (objectToActivate == monster)
+        {
+            AudioManager.Inst.StopBgm();
+            AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_IllustratedGuideMonster);
+        }
+        else if (objectToActivate == skill)
+        {
+            AudioManager.Inst.StopBgm();
+            AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_IllustratedGuideArchive);
+        }
+
     }
 
     //private void OnClickNextBtn(int idx, GameObject[] gameObjects)

@@ -390,6 +390,27 @@ MonoBehaviour:
   myImage: {fileID: 8310704878707916854}
   myTitle: {fileID: 492211720954479341}
   myDesc: {fileID: 2571430039933659455}
+  mySprites:
+  - {fileID: 361481528, guid: 7bc0b59796730764c8c722c10228ca6f, type: 3}
+  - {fileID: 2097188791, guid: 7a7f54694c405a24eae90e65f024d6ac, type: 3}
+  - {fileID: 23943800, guid: ae485883b239a5c4788b005c2e54e2ab, type: 3}
+  - {fileID: 130088234, guid: dcd1270d4c1ceb248b4d288c296d06a3, type: 3}
+  - {fileID: 1734861734, guid: 3b2002ed77dc6e146ac86596e33fe775, type: 3}
+  - {fileID: 1291152362, guid: d932d89412c655e43bfa7a46bebcc24f, type: 3}
+  - {fileID: -1295239820, guid: b5f8d020733e3ea4e9c5cf817fbacf43, type: 3}
+  - {fileID: 339828029, guid: 8331f03cefac0eb4fa01a1254079d33e, type: 3}
+  - {fileID: -1353722613, guid: f248ba2613b8c4443aa36749f7983614, type: 3}
+  - {fileID: -852502450, guid: 9ff8b02a9f52bb4458fc167c50f7222f, type: 3}
+  - {fileID: -238416989, guid: 5357ba981629ea84f872fb504e93460c, type: 3}
+  - {fileID: 247912831, guid: a54754f6c2cf8dc47ae8c4c6bd8f8bc2, type: 3}
+  - {fileID: 280466690, guid: 051d401701f656a49a489fff3c2de716, type: 3}
+  - {fileID: -869865366, guid: 2feb788ce73d8cd46b3e1ee7d59a647d, type: 3}
+  - {fileID: 1424988365, guid: ce8147a4c718ec74ba6a9fa45cf6c454, type: 3}
+  - {fileID: 1989256970, guid: f41fe5588571e8a4a959019b0cc5e864, type: 3}
+  - {fileID: 2069374116, guid: c0ea69f4f04432745959fe8fdb5f25c5, type: 3}
+  - {fileID: 1651509847, guid: c1abc8091d1e0a14084f4e44d8839aaf, type: 3}
+  - {fileID: -1681120841, guid: 211bfd1114ae8e74aa19f7da305f16ab, type: 3}
+  - {fileID: -1192244421, guid: 65c230b0321ea064785e55b2f9e56bf3, type: 3}
   dogamMonsterData: []
 --- !u!1 &4066202911586261053
 GameObject:

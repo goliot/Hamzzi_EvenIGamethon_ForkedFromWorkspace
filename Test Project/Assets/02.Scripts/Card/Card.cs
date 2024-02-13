@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     TextMeshProUGUI textLevel;
     TextMeshProUGUI textName;
     TextMeshProUGUI textDesc;
+    TextMeshProUGUI textUpg;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class Card : MonoBehaviour
         textLevel = texts[0];
         textName = texts[1];
         textDesc = texts[2];
+        textUpg = texts[3];
         textName.text = cardData.cardName;
     }
 
@@ -36,6 +38,7 @@ public class Card : MonoBehaviour
         textLevel.text = "Lv." + (level + 1);
 
         textDesc.text = string.Format(cardData.cardDesc);
+        textUpg.text = string.Format(cardData.cardUpg);
     }
 
     public void OnClick()

@@ -18,7 +18,8 @@ MonoBehaviour:
   isLocked: 0
   noExplosion: 0
   noPenetration: 0
-  cardDesc: "\uC7A0\uACA8\uC788\uB294 \uC2A4\uD0AC\uC744 \uD68D\uB4DD\uD569\uB2C8\uB2E4"
+  cardUpg: "\uD68D\uB4DD"
+  cardDesc: "\uC7A0\uACA8\uC788\uB294 \uC2A4\uD0AC\uC744 \n\uD68D\uB4DD\uD569\uB2C8\uB2E4"
   cardIcon: {fileID: 21300000, guid: 53fac44a220fb224e8d61a35461fe9ab, type: 3}
   levels:
   - 0

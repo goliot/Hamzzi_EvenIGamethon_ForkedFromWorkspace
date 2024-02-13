@@ -47,7 +47,7 @@ public class LobbyScene : MonoBehaviour
 
         BackendGameData.Instance.GameDataLoad();
         BackendGameData.Instance.TowerDataLoad();
-        //BackendGameData.Instance.DogamDataLoad();
+        BackendGameData.Instance.DogamDataLoad();
         BackendGameData.Instance.ClearDataLoad();
     }
 

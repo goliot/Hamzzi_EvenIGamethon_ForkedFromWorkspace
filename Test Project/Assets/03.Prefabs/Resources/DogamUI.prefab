@@ -907,10 +907,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.87024, y: -512.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4246792712886026922
 CanvasRenderer:
@@ -1202,10 +1202,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 512.87024, y: -92.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3333706998641097675
 CanvasRenderer:
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 257540335935024562}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -1791,10 +1791,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.87024, y: -302.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8839437062120976674
 CanvasRenderer:
@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 8414899106900883667}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -2155,7 +2155,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 1022030064157301075}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -2943,10 +2943,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 512.87024, y: -302.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4697019441178039707
 CanvasRenderer:
@@ -3225,10 +3225,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -330}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7213304541113451146
 CanvasRenderer:
@@ -3312,14 +3312,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 7806604184669697980}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3514,10 +3514,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 302.87024, y: -302.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7112394796798706756
 CanvasRenderer:
@@ -3945,7 +3945,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 3322474569984400607}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -4235,7 +4235,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 7679084180833579481}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -4390,7 +4390,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 5051875048453781287}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -4993,10 +4993,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3286365985784772110
 CanvasRenderer:
@@ -5606,10 +5606,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.87024, y: -92.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3940597598636115638
 CanvasRenderer:
@@ -5936,7 +5936,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 7450085573170101856}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -6483,7 +6483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 9212545122489882842}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -6759,7 +6759,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 3914325819385542005}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -6827,10 +6827,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 560, y: -100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3933154034217926110
 CanvasRenderer:
@@ -6914,14 +6914,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 8323518238854586968}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6981,10 +6981,10 @@ RectTransform:
   m_Father: {fileID: 5837884699562165005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 302.87024, y: -92.87024}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8487199314432474383
 CanvasRenderer:
@@ -7451,10 +7451,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 330, y: -330}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3606617355462312518
 CanvasRenderer:
@@ -7538,14 +7538,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 8837558701080925886}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7626,7 +7626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7373046194383522934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7708,7 +7708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1814742818232361901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8253,7 +8253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 5160561140811364969}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -8522,7 +8522,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 2400245990513664377}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -9034,7 +9034,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 5560144966439601012}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -9373,10 +9373,10 @@ RectTransform:
   m_Father: {fileID: 669497614559107166}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 330, y: -100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2743886652462873947
 CanvasRenderer:
@@ -9460,14 +9460,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 5865681398904162855}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9615,7 +9615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 4716672680016575425}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1
@@ -10187,7 +10187,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7757207860713788360}
+      - m_Target: {fileID: 2134093741719583888}
         m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
         m_MethodName: OnClickPopUpDogamMonster
         m_Mode: 1

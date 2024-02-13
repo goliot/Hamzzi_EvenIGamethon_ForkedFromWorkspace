@@ -387,6 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f53eecf6376304888d36ddfea7f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myImage: {fileID: 8310704878707916854}
+  myTitle: {fileID: 492211720954479341}
+  myDesc: {fileID: 2571430039933659455}
+  dogamMonsterData: []
 --- !u!1 &4066202911586261053
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +403,7 @@ GameObject:
   - component: {fileID: 5224339633327982677}
   - component: {fileID: 492211720954479341}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,7 +538,7 @@ GameObject:
   - component: {fileID: 87827479662487092}
   - component: {fileID: 2571430039933659455}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: DescText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

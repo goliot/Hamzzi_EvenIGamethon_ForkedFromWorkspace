@@ -15,6 +15,8 @@ public class PopUpHandler : MonoBehaviour
 
     public UnityEvent onShopBackground;
     public UnityEvent onDogamBackground;
+    public static UnityEvent<int> OnDogamMonsterButtonClicked = new UnityEvent<int>();
+    //public UnityEvent OnDogamMonsterButtonClicked;
 
     private static PopUpHandler instance = null;
     public static PopUpHandler Inst
@@ -28,6 +30,11 @@ public class PopUpHandler : MonoBehaviour
 
             return instance;
         }
+    }
+
+    void Awake()
+    {
+            
     }
 
     #region PopUpButton
@@ -90,11 +97,29 @@ public class PopUpHandler : MonoBehaviour
 
     public void OnClickPopUpDogamMonster()
     {
+        // 클릭된 버튼의 이름을 기준으로 데이터를 찾음
+        string buttonName = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+        int dataIndex = GetIndexFromButtonName(buttonName);
+
+        Debug.Log($"dataIndex : {dataIndex}");
+        OnDogamMonsterButtonClicked.Invoke(dataIndex);
+
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strDogamMonsterUI);
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
     }
 
     #endregion
+
+    // 버튼 이름에서 숫자 부분을 추출하여 데이터 인덱스로 반환하는 함수
+    private int GetIndexFromButtonName(string buttonName)
+    {
+        // 버튼 이름에서 "Monster" 부분을 제거하여 숫자 부분만 추출
+        string numberString = buttonName.Replace("Monster", "");
+
+        Debug.Log($"Parsed number : {numberString}");
+        // 추출한 숫자 부분을 정수로 변환하여 데이터 인덱스로 사용
+        return int.Parse(numberString) - 1; // 인덱스는 0부터 시작하므로 1을 뺌
+    }
 
     public void OnClickExit()
     {
@@ -158,4 +183,6 @@ public class PopUpHandler : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         transform.parent.parent.GetChild(2).gameObject.SetActive(false);
     }
+
+
 }

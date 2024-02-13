@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7131939484352213896}
   - component: {fileID: 7757207860713788360}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Monster20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 6735907718683170458}
   - component: {fileID: 257540335935024562}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Monster18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1892,7 +1892,7 @@ GameObject:
   - component: {fileID: 7770856677279395661}
   - component: {fileID: 8414899106900883667}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Monster15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1969,7 +1969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2047,7 +2047,7 @@ GameObject:
   - component: {fileID: 8013047240091744851}
   - component: {fileID: 1022030064157301075}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Monster09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2124,7 +2124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3204,7 +3204,7 @@ GameObject:
   - component: {fileID: 6573066381311887456}
   - component: {fileID: 7806604184669697980}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Monster04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3281,7 +3281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3837,7 +3837,7 @@ GameObject:
   - component: {fileID: 6151816711578196330}
   - component: {fileID: 3322474569984400607}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Monster07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3914,7 +3914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4127,7 +4127,7 @@ GameObject:
   - component: {fileID: 8849501998823216190}
   - component: {fileID: 7679084180833579481}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Monster06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4204,7 +4204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4282,7 +4282,7 @@ GameObject:
   - component: {fileID: 118605995773002179}
   - component: {fileID: 5051875048453781287}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Monster17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4359,7 +4359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4972,7 +4972,7 @@ GameObject:
   - component: {fileID: 1564929451234874786}
   - component: {fileID: 4005306324032052480}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Monster01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5049,7 +5049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5828,7 +5828,7 @@ GameObject:
   - component: {fileID: 4962232254310145891}
   - component: {fileID: 7450085573170101856}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Monster12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5905,7 +5905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6375,7 +6375,7 @@ GameObject:
   - component: {fileID: 3070641762813328393}
   - component: {fileID: 9212545122489882842}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Monster16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6452,7 +6452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6651,7 +6651,7 @@ GameObject:
   - component: {fileID: 2145544007503711760}
   - component: {fileID: 3914325819385542005}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Monster19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6728,7 +6728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6806,7 +6806,7 @@ GameObject:
   - component: {fileID: 6667764020181908986}
   - component: {fileID: 8323518238854586968}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Monster03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6883,7 +6883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7430,7 +7430,7 @@ GameObject:
   - component: {fileID: 5654623657681275673}
   - component: {fileID: 8837558701080925886}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Monster05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7507,7 +7507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8145,7 +8145,7 @@ GameObject:
   - component: {fileID: 5353792486450919587}
   - component: {fileID: 5160561140811364969}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Monster14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8222,7 +8222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8414,7 +8414,7 @@ GameObject:
   - component: {fileID: 2042221900162613327}
   - component: {fileID: 2400245990513664377}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Monster11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8491,7 +8491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8926,7 +8926,7 @@ GameObject:
   - component: {fileID: 810300537540937800}
   - component: {fileID: 5560144966439601012}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Monster10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9003,7 +9003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -9352,7 +9352,7 @@ GameObject:
   - component: {fileID: 8860129942867742317}
   - component: {fileID: 5865681398904162855}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Monster02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9429,7 +9429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -9507,7 +9507,7 @@ GameObject:
   - component: {fileID: 4221416673396254284}
   - component: {fileID: 4716672680016575425}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Monster08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9584,7 +9584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -10079,7 +10079,7 @@ GameObject:
   - component: {fileID: 158352749645859850}
   - component: {fileID: 2134093741719583888}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Monster13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10156,7 +10156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

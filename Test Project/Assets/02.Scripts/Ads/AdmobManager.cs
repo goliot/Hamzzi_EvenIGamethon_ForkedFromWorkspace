@@ -55,15 +55,26 @@ public class AdmobManager : MonoBehaviour
         DestroyBannerView();
     }
 
+    /*public void OnGUI()
+    {
+        GUI.skin.label.fontSize = 60;
+        Rect textOutputRect = new Rect(
+            0.15f * Screen.width,
+            0.25f * Screen.height,
+            0.7f * Screen.width,
+            0.3f * Screen.height);
+        //GUI.Label(textOutputRect, "Adaptive Banner Example");
+    }*/
+
 #if UNITY_ANDROID
-    //private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
-    private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
+    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
+    //private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
 
-    //private string _adUnitIdFull = "ca-app-pub-3940256099942544/1033173712"; //전면 테스트 키
-    private string _adUnitIdFull = "ca-app-pub-5578235420454103/2372775602"; //전면 실제 키
+    private string _adUnitIdFull = "ca-app-pub-3940256099942544/1033173712"; //전면 테스트 키
+    //private string _adUnitIdFull = "ca-app-pub-5578235420454103/2372775602"; //전면 실제 키
 
-    //private string _adUnitIdReward = "ca-app-pub-3940256099942544/5224354917"; //보상 테스트 키
-    private string _adUnitIdReward = "ca-app-pub-5578235420454103/6120448922"; //보상 실제 키
+    private string _adUnitIdReward = "ca-app-pub-3940256099942544/5224354917"; //보상 테스트 키
+    //private string _adUnitIdReward = "ca-app-pub-5578235420454103/6120448922"; //보상 실제 키
 #else
   private string _adUnitId = "unused";
 #endif
@@ -83,9 +94,11 @@ public class AdmobManager : MonoBehaviour
         {
             DestroyBannerView();
         }
+        AdSize adaptiveSize =
+                AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
 
         // Create a 320x50 banner at top of the screen
-        _bannerView = new BannerView(_adUnitId, AdSize.Banner, AdPosition.Top);
+        _bannerView = new BannerView(_adUnitId, adaptiveSize, AdPosition.Top);
     }
 
     public void LoadAd() //배너 띄우는 함수

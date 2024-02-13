@@ -210,6 +210,8 @@ public class DogamUI : MonoBehaviour
     {
         lobbyGrid.SetActive(true);
         dogamGrid.SetActive(false);
+        AudioManager.Inst.StopBgm();
+        AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Lobby);
     }
 
 

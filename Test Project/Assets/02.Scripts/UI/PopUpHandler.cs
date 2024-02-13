@@ -103,8 +103,6 @@ public class PopUpHandler : MonoBehaviour
         Debug.Log($"dataIndex : {dataIndex}");
 
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strDogamMonsterUI);
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
-
         OnDogamMonsterButtonClicked?.Invoke(dataIndex);
     }
 

@@ -64,6 +64,14 @@ public class Dogam_MonsterUI : MonoBehaviour
             myTitle.text = dogamMonsterData[dataIndex].myName;
             myDesc.text = dogamMonsterData[dataIndex].myDesc;
             myImage.sprite = mySprites[dataIndex];
+
+            switch(dataIndex)
+            {
+                case 0:
+                case 1:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Insam_Gamsam_Voice);
+                    break;
+            }
         }
         else
         {

@@ -38,6 +38,9 @@ public class Threadmill : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
+            timeText = GameObject.Find("StaminaTime").GetComponent<TextMeshProUGUI>();
+            threadmillText = GameObject.Find("StaminaText").GetComponent<TextMeshProUGUI>();
+
             timeText.text = ConvertToMinutesAndSeconds(m_RechargeRemainTime);
             threadmillText.text = m_HeartAmount.ToString() + " / 10";
         }

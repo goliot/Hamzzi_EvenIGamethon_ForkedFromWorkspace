@@ -23,6 +23,10 @@
 ---
 ## V.3.1.9 SM 2024-02-13
 - 인앱업데이트 추가
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/67d875f9-d44b-4f02-ae5c-2aff2b62ccdb" width = "180" height = "360">
+</p>
+
 - 전투, 타이틀, 로딩 씬 제외 뒤로가기버튼 누를 시 게임 종료 팝업 생성
 	- 전투씬에서는 뒤로가기 버튼 클릭시 일시정지
 - 광고 테스트 계속 진행
@@ -32,6 +36,10 @@
 	- 서버에서 불러오려면 상용서버를 쓰는 이상 더 많은 고민이 필요하지만 개발 기간의 부족, 기술 부족
 - 상점 UI 개선
 	- 옥수수 소모 상품 구매시, 현재 옥수수 보유량이 나오도록 수정
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/fe430b73-b00b-4675-a41c-49f8d453e595" width = "180" height = "360">
+</p>
+
 - 로비 화면 쳇바퀴, 옥수수 획득 보상형 광고 구현
 - 로비화면 입장시 전면광고 나오도록 구현
 ---

@@ -7,10 +7,11 @@ public class InAppUpdate : MonoBehaviour
 {
     AppUpdateManager appUpdateManager;
 
-    private void Start()
+    private void Awake()
     {
 #if UNITY_EDITOR
-#else
+        Debug.Log("인앱 업데이트 실행");
+#elif UNITY_ANDROID
         StartCoroutine(CheckForUpdate());
 #endif
     }

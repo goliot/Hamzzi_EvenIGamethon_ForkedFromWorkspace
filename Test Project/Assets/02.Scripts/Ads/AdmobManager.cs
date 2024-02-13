@@ -11,6 +11,10 @@ public class AdmobManager : MonoBehaviour
 {
     public static AdmobManager instance;
 
+#if UNITY_EDITOR
+    public TextMeshProUGUI rewardText;
+#endif
+
     private void Awake()
     {
         if (instance == null)
@@ -42,7 +46,8 @@ public class AdmobManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(BackendGameData.Instance.UserGameData.isAdRemoved) return;
-        if(scene.name == "Lobby" || scene.name == "Battle_Proto") LoadAd();
+        if (scene.name == "Lobby" || scene.name == "Battle_Proto") LoadAd();
+        else DestroyBannerView();
     }
 
     public void StopAds()
@@ -51,8 +56,14 @@ public class AdmobManager : MonoBehaviour
     }
 
 #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
-    //private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
+    //private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
+    private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
+
+    //private string _adUnitIdFull = "ca-app-pub-3940256099942544/1033173712"; //전면 테스트 키
+    private string _adUnitIdFull = "ca-app-pub-5578235420454103/2372775602"; //전면 실제 키
+
+    //private string _adUnitIdReward = "ca-app-pub-3940256099942544/5224354917"; //보상 테스트 키
+    private string _adUnitIdReward = "ca-app-pub-5578235420454103/6120448922"; //보상 실제 키
 #else
   private string _adUnitId = "unused";
 #endif
@@ -164,7 +175,7 @@ public class AdmobManager : MonoBehaviour
         var adRequest = new AdRequest();
 
         // send the request to load the ad.
-        InterstitialAd.Load(_adUnitId, adRequest,
+        InterstitialAd.Load(_adUnitIdFull, adRequest,
             (InterstitialAd ad, LoadAdError error) =>
             {
                 // if error is not null, the load request failed.
@@ -276,7 +287,7 @@ public class AdmobManager : MonoBehaviour
         var adRequest = new AdRequest();
 
         // send the request to load the ad.
-        RewardedAd.Load(_adUnitId, adRequest,
+        RewardedAd.Load(_adUnitIdReward, adRequest,
             (RewardedAd ad, LoadAdError error) =>
             {
                 // if error is not null, the load request failed.
@@ -309,7 +320,9 @@ public class AdmobManager : MonoBehaviour
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
 
                 //여기다가 광고 보상 넣는 함수
-                //rewardText.text = "reward ad ended";
+#if UNITY_EDITOR
+                if(SceneManager.GetActiveScene().name == "AdsTest") rewardText.text = "reward ad ended";
+#endif
             });
         }
     }

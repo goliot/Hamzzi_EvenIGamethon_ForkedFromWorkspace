@@ -87,6 +87,10 @@ public class GameManager : Singleton<GameManager>
                 uiLevelUp.Show();
             }
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIManager.Inst.PauseGame();
+        }
     }
 
     // 경험치 증가 함수

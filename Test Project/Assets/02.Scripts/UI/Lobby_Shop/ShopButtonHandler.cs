@@ -21,6 +21,7 @@ public class ShopButtonHandler : MonoBehaviour
     public Button yesBtn;
     public Button noBtn;
     public TextMeshProUGUI warningMsg;
+    public TextMeshProUGUI cornAmountText;
     private int cornProductId;
 
     void Start()
@@ -38,6 +39,7 @@ public class ShopButtonHandler : MonoBehaviour
         if (BackendGameData.Instance.TowerDB.t3) tankBtn.interactable = false;
         if (BackendGameData.Instance.TowerDB.t4) healBtn.interactable = false;
         //if(BackendGameData.Instance.UserGameData.isAdRemoved) removeAdBtn.interactable = false;
+        cornAmountText.text = "현재 옥수수 : \n" + BackendGameData.Instance.UserGameData.corn.ToString() + "개";
     }
 
     void Init()
@@ -102,6 +104,10 @@ public class ShopButtonHandler : MonoBehaviour
         shopGrid.SetActive(false);
     }
 
+    public void OnClickSound()
+    {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+    }
 
     public void OnClickConr60()
     {
@@ -144,8 +150,7 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickThreadmill01()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
-        if(BackendGameData.Instance.UserGameData.threadmill == 10)
+        if (Threadmill.instance.m_HeartAmount >= 10)
         {
             StartCoroutine(FullThreadmill());
             return;
@@ -167,7 +172,7 @@ public class ShopButtonHandler : MonoBehaviour
         BackendGameData.Instance.GameDataUpdate();
         AdmobManager.instance.DestroyBannerView();
 
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
         /*//그냥 IAP 함수 수행
         warningPanel.SetActive(true);
         warningMsg.text = "준비 중 입니다...";
@@ -176,7 +181,6 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickArrowBtn()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (BackendGameData.Instance.UserGameData.corn < 250)
         {
             StartCoroutine(NotEnoughCorn());
@@ -189,7 +193,6 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickBombBtn()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (BackendGameData.Instance.UserGameData.corn < 480)
         {
             StartCoroutine(NotEnoughCorn());
@@ -202,7 +205,6 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickBlackBtn()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (BackendGameData.Instance.UserGameData.corn < 800)
         {
             StartCoroutine(NotEnoughCorn());
@@ -215,7 +217,6 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickTankBtn()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (BackendGameData.Instance.UserGameData.corn < 1500)
         {
             StartCoroutine(NotEnoughCorn());
@@ -228,7 +229,6 @@ public class ShopButtonHandler : MonoBehaviour
 
     public void OnClickHealBtn()
     {
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         if (BackendGameData.Instance.UserGameData.corn < 1500)
         {
             StartCoroutine(NotEnoughCorn());
@@ -252,7 +252,8 @@ public class ShopButtonHandler : MonoBehaviour
         else if(cornProductId == 1) //쳇바퀴 구매일 경우
         {
             BackendGameData.Instance.UserGameData.corn -= 10;
-            BackendGameData.Instance.UserGameData.threadmill += 1;
+            //BackendGameData.Instance.UserGameData.threadmill += 1;
+            Threadmill.instance.m_HeartAmount++;
             BackendGameData.Instance.GameDataUpdate();
             //BackendGameData.Instance.GameDataLoad();
         }

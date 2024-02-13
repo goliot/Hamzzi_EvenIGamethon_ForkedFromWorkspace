@@ -593,6 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3280818561102447496}
   - component: {fileID: -5617571120476434408}
+  - component: {fileID: 6353934781988651959}
   m_Layer: 5
   m_Name: ExplainStaminaUI
   m_TagString: Untagged
@@ -631,6 +632,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14fa2a4f590752641bb8ff57788029f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6353934781988651959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214064899974219678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b597921c8285a9f48855d44290033ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6898623490335995900
@@ -831,7 +844,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 455664542163039762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6353934781988651959}
+        m_TargetAssemblyTypeName: ExplainUI, Assembly-CSharp
+        m_MethodName: OnClickThreadmillAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8860159248679795986
 GameObject:
   m_ObjectHideFlags: 0

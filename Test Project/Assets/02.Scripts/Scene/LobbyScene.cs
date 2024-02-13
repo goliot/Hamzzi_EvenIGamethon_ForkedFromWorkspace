@@ -13,7 +13,7 @@ public class LobbyScene : MonoBehaviour
     {
         get
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = new LobbyScene();
             }
@@ -82,7 +82,7 @@ public class LobbyScene : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.B))
+        if (Input.GetKeyUp(KeyCode.B))
         {
             BackendGameData.Instance.UserGameData.bread += 1000;
             BackendGameData.Instance.GameDataUpdate();
@@ -91,8 +91,9 @@ public class LobbyScene : MonoBehaviour
 
     public void UpdateCurrencyData()
     {
+        if (!BackendGameData.Instance.UserGameData.isAdRemoved) AdmobManager.instance.ShowInterstitialAd();
         Debug.Log("자원 업데이트");
-        textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
+        //textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
         textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
         if (BackendGameData.Instance.UserGameData.isAdRemoved) AdmobManager.instance.DestroyBannerView();
     }

@@ -538,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353005625}
-  - component: {fileID: 1353005624}
+  - component: {fileID: 1353005626}
   m_Layer: 0
   m_Name: ThreadmillManager
   m_TagString: Untagged
@@ -546,21 +546,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1353005624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353005623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23429db28b9415b47bfec916316cfddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  threadmillText: {fileID: 0}
-  HeartRechargeInterval: 30
 --- !u!4 &1353005625
 Transform:
   m_ObjectHideFlags: 0
@@ -576,6 +561,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353005626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353005623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4be43a5184c5b4dbc1b065d41017c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 0}
+  threadmillText: {fileID: 0}
+  m_HeartAmount: 0
+  HeartRechargeInterval: 1200
 --- !u!1 &1441336326
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,10 +13,10 @@ public class Threadmill : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI threadmillText;
 
-    private int m_HeartAmount = 0; //보유 하트 개수
+    public int m_HeartAmount = 0; //보유 하트 개수
     private DateTime m_AppQuitTime = new DateTime(1970, 1, 1).ToLocalTime();
     private const int MAX_HEART = 10; //하트 최대값
-    public int HeartRechargeInterval = 30;// 하트 충전 간격(단위:초)
+    public int HeartRechargeInterval = 1200;// 하트 충전 간격(단위:초)
     private Coroutine m_RechargeTimerCoroutine = null;
     private int m_RechargeRemainTime = 0;
 
@@ -44,14 +44,14 @@ public class Threadmill : MonoBehaviour
             timeText.text = ConvertToMinutesAndSeconds(m_RechargeRemainTime);
             threadmillText.text = m_HeartAmount.ToString() + " / 10";
         }
-        BackendGameData.Instance.UserGameData.threadmill = m_HeartAmount;
+        //BackendGameData.Instance.UserGameData.threadmill = m_HeartAmount;
     }
 
     string ConvertToMinutesAndSeconds(float timeInSeconds)
     {
         int minutes = Mathf.FloorToInt(timeInSeconds / 60);
         int seconds = Mathf.FloorToInt(timeInSeconds % 60);
-        return string.Format("{0:00}:{1:00}", minutes, seconds);
+        return string.Format("다음 충전까지\n{0:00} : {1:00}", minutes, seconds);
     }
 
     //게임 초기화, 중간 이탈, 중간 복귀 시 실행되는 함수
@@ -130,6 +130,7 @@ public class Threadmill : MonoBehaviour
         {
             PlayerPrefs.SetInt("HeartAmount", m_HeartAmount);
             PlayerPrefs.Save();
+            BackendGameData.Instance.UserGameData.threadmill = m_HeartAmount;
             BackendGameData.Instance.GameDataUpdate();
             Debug.Log("Saved HeartAmount : " + m_HeartAmount);
             result = true;
@@ -264,6 +265,15 @@ public class Threadmill : MonoBehaviour
             Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");
             //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
             m_RechargeRemainTime -= 1;
+
+            if(m_HeartAmount >= MAX_HEART)
+            {
+                m_HeartAmount = MAX_HEART;
+                m_RechargeRemainTime = 0;
+                //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
+                Debug.Log("HeartAmount reached max amount");
+                m_RechargeTimerCoroutine = null;
+            }
             yield return new WaitForSeconds(1f);
         }
         m_HeartAmount++;

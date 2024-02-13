@@ -139,5 +139,6 @@ public class UIManager : Singleton<UIManager>
     {
         pauseMenu.SetActive(true);
         tutorialUI.SetActive(false);
+        AdmobManager.instance.LoadAd();
     }
 }

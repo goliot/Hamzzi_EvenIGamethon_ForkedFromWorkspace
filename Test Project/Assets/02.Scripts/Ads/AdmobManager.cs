@@ -45,7 +45,6 @@ public class AdmobManager : MonoBehaviour
     // 씬이 로드될 때마다 호출되는 콜백 함수
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(BackendGameData.Instance.UserGameData.isAdRemoved) return;
         if (scene.name == "Lobby" || scene.name == "Battle_Proto") LoadAd();
         else DestroyBannerView();
     }
@@ -67,14 +66,14 @@ public class AdmobManager : MonoBehaviour
     }*/
 
 #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
-    //private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
+    //private string _adUnitId = "ca-app-pub-3940256099942544/6300978111"; //배너 테스트 키
+    private string _adUnitId = "ca-app-pub-5578235420454103/2042598969"; //배너 실제 키
 
-    private string _adUnitIdFull = "ca-app-pub-3940256099942544/1033173712"; //전면 테스트 키
-    //private string _adUnitIdFull = "ca-app-pub-5578235420454103/2372775602"; //전면 실제 키
+    //private string _adUnitIdFull = "ca-app-pub-3940256099942544/1033173712"; //전면 테스트 키
+    private string _adUnitIdFull = "ca-app-pub-5578235420454103/2372775602"; //전면 실제 키
 
-    private string _adUnitIdReward = "ca-app-pub-3940256099942544/5224354917"; //보상 테스트 키
-    //private string _adUnitIdReward = "ca-app-pub-5578235420454103/6120448922"; //보상 실제 키
+    //private string _adUnitIdReward = "ca-app-pub-3940256099942544/5224354917"; //보상 테스트 키
+    private string _adUnitIdReward = "ca-app-pub-5578235420454103/6120448922"; //보상 실제 키
 #else
   private string _adUnitId = "unused";
 #endif
@@ -103,6 +102,7 @@ public class AdmobManager : MonoBehaviour
 
     public void LoadAd() //배너 띄우는 함수
     {
+        if (BackendGameData.Instance.UserGameData.isAdRemoved) return;
         // create an instance of a banner view first.
         if (_bannerView == null)
         {
@@ -208,6 +208,7 @@ public class AdmobManager : MonoBehaviour
 
     public void ShowInterstitialAd() //전면광고 띄우는 함수
     {
+        if (BackendGameData.Instance.UserGameData.isAdRemoved) return;
         LoadInterstitialAd();
         if (_interstitialAd != null && _interstitialAd.CanShowAd())
         {
@@ -318,8 +319,9 @@ public class AdmobManager : MonoBehaviour
             });
     }
 
-    public void ShowRewardedAd()
+    public void ShowRewardedAd(string type)
     {
+        //if (BackendGameData.Instance.UserGameData.isAdRemoved) return;
         LoadRewardedAd();
 
         const string rewardMsg =
@@ -333,6 +335,17 @@ public class AdmobManager : MonoBehaviour
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
 
                 //여기다가 광고 보상 넣는 함수
+                if(type == "corn")
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+                    BackendGameData.Instance.UserGameData.corn += 30;
+                    BackendGameData.Instance.GameDataUpdate();
+                }
+                else if(type == "threadmill")
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
+                    Threadmill.instance.m_HeartAmount += 3;
+                }
 #if UNITY_EDITOR
                 if(SceneManager.GetActiveScene().name == "AdsTest") rewardText.text = "reward ad ended";
 #endif

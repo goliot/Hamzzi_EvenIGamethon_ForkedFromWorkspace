@@ -137,6 +137,7 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
         {
             tutorial.SetActive(true);
             Time.timeScale = 0;
+            AdmobManager.instance.DestroyBannerView();
         }
     }
 

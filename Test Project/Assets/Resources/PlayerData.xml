@@ -28,7 +28,7 @@
 		<isExplode>true</isExplode>
 		<isUnlocked>false</isUnlocked>
 		<isPenetrate>false</isPenetrate>
-		<splashRange>1.5</splashRange>
+		<splashRange>1</splashRange>
 	</Sheet1>
 	<Sheet1>
 		<skillId>2</skillId>

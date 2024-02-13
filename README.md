@@ -29,6 +29,10 @@
 
 - 전투, 타이틀, 로딩 씬 제외 뒤로가기버튼 누를 시 게임 종료 팝업 생성
 	- 전투씬에서는 뒤로가기 버튼 클릭시 일시정지
+<p align="center">
+<img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/e5a4a547-d6ff-4c75-b1bd-bdd088fbaa8b" width = "360" height = "360">
+</p>
+
 - 광고 테스트 계속 진행
 	- 테스트기기 실제 광고까지 성공
 - 쳇바퀴 충전 시스템

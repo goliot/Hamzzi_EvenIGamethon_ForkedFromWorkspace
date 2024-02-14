@@ -238,8 +238,8 @@ RectTransform:
   m_GameObject: {fileID: 2807970488668765534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8177130916626433337}
   m_RootOrder: -1
@@ -277,9 +277,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCE90\uB9AD\uD130 \uB808\uBCA8\uC5C5\uC5D0 \uC0AC\uC6A9\n\uC804\uD22C\uB97C
-    \uD1B5\uD574 \uC5BB\uC744 \uC218 \uC788\uB2E4\n\uC798\uB9CC \uC0AC\uC6A9\uD558\uBA74
-    \uACE0\uC218\uAC00 \uB420 \uC218 \uC788\uB2E4\uB294 \uB370..."
+  m_text: "\uCE90\uB9AD\uD130\uB97C \uAC15\uD654 \uC2DC\uD0AC \uC218 \uC788\uCBB8!\n\uC798\uB9CC
+    \uC0AC\uC6A9\uD558\uBA74 \n\uACE0\uC218\uAC00 \uB420 \uC218 \uC788\uB2E4\uB294
+    \uB370..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
   m_sharedMaterial: {fileID: 4802813550283124960, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
@@ -306,8 +306,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -921,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []

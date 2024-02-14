@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -483,7 +484,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -124.54938}
-  m_SizeDelta: {x: 560.489, y: 189.5442}
+  m_SizeDelta: {x: 596.7136, y: 201.7945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8306982143139918723
 CanvasRenderer:
@@ -513,8 +514,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804\uD22C \uC9C4\uD589 \uC2DC \uC18C\uBAA8\uB418\uB294 \uC7AC\uD654\n\uC804\uD22C\uB97C
-    \uD1B5\uD574 \uC5BB\uC744 \uC218 \uC788\uB2E4"
+  m_text: "\uC804\uD22C\uB97C \uC704\uD574\uC11C\uB294 \uC5D0\uB108\uC9C0\uAC00 \uD544\uC694\uD558\uCBB8!\n\uAD11\uACE0\uB97C
+    \uBCF4\uBA74\n\uCD94\uAC00\uB85C \uC5BB\uC744 \uC218 \uC788\uB2E4\uB294 \uB370..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
   m_sharedMaterial: {fileID: 4802813550283124960, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
@@ -541,8 +542,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

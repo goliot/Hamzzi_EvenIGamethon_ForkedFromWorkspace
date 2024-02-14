@@ -5,36 +5,55 @@ using DG.Tweening;
 
 public class Ladder : MonoBehaviour
 {
+    [SerializeField] GameObject myPanel;
     [SerializeField] RectTransform panelRect;
     [SerializeField] float topPosY, targetPosY;
     [SerializeField] float tweenDuration;
 
-    private void Awake()
+    void Awake()
     {
-        //panelRect = new Rect(0, topPosY);
+        panelRect.anchoredPosition = new Vector2(panelRect.anchoredPosition.x, topPosY);
     }
 
-    void Start()
+    //// ÆË¾÷
+    //void Start()
+    //{
+    //    Intro();
+    //}
+
+    // ÀÎ°ÔÀÓUI
+    private void OnEnable()
     {
         Intro();
     }
 
-    void Update()
+    private void OnDisable()
     {
         
     }
 
     void Intro()
     {
-        panelRect.DOAnchorPosY(targetPosY, tweenDuration);
+        panelRect.DOAnchorPosY(targetPosY, tweenDuration).SetUpdate(true);
     }
 
-    public IEnumerator Outro()
+    public void Outro()
+    {
+        StartCoroutine(OutroCoroutine());
+    }
+
+    public IEnumerator OutroCoroutine()
     {
         Tweener tweener = panelRect.DOAnchorPosY(topPosY, tweenDuration);
 
         yield return tweener.WaitForCompletion();
 
         Debug.Log("Animation Complete");
+
+        if (myPanel != null)
+        {
+            myPanel.SetActive(false);
+            panelRect.anchoredPosition = new Vector2(panelRect.anchoredPosition.x, topPosY);
+        }
     }
 }

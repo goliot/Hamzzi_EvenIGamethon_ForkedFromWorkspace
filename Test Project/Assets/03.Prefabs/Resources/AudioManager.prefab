@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3817952198904211981
 MonoBehaviour:
@@ -120,5 +120,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 10ee19da3701d86419dad206c4158c36, type: 3}
   - {fileID: 8300000, guid: 4dbca6a2f9c84a1469a088c7f3a18ac3, type: 3}
   - {fileID: 8300000, guid: 3e1b8ab96a314ae4499479d11594e56b, type: 3}
-  sfxVolume: 0.5
+  - {fileID: 8300000, guid: 36bc3b00393c3f74dbcf2af4b457af3e, type: 3}
+  - {fileID: 8300000, guid: 083d70cdd3a5adf44bff3aec0a34fab6, type: 3}
+  - {fileID: 8300000, guid: ce059e425c91bdd4d8fa7648f3bdfc9a, type: 3}
+  - {fileID: 8300000, guid: a805b20d51bf9404e80980bca28f0ec2, type: 3}
+  - {fileID: 8300000, guid: e592362709ac07d4bafb544dc32ee779, type: 3}
+  - {fileID: 8300000, guid: 647efbb91b2baf347a23c1596081e4c2, type: 3}
+  - {fileID: 8300000, guid: 9724faf4c29003145a583f6d66757737, type: 3}
+  - {fileID: 8300000, guid: dd3de0b635a35fc43918cafa87685526, type: 3}
+  - {fileID: 8300000, guid: 2b51ab16887b2e8488347c9e624fa68d, type: 3}
+  - {fileID: 8300000, guid: 3645f54ea9459254297427a05d86dcf4, type: 3}
+  - {fileID: 8300000, guid: 4eb9ba93ba42d9e49af4a916c441a9eb, type: 3}
+  - {fileID: 8300000, guid: 41083162c8ac3f046a7003b70540c860, type: 3}
+  - {fileID: 8300000, guid: 7f591c211ca74a04daa6468129640ee7, type: 3}
+  - {fileID: 8300000, guid: c0829a4d78a6f944383f9dd6be026cf5, type: 3}
+  - {fileID: 8300000, guid: b9fec9988406826438f6c946607644f3, type: 3}
+  - {fileID: 8300000, guid: becd0dafd5ad76d4989a4cf552364d0d, type: 3}
+  - {fileID: 8300000, guid: 4be4567a33eea4c468bc99e421ba756c, type: 3}
+  - {fileID: 8300000, guid: 0f6325cc85b6b3143a9087794240ee38, type: 3}
+  - {fileID: 8300000, guid: 6898c12be4e89e84db837094d8b62d9b, type: 3}
+  sfxVolume: 0.2
   channels: 30

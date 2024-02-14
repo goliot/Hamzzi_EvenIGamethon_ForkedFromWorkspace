@@ -26,7 +26,7 @@ public class ChapterTextHandler : MonoBehaviour
             chapterText.text = string.Format($"{StageSelect.instance.chapter}");
                 break;
             case InfoType.Total:
-            totalText.text = string.Format($"{StageSelect.instance.chapter} : {StageSelect.instance.stage}");
+            totalText.text = string.Format($"{StageSelect.instance.chapter} - {StageSelect.instance.stage}");
                 break;
         }
     }

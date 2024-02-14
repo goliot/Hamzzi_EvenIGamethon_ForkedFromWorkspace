@@ -54,16 +54,23 @@ public class DogamUI : MonoBehaviour
         h_curIdx = 0;
         h_PrevBtn.onClick.AddListener(() => OnClickPrevBtn());
         h_NextBtn.onClick.AddListener(() => OnClickNextBtn());
+        h_PrevBtn.gameObject.SetActive(false);
+        h_NextBtn.gameObject.SetActive(true);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
 
         // 몬스터 버튼 및 챕터
         m_curIdx = 0;
         m_PrevBtn.onClick.AddListener(() => OnClickPrevBtn_M());
         m_NextBtn.onClick.AddListener(() => OnClickNextBtn_M());
+        m_PrevBtn.gameObject.SetActive(false);
+        m_NextBtn.gameObject.SetActive(true);
 
         // 스킬 버튼 및 텍스트
         s_curIdx = 0;
         s_PrevBtn.onClick.AddListener(() => OnClickPrevBtn_S());
         s_NextBtn.onClick.AddListener(() => OnClickNextBtn_S());
+        s_PrevBtn.gameObject.SetActive(false);
+        s_NextBtn.gameObject.SetActive(true);
 
         // 맵
         lobbyGrid = FindObjectOfType<Grid>().gameObject.transform.GetChild(0).gameObject;
@@ -81,6 +88,7 @@ public class DogamUI : MonoBehaviour
 
     private void OnClickTopBtn(GameObject objectToActivate)
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         hamzzi.SetActive(objectToActivate == hamzzi);
         monster.SetActive(objectToActivate == monster);
         skill.SetActive(objectToActivate == skill);
@@ -131,14 +139,16 @@ public class DogamUI : MonoBehaviour
     private void OnClickNextBtn()
     {
         h_curIdx = (h_curIdx + 1) % hamzzis.Length;
-        Debug.Log(h_curIdx);
+        //Debug.Log(h_curIdx);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         UpdateHamsters();
     }
 
     private void OnClickPrevBtn()
     {
         h_curIdx = (h_curIdx - 1 + hamzzis.Length) % hamzzis.Length;
-        Debug.Log(h_curIdx);
+        //Debug.Log(h_curIdx);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         UpdateHamsters();
     }
 
@@ -147,22 +157,63 @@ public class DogamUI : MonoBehaviour
         for (int i = 0; i < hamzzis.Length; i++)
         {
             hamzzis[i].SetActive(i == h_curIdx);
-            Debug.Log(hamzzis[i].gameObject.activeSelf);
+            //Debug.Log(hamzzis[i].gameObject.activeSelf);
         }
+
+        // 첫 번째 아이템이 선택된 경우
+        if (h_curIdx == 0)
+        {
+            h_PrevBtn.gameObject.SetActive(false);
+            h_NextBtn.gameObject.SetActive(true);
+        }
+        // 마지막 아이템이 선택된 경우
+        else if (h_curIdx == hamzzis.Length - 1)
+        {
+            h_PrevBtn.gameObject.SetActive(true);
+            h_NextBtn.gameObject.SetActive(false);
+        }
+        // 중간 아이템이 선택된 경우
+        else
+        {
+            h_PrevBtn.gameObject.SetActive(true);
+            h_NextBtn.gameObject.SetActive(true);
+        }
+
+        switch (h_curIdx) 
+        {
+            case 0:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
+                break;
+            case 1:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_02);
+                break;
+            case 2:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_03);
+                break;
+            case 3:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_04);
+                break;
+            case 4:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_05);
+                break;
+        }
+
     }
 
     // 몬스터
     private void OnClickNextBtn_M()
     {
         m_curIdx = (m_curIdx + 1) % monsters.Length;
-        Debug.Log(m_curIdx);
+        //Debug.Log(m_curIdx);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         UpdateMonsters();
     }
 
     private void OnClickPrevBtn_M()
     {
         m_curIdx = (m_curIdx - 1 + monsters.Length) % monsters.Length;
-        Debug.Log(m_curIdx);
+        //Debug.Log(m_curIdx);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         UpdateMonsters();
     }
 
@@ -173,20 +224,41 @@ public class DogamUI : MonoBehaviour
             monsters[i].SetActive(i == m_curIdx);
             Debug.Log(monsters[i].gameObject.activeSelf);
         }
+
+        // 첫 번째 아이템이 선택된 경우
+        if (m_curIdx == 0)
+        {
+            m_PrevBtn.gameObject.SetActive(false);
+            m_NextBtn.gameObject.SetActive(true);
+        }
+        // 마지막 아이템이 선택된 경우
+        else if (m_curIdx == monsters.Length - 1)
+        {
+            m_PrevBtn.gameObject.SetActive(true);
+            m_NextBtn.gameObject.SetActive(false);
+        }
+        // 중간 아이템이 선택된 경우
+        else
+        {
+            m_PrevBtn.gameObject.SetActive(true);
+            m_NextBtn.gameObject.SetActive(true);
+        }
     }
 
     // 스킬
     private void OnClickNextBtn_S()
     {
         s_curIdx = (s_curIdx + 1) % skills.Length;
-        Debug.Log(s_curIdx);
+        //Debug.Log(s_curIdx);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         UpdateSkills();
     }
 
     private void OnClickPrevBtn_S()
     {
         s_curIdx = (s_curIdx - 1 + skills.Length) % skills.Length;
-        Debug.Log(s_curIdx);
+        //Debug.Log(s_curIdx);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Book_Effect);
         UpdateSkills();
     }
 
@@ -196,6 +268,25 @@ public class DogamUI : MonoBehaviour
         {
             skills[i].SetActive(i == s_curIdx);
             Debug.Log(skills[i].gameObject.activeSelf);
+        }
+
+        // 첫 번째 아이템이 선택된 경우
+        if (s_curIdx == 0)
+        {
+            s_PrevBtn.gameObject.SetActive(false);
+            s_NextBtn.gameObject.SetActive(true);
+        }
+        // 마지막 아이템이 선택된 경우
+        else if (s_curIdx == skills.Length - 1)
+        {
+            s_PrevBtn.gameObject.SetActive(true);
+            s_NextBtn.gameObject.SetActive(false);
+        }
+        // 중간 아이템이 선택된 경우
+        else
+        {
+            s_PrevBtn.gameObject.SetActive(true);
+            s_NextBtn.gameObject.SetActive(true);
         }
     }
 

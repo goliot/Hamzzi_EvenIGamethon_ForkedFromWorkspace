@@ -179,7 +179,7 @@ public class PopUpHandler : MonoBehaviour
 
     IEnumerator OutroAndClosePopUp()
     {
-        yield return ladder.Outro();
+        yield return ladder.OutroCoroutine();
         // 애니메이션이 완료된 후에 PopUp을 닫음
         PopUpManager.Inst.popUpList.Peek().OnClose();
     }

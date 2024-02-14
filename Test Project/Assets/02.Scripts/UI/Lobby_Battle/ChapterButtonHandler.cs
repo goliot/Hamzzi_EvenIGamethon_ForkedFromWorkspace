@@ -41,16 +41,42 @@ public class ChapterButtonHandler: MonoBehaviour
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Wheel);
         //BackendGameData.Instance.UserGameData.threadmill -= 1;
         //BackendGameData.Instance.GameDataUpdate();
-        if(Threadmill.instance.m_HeartAmount < 1)
+        if (Threadmill.instance.m_HeartAmount < 1)
         {
-            //쳇바퀴가 부족합니다!
+            GameObject board = FindChildByName(transform, "WarningThreadmillBoard");
+            if (board != null) board.SetActive(true);
+
             return;
         }
-        Threadmill.instance.OnClickUseHeart();
-        //Threadmill.instance.OnClickUseHeart();
+        else
+        {
+            Threadmill.instance.OnClickUseHeart();
+            //Threadmill.instance.OnClickUseHeart();
 
-        //BackendGameData.Instance.GameDataUpdate();
-        StageSelect.instance.SceneLoad();
+            //BackendGameData.Instance.GameDataUpdate();
+            StageSelect.instance.SceneLoad();
+        }
+    }
+
+    GameObject FindChildByName(Transform parent, string childName)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.gameObject.name == childName)
+            {
+                return child.gameObject;
+            }
+
+            // 재귀적으로 자식의 자식까지 찾기
+            GameObject foundChild = FindChildByName(child, childName);
+            if (foundChild != null)
+            {
+                return foundChild;
+            }
+        }
+
+        // 찾지 못한 경우
+        return null;
     }
 
     //private void UpdateChapterButtons()

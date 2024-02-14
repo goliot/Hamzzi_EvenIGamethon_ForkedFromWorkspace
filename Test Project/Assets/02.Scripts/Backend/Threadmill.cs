@@ -219,7 +219,7 @@ public class Threadmill : MonoBehaviour
 
         if (m_HeartAmount >= MAX_HEART)
         {
-            m_HeartAmount = MAX_HEART;
+            //m_HeartAmount = MAX_HEART;
         }
         else
         {
@@ -268,7 +268,7 @@ public class Threadmill : MonoBehaviour
 
             if(m_HeartAmount >= MAX_HEART)
             {
-                m_HeartAmount = MAX_HEART;
+                //m_HeartAmount = MAX_HEART;
                 m_RechargeRemainTime = 0;
                 //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
                 Debug.Log("HeartAmount reached max amount");
@@ -279,7 +279,7 @@ public class Threadmill : MonoBehaviour
         m_HeartAmount++;
         if (m_HeartAmount >= MAX_HEART)
         {
-            m_HeartAmount = MAX_HEART;
+            //m_HeartAmount = MAX_HEART;
             m_RechargeRemainTime = 0;
             //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
             Debug.Log("HeartAmount reached max amount");

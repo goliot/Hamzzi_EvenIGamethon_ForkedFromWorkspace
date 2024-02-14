@@ -21,6 +21,34 @@
 |기간| 01.08 ~ 01.26 | 01.27 ~ 02.02 | 02.03 ~ 02.09 | 02.10 ~ 02.23 |
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
+## V.3.1.12 JS 2024-02-14
+- 도감
+  - 도감 몬스터, 스킬 아래 Text 변경 "Sound 준비예정" -> "Sound On 권장"
+  - 도감 햄찌, 몬스터, 스킬 Sound 적용 완료
+- UI
+  - 밧줄 애니메이션 추가
+    - 설정UI, 전투선택UI, 프로필UI, 전투결과화면UI, 게임오버UI
+  - 설정UI
+    - 제작자화면, 출처화면 버튼만 추가
+  - 전투 결과 화면 UI
+    - 이미지 배치 수정
+    - Chapter, Stage 표기 HUD 추가
+  - UI ver4 일부 작업완료 (사진참고)
+    - 미완료 내용
+      - 제작자들, 출처 (내용 구현)
+      - 프로필
+      - 전투 선택창 별 (이건 수민님이랑 구현 가능성에 대해 논의가 필요할 것 같음)
+     
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/a7158d2a-b0f7-4aaa-801b-a8d9ea6871da" width = "160" height = "210">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/9d14c800-6003-4ddf-80e1-9c873f9ee357" width = "160" height = "210">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/2812bf9c-c257-468d-97ff-91045862f26b" width = "160" height = "210">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/fc91912a-1b06-4546-8559-38613b9e2ab3" width = "160" height = "210">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/2c11ee32-f954-472a-944c-b85e22470279" width = "160" height = "210">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/105345909/8df1627d-5209-4989-a124-82bea9fa6a71" width = "160" height = "210">
+</p> 
+
+---
 ## V.3.1.12 SM 2024-02-14
 - 로비에서 햄찌를 드래그&드롭 해서 각종 동작을 할 수 있게 구현
 - 게임 종료 버튼 버그 수정

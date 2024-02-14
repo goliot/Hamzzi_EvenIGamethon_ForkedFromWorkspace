@@ -191,6 +191,7 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
                         spawner.SellTower(objectDetector.TilePos.transform);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }
@@ -203,6 +204,14 @@ public class TowerUI : MonoBehaviour
                 {
                     if (objectDetector.TilePos != null)
                     {
+                        if(GameManager.Inst.seed < 20)
+                        {
+                            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+                            ObjectDetector.instance.towerText.text = "¾¾¾ÑÀÌ ºÎÁ·ÇÕ´Ï´Ù!";
+                            StartCoroutine(TextClose());
+                            return;
+                        }
+                        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Lobby_Hamster_Level_Up);
                         spawner.UpgradeTower(objectDetector.TilePos.transform);
                         StartCoroutine(ClosePopUpAfterDelay());
                     }

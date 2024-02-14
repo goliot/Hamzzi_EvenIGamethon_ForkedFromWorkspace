@@ -47,6 +47,8 @@ public class Card : MonoBehaviour
         switch (cardData.cardType)
         {
             case CardData.CardType.MagicBolt:
+                Player.Inst.cardLevels[0]++;
+
                 // 마력구 스킬 1번 카드 증폭(피해)  : 피해량 +60%                
                 if (cardData.cardId == 1)
                 {
@@ -95,6 +97,7 @@ public class Card : MonoBehaviour
                 break;
             // 각 케이스 안에 1~6번 카드 중 어떤 카드인지 검사
             case CardData.CardType.Boom:
+                Player.Inst.cardLevels[1]++;
                 // 해금을 하는 시스템
                 // 레벨로 제어하는게 편할 것 같다. level0 일때는 playerdata 안에서 비활성화 상태이다가 여기서 클릭되서 레벨 1이 되면 아래 로직 활성화
                 // playerData의 isUnlock 불린값 활용
@@ -143,6 +146,8 @@ public class Card : MonoBehaviour
                 }
                 break;
             case CardData.CardType.Aqua:
+                Player.Inst.cardLevels[2]++;
+
                 if (cardData.cardId == 1)
                 {
                     player.playerData[(int)cardData.cardType].damage *= 1.6f;
@@ -177,6 +182,8 @@ public class Card : MonoBehaviour
                 }
                 break;
             case CardData.CardType.Lumos:
+                Player.Inst.cardLevels[3]++;
+
                 if (cardData.cardId == 1)
                 {
                     player.playerData[(int)cardData.cardType].damage *= 1.6f;
@@ -208,6 +215,8 @@ public class Card : MonoBehaviour
                 }
                 break;
             case CardData.CardType.Aegs:
+                Player.Inst.cardLevels[4]++;
+
                 if (cardData.cardId == 1)
                 {
                     player.playerData[(int)cardData.cardType].damage *= 1.6f;
@@ -234,6 +243,8 @@ public class Card : MonoBehaviour
                 }
                 break;
             case CardData.CardType.Momen:
+                Player.Inst.cardLevels[5]++;
+
                 if (cardData.cardId == 1)
                 {
                     player.playerData[(int)cardData.cardType].damage *= 1.6f;
@@ -260,6 +271,8 @@ public class Card : MonoBehaviour
                 }
                 break;
             case CardData.CardType.Pines:
+                Player.Inst.cardLevels[6]++;
+
                 // 공통
                 // 스킬 1번 카드 증폭(피해)  : 피해량 +60 %
                 if (cardData.cardId == 1)

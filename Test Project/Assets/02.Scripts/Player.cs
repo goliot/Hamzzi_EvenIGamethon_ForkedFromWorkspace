@@ -3,20 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
 using UnityEngine.UI;
-using System.Linq;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
+    public static Player Inst;
+
     public List<PlayerData> playerData = new List<PlayerData>();
     public Transform fireArea;
     public Transform target;
 
     public Image[] skillImages;
+    public TextMeshProUGUI[] skillLevelTexts;
+    public int[] cardLevels = new int[7];
 
     public Transform[] momenstoPoint;
     public Transform nextMomenstoLocation;
 
     string xmlFileName = "PlayerData";
+
+    private void Awake()
+    {
+        Inst = this;
+
+        cardLevels[0] = 1;
+        for(int i=1; i<cardLevels.Length; i++)
+        {
+            cardLevels[i] = 1;
+        }
+    }
 
     void Start()
     {

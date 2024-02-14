@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -90,6 +91,10 @@ public class GameManager : Singleton<GameManager>
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             UIManager.Inst.PauseGame();
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            seed = 100;
         }
     }
 

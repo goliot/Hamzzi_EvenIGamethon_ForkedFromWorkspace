@@ -35,7 +35,7 @@ public class ObjectDetector : MonoBehaviour
                 if (hit.transform.CompareTag("Tile"))
                 {
                     TilePos = hit.transform.GetComponent<Tile>();
-                    Debug.Log(TilePos);
+                    //Debug.Log(TilePos.transform.position.x);
 
                     if(!GameManager.Inst.isSelectingCard && PopUpManager.Inst.popUpList.Count < 1)         // 카드 선택창이 열려있지 않고, 팝업창이 열려 있지 않다면 (중복UI 생성 막기)
                     {

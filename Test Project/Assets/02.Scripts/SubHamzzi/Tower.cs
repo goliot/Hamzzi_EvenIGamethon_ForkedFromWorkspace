@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 //public enum TowerType { Arrow, Bomb, Black, Tank, Heal }
 
@@ -23,6 +25,12 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
     [Header("#State")]
     public GameObject target;
     List<GameObject> targetsInRange = new List<GameObject>();
+
+    [Header("#HUD")]
+    public TextMeshProUGUI levelLeft;
+    public TextMeshProUGUI levelRight;
+    public Image coolLeft;
+    public Image coolRight;
 
     TowerData thisData;
     Animator anim;
@@ -46,13 +54,13 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         barrier = data.barrier;
         heal = data.heal;
         atkRange = data.atkRange;
-        level = 0;
+        level = 1;
 
         gameObject.transform.localScale = new Vector3(3, 3, 3);
         time = 1000;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         thisData.damage = damage;
         thisData.atkSpeed = atkSpeed;
@@ -75,6 +83,11 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
             target = targetsInRange[Random.Range(0, targetsInRange.Count)];
             //Debug.Log("사거리에 타겟 진입");
         }
+
+        levelLeft.text = level.ToString();
+        levelRight.text = level.ToString();
+        coolLeft.fillAmount = time / atkSpeed;
+        coolRight.fillAmount = time / atkSpeed;
 
         if(time > atkSpeed && target != null)
         {

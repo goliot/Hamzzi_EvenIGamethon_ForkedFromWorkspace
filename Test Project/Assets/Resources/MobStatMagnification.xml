@@ -63,61 +63,61 @@
 	<Sheet1>
 		<chapter>3</chapter>
 		<stage>1</stage>
-		<mobHealth>1.45</mobHealth>
-		<mobDamage>1.4</mobDamage>
-	</Sheet1>
-	<Sheet1>
-		<chapter>3</chapter>
-		<stage>2</stage>
 		<mobHealth>1.47</mobHealth>
 		<mobDamage>1.42</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
-		<stage>3</stage>
+		<stage>2</stage>
 		<mobHealth>1.52</mobHealth>
 		<mobDamage>1.46</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
-		<stage>4</stage>
+		<stage>3</stage>
 		<mobHealth>1.6</mobHealth>
 		<mobDamage>1.54</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>3</chapter>
-		<stage>5</stage>
+		<stage>4</stage>
 		<mobHealth>1.67</mobHealth>
 		<mobDamage>1.6</mobDamage>
 	</Sheet1>
 	<Sheet1>
+		<chapter>3</chapter>
+		<stage>5</stage>
+		<mobHealth>1.72</mobHealth>
+		<mobDamage>1.65</mobDamage>
+	</Sheet1>
+	<Sheet1>
 		<chapter>4</chapter>
 		<stage>1</stage>
-		<mobHealth>4.1</mobHealth>
-		<mobDamage>3.3</mobDamage>
+		<mobHealth>1.8</mobHealth>
+		<mobDamage>1.7</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>4</chapter>
 		<stage>2</stage>
-		<mobHealth>4.4</mobHealth>
-		<mobDamage>3.5</mobDamage>
+		<mobHealth>1.85</mobHealth>
+		<mobDamage>1.75</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>4</chapter>
 		<stage>3</stage>
-		<mobHealth>4.7</mobHealth>
-		<mobDamage>3.7</mobDamage>
+		<mobHealth>1.9</mobHealth>
+		<mobDamage>1.8</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>4</chapter>
 		<stage>4</stage>
-		<mobHealth>5</mobHealth>
-		<mobDamage>3.9</mobDamage>
+		<mobHealth>1.97</mobHealth>
+		<mobDamage>1.85</mobDamage>
 	</Sheet1>
 	<Sheet1>
 		<chapter>4</chapter>
 		<stage>5</stage>
-		<mobHealth>5.3</mobHealth>
-		<mobDamage>4.1</mobDamage>
+		<mobHealth>2.1</mobHealth>
+		<mobDamage>2</mobDamage>
 	</Sheet1>
 </root>

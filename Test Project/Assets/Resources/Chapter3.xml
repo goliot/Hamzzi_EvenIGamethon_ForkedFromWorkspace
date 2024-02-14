@@ -2,7 +2,7 @@
 <root>
 	<Sheet1>
 		<wave>1</wave>
-		<mob1>2</mob1>
+		<mob1>3</mob1>
 		<mob2>0</mob2>
 		<mob3>0</mob3>
 		<semiBoss>0</semiBoss>
@@ -10,7 +10,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>2</wave>
-		<mob1>2</mob1>
+		<mob1>3</mob1>
 		<mob2>0</mob2>
 		<mob3>0</mob3>
 		<semiBoss>0</semiBoss>
@@ -18,7 +18,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>3</wave>
-		<mob1>2</mob1>
+		<mob1>3</mob1>
 		<mob2>1</mob2>
 		<mob3>0</mob3>
 		<semiBoss>0</semiBoss>
@@ -34,7 +34,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>5</wave>
-		<mob1>3</mob1>
+		<mob1>4</mob1>
 		<mob2>1</mob2>
 		<mob3>1</mob3>
 		<semiBoss>0</semiBoss>
@@ -42,7 +42,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>6</wave>
-		<mob1>3</mob1>
+		<mob1>4</mob1>
 		<mob2>2</mob2>
 		<mob3>1</mob3>
 		<semiBoss>0</semiBoss>
@@ -50,7 +50,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>7</wave>
-		<mob1>3</mob1>
+		<mob1>4</mob1>
 		<mob2>2</mob2>
 		<mob3>1</mob3>
 		<semiBoss>1</semiBoss>
@@ -66,7 +66,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>9</wave>
-		<mob1>4</mob1>
+		<mob1>5</mob1>
 		<mob2>3</mob2>
 		<mob3>2</mob3>
 		<semiBoss>1</semiBoss>
@@ -74,7 +74,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>10</wave>
-		<mob1>4</mob1>
+		<mob1>5</mob1>
 		<mob2>3</mob2>
 		<mob3>2</mob3>
 		<semiBoss>2</semiBoss>
@@ -82,7 +82,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>11</wave>
-		<mob1>4</mob1>
+		<mob1>5</mob1>
 		<mob2>3</mob2>
 		<mob3>2</mob3>
 		<semiBoss>2</semiBoss>
@@ -98,7 +98,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>13</wave>
-		<mob1>5</mob1>
+		<mob1>6</mob1>
 		<mob2>4</mob2>
 		<mob3>3</mob3>
 		<semiBoss>2</semiBoss>
@@ -106,7 +106,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>14</wave>
-		<mob1>5</mob1>
+		<mob1>6</mob1>
 		<mob2>4</mob2>
 		<mob3>3</mob3>
 		<semiBoss>3</semiBoss>
@@ -114,7 +114,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>15</wave>
-		<mob1>5</mob1>
+		<mob1>6</mob1>
 		<mob2>4</mob2>
 		<mob3>3</mob3>
 		<semiBoss>3</semiBoss>
@@ -130,7 +130,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>17</wave>
-		<mob1>6</mob1>
+		<mob1>7</mob1>
 		<mob2>5</mob2>
 		<mob3>4</mob3>
 		<semiBoss>3</semiBoss>
@@ -138,7 +138,7 @@
 	</Sheet1>
 	<Sheet1>
 		<wave>18</wave>
-		<mob1>6</mob1>
+		<mob1>7</mob1>
 		<mob2>5</mob2>
 		<mob3>4</mob3>
 		<semiBoss>4</semiBoss>

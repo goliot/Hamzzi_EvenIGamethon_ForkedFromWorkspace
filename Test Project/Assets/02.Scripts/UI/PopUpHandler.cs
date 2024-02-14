@@ -11,7 +11,7 @@ using Unity.VisualScripting;
 // 이미 이름을 PopUpManager에서 생성 및 초기화 해놔서, 동작 함수만 추가 작성하면 됨
 public class PopUpHandler : MonoBehaviour
 {
-    [SerializeField] Ladder ladder;
+    Ladder ladder;
 
     [System.Serializable]
     public class LobbyLoadEvent : UnityEvent { }

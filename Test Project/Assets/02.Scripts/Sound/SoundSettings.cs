@@ -9,6 +9,7 @@ public class SoundSettings : MonoBehaviour
 {
     public Slider bgmSlider;
     public Slider sfxSlider;
+    public Button logoutButton;
 
     private AudioManager audioManager;
 
@@ -34,6 +35,7 @@ public class SoundSettings : MonoBehaviour
 
     public void OnClickLogout()
     {
+        logoutButton.interactable = false;
         Backend.BMember.Logout((callback) => {
             if(callback.IsSuccess())
             {

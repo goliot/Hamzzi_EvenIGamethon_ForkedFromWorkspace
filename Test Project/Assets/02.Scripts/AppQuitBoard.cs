@@ -3,11 +3,17 @@ using GooglePlayGames;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AppQuitBoard : MonoBehaviour
 {
+    public Button yesButton;
+    public Button noButton;
+
     public void OnClickYes()
     {
+        yesButton.interactable = false;
+
         if (Backend.IsInitialized && Backend.UserInDate != null) //서버가 연결되어있고, 로그인 상태일 경우
         {
             Backend.BMember.Logout((callback) =>
@@ -49,6 +55,7 @@ public class AppQuitBoard : MonoBehaviour
 
     public void OnClickNo()
     {
+        noButton.interactable = false;
         Destroy(gameObject);
         AppController.instance.isOn = false;
     }

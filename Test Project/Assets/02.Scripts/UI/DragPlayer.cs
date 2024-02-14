@@ -1,39 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class DragPlayer : MonoBehaviour, IPointerClickHandler, IDragHandler
+public class DragPlayer : MonoBehaviour
 {
-    
-    public void OnPointerClick(PointerEventData eventData)
+    public RuntimeAnimatorController[] animCon; //0. 기본, 1. 파닥, 2. 사과, 3. 춤, 4. 책
+    public BoxCollider2D[] zones;               //0. 사과, 1. 춤, 2. 책
+
+    private Vector3 offset;
+
+    BoxCollider2D bc;
+    Animator anim;
+
+    private void Awake()
     {
-        //// 팝업 UI를 활성화하는 로직 추가
-        //if (eventData.clickCount == 1)
-        //{
-        //    ShowPopUp();
-        //}
+        bc = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
-    public void OnDrag(PointerEventData eventData)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        throw new System.NotImplementedException();
+        if (collision.gameObject.name == "FeedZone")
+        {
+            anim.runtimeAnimatorController = animCon[2];
+        }
+        else if (collision.gameObject.name == "DanceZone")
+        {
+            anim.runtimeAnimatorController = animCon[3];
+        }
+        else if (collision.gameObject.name == "ReadZone")
+        {
+            anim.runtimeAnimatorController = animCon[4];
+        }
     }
 
-    private void ShowPopUp()
+    void OnMouseDown()
     {
-        //// PopUpHandler 컴포넌트 가져오기
-        //PopUpHandler popUpHandler = GetComponent<PopUpHandler>();
+        offset = gameObject.transform.position - GetMouseWorldPos();
+    }
 
-        //if (popUpHandler != null)
-        //{
-        //    popUpHandler.OnClickPopUpProfile();
-        //    Debug.LogError("프로필UI 팝업 찾을 수 없습니다.");
+    void OnMouseDrag()
+    {
+        transform.position = GetMouseWorldPos() + offset;
+        anim.runtimeAnimatorController = animCon[1];
+    }
 
-        //}
-        //else
-        //{
-        //    Debug.LogError("PopUpHandler를 찾을 수 없습니다.");
-        //}
+    private void OnMouseUp()
+    {
+        anim.runtimeAnimatorController = animCon[0];
+        CheckCollision();
+    }
+
+    private void CheckCollision()
+    {
+        int cnt = 0;
+        foreach (BoxCollider2D zone in zones)
+        {
+            if (bc.IsTouching(zone))
+            {
+                cnt++;
+            }
+        }
+        if (cnt < 2)
+        {
+            foreach (BoxCollider2D zone in zones)
+            {
+                if (bc.IsTouching(zone))
+                {
+                    OnTriggerEnter2D(zone);
+                }
+            }
+        }
+        else anim.runtimeAnimatorController = animCon[0];
+    }
+
+    private Vector3 GetMouseWorldPos()
+    {
+        Vector3 mousePoint = Input.mousePosition;
+        mousePoint.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 }

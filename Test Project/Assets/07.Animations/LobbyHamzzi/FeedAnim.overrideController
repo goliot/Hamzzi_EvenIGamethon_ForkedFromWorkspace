@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FeedAnim
+  m_Controller: {fileID: 9100000, guid: cedb5d89ac8b57b48b50dacd127c8792, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 49970aef8d0f30640a2973a0f37b5476, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ab24d66a5cdd62f4496bd293bc812e14, type: 2}

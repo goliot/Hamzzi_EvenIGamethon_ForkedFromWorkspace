@@ -71,6 +71,46 @@ public class Dogam_MonsterUI : MonoBehaviour
                 case 1:
                     AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Insam_Gamsam_Voice);
                     break;
+                case 2:
+                case 3:
+                case 4:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Appuri_Chopuri_Gampuri_Voice);
+                    break;
+                case 5:
+                case 6:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Injangyi_Gamjangyi_Voice);
+                    break;
+                case 7:
+                case 8:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Ifari_Gamfari_Voice);
+                    break;
+                case 9:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Poison_Mushroom_Voice);
+                    break;
+                case 10:
+                case 11:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Erumi_Pinkuri_Voice);
+                    break;
+                case 12:
+                case 13:
+                case 14:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_BlueKnight_BlackKnight_KimKnight_Voice);
+                    break;
+                case 15:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Huindungyi_Voice);
+                    break;
+                case 16:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Gomtaengyi_Voice);
+                    break;
+                case 17:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Taepungyi_Voice);
+                    break;
+                case 18:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Ippeunyi_Voice);
+                    break;
+                case 19:
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Haebaragisa_Voice);
+                    break;
             }
         }
         else

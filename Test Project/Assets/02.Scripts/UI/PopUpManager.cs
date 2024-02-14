@@ -9,10 +9,10 @@ public class PopUpManager : MonoBehaviour
 {
     public GameObject myNoTouch;                                        // 팝업 창이 여러개 뜬다면 뒤쪽 창을 뜨지 못하게 하는 빈 Image UI 오브젝트
     public Stack<PopUpWindow> popUpList = new Stack<PopUpWindow>();     // 여러 개의 팝업 창이 열릴 경우 Stack 형태로 먼저 열린 창부터 close 하게 끔 구현
-    public UnityAction allClose = null;                               // 전체 팝업 창을 다 닫는 기능(현재는 적용 X)
+    public UnityAction allClose = null;                                 // 전체 팝업 창을 다 닫는 기능(현재는 적용 X)
 
     // PopUpNames 객체를 가져와 사용
-    public PopUpNames PopUpNames { get; private set; } = new PopUpNames("StageSelectUI", "SettingsUI", "ExplainStaminaUI", "ExplainCornUI", "ProfileUI", "TowerUI", "LevelUpUI", "StageStartUI", "TowerUpgradeSellUI", "ShopUI", "DogamUI", "DogamMonsterUI");
+    public PopUpNames PopUpNames { get; private set; } = new PopUpNames("StageSelectUI", "SettingsUI", "ExplainStaminaUI", "ExplainCornUI", "ProfileUI", "TowerUI", "LevelUpUI", "StageStartUI", "TowerUpgradeSellUI", "ShopUI", "DogamUI", "DogamMonsterUI", "DogamSkillUI");
 
     public static PopUpManager Inst { get; private set; }               // 스태틱 프로퍼티로 사용
 

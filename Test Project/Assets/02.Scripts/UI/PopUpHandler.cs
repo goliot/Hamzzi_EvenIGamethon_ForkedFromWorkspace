@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System.Linq;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 
 // PopUpManager에서 팝업 이름(PopUpNames)을 가져와 사용할 수 있다
 // 이미 이름을 PopUpManager에서 생성 및 초기화 해놔서, 동작 함수만 추가 작성하면 됨
 public class PopUpHandler : MonoBehaviour
 {
+    [SerializeField] Ladder ladder;
+
     [System.Serializable]
     public class LobbyLoadEvent : UnityEvent { }
     public LobbyLoadEvent lobbyLoadEvent = new LobbyLoadEvent();
@@ -16,6 +20,7 @@ public class PopUpHandler : MonoBehaviour
     public UnityEvent onShopBackground;
     public UnityEvent onDogamBackground;
     public static UnityEvent<int> OnDogamMonsterButtonClicked = new UnityEvent<int>();
+    public static UnityEvent<int> OnDogamSkillButtonClicked = new UnityEvent<int>();
 
     private static PopUpHandler instance = null;
     public static PopUpHandler Inst
@@ -33,7 +38,16 @@ public class PopUpHandler : MonoBehaviour
 
     void Awake()
     {
-            
+        Init();
+    }
+
+    void Init()
+    {
+        if (ladder == null)
+        {
+            ladder = FindObjectOfType<Ladder>();
+        }
+        else return;
     }
 
     #region PopUpButton
@@ -100,15 +114,17 @@ public class PopUpHandler : MonoBehaviour
         string buttonName = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
         int dataIndex = GetIndexFromButtonName(buttonName);
 
-        Debug.Log($"dataIndex : {dataIndex}");
-
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strDogamMonsterUI);
         OnDogamMonsterButtonClicked?.Invoke(dataIndex);
     }
 
     public void OnClickPopUpDogamSkill()
     {
+        string buttonName = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+        int dataIndex = GetIndexFromButtonName(buttonName);
 
+        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strDogamSkillUI);
+        OnDogamSkillButtonClicked?.Invoke(dataIndex);
     }
 
     #endregion
@@ -117,9 +133,16 @@ public class PopUpHandler : MonoBehaviour
     private int GetIndexFromButtonName(string buttonName)
     {
         // 버튼 이름에서 "Monster" 부분을 제거하여 숫자 부분만 추출
-        string numberString = buttonName.Replace("Monster", "");
+        string numberString = "";
+        if(buttonName.Contains("Monster"))
+        {
+            numberString = buttonName.Replace("Monster", "");
+        }
+        else if(buttonName.Contains("Skill"))
+        {
+            numberString = buttonName.Replace("Skill", "");
+        }
 
-        Debug.Log($"Parsed number : {numberString}");
         // 추출한 숫자 부분을 정수로 변환하여 데이터 인덱스로 사용
         return int.Parse(numberString) - 1; // 인덱스는 0부터 시작하므로 1을 뺌
     }
@@ -136,6 +159,24 @@ public class PopUpHandler : MonoBehaviour
         PopUpManager.Inst.popUpList.Peek().OnClose();
     }
 
+    public void OnClickExitWithLadder()
+    {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            Debug.Log("로비 소환!");
+            lobbyLoadEvent.Invoke();
+
+        }
+        StartCoroutine(OutroAndClosePopUp());
+    }
+
+    IEnumerator OutroAndClosePopUp()
+    {
+        yield return ladder.Outro();
+        // 애니메이션이 완료된 후에 PopUp을 닫음
+        PopUpManager.Inst.popUpList.Peek().OnClose();
+    }
     public void OnClickLevelUp()
     {
         int level = BackendGameData.Instance.UserGameData.level;

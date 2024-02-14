@@ -60,7 +60,7 @@ public class AudioManager : Singleton<AudioManager>
         //SFX_Haebaragisa_Voice = 16, 두번들어감
         SFX_Insam_Gamsam_Voice = 17,
         SFX_Appuri_Chopuri_Gampuri_Voice = 18,
-        SFX__Injangyi_Gamjangyi_Voice = 19,
+        SFX_Injangyi_Gamjangyi_Voice = 19,
         SFX_Ifari_Gamfari_Voice = 20,
         SFX_Poison_Mushroom_Voice = 21,
         SFX_Erumi_Pinkuri_Voice = 22,

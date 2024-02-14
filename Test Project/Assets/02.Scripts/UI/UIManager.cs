@@ -132,7 +132,8 @@ public class UIManager : Singleton<UIManager>
     public void OpenTutorial()
     {
         pauseMenu.SetActive(false);
-        tutorialUI.SetActive(true);        
+        tutorialUI.SetActive(true);
+        AdmobManager.instance.DestroyBannerView();
     }
 
     public void CloseTutorial()

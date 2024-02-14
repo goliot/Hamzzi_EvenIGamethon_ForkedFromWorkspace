@@ -56,7 +56,7 @@ public class TowerSpawner : MonoBehaviour
         if (GameManager.Inst.seed >= 40)
         {
             GameObject tower = GameManager.Inst.pool.Get(2);
-            if(tileTransform.position.x < 0)
+            /*if(tileTransform.position.x < 0)
             {
                 //왼쪽
                 tower.transform.Find("CoolLeft").gameObject.SetActive(true);
@@ -67,14 +67,14 @@ public class TowerSpawner : MonoBehaviour
                 //오른쪽
                 tower.transform.Find("CoolLeft").gameObject.SetActive(false);
                 tower.transform.Find("CoolRight").gameObject.SetActive(true);
-            }
+            }*/
 
             Tile tile = tileTransform.GetComponent<Tile>();
             if (tile.IsBuildTower == true) return;           // 현재 타워 건설되어 있으면 타워건설 X
             tile.IsBuildTower = true;                        // 타워 건설되어 있음으로 설정
 
-            tower.GetComponent<Tower>().Init(towerData[index]);
             tower.transform.position = tileTransform.position;
+            tower.GetComponent<Tower>().Init(towerData[index]);
             InstalledTower.Add(tile.transform, tower);
             GameManager.Inst.seed -= 40;
             /*switch (index)

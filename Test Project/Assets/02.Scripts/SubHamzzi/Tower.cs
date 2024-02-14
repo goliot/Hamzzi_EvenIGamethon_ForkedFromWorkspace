@@ -27,10 +27,11 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
     List<GameObject> targetsInRange = new List<GameObject>();
 
     [Header("#HUD")]
-    public TextMeshProUGUI levelLeft;
-    public TextMeshProUGUI levelRight;
+    public TextMeshProUGUI levelText;
     public Image coolLeft;
     public Image coolRight;
+    public Image outerLeft;
+    public Image outerRight;
 
     TowerData thisData;
     Animator anim;
@@ -56,8 +57,19 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         atkRange = data.atkRange;
         level = 1;
 
-        gameObject.transform.localScale = new Vector3(3, 3, 3);
+        gameObject.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
         time = 1000;
+
+        if(gameObject.transform.position.x < 0)
+        {
+            outerLeft.gameObject.SetActive(true);
+            outerRight.gameObject.SetActive(false);
+        }
+        else
+        {
+            outerLeft.gameObject.SetActive(false);
+            outerRight.gameObject.SetActive(true);
+        }
     }
 
     private void Update()
@@ -84,10 +96,15 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
             //Debug.Log("사거리에 타겟 진입");
         }
 
-        levelLeft.text = level.ToString();
-        levelRight.text = level.ToString();
-        coolLeft.fillAmount = time / atkSpeed;
-        coolRight.fillAmount = time / atkSpeed;
+        levelText.text = "Lv. " + level.ToString();
+        if (gameObject.transform.position.x < 0)
+        {
+            coolLeft.fillAmount = time / atkSpeed;
+        }
+        else
+        {
+            coolRight.fillAmount = time / atkSpeed;
+        }
 
         if(time > atkSpeed && target != null)
         {

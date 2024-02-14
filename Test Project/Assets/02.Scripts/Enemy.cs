@@ -83,6 +83,12 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
 
         originalColor = spriteRenderer.color;
+
+        if (spriteType % 5 == 4)
+        {
+            hpSlider.gameObject.SetActive(true);
+        }
+        else hpSlider.gameObject.SetActive(false);
         //bossHPBar.value = 1;
     }
 
@@ -107,10 +113,8 @@ public class Enemy : MonoBehaviour
         }
         if (spriteType % 5 == 4)
         {
-            hpSlider.gameObject.SetActive(true);
             hpSlider.value = Mathf.Clamp01(health / maxHealth);
         }
-        else hpSlider.gameObject.SetActive(false);
         //hpSlider.value = Mathf.Clamp01(health / maxHealth);
     }
 
@@ -563,10 +567,10 @@ public class Enemy : MonoBehaviour
         }
 
 
-        foreach (Transform child in transform)
+        /*foreach (Transform child in transform)
         {
-            Destroy(child.gameObject);
-        }
+            //Destroy(child.gameObject);
+        }*/
 
         gameObject.SetActive(false);
     }

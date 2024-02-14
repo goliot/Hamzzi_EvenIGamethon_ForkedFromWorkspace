@@ -38,6 +38,8 @@ public class ShopButtonHandler : MonoBehaviour
         if (BackendGameData.Instance.TowerDB.t2) blackBtn.interactable = false;
         if (BackendGameData.Instance.TowerDB.t3) tankBtn.interactable = false;
         if (BackendGameData.Instance.TowerDB.t4) healBtn.interactable = false;
+
+        if (BackendGameData.Instance.UserGameData.isAdRemoved) removeAdBtn.interactable = false;
         //if(BackendGameData.Instance.UserGameData.isAdRemoved) removeAdBtn.interactable = false;
         cornAmountText.text = "현재 옥수수 : \n" + BackendGameData.Instance.UserGameData.corn.ToString() + "개";
     }

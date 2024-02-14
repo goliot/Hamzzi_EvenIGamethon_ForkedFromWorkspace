@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         cardLevels[0] = 1;
         for(int i=1; i<cardLevels.Length; i++)
         {
-            cardLevels[i] = 1;
+            cardLevels[i] = 0;
         }
     }
 
@@ -89,6 +89,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        for(int i=0; i<skillLevelTexts.Length; i++)
+        {
+            if (skillLevelTexts[i].gameObject.activeSelf)
+            {
+                skillLevelTexts[i].text = cardLevels[i].ToString();
+            }
+        }
         target = gameObject.GetComponent<Scanner>().nearestTarget;
 
         if (target == null) return;

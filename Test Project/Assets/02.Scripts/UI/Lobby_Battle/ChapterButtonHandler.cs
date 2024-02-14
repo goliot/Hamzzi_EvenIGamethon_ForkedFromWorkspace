@@ -41,6 +41,11 @@ public class ChapterButtonHandler: MonoBehaviour
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Wheel);
         //BackendGameData.Instance.UserGameData.threadmill -= 1;
         //BackendGameData.Instance.GameDataUpdate();
+        if(Threadmill.instance.m_HeartAmount < 1)
+        {
+            //ÃÂ¹ÙÄû°¡ ºÎÁ·ÇÕ´Ï´Ù!
+            return;
+        }
         Threadmill.instance.OnClickUseHeart();
         //Threadmill.instance.OnClickUseHeart();
 

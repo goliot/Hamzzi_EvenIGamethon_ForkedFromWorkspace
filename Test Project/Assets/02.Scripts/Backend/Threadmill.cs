@@ -130,8 +130,8 @@ public class Threadmill : MonoBehaviour
         {
             PlayerPrefs.SetInt("HeartAmount", m_HeartAmount);
             PlayerPrefs.Save();
-            BackendGameData.Instance.UserGameData.threadmill = m_HeartAmount;
-            BackendGameData.Instance.GameDataUpdate();
+            //BackendGameData.Instance.UserGameData.threadmill = m_HeartAmount;
+            //BackendGameData.Instance.GameDataUpdate();
             Debug.Log("Saved HeartAmount : " + m_HeartAmount);
             result = true;
         }

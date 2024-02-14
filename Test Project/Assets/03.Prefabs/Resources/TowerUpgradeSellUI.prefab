@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 4615344538107784322}
   - component: {fileID: 8014660345612705959}
   m_Layer: 5
-  m_Name: ExitButton (2)
+  m_Name: TowerUIExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -874,6 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []

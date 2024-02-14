@@ -221,6 +221,11 @@ public class AdmobManager : MonoBehaviour
         }
     }
 
+    public void DestroyInterstitialView()
+    {
+        _interstitialAd.Destroy();
+    }
+
     private void RegisterEventHandlers(InterstitialAd interstitialAd)
     {
         // Raised when the ad is estimated to have earned money.

@@ -49,6 +49,8 @@ public class LobbyScene : MonoBehaviour
         BackendGameData.Instance.TowerDataLoad();
         BackendGameData.Instance.DogamDataLoad();
         BackendGameData.Instance.ClearDataLoad();
+
+        AdmobManager.instance.ShowInterstitialAd();
     }
 
     private void isFirstTime()
@@ -91,11 +93,14 @@ public class LobbyScene : MonoBehaviour
 
     public void UpdateCurrencyData()
     {
-        if (!BackendGameData.Instance.UserGameData.isAdRemoved) AdmobManager.instance.ShowInterstitialAd();
         Debug.Log("자원 업데이트");
         //textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
         textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
-        if (BackendGameData.Instance.UserGameData.isAdRemoved) AdmobManager.instance.DestroyBannerView();
+        if (BackendGameData.Instance.UserGameData.isAdRemoved)
+        {
+            AdmobManager.instance.DestroyBannerView();
+            AdmobManager.instance.DestroyInterstitialView();
+        }
     }
 
     public void OnClickRefreshThreadmill()

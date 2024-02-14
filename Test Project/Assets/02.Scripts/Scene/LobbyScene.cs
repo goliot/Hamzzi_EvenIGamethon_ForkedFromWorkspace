@@ -49,8 +49,6 @@ public class LobbyScene : MonoBehaviour
         BackendGameData.Instance.TowerDataLoad();
         BackendGameData.Instance.DogamDataLoad();
         BackendGameData.Instance.ClearDataLoad();
-
-        AdmobManager.instance.ShowInterstitialAd();
     }
 
     private void isFirstTime()
@@ -77,6 +75,8 @@ public class LobbyScene : MonoBehaviour
         AudioManager.Inst.StopBgm();
         AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Lobby);
         PopUpHandler.Inst.lobbyLoadEvent.AddListener(loadLobby);
+
+        //AdmobManager.instance.ShowInterstitialAd();
 
         /*await BackendGameData.Instance.GameDataLoad(); // await를 추가하여 비동기 메서드가 완료될 때까지 대기
         UpdateCurrencyData(); //위 비동기가 종료되면 호출*/

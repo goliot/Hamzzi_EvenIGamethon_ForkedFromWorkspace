@@ -42,9 +42,16 @@ public class HUD : MonoBehaviour
         switch (type)
         {
             case InfoType.Exp:
-                float curExp = GameManager.Inst.exp;
-                float maxExp = GameManager.Inst.nextExp[GameManager.Inst.level];
-                expSlider.value = curExp / maxExp;
+                if (GameManager.Inst.level == 20) 
+                {
+                    expSlider.value = 1.0f;
+                }
+                else if(GameManager.Inst.level < 20)
+                {
+                    float curExp = GameManager.Inst.exp;
+                    float maxExp = GameManager.Inst.nextExp[GameManager.Inst.level];
+                    expSlider.value = curExp / maxExp;
+                } 
                 break;
             case InfoType.Level:
                 lvText.text = string.Format("Lv.{0:F0}", GameManager.Inst.level); // 문자열 보간, 0번째 인자 값 

@@ -87,7 +87,7 @@ public class Threadmill : MonoBehaviour
 
     public void Init()
     {
-        m_HeartAmount = 0;
+        m_HeartAmount = 10;
         m_RechargeRemainTime = 0;
         m_AppQuitTime = new DateTime(1970, 1, 1).ToLocalTime();
         //Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");

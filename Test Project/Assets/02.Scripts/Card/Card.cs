@@ -52,7 +52,7 @@ public class Card : MonoBehaviour
                 // 마력구 스킬 1번 카드 증폭(피해)  : 피해량 +60%                
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
                 // 마력구 스킬 2번 카드 증폭(폭발)  : 폭발 피해 +30%  ==> 제거
@@ -71,7 +71,7 @@ public class Card : MonoBehaviour
                 // 마력구 스킬 6번 쿨타임 감소      : 쿨타임 감소 -20%
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 // 마력구 스킬 8번 더블 증폭        : 액서니아와 피해량 +40%
@@ -104,14 +104,14 @@ public class Card : MonoBehaviour
 
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
-                else if (cardData.cardId == 2)
-                {
-                    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
-                    Debug.Log("ExplodeDamage : " + player.playerData[(int)cardData.cardType].explodeDamage);
-                }
+                //else if (cardData.cardId == 2) // 폭발 특성 삭제
+                //{
+                //    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
+                //    Debug.Log("ExplodeDamage : " + player.playerData[(int)cardData.cardType].explodeDamage);
+                //}
                 else if (cardData.cardId == 3)
                 {
                     player.playerData[(int)cardData.cardType].penetrate += 1;
@@ -126,7 +126,7 @@ public class Card : MonoBehaviour
                 }
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 else if (cardData.cardId == 8)
@@ -150,12 +150,12 @@ public class Card : MonoBehaviour
 
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
                 else if (cardData.cardId == 4)
                 {
-                    player.playerData[(int)cardData.cardType].duration += 2.7f;
+                    player.playerData[(int)cardData.cardType].duration += 1.7f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
                 }
                 //else if (cardData.cardId == 5)
@@ -165,7 +165,7 @@ public class Card : MonoBehaviour
                 //}
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 //// 더블 증폭 : 아쿠아멘티 + 모멘스토
@@ -186,22 +186,22 @@ public class Card : MonoBehaviour
 
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
                 else if (cardData.cardId == 2)
                 {
-                    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
+                    player.playerData[(int)cardData.cardType].explodeDamage *= 1.1f;
                     Debug.Log("damage : " + player.playerData[(int)cardData.cardType].explodeDamage);
                 }
                 else if (cardData.cardId == 4)
                 {
-                    player.playerData[(int)cardData.cardType].duration += 2f;
+                    player.playerData[(int)cardData.cardType].duration += 1f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
                 }
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 else if (cardData.cardId == 8)
@@ -219,12 +219,12 @@ public class Card : MonoBehaviour
 
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
                 else if (cardData.cardId == 4)
                 {
-                    player.playerData[(int)cardData.cardType].duration += 2.1f;
+                    player.playerData[(int)cardData.cardType].duration += 1.3f;
                     Debug.Log($"duration : {player.playerData[(int)cardData.cardType].duration}");
                 }
                 //else if (cardData.cardId == 5)
@@ -234,7 +234,7 @@ public class Card : MonoBehaviour
                 //}
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 else if (cardData.cardId == 8)
@@ -247,7 +247,7 @@ public class Card : MonoBehaviour
 
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
                 else if (cardData.cardId == 4)
@@ -262,7 +262,7 @@ public class Card : MonoBehaviour
                 //}
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 else if (cardData.cardId == 8)
@@ -277,7 +277,7 @@ public class Card : MonoBehaviour
                 // 스킬 1번 카드 증폭(피해)  : 피해량 +60 %
                 if (cardData.cardId == 1)
                 {
-                    player.playerData[(int)cardData.cardType].damage *= 1.6f;
+                    player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
                 else if (cardData.cardId == 3)
@@ -288,7 +288,7 @@ public class Card : MonoBehaviour
                 }
                 else if (cardData.cardId == 6)
                 {
-                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.8f;
+                    player.playerData[(int)cardData.cardType].atkSpeed *= 0.85f;
                     Debug.Log($"atkSpeed : {player.playerData[(int)cardData.cardType].atkSpeed}");
                 }
                 else if (cardData.cardId == 8)

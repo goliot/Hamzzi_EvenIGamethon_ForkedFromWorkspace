@@ -69,5 +69,15 @@ public class StageSelectViewr : MonoBehaviour
                 buttons[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
+        if (buttons[4].interactable == false)
+        {
+            buttons[5].interactable = false;
+            buttons[5].GetComponent<Image>().color = unlockColor;
+        }
+        else
+        {
+            buttons[5].interactable = true;
+            buttons[5].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        }
     }
 }

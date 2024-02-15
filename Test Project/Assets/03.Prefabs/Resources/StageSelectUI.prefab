@@ -213,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -949,7 +948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1037,6 +1035,7 @@ MonoBehaviour:
   - {fileID: 2439953973142370124}
   - {fileID: 4523325612266740369}
   - {fileID: 2105610755178042236}
+  - {fileID: 7620057913835510915}
   unlockColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   chapter: 0
 --- !u!114 &3341984869543334934
@@ -1305,7 +1304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1488,7 +1486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2407,7 +2404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2666,7 +2662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []

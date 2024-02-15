@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 1619512525697432295}
   sfxSlider: {fileID: 6947042285652803448}
-  logoutButton: {fileID: 0}
+  logoutButton: {fileID: 8574188623265551834}
 --- !u!114 &3216417224115537504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c4ce05a0375d4498a05bc6da5cc0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPanel: {fileID: 0}
   panelRect: {fileID: 1891014641864887961}
   topPosY: 1486
   targetPosY: 0
@@ -1972,7 +1973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200cce32571ee014580284e91453495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 0}
   lobbyLoadEvent:
     m_PersistentCalls:
       m_Calls: []

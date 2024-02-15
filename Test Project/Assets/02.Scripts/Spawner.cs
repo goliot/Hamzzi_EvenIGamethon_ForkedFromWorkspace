@@ -132,7 +132,12 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
             }
         }
 
-        tilemaps[(chapter - 1) * 5 + (stage - 1)].SetActive(true);
+        for(int i=0; i<tilemaps.Length; i++)
+        {
+            if(i == (chapter-1) * 5 + (stage - 1)) tilemaps[i].SetActive(true);
+            else tilemaps[i].SetActive(false);
+        }
+
         if (chapter == 1 && stage == 1)
         {
             tutorial.SetActive(true);

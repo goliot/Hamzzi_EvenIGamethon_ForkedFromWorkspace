@@ -56,7 +56,7 @@ public class DogamUI : MonoBehaviour
         h_NextBtn.onClick.AddListener(() => OnClickNextBtn());
         h_PrevBtn.gameObject.SetActive(false);
         h_NextBtn.gameObject.SetActive(true);
-        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Voice);
 
         // 몬스터 버튼 및 챕터
         m_curIdx = 0;
@@ -182,19 +182,22 @@ public class DogamUI : MonoBehaviour
         switch (h_curIdx) 
         {
             case 0:
-                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Main_Hamster_Voice);
                 break;
             case 1:
-                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_02);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_01);
                 break;
             case 2:
-                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_03);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_02);
                 break;
             case 3:
-                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_04);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_05);
                 break;
             case 4:
-                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_05);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_04);
+                break;
+            case 5:
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Voice_03);
                 break;
         }
 

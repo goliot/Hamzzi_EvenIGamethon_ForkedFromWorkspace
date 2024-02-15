@@ -179,6 +179,14 @@ PrefabInstance:
       propertyPath: sfxVolume
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3817952198904211981, guid: a83f3f6146ac7634e985c4cc21eb0b0a, type: 3}
+      propertyPath: sfxClips.Array.size
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817952198904211981, guid: a83f3f6146ac7634e985c4cc21eb0b0a, type: 3}
+      propertyPath: sfxClips.Array.data[77]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08e8d63a93f1dc14dac176d20f2b512f, type: 3}
     - target: {fileID: 4345568554257151591, guid: a83f3f6146ac7634e985c4cc21eb0b0a, type: 3}
       propertyPath: m_Name
       value: AudioManager

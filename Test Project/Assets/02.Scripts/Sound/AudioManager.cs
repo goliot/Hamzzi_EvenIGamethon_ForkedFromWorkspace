@@ -70,6 +70,7 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Taepungyi_Voice = 26,
         SFX_Ippeunyi_Voice = 27,
         SFX_Haebaragisa_Voice = 28,
+        // 메인 햄스터 도감 보이스 아래에 추가
 
         //챕터1
         SFX_Monster_Hit = 29,
@@ -125,7 +126,10 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Monster_Die_13 = 73,
         SFX_Monster_Smash_Castle_09 = 74,
         SFX_Monster_Smash_Castle_10 = 75,
-        SFX_Monster_Smash_Castle_11 = 76
+        SFX_Monster_Smash_Castle_11 = 76,
+
+        // 추가
+        SFX_Main_Hamster_Voice = 77
     }
 
     public float BGMVolume

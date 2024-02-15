@@ -107,7 +107,7 @@ public class Card : MonoBehaviour
                     player.playerData[(int)cardData.cardType].damage *= 1.3f;
                     Debug.Log($"damage : {player.playerData[(int)cardData.cardType].damage}");
                 }
-                //else if (cardData.cardId == 2) // 气惯 漂己 昏力
+                //else if (cardData.cardId == 2)                // 气惯 漂己 昏力
                 //{
                 //    player.playerData[(int)cardData.cardType].explodeDamage *= 1.3f;
                 //    Debug.Log("ExplodeDamage : " + player.playerData[(int)cardData.cardType].explodeDamage);

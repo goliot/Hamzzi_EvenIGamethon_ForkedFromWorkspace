@@ -49,6 +49,8 @@ public class LobbyScene : MonoBehaviour
         BackendGameData.Instance.TowerDataLoad();
         //BackendGameData.Instance.DogamDataLoad();
         BackendGameData.Instance.ClearDataLoad();
+
+        if(Time.timeScale != 1.0f) Time.timeScale = 1.0f; // 게임씬이 끝나고 로비씬으로 왔을때, 기존 게임 씬에서 1.5배인 상태에서 로비씬으로 오면 1.5배 유지 되는 버그가 있음
     }
 
     private void isFirstTime()

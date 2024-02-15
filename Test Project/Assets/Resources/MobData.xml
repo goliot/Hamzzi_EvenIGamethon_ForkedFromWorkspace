@@ -5,139 +5,139 @@
 		<health>50</health>
 		<damage>20</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>18</speed>
+		<speed>1.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>1</spriteType>
 		<health>90</health>
 		<damage>15</damage>
 		<atkSpeed>4.3</atkSpeed>
-		<speed>13</speed>
+		<speed>1.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>2</spriteType>
 		<health>30</health>
 		<damage>40</damage>
 		<atkSpeed>6</atkSpeed>
-		<speed>28</speed>
+		<speed>2.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>3</spriteType>
 		<health>150</health>
 		<damage>70</damage>
 		<atkSpeed>8</atkSpeed>
-		<speed>23</speed>
+		<speed>2.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>4</spriteType>
 		<health>1000</health>
 		<damage>150</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>5</speed>
+		<speed>0.5</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>5</spriteType>
 		<health>50</health>
 		<damage>20</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>18</speed>
+		<speed>1.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>6</spriteType>
 		<health>90</health>
 		<damage>15</damage>
 		<atkSpeed>4.3</atkSpeed>
-		<speed>13</speed>
+		<speed>1.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>7</spriteType>
 		<health>30</health>
 		<damage>40</damage>
 		<atkSpeed>6</atkSpeed>
-		<speed>28</speed>
+		<speed>2.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>8</spriteType>
 		<health>150</health>
 		<damage>70</damage>
 		<atkSpeed>8</atkSpeed>
-		<speed>23</speed>
+		<speed>2.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>9</spriteType>
 		<health>1500</health>
 		<damage>300</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>5</speed>
+		<speed>0.5</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>10</spriteType>
 		<health>50</health>
 		<damage>20</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>18</speed>
+		<speed>1.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>11</spriteType>
 		<health>90</health>
 		<damage>15</damage>
 		<atkSpeed>4.3</atkSpeed>
-		<speed>13</speed>
+		<speed>1.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>12</spriteType>
 		<health>30</health>
 		<damage>40</damage>
 		<atkSpeed>6</atkSpeed>
-		<speed>28</speed>
+		<speed>2.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>13</spriteType>
 		<health>150</health>
 		<damage>70</damage>
 		<atkSpeed>8</atkSpeed>
-		<speed>23</speed>
+		<speed>2.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>14</spriteType>
 		<health>2000</health>
 		<damage>400</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>5</speed>
+		<speed>0.5</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>15</spriteType>
 		<health>50</health>
 		<damage>20</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>18</speed>
+		<speed>1.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>16</spriteType>
 		<health>90</health>
 		<damage>15</damage>
 		<atkSpeed>4.3</atkSpeed>
-		<speed>13</speed>
+		<speed>1.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>17</spriteType>
 		<health>30</health>
 		<damage>40</damage>
 		<atkSpeed>6</atkSpeed>
-		<speed>28</speed>
+		<speed>2.8</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>18</spriteType>
 		<health>150</health>
 		<damage>70</damage>
 		<atkSpeed>8</atkSpeed>
-		<speed>23</speed>
+		<speed>2.3</speed>
 	</Sheet1>
 	<Sheet1>
 		<spriteType>19</spriteType>
 		<health>3000</health>
 		<damage>500</damage>
 		<atkSpeed>5</atkSpeed>
-		<speed>5</speed>
+		<speed>0.5</speed>
 	</Sheet1>
 </root>

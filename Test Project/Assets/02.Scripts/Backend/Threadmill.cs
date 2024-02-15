@@ -90,7 +90,7 @@ public class Threadmill : MonoBehaviour
         m_HeartAmount = 0;
         m_RechargeRemainTime = 0;
         m_AppQuitTime = new DateTime(1970, 1, 1).ToLocalTime();
-        Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");
+        //Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");
         //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
     }
     public bool LoadHeartInfo()
@@ -219,7 +219,7 @@ public class Threadmill : MonoBehaviour
 
         if (m_HeartAmount >= MAX_HEART)
         {
-            //m_HeartAmount = MAX_HEART;
+            m_HeartAmount = MAX_HEART;
         }
         else
         {
@@ -262,13 +262,13 @@ public class Threadmill : MonoBehaviour
 
         while (m_RechargeRemainTime > 0)
         {
-            Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");
+            //Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");
             //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
             m_RechargeRemainTime -= 1;
 
             if(m_HeartAmount >= MAX_HEART)
             {
-                //m_HeartAmount = MAX_HEART;
+                m_HeartAmount = MAX_HEART;
                 m_RechargeRemainTime = 0;
                 //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
                 Debug.Log("HeartAmount reached max amount");
@@ -279,7 +279,7 @@ public class Threadmill : MonoBehaviour
         m_HeartAmount++;
         if (m_HeartAmount >= MAX_HEART)
         {
-            //m_HeartAmount = MAX_HEART;
+            m_HeartAmount = MAX_HEART;
             m_RechargeRemainTime = 0;
             //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
             Debug.Log("HeartAmount reached max amount");

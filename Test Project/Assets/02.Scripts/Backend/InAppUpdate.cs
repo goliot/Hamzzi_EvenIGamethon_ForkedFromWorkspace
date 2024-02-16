@@ -12,7 +12,7 @@ public class InAppUpdate : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log("인앱 업데이트 실행");
 #elif UNITY_ANDROID
-        //StartCoroutine(CheckForUpdate());
+        StartCoroutine(CheckForUpdate());
 #endif
     }
 

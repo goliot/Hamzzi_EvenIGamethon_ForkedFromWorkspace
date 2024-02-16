@@ -137,6 +137,10 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Chapter01_Cartoon02 = 80,
         SFX_Chapter01_Cartoon03 = 81,
 
+        SFX_Chapter02_Cartoon01 = 82,
+        SFX_Chapter02_Cartoon02 = 83,
+        SFX_Chapter02_Cartoon03 = 84,
+
         // µðÆúÆ®
         SFX_None
     }

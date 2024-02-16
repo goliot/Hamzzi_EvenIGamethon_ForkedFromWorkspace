@@ -86140,6 +86140,11 @@ MonoBehaviour:
   mobMagnificationData: []
   cornText: {fileID: 1727157309}
   breadText: {fileID: 1237145470}
+  starImages:
+  - {fileID: 2965460082506934767}
+  - {fileID: 155806115146267787}
+  - {fileID: 683960481236035543}
+  nullStarColor: {r: 0.25490198, g: 0.10196079, b: 0.03137255, a: 0.9019608}
   redLightImage: {fileID: 6853030276978114176}
   warningImage: {fileID: 1649107714}
   bossHPBar: {fileID: 0}
@@ -122355,8 +122360,8 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1063370935602302567}
   - {fileID: 3161059611134480054}
+  - {fileID: 1063370935602302567}
   - {fileID: 3650848738691849531}
   m_Father: {fileID: 2291175379703790557}
   m_RootOrder: -1
@@ -125867,7 +125872,7 @@ GameObject:
   - component: {fileID: 6456084159857880516}
   - component: {fileID: 155806115146267787}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127973,7 +127978,7 @@ GameObject:
   - component: {fileID: 3913354186433382211}
   - component: {fileID: 2965460082506934767}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

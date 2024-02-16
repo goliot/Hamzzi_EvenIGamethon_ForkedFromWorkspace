@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Wall : MonoBehaviour
 {
+    public static Wall instance;
+
     public float health;
     public float maxHealth;
 
@@ -18,6 +20,7 @@ public class Wall : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         wallImage = GetComponent<SpriteRenderer>();
     }
 

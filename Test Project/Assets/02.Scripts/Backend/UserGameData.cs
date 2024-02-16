@@ -24,53 +24,11 @@ public class UserGameData
 [System.Serializable]
 public class ClearData
 {
-    /*public int c1s1;
-    public int c1s2;
-    public int c1s3;
-    public int c1s4;
-    public int c1s5;
-    public int c2s1;
-    public int c2s2;
-    public int c2s3;
-    public int c2s4;
-    public int c2s5;
-    public int c3s1;
-    public int c3s2;
-    public int c3s3;
-    public int c3s4;
-    public int c3s5;
-    public int c4s1;
-    public int c4s2;
-    public int c4s3;
-    public int c4s4;
-    public int c4s5;*/
-
     public int lastClear; //0이면 깬거 없는거 -> 1이 C1S1
     //1 -> 1-1, 2->1-2 .... 20 -> 4-5
 
     public void Reset()
     {
-        /*c1s1 = 0;
-        c1s2 = 0;
-        c1s3 = 0;
-        c1s4 = 0;
-        c1s5 = 0;
-        c2s1 = 0;
-        c2s2 = 0;
-        c2s3 = 0;
-        c2s4 = 0;
-        c2s5 = 0;
-        c3s1 = 0;
-        c3s2 = 0;
-        c3s3 = 0;
-        c3s4 = 0;
-        c3s5 = 0;
-        c4s1 = 0;
-        c4s2 = 0;
-        c4s3 = 0;
-        c4s4 = 0;
-        c4s5 = 0;*/
-
         lastClear = 0;
     }
 }
@@ -140,5 +98,54 @@ public class TowerDB
         t2 = false;
         t3 = false;
         t4 = false;
+    }
+}
+
+[System.Serializable]
+public class StarData
+{
+    public int c1s1;
+    public int c1s2;
+    public int c1s3;
+    public int c1s4;
+    public int c1s5;
+    public int c2s1;
+    public int c2s2;
+    public int c2s3;
+    public int c2s4;
+    public int c2s5;
+    public int c3s1;
+    public int c3s2;
+    public int c3s3;
+    public int c3s4;
+    public int c3s5;
+    public int c4s1;
+    public int c4s2;
+    public int c4s3;
+    public int c4s4;
+    public int c4s5;
+
+    public void Reset()
+    {
+        c1s1 = 0;
+        c1s2 = 0;
+        c1s3 = 0;
+        c1s4 = 0;
+        c1s5 = 0;
+        c2s1 = 0;
+        c2s2 = 0;
+        c2s3 = 0;
+        c2s4 = 0;
+        c2s5 = 0;
+        c3s1 = 0;
+        c3s2 = 0;
+        c3s3 = 0;
+        c3s4 = 0;
+        c3s5 = 0;
+        c4s1 = 0;
+        c4s2 = 0;
+        c4s3 = 0;
+        c4s4 = 0;
+        c4s5 = 0;
     }
 }

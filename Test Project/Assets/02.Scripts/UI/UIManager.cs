@@ -30,6 +30,15 @@ public class UIManager : Singleton<UIManager>
         UpdateSpeedControllBtn();
     }
 
+    private void Start()
+    {
+        if (!BackendGameData.Instance.UserGameData.isAdRemoved)
+        {
+            AdmobManager.instance.ShowInterstitialAd();
+            PauseGame();
+        }
+    }
+
     void InitSpeedControllBtn()
     {
         if (speedControlButton != null)
@@ -68,6 +77,7 @@ public class UIManager : Singleton<UIManager>
     {
         BackendGameData.Instance.GameDataUpdate();
         BackendGameData.Instance.ClearDataUpdate();
+        BackendGameData.Instance.StarDataUpdate();
         GameManager.Inst.Resume();
         SceneManager.LoadScene("Lobby");
     }

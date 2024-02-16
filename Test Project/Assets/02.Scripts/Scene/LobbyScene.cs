@@ -44,11 +44,13 @@ public class LobbyScene : MonoBehaviour
         BackendGameData.Instance.onGameDataUpdateEvent.AddListener(BackendGameData.Instance.GameDataLoad);
         BackendGameData.Instance.onClearDataUpdateEvent.AddListener(BackendGameData.Instance.ClearDataLoad);
         BackendGameData.Instance.onTowerDataUpdateEvent.AddListener(BackendGameData.Instance.TowerDataLoad);
+        BackendGameData.Instance.onStarDataUpdateEvent.AddListener(BackendGameData.Instance.StarDataLoad);
 
         BackendGameData.Instance.GameDataLoad();
         BackendGameData.Instance.TowerDataLoad();
         //BackendGameData.Instance.DogamDataLoad();
         BackendGameData.Instance.ClearDataLoad();
+        BackendGameData.Instance.StarDataLoad();
 
         if(Time.timeScale != 1.0f) Time.timeScale = 1.0f; // 게임씬이 끝나고 로비씬으로 왔을때, 기존 게임 씬에서 1.5배인 상태에서 로비씬으로 오면 1.5배 유지 되는 버그가 있음
     }

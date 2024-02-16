@@ -57,9 +57,9 @@ public class UserInfoData
 
     public void Reset()
     {
-        gamerId = "Offline";
-        countryCode = "Unknown";
-        nickname = "Noname";
+        gamerId = null;
+        countryCode = null;
+        nickname = null;
         inDate = string.Empty;
         emailForFindPassword = string.Empty;
         subscriptionType = string.Empty; 

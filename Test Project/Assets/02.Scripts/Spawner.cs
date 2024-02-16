@@ -24,8 +24,12 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
     public List<MobMagnificationData> mobMagnificationData = new List<MobMagnificationData>();
     string magXmlFileName = "MobStatMagnification";
     private bool isGameLive;
+
+    [Header("#VictoryInfo")]
     public TextMeshProUGUI cornText;
     public TextMeshProUGUI breadText;
+    public Image[] starImages;
+    public Color nullStarColor;
 
     [Header("Boss Effect")]
     public Image redLightImage;
@@ -264,18 +268,316 @@ public class Spawner : MonoBehaviour //웨이브별 몬스터 스폰
 
     void Victory()
     {
-        int breadRewardThisStage = breadReward[chapter - 1, stage - 1];
-        int cornRewardThisStage = cornReward[chapter - 1, stage - 1];
-        cornText.text = cornRewardThisStage.ToString();
-        breadText.text = breadRewardThisStage.ToString();
-
-        BackendGameData.Instance.UserGameData.bread += breadRewardThisStage;
-        BackendGameData.Instance.UserGameData.corn += cornRewardThisStage;
         if(BackendGameData.Instance.ClearData.lastClear == ((chapter-1) * 5 + (stage - 1)))
         {
             BackendGameData.Instance.ClearData.lastClear = (chapter - 1) * 5 + stage; // 1-1을 깨면 lastClear가 1
         }
         //BackendGameData.Instance.GameDataUpdate();
+
+        int starThisStage = 0;
+        if (Wall.instance.health >= Wall.instance.maxHealth * 0.8f)
+        {
+            switch ((chapter - 1) * 5 + (stage - 1))
+            {
+                case 0:
+                    if (BackendGameData.Instance.StarData.c1s1 > 2) break;
+                    else BackendGameData.Instance.StarData.c1s1 = 3;
+                    break;
+                case 1:
+                    if (BackendGameData.Instance.StarData.c1s2 > 2) break;
+                    else BackendGameData.Instance.StarData.c1s2 = 3;
+                    break;
+                case 2:
+                    if (BackendGameData.Instance.StarData.c1s3 > 2) break;
+                    else BackendGameData.Instance.StarData.c1s3 = 3;
+                    break;
+                case 3:
+                    if (BackendGameData.Instance.StarData.c1s4 > 2) break;
+                    else BackendGameData.Instance.StarData.c1s4 = 3;
+                    break;
+                case 4:
+                    if (BackendGameData.Instance.StarData.c1s5 > 2) break;
+                    else BackendGameData.Instance.StarData.c1s5 = 3;
+                    break;
+                case 5:
+                    if (BackendGameData.Instance.StarData.c2s1 > 2) break;
+                    else BackendGameData.Instance.StarData.c2s1 = 3;
+                    break;
+                case 6:
+                    if (BackendGameData.Instance.StarData.c2s2 > 2) break;
+                    else BackendGameData.Instance.StarData.c2s2 = 3;
+                    break;
+                case 7:
+                    if (BackendGameData.Instance.StarData.c2s3 > 2) break;
+                    else BackendGameData.Instance.StarData.c2s3 = 3;
+                    break;
+                case 8:
+                    if (BackendGameData.Instance.StarData.c2s4 > 2) break;
+                    else BackendGameData.Instance.StarData.c2s4 = 3;
+                    break;
+                case 9:
+                    if (BackendGameData.Instance.StarData.c2s5 > 2) break;
+                    else BackendGameData.Instance.StarData.c2s5 = 3;
+                    break;
+                case 10:
+                    if (BackendGameData.Instance.StarData.c3s1 > 2) break;
+                    else BackendGameData.Instance.StarData.c3s1 = 3;
+                    break;
+                case 11:
+                    if (BackendGameData.Instance.StarData.c3s2 > 2) break;
+                    else BackendGameData.Instance.StarData.c3s2 = 3;
+                    break;
+                case 12:
+                    if (BackendGameData.Instance.StarData.c3s3 > 2) break;
+                    else BackendGameData.Instance.StarData.c3s3 = 3;
+                    break;
+                case 13:
+                    if (BackendGameData.Instance.StarData.c3s4 > 2) break;
+                    else BackendGameData.Instance.StarData.c3s4 = 3;
+                    break;
+                case 14:
+                    if (BackendGameData.Instance.StarData.c3s5 > 2) break;
+                    else BackendGameData.Instance.StarData.c3s5 = 3;
+                    break;
+                case 15:
+                    if (BackendGameData.Instance.StarData.c4s1 > 2) break;
+                    else BackendGameData.Instance.StarData.c4s1 = 3;
+                    break;
+                case 16:
+                    if (BackendGameData.Instance.StarData.c4s2 > 2) break;
+                    else BackendGameData.Instance.StarData.c4s2 = 3;
+                    break;
+                case 17:
+                    if (BackendGameData.Instance.StarData.c4s3 > 2) break;
+                    else BackendGameData.Instance.StarData.c4s3 = 3;
+                    break;
+                case 18:
+                    if (BackendGameData.Instance.StarData.c4s4 > 2) break;
+                    else BackendGameData.Instance.StarData.c4s4 = 3;
+                    break;
+                case 19:
+                    if (BackendGameData.Instance.StarData.c4s5 > 2) break;
+                    else BackendGameData.Instance.StarData.c4s5 = 3;
+                    break;
+                default:
+                    break;
+            }
+            starThisStage = 3;
+        }
+        else if (Wall.instance.health >= Wall.instance.maxHealth * 0.5f)
+        {
+            switch ((chapter - 1) * 5 + (stage - 1))
+            {
+                case 0:
+                    if (BackendGameData.Instance.StarData.c1s1 > 1) break;
+                    else BackendGameData.Instance.StarData.c1s1 = 2;
+                    break;
+                case 1:
+                    if (BackendGameData.Instance.StarData.c1s2 > 1) break;
+                    else BackendGameData.Instance.StarData.c1s2 = 2;
+                    break;
+                case 2:
+                    if (BackendGameData.Instance.StarData.c1s3 > 1) break;
+                    else BackendGameData.Instance.StarData.c1s3 = 2;
+                    break;
+                case 3:
+                    if (BackendGameData.Instance.StarData.c1s4 > 1) break;
+                    else BackendGameData.Instance.StarData.c1s4 = 2;
+                    break;
+                case 4:
+                    if (BackendGameData.Instance.StarData.c1s5 > 1) break;
+                    else BackendGameData.Instance.StarData.c1s5 = 2;
+                    break;
+                case 5:
+                    if (BackendGameData.Instance.StarData.c2s1 > 1) break;
+                    else BackendGameData.Instance.StarData.c2s1 = 2;
+                    break;
+                case 6:
+                    if (BackendGameData.Instance.StarData.c2s2 > 1) break;
+                    else BackendGameData.Instance.StarData.c2s2 = 2;
+                    break;
+                case 7:
+                    if (BackendGameData.Instance.StarData.c2s3 > 1) break;
+                    else BackendGameData.Instance.StarData.c2s3 = 2;
+                    break;
+                case 8:
+                    if (BackendGameData.Instance.StarData.c2s4 > 1) break;
+                    else BackendGameData.Instance.StarData.c2s4 = 2;
+                    break;
+                case 9:
+                    if (BackendGameData.Instance.StarData.c2s5 > 1) break;
+                    else BackendGameData.Instance.StarData.c2s5 = 2;
+                    break;
+                case 10:
+                    if (BackendGameData.Instance.StarData.c3s1 > 1) break;
+                    else BackendGameData.Instance.StarData.c3s1 = 2;
+                    break;
+                case 11:
+                    if (BackendGameData.Instance.StarData.c3s2 > 1) break;
+                    else BackendGameData.Instance.StarData.c3s2 = 2;
+                    break;
+                case 12:
+                    if (BackendGameData.Instance.StarData.c3s3 > 1) break;
+                    else BackendGameData.Instance.StarData.c3s3 = 2;
+                    break;
+                case 13:
+                    if (BackendGameData.Instance.StarData.c3s4 > 1) break;
+                    else BackendGameData.Instance.StarData.c3s4 = 2;
+                    break;
+                case 14:
+                    if (BackendGameData.Instance.StarData.c3s5 > 1) break;
+                    else BackendGameData.Instance.StarData.c3s5 = 2;
+                    break;
+                case 15:
+                    if (BackendGameData.Instance.StarData.c4s1 > 1) break;
+                    else BackendGameData.Instance.StarData.c4s1 = 2;
+                    break;
+                case 16:
+                    if (BackendGameData.Instance.StarData.c4s2 > 1) break;
+                    else BackendGameData.Instance.StarData.c4s2 = 2;
+                    break;
+                case 17:
+                    if (BackendGameData.Instance.StarData.c4s3 > 1) break;
+                    else BackendGameData.Instance.StarData.c4s3 = 2;
+                    break;
+                case 18:
+                    if (BackendGameData.Instance.StarData.c4s4 > 1) break;
+                    else BackendGameData.Instance.StarData.c4s4 = 2;
+                    break;
+                case 19:
+                    if (BackendGameData.Instance.StarData.c4s5 > 1) break;
+                    else BackendGameData.Instance.StarData.c4s5 = 2;
+                    break;
+                default:
+                    break;
+            }
+            starThisStage = 2;
+        }
+        else
+        {
+            switch ((chapter - 1) * 5 + (stage - 1))
+            {
+                case 0:
+                    if (BackendGameData.Instance.StarData.c1s1 > 0) break;
+                    else BackendGameData.Instance.StarData.c1s1 = 1;
+                    break;
+                case 1:
+                    if (BackendGameData.Instance.StarData.c1s2 > 0) break;
+                    else BackendGameData.Instance.StarData.c1s2 = 1;
+                    break;
+                case 2:
+                    if (BackendGameData.Instance.StarData.c1s3 > 0) break;
+                    else BackendGameData.Instance.StarData.c1s3 = 1;
+                    break;
+                case 3:
+                    if (BackendGameData.Instance.StarData.c1s4 > 0) break;
+                    else BackendGameData.Instance.StarData.c1s4 = 1;
+                    break;
+                case 4:
+                    if (BackendGameData.Instance.StarData.c1s5 > 0) break;
+                    else BackendGameData.Instance.StarData.c1s5 = 1;
+                    break;
+                case 5:
+                    if (BackendGameData.Instance.StarData.c2s1 > 0) break;
+                    else BackendGameData.Instance.StarData.c2s1 = 1;
+                    break;
+                case 6:
+                    if (BackendGameData.Instance.StarData.c2s2 > 0) break;
+                    else BackendGameData.Instance.StarData.c2s2 = 1;
+                    break;
+                case 7:
+                    if (BackendGameData.Instance.StarData.c2s3 > 0) break;
+                    else BackendGameData.Instance.StarData.c2s3 = 1;
+                    break;
+                case 8:
+                    if (BackendGameData.Instance.StarData.c2s4 > 0) break;
+                    else BackendGameData.Instance.StarData.c2s4 = 1;
+                    break;
+                case 9:
+                    if (BackendGameData.Instance.StarData.c2s5 > 0) break;
+                    else BackendGameData.Instance.StarData.c2s5 = 1;
+                    break;
+                case 10:
+                    if (BackendGameData.Instance.StarData.c3s1 > 0) break;
+                    else BackendGameData.Instance.StarData.c3s1 = 1;
+                    break;
+                case 11:
+                    if (BackendGameData.Instance.StarData.c3s2 > 0) break;
+                    else BackendGameData.Instance.StarData.c3s2 = 1;
+                    break;
+                case 12:
+                    if (BackendGameData.Instance.StarData.c3s3 > 0) break;
+                    else BackendGameData.Instance.StarData.c3s3 = 1;
+                    break;
+                case 13:
+                    if (BackendGameData.Instance.StarData.c3s4 > 0) break;
+                    else BackendGameData.Instance.StarData.c3s4 = 1;
+                    break;
+                case 14:
+                    if (BackendGameData.Instance.StarData.c3s5 > 0) break;
+                    else BackendGameData.Instance.StarData.c3s5 = 1;
+                    break;
+                case 15:
+                    if (BackendGameData.Instance.StarData.c4s1 > 0) break;
+                    else BackendGameData.Instance.StarData.c4s1 = 1;
+                    break;
+                case 16:
+                    if (BackendGameData.Instance.StarData.c4s2 > 0) break;
+                    else BackendGameData.Instance.StarData.c4s2 = 1;
+                    break;
+                case 17:
+                    if (BackendGameData.Instance.StarData.c4s3 > 0) break;
+                    else BackendGameData.Instance.StarData.c4s3 = 1;
+                    break;
+                case 18:
+                    if (BackendGameData.Instance.StarData.c4s4 > 0) break;
+                    else BackendGameData.Instance.StarData.c4s4 = 1;
+                    break;
+                case 19:
+                    if (BackendGameData.Instance.StarData.c4s5 > 0) break;
+                    else BackendGameData.Instance.StarData.c4s5 = 1;
+                    break;
+                default:
+                    break;
+            }
+            starThisStage = 1;
+        }
+
+        int breadRewardThisStage = breadReward[chapter - 1, stage - 1];
+        int cornRewardThisStage = cornReward[chapter - 1, stage - 1];
+        switch (starThisStage)
+        {
+            case 1:
+                cornText.text = (cornRewardThisStage * 0.6f).ToString();
+                breadText.text = (breadRewardThisStage * 0.6f).ToString();
+                for(int i=0; i<3; i++)
+                {
+                    if (i > 0) starImages[i].color = nullStarColor;
+                    else starImages[i].color = new Color(1f, 1f, 1f, 1f);
+                }
+                break;
+            case 2:
+                cornText.text = (cornRewardThisStage * 0.8f).ToString();
+                breadText.text = (breadRewardThisStage * 0.8f).ToString();
+                for (int i = 0; i < 3; i++)
+                {
+                    if (i > 1) starImages[i].color = nullStarColor;
+                    else starImages[i].color = new Color(1f, 1f, 1f, 1f);
+                }
+                break;
+            case 3:
+                cornText.text = cornRewardThisStage.ToString();
+                breadText.text = breadRewardThisStage.ToString();
+                for (int i = 0; i < 3; i++)
+                {
+                    starImages[i].color = new Color(1f, 1f, 1f, 1f);
+                }
+                break;
+            default:
+                break;
+        }
+        BackendGameData.Instance.UserGameData.corn += int.Parse(cornText.text);
+        BackendGameData.Instance.UserGameData.bread += int.Parse(breadText.text);
 
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Clear);
 

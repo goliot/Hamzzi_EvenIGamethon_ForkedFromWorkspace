@@ -37,6 +37,7 @@ public class SoundSettings : MonoBehaviour
     {
         logoutButton.interactable = false;
         CutSceneManager.Inst.cutSceneType = CutSceneData.CutSceneType.Opening; // ·Î±×¾Æ¿ô½Ã ¿ÀÇÁ´× ÄÆÅ÷ ´Ù½Ã Àç»ý
+        UserInfo.Data.Reset();
         Backend.BMember.Logout((callback) => {
             if(callback.IsSuccess())
             {

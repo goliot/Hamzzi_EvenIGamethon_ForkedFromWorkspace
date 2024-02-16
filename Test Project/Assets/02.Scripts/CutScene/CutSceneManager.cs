@@ -83,6 +83,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
                 break;
             case 2:
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter02Cartoon);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter02_Cartoon01);
                 break;
             case 3:
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter03Cartoon);
@@ -181,6 +182,18 @@ public class CutSceneManager : Singleton<CutSceneManager>
                 }
                 break;
             case CutSceneType.Chapter02:
+                if (currentFrameIndex == 0)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter02_Cartoon01);
+                }
+                else if (currentFrameIndex == 1)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter02_Cartoon02);
+                }
+                else
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter02_Cartoon03);
+                }
                 break;
             case CutSceneType.Chapter03:
                 break;

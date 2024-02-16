@@ -20,6 +20,10 @@ public class BackendGameData
     public class TowerDataUpdateEvent : UnityEvent { }
     public TowerDataUpdateEvent onTowerDataUpdateEvent = new TowerDataUpdateEvent();
 
+    [System.Serializable]
+    public class StarDataUpdateEvent : UnityEvent { }
+    public StarDataUpdateEvent onStarDataUpdateEvent = new StarDataUpdateEvent();
+
     private static BackendGameData instance = null;
     public static BackendGameData Instance
     {
@@ -46,11 +50,16 @@ public class BackendGameData
     private TowerDB towerDB = new TowerDB();
     public TowerDB TowerDB => towerDB;
 
+    private StarData starData = new StarData();
+    public StarData StarData => starData;
+
     private string gameDataRowInDate = string.Empty;
     private string clearDataRowInDate = string.Empty;
     private string towerDataRowInDate = string.Empty;
     private string dogamDataRowInDate = string.Empty;
+    private string starDataRowInDate = string.Empty;
 
+    #region UserData
     /// <summary>
     /// 뒤끝 콘솔 테이블에 새로운 유저 정보 추가
     /// </summary>
@@ -181,33 +190,15 @@ public class BackendGameData
             });
         }
     }
+    #endregion
 
+    #region CLEAR_DATA
     public void ClearDataInsert()
     {
         clearData.Reset();
 
         Param param = new Param()
         {
-            /*{"c1s1", clearData.c1s1 },
-            {"c1s2", clearData.c1s2 },
-            {"c1s3", clearData.c1s3 },
-            {"c1s4", clearData.c1s4 },
-            {"c1s5", clearData.c1s5 },
-            {"c2s1", clearData.c2s1 },
-            {"c2s2", clearData.c2s2 },
-            {"c2s3", clearData.c2s3 },
-            {"c2s4", clearData.c2s4 },
-            {"c2s5", clearData.c2s5 },
-            {"c3s1", clearData.c3s1 },
-            {"c3s2", clearData.c3s2 },
-            {"c3s3", clearData.c3s3 },
-            {"c3s4", clearData.c3s4 },
-            {"c3s5", clearData.c3s5 },
-            {"c4s1", clearData.c4s1 },
-            {"c4s2", clearData.c4s2 },
-            {"c4s3", clearData.c4s3 },
-            {"c4s4", clearData.c4s4 },
-            {"c4s5", clearData.c4s5 },*/
             {"lastClear", clearData.lastClear }
         };
 
@@ -249,26 +240,6 @@ public class BackendGameData
                     {
                         clearDataRowInDate = gameDataJson[0]["inDate"].ToString();
 
-                        /*clearData.c1s1 = int.Parse(gameDataJson[0]["c1s1"].ToString());
-                        clearData.c1s2 = int.Parse(gameDataJson[0]["c1s2"].ToString());
-                        clearData.c1s3 = int.Parse(gameDataJson[0]["c1s3"].ToString());
-                        clearData.c1s4 = int.Parse(gameDataJson[0]["c1s4"].ToString());
-                        clearData.c1s5 = int.Parse(gameDataJson[0]["c1s5"].ToString());
-                        clearData.c2s1 = int.Parse(gameDataJson[0]["c2s1"].ToString());
-                        clearData.c2s2 = int.Parse(gameDataJson[0]["c2s2"].ToString());
-                        clearData.c2s3 = int.Parse(gameDataJson[0]["c2s3"].ToString());
-                        clearData.c2s4 = int.Parse(gameDataJson[0]["c2s4"].ToString());
-                        clearData.c2s5 = int.Parse(gameDataJson[0]["c2s5"].ToString());
-                        clearData.c3s1 = int.Parse(gameDataJson[0]["c3s1"].ToString());
-                        clearData.c3s2 = int.Parse(gameDataJson[0]["c3s2"].ToString());
-                        clearData.c3s3 = int.Parse(gameDataJson[0]["c3s3"].ToString());
-                        clearData.c3s4 = int.Parse(gameDataJson[0]["c3s4"].ToString());
-                        clearData.c3s5 = int.Parse(gameDataJson[0]["c3s5"].ToString());
-                        clearData.c4s1 = int.Parse(gameDataJson[0]["c4s1"].ToString());
-                        clearData.c4s2 = int.Parse(gameDataJson[0]["c4s2"].ToString());
-                        clearData.c4s3 = int.Parse(gameDataJson[0]["c4s3"].ToString());
-                        clearData.c4s4 = int.Parse(gameDataJson[0]["c4s4"].ToString());
-                        clearData.c4s5 = int.Parse(gameDataJson[0]["c4s5"].ToString());*/
                         clearData.lastClear = int.Parse(gameDataJson[0]["lastClear"].ToString());
                     }
                 }
@@ -296,26 +267,6 @@ public class BackendGameData
 
         Param param = new Param()
         {
-            /*{"c1s1", clearData.c1s1 },
-            {"c1s2", clearData.c1s2 },
-            {"c1s3", clearData.c1s3 },
-            {"c1s4", clearData.c1s4 },
-            {"c1s5", clearData.c1s5 },
-            {"c2s1", clearData.c2s1 },
-            {"c2s2", clearData.c2s2 },
-            {"c2s3", clearData.c2s3 },
-            {"c2s4", clearData.c2s4 },
-            {"c2s5", clearData.c2s5 },
-            {"c3s1", clearData.c3s1 },
-            {"c3s2", clearData.c3s2 },
-            {"c3s3", clearData.c3s3 },
-            {"c3s4", clearData.c3s4 },
-            {"c3s5", clearData.c3s5 },
-            {"c4s1", clearData.c4s1 },
-            {"c4s2", clearData.c4s2 },
-            {"c4s3", clearData.c4s3 },
-            {"c4s4", clearData.c4s4 },
-            {"c4s5", clearData.c4s5 },*/
             {"lastClear", clearData.lastClear }
         };
 
@@ -346,6 +297,9 @@ public class BackendGameData
             });
         }
     }
+    #endregion
+
+    #region Dogam Data
 
     public void DogamDataInsert()
     {
@@ -508,6 +462,9 @@ public class BackendGameData
             });
         }
     }
+    #endregion
+
+    #region TowerData
 
     public void TowerDataInsert()
     {
@@ -625,4 +582,169 @@ public class BackendGameData
             });
         }
     }
+    #endregion
+
+    #region StarData
+    public void StarDataInsert()
+    {
+        starData.Reset();
+
+        Param param = new Param()
+        {
+            {"c1s1", starData.c1s1 },
+            {"c1s2", starData.c1s2 },
+            {"c1s3", starData.c1s3 },
+            {"c1s4", starData.c1s4 },
+            {"c1s5", starData.c1s5 },
+            {"c2s1", starData.c2s1 },
+            {"c2s2", starData.c2s2 },
+            {"c2s3", starData.c2s3 },
+            {"c2s4", starData.c2s4 },
+            {"c2s5", starData.c2s5 },
+            {"c3s1", starData.c3s1 },
+            {"c3s2", starData.c3s2 },
+            {"c3s3", starData.c3s3 },
+            {"c3s4", starData.c3s4 },
+            {"c3s5", starData.c3s5 },
+            {"c4s1", starData.c4s1 },
+            {"c4s2", starData.c4s2 },
+            {"c4s3", starData.c4s3 },
+            {"c4s4", starData.c4s4 },
+            {"c4s5", starData.c4s5 }
+        };
+
+        Backend.GameData.Insert("STAR_DATA", param, callback =>
+        {
+            if (callback.IsSuccess())
+            {
+                starDataRowInDate = callback.GetInDate();
+
+                Debug.Log($"클리어 정보 데이터 삽입에 성공했습니다. : {callback}");
+
+                StarDataLoad();
+            }
+            else
+            {
+                Debug.LogError($"클리어 정보 데이터 삽입에 실패했습니다. : {callback}");
+            }
+        });
+    }
+
+    public void StarDataLoad()
+    {
+        Backend.GameData.GetMyData("STAR_DATA", new Where(), callback =>
+        {
+            if (callback.IsSuccess())
+            {
+                Debug.Log($"클리어 정보 데이터 불러오기에 성공했습니다 : {callback}");
+                starDataRowInDate = callback.GetInDate();
+                try
+                {
+                    LitJson.JsonData gameDataJson = callback.FlattenRows();
+
+                    if (gameDataJson.Count <= 0)
+                    {
+                        Debug.LogWarning("데이터가 존재하지 않습니다");
+                        StarDataInsert(); //데이터가 없다는 거니까 새로 생성
+                    }
+                    else
+                    {
+                        starDataRowInDate = gameDataJson[0]["inDate"].ToString();
+
+                        starData.c1s1 = int.Parse(gameDataJson[0]["c1s1"].ToString());
+                        starData.c1s2 = int.Parse(gameDataJson[0]["c1s2"].ToString());
+                        starData.c1s3 = int.Parse(gameDataJson[0]["c1s3"].ToString());
+                        starData.c1s4 = int.Parse(gameDataJson[0]["c1s4"].ToString());
+                        starData.c1s5 = int.Parse(gameDataJson[0]["c1s5"].ToString());
+                        starData.c2s1 = int.Parse(gameDataJson[0]["c2s1"].ToString());
+                        starData.c2s2 = int.Parse(gameDataJson[0]["c2s2"].ToString());
+                        starData.c2s3 = int.Parse(gameDataJson[0]["c2s3"].ToString());
+                        starData.c2s4 = int.Parse(gameDataJson[0]["c2s4"].ToString());
+                        starData.c2s5 = int.Parse(gameDataJson[0]["c2s5"].ToString());
+                        starData.c3s1 = int.Parse(gameDataJson[0]["c3s1"].ToString());
+                        starData.c3s2 = int.Parse(gameDataJson[0]["c3s2"].ToString());
+                        starData.c3s3 = int.Parse(gameDataJson[0]["c3s3"].ToString());
+                        starData.c3s4 = int.Parse(gameDataJson[0]["c3s4"].ToString());
+                        starData.c3s5 = int.Parse(gameDataJson[0]["c3s5"].ToString());
+                        starData.c4s1 = int.Parse(gameDataJson[0]["c4s1"].ToString());
+                        starData.c4s2 = int.Parse(gameDataJson[0]["c4s2"].ToString());
+                        starData.c4s3 = int.Parse(gameDataJson[0]["c4s3"].ToString());
+                        starData.c4s4 = int.Parse(gameDataJson[0]["c4s4"].ToString());
+                        starData.c4s5 = int.Parse(gameDataJson[0]["c4s5"].ToString());
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    starData.Reset();
+                    Debug.LogError(e);
+                }
+            }
+            else
+            {
+                Debug.LogError($"클리어 정보 데이터 불러오기에 실패했습니다 : {callback}");
+            }
+        });
+    }
+
+    public void StarDataUpdate(UnityAction action = null)
+    {
+        if (starData == null)
+        {
+            Debug.LogError("서버에서 다운받거나 새로 삽입한 데이터가 존재하지 않습니다." +
+                           "Insert 혹은 Load를 통해 데이터를 생성해주세요.");
+            return;
+        }
+
+        Param param = new Param()
+        {
+            {"c1s1", starData.c1s1 },
+            {"c1s2", starData.c1s2 },
+            {"c1s3", starData.c1s3 },
+            {"c1s4", starData.c1s4 },
+            {"c1s5", starData.c1s5 },
+            {"c2s1", starData.c2s1 },
+            {"c2s2", starData.c2s2 },
+            {"c2s3", starData.c2s3 },
+            {"c2s4", starData.c2s4 },
+            {"c2s5", starData.c2s5 },
+            {"c3s1", starData.c3s1 },
+            {"c3s2", starData.c3s2 },
+            {"c3s3", starData.c3s3 },
+            {"c3s4", starData.c3s4 },
+            {"c3s5", starData.c3s5 },
+            {"c4s1", starData.c4s1 },
+            {"c4s2", starData.c4s2 },
+            {"c4s3", starData.c4s3 },
+            {"c4s4", starData.c4s4 },
+            {"c4s5", starData.c4s5 }
+        };
+
+        // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
+        if (string.IsNullOrEmpty(starDataRowInDate))
+        {
+            Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
+        }
+        // 게임 정보의 고유값이 있으면 테이블에 저장되어 있는 값 중 inDate 컬럼의 값과
+        // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
+        else
+        {
+            Debug.Log($"{starDataRowInDate}의 클리어 정보 데이터 수정을 요청합니다.");
+
+            Backend.GameData.UpdateV2("STAR_DATA", starDataRowInDate, Backend.UserInDate, param, callback =>
+            {
+                if (callback.IsSuccess())
+                {
+                    Debug.Log($"클리어 정보 데이터 수정에 성공했습니다. : {callback}");
+
+                    action?.Invoke();
+                    onStarDataUpdateEvent.Invoke();
+                }
+                else
+                {
+                    Debug.LogError($"클리어 정보 데이터 수정에 실패했습니다. : {callback}");
+                }
+            });
+        }
+    }
+    #endregion
 }

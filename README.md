@@ -27,6 +27,11 @@
 - 스테이지별 UI 추가
 	- 각 스테이지별로 클리어한 성적에 따라서 별, 보상을 차등 지급하는 시스템
 	- 별을 일정 개수 이상 모으지 못하면 해당 챕터의 스토리를 해금할 수 없도록 조정
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/872b0046-dd9a-4123-bd82-93b6f7ac88de" width = "180" height = "320">
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/0fa03db0-0ae1-4219-b51c-63570a82e40b" width = "180" height = "320">
+</p> 
+
 - 챕터2 카툰 추가
 	- 챕터2 카툰 SFX 추가
 ---
@@ -98,6 +103,10 @@
 ---
 ## V.3.1.12 SM 2024-02-14
 - 로비에서 햄찌를 드래그&드롭 해서 각종 동작을 할 수 있게 구현
+<p align="center"> 
+  <img src = "https://github.com/Jinlee0206/EvenIGamethon/assets/109404269/d354352f-794f-4189-b269-d737116a389d" width = "180" height = "320">
+</p> 
+
 - 게임 종료 버튼 버그 수정
 	- 같은 버튼이 2번 연속으로 눌릴 경우, 이미 로그아웃 된 상태에서 다시 로그아웃을 요청하여 에러 발생
 	- 같은 원리로 원래 있던 로그아웃 버튼의 로직도 변경

@@ -125,6 +125,7 @@ public class TowerSpawner : MonoBehaviour
             GameObject tower;
             if (InstalledTower.TryGetValue(tileTransform, out tower))
             {
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Sub_Hamster_Sell);   //  타워 철거 소리 추가
                 InstalledTower.Remove(tileTransform);
                 GameManager.Inst.pool.Release(tower);
                 GameManager.Inst.seed += 30;

@@ -16,4 +16,5 @@ public class CutSceneData : ScriptableObject
 
     public CutSceneType cutSceneType;
     public Sprite[] frameSprites;
+    public AudioClip[] sfxClips;
 }

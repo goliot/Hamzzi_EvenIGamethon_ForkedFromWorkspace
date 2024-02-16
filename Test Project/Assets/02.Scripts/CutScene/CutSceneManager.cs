@@ -79,6 +79,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
                 break;
             case 1:
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01Cartoon);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter01_Cartoon01);
                 break;
             case 2:
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter02Cartoon);
@@ -151,10 +152,40 @@ public class CutSceneManager : Singleton<CutSceneManager>
     private void ShowCurrentFrame()
     {
         if(currentCutSceneData.cutSceneType == 0 && currentFrameIndex == 5) AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Change_Up);
+
+        StoryCutSceneSound(); // 스토리 컷씬 사운드 재생
+
         // 현재 프레임의 스프라이트를 표시
         if (currentFrameIndex >= 0 && currentFrameIndex < currentCutSceneData.frameSprites.Length)
         {
             ShowFrame(currentCutSceneData.frameSprites[currentFrameIndex]);
+        }
+    }
+
+    void StoryCutSceneSound()
+    {
+        switch (currentCutSceneData.cutSceneType)
+        {
+            case CutSceneType.Chapter01:
+                if(currentFrameIndex == 0)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter01_Cartoon01);
+                }
+                else if(currentFrameIndex == 1)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter01_Cartoon02);
+                }
+                else
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter01_Cartoon03);
+                }
+                break;
+            case CutSceneType.Chapter02:
+                break;
+            case CutSceneType.Chapter03:
+                break;
+            case CutSceneType.Chapter04:
+                break;
         }
     }
 

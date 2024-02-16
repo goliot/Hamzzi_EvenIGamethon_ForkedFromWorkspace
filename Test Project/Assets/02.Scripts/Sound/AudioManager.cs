@@ -130,7 +130,15 @@ public class AudioManager : Singleton<AudioManager>
 
         // Ãß°¡
         SFX_Main_Hamster_Voice = 77,
-        SFX_Sub_Hamster_Sell = 78
+        SFX_Sub_Hamster_Sell = 78,
+        
+        // ÄÆÅ÷
+        SFX_Chapter01_Cartoon01 = 79,
+        SFX_Chapter01_Cartoon02 = 80,
+        SFX_Chapter01_Cartoon03 = 81,
+
+        // µðÆúÆ®
+        SFX_None
     }
 
     public float BGMVolume

@@ -40,6 +40,11 @@ public class Threadmill : MonoBehaviour
         {
             timeText = GameObject.Find("StaminaTime").GetComponent<TextMeshProUGUI>();
             threadmillText = GameObject.Find("StaminaText").GetComponent<TextMeshProUGUI>();
+            if(m_HeartAmount > MAX_HEART)
+            {
+                m_HeartAmount = MAX_HEART;
+                SaveHeartInfo();
+            }
 
             timeText.text = ConvertToMinutesAndSeconds(m_RechargeRemainTime);
             threadmillText.text = m_HeartAmount.ToString() + " / 10";
@@ -90,6 +95,8 @@ public class Threadmill : MonoBehaviour
         m_HeartAmount = 10;
         m_RechargeRemainTime = 0;
         m_AppQuitTime = new DateTime(1970, 1, 1).ToLocalTime();
+
+        SaveHeartInfo();
         //Debug.Log("heartRechargeTimer : " + m_RechargeRemainTime + "s");
         //heartRechargeTimer.text = string.Format("Timer : {0} s", m_RechargeRemainTime);
     }

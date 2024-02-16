@@ -107,9 +107,8 @@ public class LobbyScene : MonoBehaviour
 
     public void OnClickRefreshThreadmill()
     {
-        BackendGameData.Instance.UserGameData.threadmill = 10;
-        BackendGameData.Instance.GameDataUpdate();
-        BackendGameData.Instance.GameDataLoad();
+        Threadmill.instance.m_HeartAmount = 10;
+        Threadmill.instance.SaveHeartInfo();
     }
 
     public void loadLobby()

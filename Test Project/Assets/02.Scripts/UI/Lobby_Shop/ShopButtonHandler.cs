@@ -271,7 +271,7 @@ public class ShopButtonHandler : MonoBehaviour
             BackendGameData.Instance.GameDataUpdate();
             //BackendGameData.Instance.GameDataLoad();
             BackendGameData.Instance.TowerDataUpdate();
-            BackendGameData.Instance.TowerDataLoad();
+            //BackendGameData.Instance.TowerDataLoad();
         }
         else if (cornProductId == 4)
         {

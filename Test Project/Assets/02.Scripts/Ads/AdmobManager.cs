@@ -223,7 +223,7 @@ public class AdmobManager : MonoBehaviour
 
     public void DestroyInterstitialView()
     {
-        _interstitialAd.Destroy();
+        if(_interstitialAd != null) _interstitialAd.Destroy();
     }
 
     private void RegisterEventHandlers(InterstitialAd interstitialAd)
@@ -350,6 +350,7 @@ public class AdmobManager : MonoBehaviour
                 {
                     AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Purchase_Effect);
                     Threadmill.instance.m_HeartAmount += 3;
+                    Threadmill.instance.SaveHeartInfo();
                 }
 #if UNITY_EDITOR
                 if(SceneManager.GetActiveScene().name == "AdsTest") rewardText.text = "reward ad ended";

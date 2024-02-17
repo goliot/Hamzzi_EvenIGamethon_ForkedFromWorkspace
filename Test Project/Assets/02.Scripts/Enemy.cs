@@ -21,7 +21,6 @@ public class Enemy : MonoBehaviour
     public Text popupText;
     public GameObject dmgCanvas;
     public Slider hpSlider;
-    public Image bossImage;
     /*public GameObject hpBar;
     public Slider bossHPBar;*/
 
@@ -88,12 +87,10 @@ public class Enemy : MonoBehaviour
         if (spriteType % 5 == 4)
         {
             hpSlider.gameObject.SetActive(true);
-            bossImage.gameObject.SetActive(true);
         }
         else
         {
             hpSlider.gameObject.SetActive(false);
-            bossImage.gameObject.SetActive(false);
         }
         //bossHPBar.value = 1;
     }

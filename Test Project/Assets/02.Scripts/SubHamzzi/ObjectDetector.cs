@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -37,13 +39,13 @@ public class ObjectDetector : MonoBehaviour
                     TilePos = hit.transform.GetComponent<Tile>();
                     //Debug.Log(TilePos.transform.position.x);
 
-                    if(!GameManager.Inst.isSelectingCard && PopUpManager.Inst.popUpList.Count < 1)         // 카드 선택창이 열려있지 않고, 팝업창이 열려 있지 않다면 (중복UI 생성 막기)
+                    if (!GameManager.Inst.isSelectingCard && PopUpManager.Inst.popUpList.Count < 1)         // 카드 선택창이 열려있지 않고, 팝업창이 열려 있지 않다면 (중복UI 생성 막기)
                     {
                         if (TilePos != null && !TilePos.IsBuildTower) // 타워가 건설되어 있지 않다면
                         {
                             PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strTowerUI);
                         }
-                        else if(TilePos != null && TilePos.IsBuildTower)    // 타워가 건설되어 있다면
+                        else if (TilePos != null && TilePos.IsBuildTower)    // 타워가 건설되어 있다면
                         {
                             Debug.Log("업그레이드 UI 팝업");
                             PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strTowerUpgradeSellUI);
@@ -60,4 +62,18 @@ public class ObjectDetector : MonoBehaviour
     {
         return hitTransform;
     }
+
+    public void RefreshText()
+    {
+        towerText.text = " ";
+        StartCoroutine(TextClose());
+    }
+
+    public IEnumerator TextClose()
+    {
+        instance.towerText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        instance.towerText.gameObject.SetActive(false);
+    }
+
 }

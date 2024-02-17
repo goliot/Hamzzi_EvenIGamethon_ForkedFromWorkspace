@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class TipBox_Lobby : MonoBehaviour
 {
@@ -34,5 +35,12 @@ public class TipBox_Lobby : MonoBehaviour
         int idx = Random.Range(0, tips.Count);
 
         tipText.text = tips[idx];
+        TMPDOText(tipText, 2.0f);
+    }
+
+    public void TMPDOText(TextMeshProUGUI text, float duration)
+    {
+        text.maxVisibleCharacters = 0;
+        DOTween.To(x => text.maxVisibleCharacters = (int)x, 0f, text.text.Length, duration);
     }
 }

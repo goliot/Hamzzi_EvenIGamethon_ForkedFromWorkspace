@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using TMPro;
+using DG.Tweening;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -17,6 +19,7 @@ public class UIManager : Singleton<UIManager>
     public Button victoryUIYesButton;
     public Button gameOverUINoButton;
     public Button gameOverUIYesButton;
+    public TextMeshProUGUI gameOverUITipText;
 
     public GameObject speed_2times;  // 2배속 버튼 이미지 
 
@@ -151,5 +154,11 @@ public class UIManager : Singleton<UIManager>
         pauseMenu.SetActive(true);
         tutorialUI.SetActive(false);
         AdmobManager.instance.LoadAd();
+    }
+
+    public void TMPDOText(TextMeshProUGUI text, float duration)
+    {
+        text.maxVisibleCharacters = 0;
+        DOTween.To(x => text.maxVisibleCharacters = (int)x, 0f, text.text.Length, duration);
     }
 }

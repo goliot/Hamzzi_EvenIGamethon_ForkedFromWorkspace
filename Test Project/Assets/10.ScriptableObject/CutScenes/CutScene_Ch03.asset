@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutSceneType: 3
   frameSprites:
-  - {fileID: 21300000, guid: 3263937753846b046b25b493b121e826, type: 3}
-  - {fileID: 21300000, guid: 7caf88ac341798a418afd93aed350986, type: 3}
-  - {fileID: 21300000, guid: e41cd97902f7c2549878d77e147a01b0, type: 3}
+  - {fileID: 21300000, guid: 78811cca2332f794988d680bcab7acac, type: 3}
+  - {fileID: 21300000, guid: 2ae7ee85c1a049247a9f18dbc0493933, type: 3}
+  - {fileID: 21300000, guid: 297a1161cee13be4bb41be3b121c6cb8, type: 3}

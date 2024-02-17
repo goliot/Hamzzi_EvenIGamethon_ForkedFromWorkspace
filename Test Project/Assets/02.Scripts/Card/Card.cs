@@ -305,8 +305,11 @@ public class Card : MonoBehaviour
 
         level++;
 
+        // "씨앗 부족합니다" 텍스트 계속 남는 버그 수정
+        ObjectDetector.instance.RefreshText();
+
         // 각 카드별 제한 개수를 두지 않을 것인가? 무한으로 선택지가 나오게 할 것인가?
-        if(level == cardData.levels.Length)
+        if (level == cardData.levels.Length)
         {
             GetComponent<Button>().interactable = false;
         }

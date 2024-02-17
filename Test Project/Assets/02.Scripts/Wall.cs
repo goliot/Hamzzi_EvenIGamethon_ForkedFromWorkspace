@@ -103,12 +103,21 @@ public class Wall : MonoBehaviour
         StartCoroutine(PlayGameOverSFX());
         //게임 오버 루틴 -> UI를 띄운다던가 하는 로직
         UIManager.Inst.gameOverUI.SetActive(true);      // 게임 오버 UI 켜지게
+        StartCoroutine(StartTipText());
     }
 
     IEnumerator PlayGameOverSFX()
     {
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Stage_Fail);
         yield return new WaitForSeconds(3.0f);
+    }
+
+    IEnumerator StartTipText()
+    {
+        UIManager.Inst.gameOverUITipText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+        UIManager.Inst.gameOverUITipText.gameObject.SetActive(true);
+        UIManager.Inst.TMPDOText(UIManager.Inst.gameOverUITipText, 2.0f);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

@@ -143,7 +143,12 @@ public class TowerSpawner : MonoBehaviour
             {
                 int towerType = tower.GetComponent<Tower>().towerType;
                 Tower towerComponent = tower.GetComponent<Tower>();
-                if (towerComponent.level >= 5) return;
+                if (towerComponent.level >= 5)
+                {
+                    ObjectDetector.instance.towerText.text = "최대 레벨입니다!";
+                    StartCoroutine(TextClose()); 
+                    return;
+                }
                 switch (towerType)
                 {
                     case 0:

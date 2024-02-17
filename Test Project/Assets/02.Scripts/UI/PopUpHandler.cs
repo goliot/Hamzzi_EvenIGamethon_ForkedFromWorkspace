@@ -127,6 +127,11 @@ public class PopUpHandler : MonoBehaviour
         OnDogamSkillButtonClicked?.Invoke(dataIndex);
     }
 
+    public void OnClickPopUpLobbyTutorial()
+    {
+        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strLobbyTutorialUI);
+    }
+
     #endregion
 
     // 버튼 이름에서 숫자 부분을 추출하여 데이터 인덱스로 반환하는 함수

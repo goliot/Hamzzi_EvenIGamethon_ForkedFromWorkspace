@@ -40,7 +40,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
             cutSceneImage = GameObject.Find("CutSceneImage").GetComponent<Image>();
             nextButton = GameObject.Find("NextButton").GetComponent<Button>();
             prevButton = GameObject.Find("PrevButton").GetComponent<Button>();
-            skipButton = GameObject.Find("SkipButton").GetComponent<Button>();
+            skipButton = GameObject.Find("SkipButton")?.GetComponent<Button>();
 
             if (nextButton != null)
             {
@@ -69,7 +69,10 @@ public class CutSceneManager : Singleton<CutSceneManager>
     // 컷씬 재생 함수
     public void PlayCutScene(CutSceneType cutSceneType)
     {
-        if (cutSceneType == 0) skipButton.gameObject.SetActive(true);
+        if (cutSceneType == 0)
+        {
+            skipButton.gameObject.SetActive(true);
+        }
         else skipButton.gameObject.SetActive(false);
         AudioManager.Inst.StopBgm();
         switch ((int)cutSceneType) 
@@ -87,9 +90,11 @@ public class CutSceneManager : Singleton<CutSceneManager>
                 break;
             case 3:
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter03Cartoon);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter03_Cartoon01);
                 break;
             case 4:
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter04Cartoon);
+                AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter04_Cartoon01);
                 break;
         }
         // 주어진 컷씬 타입에 해당하는 CutSceneData를 찾음
@@ -146,6 +151,7 @@ public class CutSceneManager : Singleton<CutSceneManager>
 
     public void ToLobby()
     {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
         SceneManager.LoadScene("Lobby");
     }
 
@@ -196,8 +202,32 @@ public class CutSceneManager : Singleton<CutSceneManager>
                 }
                 break;
             case CutSceneType.Chapter03:
+                if (currentFrameIndex == 0)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter03_Cartoon01);
+                }
+                else if (currentFrameIndex == 1)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter03_Cartoon02);
+                }
+                else
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter03_Cartoon03);
+                }
                 break;
             case CutSceneType.Chapter04:
+                if (currentFrameIndex == 0)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter04_Cartoon01);
+                }
+                else if (currentFrameIndex == 1)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter04_Cartoon02);
+                }
+                else if(currentFrameIndex == 2)
+                {
+                    AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Chapter04_Cartoon03);
+                }
                 break;
         }
     }

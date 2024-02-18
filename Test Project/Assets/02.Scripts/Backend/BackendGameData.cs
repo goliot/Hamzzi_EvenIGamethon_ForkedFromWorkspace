@@ -438,7 +438,7 @@ public class BackendGameData
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
         if (string.IsNullOrEmpty(dogamDataRowInDate))
         {
-            Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
+            Debug.LogError($"유저의 inDate 정보가 없어 도감 정보 데이터 수정에 실패했습니다.");
         }
         // 게임 정보의 고유값이 있으면 테이블에 저장되어 있는 값 중 inDate 컬럼의 값과
         // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
@@ -558,7 +558,7 @@ public class BackendGameData
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
         if (string.IsNullOrEmpty(towerDataRowInDate))
         {
-            Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
+            Debug.LogError($"유저의 inDate 정보가 없어 타워 정보 데이터 수정에 실패했습니다.");
         }
         // 게임 정보의 고유값이 있으면 테이블에 저장되어 있는 값 중 inDate 컬럼의 값과
         // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
@@ -619,13 +619,13 @@ public class BackendGameData
             {
                 starDataRowInDate = callback.GetInDate();
 
-                Debug.Log($"클리어 정보 데이터 삽입에 성공했습니다. : {callback}");
+                Debug.Log($"별 데이터 삽입에 성공했습니다. : {callback}");
 
                 StarDataLoad();
             }
             else
             {
-                Debug.LogError($"클리어 정보 데이터 삽입에 실패했습니다. : {callback}");
+                Debug.LogError($"별 데이터 삽입에 실패했습니다. : {callback}");
             }
         });
     }
@@ -636,7 +636,7 @@ public class BackendGameData
         {
             if (callback.IsSuccess())
             {
-                Debug.Log($"클리어 정보 데이터 불러오기에 성공했습니다 : {callback}");
+                Debug.Log($"별 데이터 불러오기에 성공했습니다 : {callback}");
                 starDataRowInDate = callback.GetInDate();
                 try
                 {
@@ -644,7 +644,7 @@ public class BackendGameData
 
                     if (gameDataJson.Count <= 0)
                     {
-                        Debug.LogWarning("데이터가 존재하지 않습니다");
+                        Debug.LogWarning("데이터가 존재하지 않습니다, 데이터를 새로 삽입합니다.");
                         StarDataInsert(); //데이터가 없다는 거니까 새로 생성
                     }
                     else
@@ -681,7 +681,7 @@ public class BackendGameData
             }
             else
             {
-                Debug.LogError($"클리어 정보 데이터 불러오기에 실패했습니다 : {callback}");
+                Debug.LogError($"별 데이터 불러오기에 실패했습니다 : {callback}");
             }
         });
     }
@@ -722,26 +722,26 @@ public class BackendGameData
         // 게임 정보의 고유값(gameDataRowInDate)이 없으면 에러 메시지 출력
         if (string.IsNullOrEmpty(starDataRowInDate))
         {
-            Debug.LogError($"유저의 inDate 정보가 없어 게임 정보 데이터 수정에 실패했습니다.");
+            Debug.LogError($"유저의 inDate 정보가 없어 별 데이터 수정에 실패했습니다.");
         }
         // 게임 정보의 고유값이 있으면 테이블에 저장되어 있는 값 중 inDate 컬럼의 값과
         // 소유하는 유저의 owner_inDate가 일치하는 row를 검색하여 수정하는 UpdateV2() 호출
         else
         {
-            Debug.Log($"{starDataRowInDate}의 클리어 정보 데이터 수정을 요청합니다.");
+            Debug.Log($"{starDataRowInDate}의 별 데이터 수정을 요청합니다.");
 
             Backend.GameData.UpdateV2("STAR_DATA", starDataRowInDate, Backend.UserInDate, param, callback =>
             {
                 if (callback.IsSuccess())
                 {
-                    Debug.Log($"클리어 정보 데이터 수정에 성공했습니다. : {callback}");
+                    Debug.Log($"별 데이터 수정에 성공했습니다. : {callback}");
 
                     action?.Invoke();
                     onStarDataUpdateEvent.Invoke();
                 }
                 else
                 {
-                    Debug.LogError($"클리어 정보 데이터 수정에 실패했습니다. : {callback}");
+                    Debug.LogError($"별 데이터 수정에 실패했습니다. : {callback}");
                 }
             });
         }

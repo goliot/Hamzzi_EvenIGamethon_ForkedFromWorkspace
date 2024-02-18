@@ -41,6 +41,13 @@ public class Login : LoginBase
             if (callback.IsSuccess())
             {
                 SetMessage($"{inputFieldID.text}님 환영합니다.");
+
+                BackendGameData.Instance.GameDataLoad();
+                BackendGameData.Instance.TowerDataLoad();
+                //BackendGameData.Instance.DogamDataLoad();
+                BackendGameData.Instance.ClearDataLoad();
+                BackendGameData.Instance.StarDataLoad();
+
                 //SceneManager.LoadScene("Lobby");
                 SceneManager.LoadScene("CutScene");
             } 

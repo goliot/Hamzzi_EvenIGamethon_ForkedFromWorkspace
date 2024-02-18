@@ -75,6 +75,13 @@ public class GameManager : Singleton<GameManager>
                 AudioManager.Inst.PlayBgm(AudioManager.BGM.BGM_Chapter01);
                 break;
         }
+
+        if (!BackendGameData.Instance.UserGameData.isAdRemoved)
+        {
+            AdmobManager.instance.ShowInterstitialAd();
+            if (AdmobManager.instance._interstitialAd != null) UIManager.Inst.PauseGame();
+            else UIManager.Inst.ResumeGame();
+        }
     }
 
     private void Update()

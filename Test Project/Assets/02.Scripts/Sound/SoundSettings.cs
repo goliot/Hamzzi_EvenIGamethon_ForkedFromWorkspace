@@ -10,6 +10,8 @@ public class SoundSettings : MonoBehaviour
     public Slider bgmSlider;
     public Slider sfxSlider;
     public Button logoutButton;
+    public Button assetInfoButton;
+    public Button developerButton;
 
     private AudioManager audioManager;
 
@@ -60,5 +62,15 @@ public class SoundSettings : MonoBehaviour
             Debug.Log("구글 계정 아님");
             return;
         }
+    }
+
+    public void OnClickDeveloper()
+    {
+
+    }
+
+    public void OnClickAssetInfo()
+    {
+
     }
 }

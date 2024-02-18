@@ -850,6 +850,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97f824dddd8cfc549b773dcef7090996, type: 2}
   - {fileID: 11400000, guid: f4ab0ec210b05e44a8abcaa5be340bed, type: 2}
   - {fileID: 11400000, guid: f3f6c3c1552bf6d4fa157c4810c182ed, type: 2}
+  - {fileID: 11400000, guid: 66c166b342cdb494ca1f660ecd103f43, type: 2}
   cutSceneImage: {fileID: 0}
   nextButton: {fileID: 0}
   prevButton: {fileID: 0}

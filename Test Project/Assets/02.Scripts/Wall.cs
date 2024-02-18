@@ -102,6 +102,7 @@ public class Wall : MonoBehaviour
     {
         StartCoroutine(PlayGameOverSFX());
         //게임 오버 루틴 -> UI를 띄운다던가 하는 로직
+        GameManager.Inst.Stop();
         UIManager.Inst.gameOverUI.SetActive(true);      // 게임 오버 UI 켜지게
         StartCoroutine(StartTipText());
     }

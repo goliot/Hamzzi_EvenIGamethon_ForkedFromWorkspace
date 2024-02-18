@@ -30,7 +30,12 @@ public class StoryButtonHandler : MonoBehaviour
             Debug.LogError("ChapterButtonHandler를 찾을 수 없습니다.");
         }
     }
-    
+
+    private void Update()
+    {
+        currentChapter = StageSelect.instance.chapter;
+    }
+
     // UnityEvent 구독
     void UpdateChapter()
     {

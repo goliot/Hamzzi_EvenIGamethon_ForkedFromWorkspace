@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19acbc1daa1cf640aedfa04ae32394a, type: 3}
   m_Name: CutScene_Ch04
   m_EditorClassIdentifier: 
-  cutSceneType: 3
+  cutSceneType: 4
   frameSprites:
-  - {fileID: 21300000, guid: 3263937753846b046b25b493b121e826, type: 3}
-  - {fileID: 21300000, guid: 7caf88ac341798a418afd93aed350986, type: 3}
-  - {fileID: 21300000, guid: e41cd97902f7c2549878d77e147a01b0, type: 3}
+  - {fileID: 21300000, guid: 39468e13686f9a84989c9615de5a6689, type: 3}
+  - {fileID: 21300000, guid: 053bbb77001f6d248a389065a584ea29, type: 3}
+  - {fileID: 21300000, guid: d221b7764b7d9c24cbe9b1d562f406a1, type: 3}
+  - {fileID: 21300000, guid: 18e9e6a86f7430a43ad6f19eaeeb1922, type: 3}
+  - {fileID: 21300000, guid: 1e1483a9df04da54b820465cf87e2429, type: 3}

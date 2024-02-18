@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
         //bossHPBar.value = 1;
     }
 
-        private void Update()
+    private void Update()
     {
         if (!isWallHit && !isKnockback)
         {

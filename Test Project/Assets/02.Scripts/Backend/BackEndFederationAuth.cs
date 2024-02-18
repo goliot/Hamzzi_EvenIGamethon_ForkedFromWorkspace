@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class BackEndFederationAuth : LoginBase
 {
+    private const string BoolKey = "HaveGoogleLogined";
+    private bool defaultValue = false; // 저장된 값이 없을 때 반환할 기본값
+
     // GPGS 로그인 
     void Start()
     {
@@ -23,7 +26,45 @@ public class BackEndFederationAuth : LoginBase
                                                   //GPGS 시작.
         PlayGamesPlatform.Activate();
         //GPGSLogin();
+
+        // Bool 값을 검색합니다. 저장된 값이 없으면 기본값을 사용합니다.
+        bool myBool = GetBool(BoolKey, defaultValue);
+        Debug.Log("My bool value: " + myBool);
+
+        // 저장된 값이 없으면 기본값을 저장합니다.
+        SetBool(BoolKey, myBool);
+
+        if (myBool) GPGSLogin(); //구글 로그인 한 적이 있다면 자동 로그인
+
         string message = string.Empty;
+    }
+
+    private bool GetBool(string key, bool defaultValue)
+    {
+        if (PlayerPrefs.HasKey(key)) // 키가 존재하는 경우
+        {
+            return IntToBool(PlayerPrefs.GetInt(key));
+        }
+        else // 키가 존재하지 않는 경우
+        {
+            return defaultValue;
+        }
+    }
+
+    private void SetBool(string key, bool value)
+    {
+        PlayerPrefs.SetInt(key, BoolToInt(value));
+        PlayerPrefs.Save();
+    }
+
+    private int BoolToInt(bool value)
+    {
+        return value ? 1 : 0;
+    }
+
+    private bool IntToBool(int value)
+    {
+        return value == 1;
     }
 
     public void GPGSLogin()
@@ -46,6 +87,14 @@ public class BackEndFederationAuth : LoginBase
                     //BackendGameData.Instance.GameDataInsert();
                     //SceneManager.LoadScene("Lobby");
                     //SceneManager.LoadScene("FirstPlay");
+                    SetBool(BoolKey, true); //구글로그인 해봤다고 저장
+
+                    BackendGameData.Instance.GameDataLoad();
+                    BackendGameData.Instance.TowerDataLoad();
+                    //BackendGameData.Instance.DogamDataLoad();
+                    BackendGameData.Instance.ClearDataLoad();
+                    BackendGameData.Instance.StarDataLoad();
+
                     SceneManager.LoadScene("CutScene"); // 컷씬으로 넘어가게
                 }
                 else

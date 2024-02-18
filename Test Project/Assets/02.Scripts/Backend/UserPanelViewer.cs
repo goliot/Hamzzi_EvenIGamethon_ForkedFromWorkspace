@@ -62,4 +62,9 @@ public class UserPanelViewer : MonoBehaviour
             //sliderExperience.value = BackendGameData.Instance.UserGameData.bread / BackendGameData.Instance.UserGameData.levelUpData[BackendGameData.Instance.UserGameData.level - 1];
         }
     }
+
+    public void OnClickUISound()
+    {
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
+    }
 }

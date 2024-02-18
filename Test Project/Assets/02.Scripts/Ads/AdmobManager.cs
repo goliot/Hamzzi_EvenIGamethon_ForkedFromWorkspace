@@ -171,7 +171,7 @@ public class AdmobManager : MonoBehaviour
     #endregion
 
     #region Àü¸é ±¤°í
-    private InterstitialAd _interstitialAd;
+    public InterstitialAd _interstitialAd;
 
     public void LoadInterstitialAd()
     {

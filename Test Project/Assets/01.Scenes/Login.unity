@@ -1265,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371416753922900330, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_text
-      value: "\uAD6C\uAE00 \uB85C\uADF8\uC778\n"
+      value: "\uC6D0\uD074\uB9AD \n\uAD6C\uAE00 \uB85C\uADF8\uC778\n"
       objectReference: {fileID: 0}
     - target: {fileID: 2371416753922900330, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_fontColor.b
@@ -1345,7 +1345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8933101137445870357, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 130
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8933101137445870357, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_LocalScale.x
@@ -4044,7 +4044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8933101137445870357, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 130
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8933101137445870357, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_LocalScale.x

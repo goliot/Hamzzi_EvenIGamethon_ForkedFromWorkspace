@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class LobbyScene : MonoBehaviour
@@ -40,19 +41,36 @@ public class LobbyScene : MonoBehaviour
             user.onUserInfoEvent.AddListener(isFirstTime);
             user.GetUserInfoFromBackend();
         }
-        BackendGameData.Instance.onGameDataLoadEvent.AddListener(UpdateCurrencyData); //GameData관련 리스너
-        BackendGameData.Instance.onGameDataUpdateEvent.AddListener(BackendGameData.Instance.GameDataLoad);
-        BackendGameData.Instance.onClearDataUpdateEvent.AddListener(BackendGameData.Instance.ClearDataLoad);
-        BackendGameData.Instance.onTowerDataUpdateEvent.AddListener(BackendGameData.Instance.TowerDataLoad);
-        BackendGameData.Instance.onStarDataUpdateEvent.AddListener(BackendGameData.Instance.StarDataLoad);
 
-        BackendGameData.Instance.GameDataLoad();
-        BackendGameData.Instance.TowerDataLoad();
-        //BackendGameData.Instance.DogamDataLoad();
-        BackendGameData.Instance.ClearDataLoad();
-        BackendGameData.Instance.StarDataLoad();
+        // 게임 데이터 업데이트 이벤트 리스너 등록
+        if (!EventListenerManager.Instance.IsGameDataLoadListenerAdded)
+        {
+            BackendGameData.Instance.onGameDataUpdateEvent.AddListener(BackendGameData.Instance.GameDataLoad);
+            EventListenerManager.Instance.SetGameDataLoadListenerAdded(true);
+        }
 
-        if(Time.timeScale != 1.0f) Time.timeScale = 1.0f; // 게임씬이 끝나고 로비씬으로 왔을때, 기존 게임 씬에서 1.5배인 상태에서 로비씬으로 오면 1.5배 유지 되는 버그가 있음
+        // 클리어 데이터 업데이트 이벤트 리스너 등록
+        if (!EventListenerManager.Instance.IsClearDataLoadListenerAdded)
+        {
+            BackendGameData.Instance.onClearDataUpdateEvent.AddListener(BackendGameData.Instance.ClearDataLoad);
+            EventListenerManager.Instance.SetClearDataLoadListenerAdded(true);
+        }
+
+        // 타워 데이터 업데이트 이벤트 리스너 등록
+        if (!EventListenerManager.Instance.IsTowerDataLoadListenerAdded)
+        {
+            BackendGameData.Instance.onTowerDataUpdateEvent.AddListener(BackendGameData.Instance.TowerDataLoad);
+            EventListenerManager.Instance.SetTowerDataLoadListenerAdded(true);
+        }
+
+        // 스타 데이터 업데이트 이벤트 리스너 등록
+        if (!EventListenerManager.Instance.IsStarDataLoadListenerAdded)
+        {
+            BackendGameData.Instance.onStarDataUpdateEvent.AddListener(BackendGameData.Instance.StarDataLoad);
+            EventListenerManager.Instance.SetStarDataLoadListenerAdded(true);
+        }
+
+        if (Time.timeScale != 1.0f) Time.timeScale = 1.0f; // 게임씬이 끝나고 로비씬으로 왔을때, 기존 게임 씬에서 1.5배인 상태에서 로비씬으로 오면 1.5배 유지 되는 버그가 있음
     }
 
     private void isFirstTime()
@@ -93,11 +111,13 @@ public class LobbyScene : MonoBehaviour
             BackendGameData.Instance.UserGameData.bread += 1000;
             BackendGameData.Instance.GameDataUpdate();
         }
+
+        UpdateCurrencyData();
     }
 
     public void UpdateCurrencyData()
     {
-        Debug.Log("자원 업데이트");
+        //Debug.Log("자원 업데이트");
         //textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
         textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
         if (BackendGameData.Instance.UserGameData.isAdRemoved)

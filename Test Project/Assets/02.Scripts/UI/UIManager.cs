@@ -33,15 +33,6 @@ public class UIManager : Singleton<UIManager>
         UpdateSpeedControllBtn();
     }
 
-    private void Start()
-    {
-        if (!BackendGameData.Instance.UserGameData.isAdRemoved)
-        {
-            AdmobManager.instance.ShowInterstitialAd();
-            PauseGame();
-        }
-    }
-
     void InitSpeedControllBtn()
     {
         if (speedControlButton != null)
@@ -94,7 +85,8 @@ public class UIManager : Singleton<UIManager>
 
     public void RetryGame()
     {
-        GameManager.Inst.Resume();
+        //GameManager.Inst.Resume();
+
         //StageSelect.instance.speedIncreased = GameManager.Inst.isGameSpeedIncreased;
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strStageStartUI);
         //SceneManager.LoadScene("Battle_Proto");

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutSceneType: 0
   frameSprites:
-  - {fileID: 21300000, guid: d1c066b9b580c34448644d6a8e6e5d7f, type: 3}
-  - {fileID: 21300000, guid: 5583a9eb7544e1240b30fdac54a9721e, type: 3}
-  - {fileID: 21300000, guid: e6a075f35d8b90642872e68e1235c8d0, type: 3}
-  - {fileID: 21300000, guid: 3d88a923ed8883c499b7d6bd90086dd1, type: 3}
-  - {fileID: 21300000, guid: dd98e76e206d3f747ba351e442b92952, type: 3}
-  - {fileID: 21300000, guid: d21a9fe054dbbfb4f92e99468f516420, type: 3}
-  - {fileID: 21300000, guid: 73be4282b818cc1418d27ab192cc478b, type: 3}
+  - {fileID: 21300000, guid: 9b80dac8b96d65a43abbc043b5ff0083, type: 3}
+  - {fileID: 21300000, guid: 370e1596201402f469dbe04ebe11f032, type: 3}
+  - {fileID: 21300000, guid: 495a3fdea19c1cb44b660e850fe9b232, type: 3}
+  - {fileID: 21300000, guid: 631a37a92bf3ad34da16ce8506d58c9e, type: 3}
+  - {fileID: 21300000, guid: 7f84f8d1b83e25f4c85fc074a796c30e, type: 3}
+  - {fileID: 21300000, guid: 4d5e8f1d4bfb24d44ad77aa146487ef2, type: 3}
+  - {fileID: 21300000, guid: 2a8a46a7eb70c484c9a35bb6d327fee1, type: 3}

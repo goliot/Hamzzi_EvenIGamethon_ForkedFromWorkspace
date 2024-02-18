@@ -160,12 +160,16 @@ public class PopUpHandler : MonoBehaviour
             Debug.Log("로비 소환!");
             lobbyLoadEvent.Invoke();
         }
-        else if(SceneManager.GetActiveScene().name == "Battle_Proto" && gameObject.name == "TowerUIExitButton")
+        else if (SceneManager.GetActiveScene().name == "Battle_Proto" && gameObject.name == "TowerUIExitButton")
         {
-            if(ObjectDetector.instance.towerText != null)
+            if (ObjectDetector.instance.towerText != null)
             {
                 ObjectDetector.instance.towerText.gameObject.SetActive(false);
             }
+        }
+        else if (SceneManager.GetActiveScene().name == "Battle_Proto" && gameObject.name == "StageUIExitButton")
+        {
+
         }
         PopUpManager.Inst.popUpList.Peek().OnClose();
     }
@@ -203,7 +207,7 @@ public class PopUpHandler : MonoBehaviour
 
             LevelUpUI.Inst.ChangeCornText();
             BackendGameData.Instance.GameDataUpdate();
-            BackendGameData.Instance.GameDataLoad();
+            //BackendGameData.Instance.GameDataLoad();
             AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Lobby_Hamster_Level_Up);
         }
         //else ==> 레벨업이 불가능한 경우

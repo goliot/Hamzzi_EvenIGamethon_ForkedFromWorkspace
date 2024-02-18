@@ -2992,7 +2992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371416753922900330, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_text
-      value: "\uAC8C\uC815 \uC0DD\uC131"
+      value: "\uACC4\uC815 \uC0DD\uC131"
       objectReference: {fileID: 0}
     - target: {fileID: 8698128757895331549, guid: 5d0f7a1ceea821148ab30f61fb9ca223, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

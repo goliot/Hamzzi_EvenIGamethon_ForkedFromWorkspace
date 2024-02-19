@@ -32,7 +32,7 @@ public class BackEndFederationAuth : LoginBase
         Debug.Log("My bool value: " + myBool);
 
         // 저장된 값이 없으면 기본값을 저장합니다.
-        SetBool(BoolKey, myBool);
+        //SetBool(BoolKey, myBool);
 
         if (myBool) GPGSLogin(); //구글 로그인 한 적이 있다면 자동 로그인
 
@@ -80,6 +80,8 @@ public class BackEndFederationAuth : LoginBase
             Social.localUser.Authenticate((bool success) => {
                 if (success)
                 {
+                    SetBool(BoolKey, true);
+
                     AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_UI);
                     // 로그인 성공 -> 뒤끝 서버에 획득한 구글 토큰으로 가입 요청
                     BackendReturnObject BRO = Backend.BMember.AuthorizeFederation(GetTokens(), FederationType.Google, "gpgs");

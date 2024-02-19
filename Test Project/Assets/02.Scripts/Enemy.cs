@@ -199,7 +199,56 @@ public class Enemy : MonoBehaviour
     {
         if (!gameObject.activeSelf) return;
 
-        if(skillId == 4) //엑서니아경우
+        if(skillId == 1) //봄바르다, 폭발루모스
+        {
+            Debug.Log("TakeDamage 호출 " + explodeDamage);
+            health -= explodeDamage;
+            AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Monster_Hit);
+            Debug.Log("피격" + explodeDamage);
+
+            //팝업 생성하는 부분
+            Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, 0);
+            int intDamage = Mathf.FloorToInt(explodeDamage);
+            popupText.text = intDamage.ToString();
+            GameObject popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
+
+            if (health > 0)
+            {
+                if (skillId == 3 && !isParalyzed) //루모스일경우
+                {
+                    StartCoroutine(Paralyze(duration));
+                }
+                // 피격 후 생존
+                StartCoroutine(HitEffect());
+            }
+            else
+            {
+                // 죽었을 때
+                spriteRenderer.color = originalColor;
+                Dead();
+                GameManager.Inst.kill++;
+                int killExp;
+                int seed;
+                if (spriteType % 5 < 3)
+                {
+                    killExp = 30;
+                    seed = 5;
+                }
+                else if (spriteType % 5 == 3)
+                {
+                    killExp = 60;
+                    seed = 7;
+                }
+                else
+                {
+                    killExp = 80;
+                    seed = 10;
+                }
+                GameManager.Inst.GetExp(killExp);
+                GameManager.Inst.GetSeed(seed);
+            }
+        }
+        else if(skillId == 4) //엑서니아경우
         {
             //지속 데미지
             if (!isAegsoniaRunning)
@@ -345,9 +394,9 @@ public class Enemy : MonoBehaviour
         Debug.Log("피격" + explodeDamage);
 
         //팝업 생성하는 부분
-        popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
         int intExplodeDamage = Mathf.FloorToInt(explodeDamage);
         popupText.text = intExplodeDamage.ToString();
+        popupTextObejct = Instantiate(dmgText, pos, Quaternion.identity, dmgCanvas.transform);
 
         if (health > 0)
         {

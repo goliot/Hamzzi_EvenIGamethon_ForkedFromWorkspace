@@ -28,6 +28,8 @@ public class LobbyScene : MonoBehaviour
     private TextMeshProUGUI textThreadmill;
     [SerializeField]
     private TextMeshProUGUI textCorn;
+    [SerializeField]
+    private TextMeshProUGUI textBread;
 
     [Header("# Background")]
     public GameObject lobbyBackground;
@@ -120,6 +122,7 @@ public class LobbyScene : MonoBehaviour
         //Debug.Log("자원 업데이트");
         //textThreadmill.text = $"{BackendGameData.Instance.UserGameData.threadmill} " + "/ 10";
         textCorn.text = $"{BackendGameData.Instance.UserGameData.corn}";
+        textBread.text = $"{BackendGameData.Instance.UserGameData.bread}";
         if (BackendGameData.Instance.UserGameData.isAdRemoved)
         {
             AdmobManager.instance.DestroyBannerView();

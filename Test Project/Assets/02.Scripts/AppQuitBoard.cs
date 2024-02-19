@@ -51,6 +51,7 @@ public class AppQuitBoard : MonoBehaviour
             Application.Quit();
 #endif
         }
+        Application.Quit();
     }
 
     public void OnClickNo()

@@ -148,7 +148,7 @@ public class Tower : MonoBehaviour //스폰된 후의 동작들 -> 여기서 또 불렛을 스폰
         }
         else if(data.towerType == 3 || data.towerType == 4)
         {
-            towerBullet.transform.position = transform.position;
+            towerBullet.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         }
         else towerBullet.transform.position = transform.position;
     }

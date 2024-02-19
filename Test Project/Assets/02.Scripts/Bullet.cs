@@ -278,7 +278,7 @@ public class Bullet : MonoBehaviour
             if ((transform.position - enemy.transform.position).magnitude < splashRange)
             {
                 Debug.Log((transform.position - enemy.transform.position).magnitude);
-                enemy.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, skillId, duration);
+                enemy.GetComponent<Enemy>().TakeDamage(damage, explodeDamage, 1, duration);
             }
         }
         OnAnimationEnd();

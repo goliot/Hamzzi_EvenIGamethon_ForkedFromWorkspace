@@ -25,6 +25,7 @@ public class TowerBullet : MonoBehaviour
     bool isBlackOn;
     List<GameObject> enemies = new List<GameObject>();
     bool isTargetDeadWhileGoing;
+    bool isBooming;
 
     private void Awake()
     {
@@ -68,6 +69,7 @@ public class TowerBullet : MonoBehaviour
         }
         isBlackOn = false;
         isTargetDeadWhileGoing = false;
+        isBooming = false;
     }
 
     private void Update()
@@ -95,12 +97,14 @@ public class TowerBullet : MonoBehaviour
         else if (towerType == 1) //Æ÷Âî
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy").Where(enemy => enemy.activeSelf).ToList();
-            rb.velocity = dir.normalized * bulletSpeed;
+
+            if (!isBooming) rb.velocity = dir.normalized * bulletSpeed;
+            else rb.velocity = Vector3.zero;
             if (distance < positionError)
             {
-                rb.velocity = Vector3.zero;
                 transform.rotation = Quaternion.identity;
                 anim.SetTrigger("Effect");
+                isBooming = true;
             }
         }
         else if (towerType == 2) //ÈæÂî

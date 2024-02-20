@@ -22,7 +22,11 @@ public class Threadmill : MonoBehaviour
 
     private void Awake()
     {
-        Init();
+        //Init();
+        if (!PlayerPrefs.HasKey("HeartAmount"))
+        {
+            Init();
+        }
         if (instance == null)
         {
             instance = this;

@@ -148,6 +148,9 @@ public class AudioManager : Singleton<AudioManager>
         SFX_Chapter04_Cartoon02 = 89,
         SFX_Chapter04_Cartoon03 = 90,
 
+        // 식빵 사운드 추가
+        SFX_Bread = 91,
+
         // 디폴트
         SFX_None
     }

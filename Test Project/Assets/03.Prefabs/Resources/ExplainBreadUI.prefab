@@ -513,7 +513,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uC804\uD22C \uBCF4\uC0C1\uC73C\uB85C \uC5BB\uAC8C\uB418\uB294 \n\uACBD\uD5D8\uCE58
-    \uC7AC\uD654\n\n\uB808\uBCA8\uC5C5\uC5D0\uB294 \uC625\uC218\uC218 \uBFD0\uB9CC
+    \uC7AC\uD654\n\n\uB808\uBCA8\uC5C5\uC5D0\uB294\n\uC625\uC218\uC218 \uBFD0\uB9CC
     \uC544\uB2C8\uB77C\n\uC2DD\uBE75\uB3C4 \uD544\uC694\uD558\uB2E4\uB294\uB370.."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77a31f17326c86247aa9641a34e00d7a, type: 2}
@@ -593,7 +593,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3280818561102447496}
   - component: {fileID: -5617571120476434408}
-  - component: {fileID: 6353934781988651959}
   m_Layer: 5
   m_Name: ExplainBreadUI
   m_TagString: Untagged
@@ -632,18 +631,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14fa2a4f590752641bb8ff57788029f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6353934781988651959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214064899974219678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b597921c8285a9f48855d44290033ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6898623490335995900

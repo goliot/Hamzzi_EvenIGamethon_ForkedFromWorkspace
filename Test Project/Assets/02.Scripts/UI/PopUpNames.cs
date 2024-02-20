@@ -19,8 +19,9 @@ public class PopUpNames
     public string strDogamMonsterUI { get; set; }
     public string strDogamSkillUI { get; set; }
     public string strLobbyTutorialUI { get; set; }
+    public string strExplainBreadUI { get; set; }  
 
-    public PopUpNames(string stageSelectUI, string optionsUI, string explainStaminaUI, string explainCornUI, string profileUI, string towerUI, string levelUpUI, string stageStartUI, string towerUpgradeSellUI, string shopUI, string dogamUI, string dogamMonsterUI, string dogamSkillUI, string lobbyTutorialUI)
+    public PopUpNames(string stageSelectUI, string optionsUI, string explainStaminaUI, string explainCornUI, string profileUI, string towerUI, string levelUpUI, string stageStartUI, string towerUpgradeSellUI, string shopUI, string dogamUI, string dogamMonsterUI, string dogamSkillUI, string lobbyTutorialUI, string explainBreadUI)
     {
         strStageSelectUI = stageSelectUI;
         strSettingsUI = optionsUI;
@@ -36,6 +37,7 @@ public class PopUpNames
         strDogamMonsterUI = dogamMonsterUI;
         strDogamSkillUI = dogamSkillUI;
         strLobbyTutorialUI = lobbyTutorialUI;
+        strExplainBreadUI = explainBreadUI;
     }
 
 }

@@ -73,6 +73,12 @@ public class PopUpHandler : MonoBehaviour
         AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Corn);
     }
 
+    public void OnClickPopUpExplainBread()
+    {
+        PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strExplainBreadUI);
+        AudioManager.Inst.PlaySfx(AudioManager.SFX.SFX_Bread);
+    }
+
     public void OnClickPopUpProfile()
     {
         PopUpManager.Inst.CreatePopup(PopUpManager.Inst.PopUpNames.strProfileUI);

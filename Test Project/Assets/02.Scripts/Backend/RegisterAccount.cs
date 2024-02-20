@@ -65,7 +65,7 @@ public class RegisterAccount : LoginBase
                 {
                     if(callback.IsSuccess())
                     {
-                        SetMessage($"계정 생성 성공. {inputFieldID.text}님 환영합니다.");
+                        SetMessage($"계정 생성 성공. {inputFieldID.text}님 환영합니다.\n팝업을 닫고 로그인을 진행해주세요.");
 
                         //계정 생성에 성공했을 때 해당 계정의 게임 정보 생성
                         //BackendGameData.Instance.GameDataInsert();

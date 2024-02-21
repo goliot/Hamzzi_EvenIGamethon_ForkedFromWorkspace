@@ -53,7 +53,7 @@ public class TowerBullet : MonoBehaviour
 
         if(towerType == 0) //±ÃÂî
         {
-            transform.localScale = new Vector3(3, 3, 3);
+            transform.localScale = new Vector3(4, 4, 4);
         }
         else if(towerType == 1) // Æ÷Âî
         {

@@ -1,5 +1,7 @@
  # EvenIGamethon
 
+https://play.google.com/store/apps/details?id=com.RoomNo7Gaming&pcampaignid=web_share
+
 ## 주의사항
 1. Push 이전에 항상 **pull** 할것 있는지 확인하기
 2. **Scene 작업** 전에는 항상 Scene 관리자에게 물어보고 작업하기

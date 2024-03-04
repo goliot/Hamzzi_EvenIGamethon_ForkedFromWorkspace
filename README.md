@@ -23,6 +23,15 @@ https://play.google.com/store/apps/details?id=com.RoomNo7Gaming&pcampaignid=web_
 |기간| 01.08 ~ 01.26 | 01.27 ~ 02.02 | 02.03 ~ 02.09 | 02.10 ~ 02.23 |
 |개요| 게임 구현 | 서버 구현(구글플레이 제외) | 서버 구현(구글플레이 포함) | 최종 QA, 버그 수정, 추가적인 시스템 구현 및 개발 최적화| 
 ---
+## V.4.1.11 JS - 2024-02-29
+- 최종발표
+  - [7번방의게임_햄찌용병단_최종발표.pdf](https://github.com/Jinlee0206/EvenIGamethon/files/14438429/No.7_Final_PPT.pdf)
+  - [![햄찌용병단 공식 트레일러](https://img.youtube.com/vi/https://youtu.be/cwhcNkwW_A8?si=8544HLcUIQIFwqM_/0.jpg)](https://youtu.be/cwhcNkwW_A8?si=8544HLcUIQIFwqM_)
+  - [![햄찌용병단 시연영상](https://img.youtube.com/vi/https://youtu.be/ZjYZ8TsE0BI?si=FRd28YD5l21NLq5G/0.jpg)](https://youtu.be/ZjYZ8TsE0BI?si=FRd28YD5l21NLq5G)
+  - [![햄찌용병단 최종발표](https://img.youtube.com/vi/https://youtu.be/bJxo8vswiyU?si=l11bbhUM4Q9AUqXH/0.jpg)](https://youtu.be/bJxo8vswiyU?si=l11bbhUM4Q9AUqXH)
+- LinkBio
+  - [햄찌용병단 링크바이오](https://linkbio.co/magichamzzi)
+---
 ## V.4.1.9 SM - 2024-02-22
 - 이벤트 정보 추가
 ---

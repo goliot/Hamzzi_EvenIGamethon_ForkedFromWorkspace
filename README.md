@@ -1,3 +1,6 @@
+작업했던 워크스페이스에서 제 계정으로 Fork 해온 레포지토리입니다.
+SM으로 쓰인 작업 파트가 제가 작업한 파트입니다
+ ---
  # EvenIGamethon
 
 https://play.google.com/store/apps/details?id=com.RoomNo7Gaming&pcampaignid=web_share
